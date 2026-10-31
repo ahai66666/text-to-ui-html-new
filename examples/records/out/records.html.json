@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "skill": "text-to-ui-html-new",
+  "version": "0.1.0",
+  "output": "out/records.html",
+  "sha256": "f112514cb7c1fc98d9536ff10f0919bfa942f64629afaac89de19b3ffa8d630d",
+  "bytes": 372810,
+  "modules": 36,
+  "stylesheets": 17,
+  "assets": 0,
+  "format": "classic-script",
+  "requiresServer": false
+}

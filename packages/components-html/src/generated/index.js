@@ -1,0 +1,6 @@
+export const generatedHtmlComponents = {
+  "form-field": () => "<section class=\"tui-generated tui-generated--card\" data-component=\"form-field\" data-logical-component=\"Form Field/Default\" data-variant=\"input\" data-state=\"default\" data-framework=\"html\"><span data-slot=\"label\" data-typography-role=\"body-l\"><span data-typography-role=\"title-s\">Form Field</span></span></section>",
+  "color-picker": () => "<section class=\"tui-generated tui-generated--card\" data-component=\"color-picker\" data-logical-component=\"ColorPicker/Tablet\" data-variant=\"default\" data-state=\"default\" data-framework=\"html\"></section>",
+  "segmented-button": () => "<section class=\"tui-generated tui-generated--card\" data-component=\"segmented-button\" data-logical-component=\"Segmented Button/Default\" data-variant=\"default\" data-state=\"default\" data-framework=\"html\"></section>",
+  "number-selector": () => "<section class=\"tui-generated tui-generated--card\" data-component=\"number-selector\" data-logical-component=\"Number Selector/Default\" data-variant=\"default\" data-state=\"default\" data-framework=\"html\"><span data-slot=\"label\" data-typography-role=\"body-l\"><span data-typography-role=\"title-s\">Number Selector</span></span></section>"
+};

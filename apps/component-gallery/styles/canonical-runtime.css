@@ -1,0 +1,172 @@
+/* The framework gallery is a shell around the same canonical component CSS.
+   It must not introduce framework-specific visual values. */
+.tui-runtime-core-gallery { display: grid; gap: var(--space-4); }
+.tui-runtime-note { margin: 0; color: var(--color-text-muted); font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); }
+.tui-runtime-surface-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.tui-runtime-state-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--space-3); }
+.tui-runtime-state-grid--single { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tui-runtime-state-group { display: grid; gap: var(--space-3); }
+.tui-runtime-state-group > strong { color: var(--color-text); font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); font-weight: var(--type-body-m-weight); }
+.tui-runtime-state-cell { min-width: 0; display: grid; align-content: start; gap: var(--space-2); }
+.tui-runtime-state-cell > span, .tui-runtime-state-cell > small { color: var(--color-text-subtle); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); font-weight: var(--type-body-s-weight); }
+.tui-runtime-state-cell > .tui-input, .tui-runtime-state-cell > .tui-search { min-width: 0; }
+.tui-runtime-state-cell > .tui-list-card { min-width: 0; }
+.tui-runtime-framework-shell { min-height: 100vh; padding: var(--space-7); color: var(--color-text); background: var(--color-bg-subtle); }
+.tui-runtime-framework-shell__head { width: min(1480px, 100%); margin: 0 auto var(--space-6); display: grid; gap: var(--space-3); }
+.tui-runtime-framework-shell__head h1 { margin: 0; font-size: var(--type-title-l-size); line-height: var(--type-title-l-leading); font-weight: var(--type-title-l-weight); }
+.tui-runtime-framework-shell__head p { max-width: 1080px; margin: 0; color: var(--color-text-muted); font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); }
+.tui-runtime-framework-switch { display: inline-flex; width: fit-content; align-items: center; gap: var(--space-1); padding: var(--space-1); border-radius: var(--radius-2); background: var(--color-bg-subtle); }
+.tui-runtime-framework-switch a { min-height: var(--height-button); display: inline-flex; align-items: center; padding-inline: var(--space-4); border-radius: var(--radius-2); color: var(--color-text-muted); text-decoration: none; font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); }
+.tui-runtime-framework-switch a[aria-current="page"] { color: var(--color-text); background: var(--color-surface); }
+.tui-runtime-framework-switch button { min-height: var(--height-button); display: inline-flex; align-items: center; padding-inline: var(--space-4); border: 0; border-radius: var(--radius-2); color: var(--color-text-muted); background: transparent; cursor: pointer; font: inherit; font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); }
+.tui-runtime-framework-switch button[aria-selected="true"] { color: var(--color-text); background: var(--color-surface); }
+.tui-runtime-framework-switch button:focus-visible { outline: 2px solid var(--color-brand-100); outline-offset: 2px; }
+.tui-runtime-framework-directory { width: min(1480px, 100%); margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.tui-runtime-framework-card { min-width: 0; display: grid; align-content: start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); }
+.tui-runtime-framework-card--core { grid-column: 1 / -1; }
+.tui-runtime-framework-card__head { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; gap: var(--space-2); }
+.tui-runtime-framework-card__head h2 { margin: 0; font-size: var(--type-subtitle-l-size); line-height: var(--type-subtitle-l-leading); font-weight: var(--type-subtitle-l-weight); }
+.tui-runtime-framework-card__head code { color: var(--color-text-subtle); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--type-body-s-size); }
+.tui-runtime-framework-card__source { grid-column: 1 / -1; color: var(--color-text-subtle); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-runtime-framework-card__preview { min-width: 0; display: grid; gap: var(--space-4); padding: var(--space-3); border-radius: var(--radius-2); background: transparent; }
+.tui-runtime-framework-card__states { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tui-runtime-framework-card__states span { padding: 2px var(--space-2); border-radius: var(--radius-full); color: var(--color-text-muted); background: var(--color-bg-subtle); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-runtime-framework-card__state-note { margin: 0; color: var(--color-text-subtle); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-runtime-framework-missing { margin: 0; padding: var(--space-4); color: var(--color-danger); background: var(--color-danger-subtle); border-radius: var(--radius-2); font-size: var(--type-body-m-size); }
+.tui-runtime-directory-grid { width: 100%; display: grid; gap: var(--space-7); }
+.tui-runtime-category { display: grid; gap: var(--space-3); }
+.tui-runtime-category__title { margin: 0; padding-top: var(--space-6); color: var(--color-text); font-size: var(--type-title-s-size); line-height: var(--type-title-s-leading); font-weight: var(--type-title-s-weight); }
+.tui-runtime-category__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); }
+.tui-runtime-card { min-width: 0; display: grid; align-content: start; gap: var(--space-3); padding: var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-surface); }
+.tui-runtime-card--wide { grid-column: 1 / -1; }
+.tui-runtime-card__head { min-width: 0; display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-4); }
+.tui-runtime-card__head > div { min-width: 0; display: grid; gap: var(--space-1); }
+.tui-runtime-card__head h3 { margin: 0; font-size: var(--type-subtitle-l-size); line-height: var(--type-subtitle-l-leading); font-weight: var(--type-subtitle-l-weight); }
+.tui-runtime-card__head code { overflow: hidden; color: var(--color-text-subtle); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); text-overflow: ellipsis; white-space: nowrap; }
+.tui-runtime-card__source { display: none; }
+.tui-runtime-card__description { margin: 0; color: var(--color-text-muted); font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); }
+.tui-runtime-card__contract-trigger { flex: 0 0 auto; min-height: var(--height-button-sm); padding-inline: var(--space-3); color: var(--color-brand-100); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-runtime-card__contract-trigger:focus-visible { outline: 2px solid var(--color-brand-100); outline-offset: 2px; }
+.tui-contract-dialog { position: fixed; z-index: 40; inset: 0; display: grid; place-items: center; padding: var(--space-5); }
+.tui-contract-dialog[hidden] { display: none; }
+.tui-contract-dialog__backdrop { position: absolute; inset: 0; background: color-mix(in srgb, var(--color-text) 36%, transparent); }
+.tui-contract-dialog__surface { position: relative; z-index: 1; width: min(720px, 100%); max-height: min(720px, calc(100vh - var(--space-10))); display: grid; gap: var(--space-4); overflow: auto; padding: var(--space-5); border: 1px solid var(--color-border); border-radius: var(--radius-card); color: var(--color-text); background: var(--color-surface); box-shadow: var(--shadow-4); }
+.tui-contract-dialog__header { min-width: 0; display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); }
+.tui-contract-dialog__header > div { min-width: 0; display: grid; gap: var(--space-1); }
+.tui-contract-dialog__header h4, .tui-contract-dialog__header p { margin: 0; }
+.tui-contract-dialog__header h4 { overflow-wrap: anywhere; font-size: var(--type-subtitle-l-size); line-height: var(--type-subtitle-l-leading); font-weight: var(--type-subtitle-l-weight); }
+.tui-contract-dialog__header p { color: var(--color-text-subtle); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-contract-dialog__close { width: var(--height-button); height: var(--height-button); flex: 0 0 auto; display: grid; place-items: center; border: 0; border-radius: var(--radius-2); color: var(--color-text); background: transparent; cursor: pointer; font: inherit; font-size: var(--type-title-s-size); line-height: 1; }
+.tui-contract-dialog__close:hover { background: var(--color-bg-subtle); }
+.tui-contract-dialog__close:focus-visible { outline: 2px solid var(--color-brand-100); outline-offset: 2px; }
+.tui-contract-inspector__body { min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-3); }
+.tui-contract-inspector__identity { min-width: 0; grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-2); background: var(--color-bg-subtle); }
+.tui-contract-inspector__identity > span, .tui-contract-inspector__group h5, .tui-contract-inspector__row dt { color: var(--color-text-subtle); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); font-weight: var(--type-body-s-weight); }
+.tui-contract-inspector__identity code { min-width: 0; overflow-wrap: anywhere; color: var(--color-text); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-contract-inspector__group { min-width: 0; display: grid; align-content: start; gap: var(--space-2); padding: var(--space-3); border-radius: var(--radius-2); background: var(--color-bg-subtle); }
+.tui-contract-inspector__group h5 { margin: 0; }
+.tui-contract-inspector__group dl { min-width: 0; display: grid; gap: var(--space-2); margin: 0; }
+.tui-contract-inspector__row { min-width: 0; display: grid; gap: 2px; }
+.tui-contract-inspector__row dt, .tui-contract-inspector__row dd { margin: 0; }
+.tui-contract-inspector__row dd { overflow-wrap: anywhere; color: var(--color-text-muted); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-contract-inspector__readiness { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.tui-contract-inspector__badge { display: inline-flex; align-items: center; min-height: var(--height-button-sm); padding-inline: var(--space-2); border-radius: var(--radius-full); color: var(--color-text-subtle); background: var(--color-bg-subtle); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-contract-inspector__badge.is-complete { color: var(--color-success); background: var(--color-success-subtle); }
+.tui-contract-inspector__note { grid-column: 1 / -1; margin: 0; color: var(--color-text-muted); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); }
+.tui-runtime-card__preview { min-width: 0; min-height: 64px; display: grid; align-content: start; justify-items: start; gap: var(--space-3); padding: var(--space-3); border-radius: var(--radius-2); background: transparent; }
+.tui-runtime-card__preview:has(> .tui-sidebar) { padding: var(--space-0); }
+.tui-runtime-card__preview { container-name: runtime-preview; container-type: inline-size; }
+.tui-runtime-card__preview > .tui-button, .tui-runtime-card__preview > .tui-input, .tui-runtime-card__preview > .tui-search, .tui-runtime-card__preview > .tui-sidebar, .tui-runtime-card__preview > .tui-list-card { max-width: 100%; }
+.tui-runtime-card--fill .tui-runtime-card__preview > * { width: 100%; }
+.tui-runtime-card--fill .tui-runtime-card__preview .tui-runtime-surface-pair > div { width: 100%; }
+.tui-runtime-card--intrinsic .tui-runtime-card__preview > * { width: max-content; max-width: 100%; }
+.tui-runtime-card--intrinsic .tui-runtime-card__preview > .tui-progress { width: 100%; }
+.tui-runtime-card--intrinsic .tui-runtime-card__preview > .tui-slider-gallery { width: 100%; max-width: 100%; }
+.tui-slider-gallery { min-width: 0; width: 100%; display: grid; gap: var(--space-4); }
+.tui-slider-specimen { min-width: 0; display: grid; gap: var(--space-2); }
+.tui-slider-specimen > .tui-slider { min-width: 0; width: 100%; }
+.tui-runtime-card--intrinsic .tui-runtime-card__preview > .tui-runtime-titlebar-gallery { width: 100%; max-width: 100%; }
+.tui-runtime-card--intrinsic .tui-runtime-card__preview > .tui-runtime-primary-navigation-gallery {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+.tui-runtime-primary-navigation-gallery .tui-runtime-note {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.tui-runtime-primary-navigation-gallery .tui-primary-navigation-items {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: wrap;
+}
+.tui-runtime-surface-pair { min-width: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.tui-runtime-sub-tabs-sizes { min-width: 0; display: grid; gap: var(--space-4); }
+.tui-runtime-sub-tabs-sizes > div { min-width: 0; display: grid; gap: var(--space-2); }
+.tui-runtime-surface-pair.tui-runtime-search-pair { grid-template-columns: 1fr; }
+.tui-runtime-form-field-states { min-width: 0; width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.tui-runtime-surface-pair > div { min-width: 0; display: grid; align-content: start; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-card); }
+.tui-runtime-form-field-states > div { min-width: 0; display: grid; align-content: start; gap: var(--space-2); padding: var(--space-4); border-radius: var(--radius-card); }
+.tui-runtime-surface-pair > div > .tui-runtime-surface-label,
+.tui-runtime-surface-pair > div > .tui-component { min-width: 0; max-width: 100%; }
+.tui-runtime-surface-pair > div > .tui-component { width: 100%; }
+.tui-runtime-surface-pair > [data-surface-context="white"] { background: var(--color-surface); }
+.tui-runtime-surface-pair > [data-surface-context="gray"] { background: var(--color-bg-subtle); }
+.tui-runtime-form-field-states > [data-surface-context="white"] { background: var(--color-surface); }
+.tui-runtime-form-field-states > [data-surface-context="gray"] { background: var(--color-bg-subtle); }
+.tui-runtime-titlebar-gallery { min-width: 0; max-width: 100%; display: grid; gap: var(--space-5); }
+.tui-runtime-titlebar-layouts { min-width: 0; max-width: 100%; display: grid; grid-template-columns: 1fr; gap: var(--space-4); padding: var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-card); background: var(--color-bg-subtle); }
+.tui-runtime-titlebar-layouts > div { min-width: 0; display: grid; gap: var(--space-3); padding: 0; border: 0; border-radius: 0; background: transparent; }
+.tui-runtime-titlebar-size-group { min-width: 0; display: grid; gap: var(--space-3); }
+.tui-runtime-titlebar-size-title { margin: 0; color: var(--color-text); font-size: var(--type-subtitle-m-size); line-height: var(--type-subtitle-m-leading); font-weight: var(--type-subtitle-m-weight); }
+.tui-runtime-titlebar-scenario-title { font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); }
+.tui-runtime-titlebar-scenario-slots { padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-2); color: var(--color-text-subtle); background: var(--color-surface); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); overflow-wrap: anywhere; }
+.tui-runtime-titlebar-layouts > div > .tui-runtime-titlebar-layout-shell { order: 2; }
+.tui-runtime-titlebar-layout-shell { min-width: 0; max-width: 100%; display: grid; overflow: hidden; background: var(--color-surface); }
+.tui-runtime-titlebar-layout-shell--one { grid-template-columns: minmax(0, 1fr); }
+.tui-runtime-titlebar-layout-shell--two { grid-template-columns: minmax(168px, .8fr) minmax(0, 1.2fr); }
+.tui-runtime-titlebar-layout-shell--three { grid-template-columns: minmax(132px, .9fr) minmax(80px, .6fr) minmax(288px, 1.4fr); }
+.tui-runtime-titlebar-layout-shell > .tui-titlebar { min-width: 0; max-width: 100%; overflow: hidden; border-right: 1px solid var(--color-border); }
+.tui-runtime-titlebar-layout-shell > .tui-titlebar:last-child { border-right: 0; }
+.tui-runtime-titlebar-row { min-width: 0; display: grid; grid-template-columns: 80px repeat(2, minmax(0, 1fr)); align-items: center; gap: var(--space-3); }
+.tui-runtime-titlebar-layouts + .tui-runtime-titlebar-row:first-of-type { margin-top: var(--space-1); }
+.tui-runtime-titlebar-layouts + .tui-runtime-titlebar-row:first-of-type::before { content: "03  尺寸轴 · S / M / L / XL 可独立套用到两栏或三栏；上方槽位示例使用 L（64px）"; grid-column: 1 / -1; color: var(--color-text-muted); font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); }
+.tui-runtime-titlebar-row > .tui-runtime-surface-label { align-self: center; }
+.tui-runtime-titlebar-layout-shell .tui-titlebar__brand { width: min(192px, 100%); max-width: 100%; flex: 0 1 192px; }
+.tui-runtime-titlebar-layout-shell .tui-titlebar__pane-title { flex: 1 1 auto; }
+.tui-runtime-titlebar-layout-shell .tui-titlebar__pane-actions { min-width: var(--size-icon-button); width: 0; flex: 1 1 0; }
+.tui-runtime-titlebar-layout-shell .tui-titlebar__actions { min-width: 120px; flex: 0 0 120px; }
+.tui-runtime-surface-label { min-width: 0; color: var(--color-text-subtle); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); font-weight: var(--type-body-s-weight); overflow-wrap: anywhere; }
+.tui-feedback-specimens { min-width: 0; width: 100%; display: grid; gap: var(--space-3); }
+.tui-feedback-specimen { min-width: 0; display: grid; gap: var(--space-1); }
+.tui-runtime-card--intrinsic .tui-runtime-card__preview > .tui-feedback-specimens { width: 100%; max-width: 100%; }
+.tui-runtime-avatar-pair { display: flex; align-items: end; gap: var(--space-4); }
+.tui-runtime-avatar-pair > div { display: grid; justify-items: center; gap: var(--space-2); }
+.tui-runtime-structural-grid { min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: var(--space-3); }
+.tui-runtime-structural-grid--button { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.tui-runtime-structural-grid--button > .tui-runtime-structural-cell[data-specimen="icon"] { grid-column-start: 1; }
+.tui-runtime-structural-cell { min-width: 0; display: grid; justify-items: start; align-content: start; gap: var(--space-2); }
+.tui-runtime-structural-cell > .tui-button:not(.tui-button--icon) { width: max-content; max-width: 100%; }
+.tui-runtime-structural-cell > .tui-button.tui-button--icon { width: var(--size-icon-button); min-width: var(--size-icon-button); max-width: var(--size-icon-button); height: var(--size-icon-button); }
+.tui-runtime-structural-cell > .tui-split-button { width: max-content; max-width: 100%; }
+.tui-runtime-card__preview .tui-generated__menu, .tui-runtime-card__preview .tui-generated__panel, .tui-runtime-card__preview .tui-generated__floating-panel { display: none; }
+.tui-runtime-card__preview .tui-generated__menu.is-open, .tui-runtime-card__preview .tui-generated__panel.is-open, .tui-runtime-card__preview .tui-generated--floating:hover .tui-generated__floating-panel, .tui-runtime-card__preview .tui-generated--floating:focus-within .tui-generated__floating-panel { display: grid; }
+.tui-runtime-card__preview .tui-generated--menu, .tui-runtime-card__preview .tui-generated--picker { position: relative; }
+.tui-runtime-card__preview .tui-generated--floating { width: fit-content; }
+.tui-runtime-card__preview .tui-runtime-framework-missing { margin: 0; }
+@container runtime-preview (max-width: 800px) {
+  .tui-runtime-titlebar-layout-shell--two, .tui-runtime-titlebar-layout-shell--three { grid-template-columns: 1fr; }
+  .tui-runtime-titlebar-layout-shell > .tui-titlebar { border-right: 0; }
+  .tui-runtime-titlebar-row { grid-template-columns: 1fr; }
+  .tui-runtime-titlebar-row > .tui-runtime-surface-label { grid-column: 1; }
+}
+@container runtime-preview (max-width: 520px) {
+  .tui-runtime-primary-navigation-gallery .tui-primary-navigation-items {
+    justify-content: flex-start;
+    gap: var(--space-2);
+  }
+}
+@media (max-width: 980px) { .tui-runtime-category__grid, .tui-runtime-surface-pair, .tui-runtime-form-field-states, .tui-runtime-structural-grid, .tui-contract-inspector__body { grid-template-columns: 1fr; } }
+@media (max-width: 980px) { .tui-runtime-state-grid, .tui-runtime-state-grid--single, .tui-runtime-surface-grid, .tui-runtime-framework-directory { grid-template-columns: 1fr; } .tui-runtime-framework-shell { padding: var(--space-5); } }

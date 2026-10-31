@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": [
+    {
+      "path": "package.json",
+      "sha256": "2810c65ce72b1afe812633542f0632b5a5d7314247d921827064bb17cfd8b28a"
+    }
+  ],
+  "modes": {
+    "fast-preview": {
+      "purpose": "Reach the first browser-visible interactive page after blocking checks only.",
+      "commands": [
+        "pnpm resources:check",
+        "pnpm index:check",
+        "node \"<RULES_ROOT>/scripts/validate-page-project.mjs\" --project \"<PROJECT_DIR>\" --skill-root \"<RULES_ROOT>\" --mode fast-preview"
+      ],
+      "requiredEvidence": [
+        "context-packet.json",
+        "layout-contract.json",
+        "page-blueprint.json",
+        "page-content-recipes.json",
+        "page-bindings.json",
+        "styles/style-manifest.json",
+        "component-usage.json",
+        "build-or-open-success",
+        "target-viewport",
+        "primary-path-operable"
+      ]
+    },
+    "release-validation": {
+      "purpose": "Run complete repository and delivery validation after visible direction approval.",
+      "commands": [
+        "pnpm resources:check",
+        "pnpm index:check",
+        "node \"<RULES_ROOT>/scripts/validate-page-project.mjs\" --project \"<PROJECT_DIR>\" --skill-root \"<RULES_ROOT>\" --mode release-validation --runtime-evidence \"<RUNTIME_EVIDENCE>\""
+      ],
+      "requiredEvidence": [
+        "direction-approval",
+        "full-validation-report",
+        "final-browser-review"
+      ]
+    }
+  },
+  "availablePackageScripts": {
+    "resources:build": "node scripts/build-resource-index.mjs --repo .",
+    "resources:check": "node scripts/build-resource-index.mjs --repo . --check",
+    "resources:query": "node scripts/query-resources.mjs",
+    "catalog:build": "node scripts/build-skill-catalog-index.mjs",
+    "catalog:check": "node scripts/build-skill-catalog-index.mjs --check",
+    "index:build": "node scripts/build-navigation-index.mjs --repo . --skill-root .",
+    "index:check": "node scripts/build-navigation-index.mjs --repo . --skill-root . --check",
+    "workflow:route": "node scripts/resolve-workflow-route.mjs",
+    "skill:manifest": "node scripts/skill-distribution.mjs manifest",
+    "skill:check": "node scripts/skill-distribution.mjs check",
+    "skill:pack": "node scripts/pack-consumer.mjs",
+    "page:generate": "node scripts/page.mjs generate",
+    "page:normalize": "node scripts/normalize-demo.mjs",
+    "page:components": "node scripts/prepare-page-components.mjs",
+    "page:styles": "node scripts/prepare-page-styles.mjs",
+    "page:validate": "node scripts/validate-page-project.mjs",
+    "page:handoff": "node scripts/html-handoff.mjs create",
+    "data:export": "node scripts/shared-data.mjs export",
+    "preview": "node scripts/preview-page.mjs",
+    "components:index:build": "node scripts/build-component-route-index.mjs",
+    "components:index:check": "node scripts/build-component-route-index.mjs --check",
+    "components:registry:build": "node scripts/build-component-contract-registry.mjs",
+    "components:preview": "node scripts/preview-components.mjs",
+    "colors:check": "node scripts/build-color-reference-tokens.mjs --check",
+    "consumer:build": "node scripts/build-consumer.mjs",
+    "consumer:query": "node scripts/consumer.mjs",
+    "page:compile": "node scripts/page.mjs compile",
+    "test": "node --test tests/*.test.mjs"
+  }
+}

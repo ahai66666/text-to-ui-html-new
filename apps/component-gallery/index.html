@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><base href="/apps/component-gallery/index.html"><title>Text to UI · Component Gallery</title><link rel="stylesheet" href="./styles/index.css"></head><body>
+<div class="gallery-shell">
+      <aside id="gallery-sidebar" class="gallery-sidebar" aria-label="组件预览导航">
+        <div class="gallery-brand"><span class="gallery-brand__mark" aria-hidden="true">T</span><span class="gallery-brand__name">Text to UI</span><button class="gallery-sidebar__toggle" type="button" data-sidebar-toggle aria-expanded="true" aria-controls="gallery-sidebar" aria-label="收起导航" title="收起导航"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6" /></svg></button></div>
+        <div class="gallery-nav__label">主要预览</div>
+        <nav class="gallery-nav">
+          <a href="#pattern-view" data-view-link="pattern" aria-label="Pattern 框架"><span class="gallery-nav__icon" aria-hidden="true">▦</span><span class="gallery-nav__text">Pattern 框架</span></a>
+          <a href="#runtime-view" data-view-link="runtime" aria-current="page" aria-label="框架组件"><span class="gallery-nav__icon" aria-hidden="true">▣</span><span class="gallery-nav__text">框架组件</span></a>
+        </nav>
+        <div class="gallery-nav__label">工程回归</div>
+        <nav class="gallery-nav">
+          <a href="#regression-view" data-view-link="regression" aria-label="回归资料 · 开发查看"><span class="gallery-nav__icon" aria-hidden="true">▤</span><span class="gallery-nav__text">回归资料 · 开发查看</span></a>
+        </nav>
+      </aside>
+      <main class="gallery-main">
+        <header class="gallery-titlebar"><h1>组件预览</h1><div class="gallery-titlebar__actions"><span>画布基线</span><strong>HarmonyOS PC · 1728 × 1152</strong></div></header>
+        <div class="gallery-content">
+          <section class="gallery-intro"><h2>HarmonyOS PC 设计系统预览</h2><p><strong>Pattern 框架</strong>确认跨框架共用的页面布局、区域、槽位与滚动规则；<strong>框架组件</strong>用于体验真实的 HTML 组件。组件的逻辑身份、Variant、状态、Slots、Token 与验收信息通过每张运行时卡片标题栏右侧的“组件规范”弹窗查看，不再作为另一套视觉画廊。</p></section>
+          <section class="gallery-view" id="pattern-view" data-view="pattern" aria-labelledby="pattern-view-title" hidden>
+            <div class="gallery-view__intro"><h3 id="pattern-view-title">Pattern 框架</h3><p>这里展示页面组合契约，而不是新的一组组件。Pattern A–D 的区域顺序、栏宽策略、Titlebar 分段、表面、分割线、滚动与 inset owner、最小窗口和动作槽位，统一来自 <code>pattern-contracts.json</code>；HTML 只执行解析后的同一份规则。</p><div class="gallery-view__meta"><span class="framework-label">4 个 canonical Patterns</span><code>authority: pattern-contract</code></div></div>
+            <section class="gallery-surface canonical-contract" aria-labelledby="pattern-baseline-title">
+              <div class="gallery-surface__head"><h3 id="pattern-baseline-title">Pattern 视觉基线</h3><span class="framework-label">组合层 · 不计入组件目录</span></div>
+              <p class="status">组件只能填入 Pattern 声明的槽位，不得改变栏顺序、宽度策略、表面、分割线或滚动归属。</p>
+              <div class="pattern-baseline-grid" data-pattern-baseline aria-label="Pattern 框架视觉基线">
+                <p class="status" data-pattern-baseline-status>正在加载 Pattern 基线…</p>
+              </div>
+            </section>
+          </section>
+          <section class="gallery-view" id="runtime-view" data-view="runtime" aria-labelledby="runtime-view-title">
+            <div class="gallery-view__intro"><h3 id="runtime-view-title">框架组件</h3><p>这里直接展示 HTML 的真实运行时组件。框架选择是一级目录里的单元切换，不跳转二级页面；默认态可直接交互，其他状态由真实控件触发。需要查看组件规则时，点击卡片标题栏右侧的“组件规范”。</p><div class="gallery-view__meta"><span class="framework-label" id="runtime-coverage-count">组件目录加载中</span><code>真实运行时组件</code></div><div class="tui-runtime-framework-switch" role="tablist" aria-label="选择框架组件实现"><button type="button" role="tab" data-runtime-framework="html" aria-selected="true">HTML</button></div></div>
+            <section class="gallery-surface runtime-directory" id="runtime-directory" aria-labelledby="runtime-directory-title">
+            <div class="gallery-surface__head"><h3 id="runtime-directory-title">框架组件适配器目录</h3><span class="framework-label">每个组件对应一个 logicalName</span></div>
+              <p class="status">每张卡片调用本技能内的真实 HTML 组件，按可见区域加载契约和预览。</p>
+              <div data-component-mount="component-catalog" aria-live="polite"></div>
+              <p class="status" id="gallery-status" aria-live="polite">准备就绪</p>
+            </section>
+          </section>
+<section class="gallery-view" id="regression-view" data-view="regression" hidden><div class="gallery-view__intro"><h3>工程资料</h3><p>组件实现、契约与标准样式独立维护；预览不等于正式验收通过。</p></div><div class="regression-grid"><article class="regression-card"><h3>组件结构</h3><p>packages/components-html/src/&lt;id&gt;/index.js 为独立组件实现；页面生成与预览使用本地组件源码。</p></article><article class="regression-card"><h3>验收范围</h3><p>打开卡片右上角“组件规范”查看当前就绪等级与待验收维度。视觉、交互和可访问性仍需分别验收。</p></article></div></section>
+        </div>
+      </main>
+    </div>
+    <button id="show-toast" type="button" hidden>提示</button><div id="toast" hidden></div>
+<script type="module" src="./main.js"></script></body></html>

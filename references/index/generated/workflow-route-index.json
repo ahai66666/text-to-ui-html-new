@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "generatedFrom": [
+    {
+      "path": "skill-support/references/routes/index.json",
+      "sha256": "4c74853840943eacd88d0ff7d6ba73518e6128b56527f1e9a9563a7fbe50562b"
+    }
+  ],
+  "kind": "text-to-ui-workflow-route-index",
+  "routes": [
+    {
+      "id": "new-page",
+      "description": "Create or materially redesign a page or flow.",
+      "exactReferencesToRead": [
+        "references/routes/new-page.md"
+      ],
+      "stages": [
+        "intake",
+        "design",
+        "discovery",
+        "bindings",
+        "styling",
+        "validation"
+      ],
+      "entryStage": "intake",
+      "requiresTaskPattern": true,
+      "requiredInputs": [
+        "task",
+        "page-blueprint.json",
+        "page-content-recipes.json",
+        "page-bindings.json"
+      ],
+      "entryScript": "generate-compliant-page.mjs",
+      "completion": [
+        "Source, build and browser evidence are recorded separately",
+        "html-handoff.json generated only after required evidence passes"
+      ]
+    },
+    {
+      "id": "micro-revision",
+      "description": "Apply one exact change without altering hierarchy or workflow.",
+      "exactReferencesToRead": [
+        "references/routes/micro-revision.md"
+      ],
+      "stages": [
+        "intake",
+        "bindings",
+        "styling",
+        "validation"
+      ],
+      "entryStage": "intake",
+      "requiresTaskPattern": false,
+      "requiredInputs": [
+        "existing page and inherited task/Pattern",
+        "one-sentence change contract"
+      ],
+      "entryScript": null,
+      "completion": [
+        "Requested narrow change is verified",
+        "Existing task, Pattern and confirmed interactions remain intact",
+        "Changed dependencies invalidate previous handoff"
+      ],
+      "stageOverrides": {
+        "intake": {
+          "objective": "继承已有页面的 Task 与 Pattern，登记一句话修改范围；结构变化切换 new-page。",
+          "writes": [
+            "修改范围、已有页面位置、继承上下文"
+          ],
+          "done": [
+            "范围明确；已有任务与布局已确认。"
+          ]
+        },
+        "bindings": {
+          "objective": "只查询受影响组件的精确 API；保留其余绑定。",
+          "writes": [
+            "受影响组件的参数修改"
+          ],
+          "done": [
+            "未扩大业务任务、布局或交互范围。"
+          ]
+        },
+        "validation": {
+          "objective": "验证受影响部分及相关回归；需要再生成时沿用项目原始入口。",
+          "done": [
+            "所请求修改有真实证据；既有布局与行为得到保留；过期交接已更新或标记失效。"
+          ]
+        }
+      }
+    },
+    {
+      "id": "skill-maintenance",
+      "description": "Audit or repair Skill implementation, mapping governance, tests, and delivery mirrors.",
+      "exactReferencesToRead": [
+        "references/routes/skill-maintenance.md"
+      ],
+      "stages": [
+        "intake",
+        "validation"
+      ],
+      "entryStage": "intake",
+      "requiresTaskPattern": false,
+      "requiredInputs": [
+        "maintenance scope and canonical source"
+      ],
+      "entryScript": null,
+      "completion": [
+        "Sources and generated indexes agree",
+        "Manifest and independent delivery checks pass"
+      ],
+      "stageOverrides": {
+        "intake": {
+          "objective": "定位待维护的规范或代码及其调用关系；无需解析页面 Task、Pattern 或编写 Blueprint。",
+          "writes": [
+            "维护范围、受影响文件和检查项"
+          ],
+          "done": [
+            "维护目标与依赖明确。"
+          ]
+        },
+        "validation": {
+          "objective": "重建资料、目录及导航索引，核对摘要和使用包。",
+          "writes": [
+            "生成索引、交付清单和维护验收记录"
+          ],
+          "done": [
+            "相关索引与来源一致；维护检查结果已记录。"
+          ]
+        }
+      }
+    },
+    {
+      "id": "normalize-demo",
+      "description": "Normalize an approved interactive Demo to canonical HTML components, Pattern and Tokens while preserving accepted behavior.",
+      "exactReferencesToRead": [
+        "references/routes/normalize-demo.md"
+      ],
+      "stages": [
+        "intake",
+        "design",
+        "discovery",
+        "bindings",
+        "styling",
+        "validation"
+      ],
+      "entryStage": "intake",
+      "requiresTaskPattern": true,
+      "requiredInputs": [
+        "source project",
+        "separate output project",
+        "demo-preservation.json",
+        "page inputs"
+      ],
+      "entryScript": "normalize-demo.mjs",
+      "completion": [
+        "Original remains unchanged",
+        "Every preservation item has browser evidence",
+        "Accepted HTML handoff is generated"
+      ],
+      "stageOverrides": {
+        "intake": {
+          "objective": "登记原始 Demo 和已确认的内容、导航、状态及交互；建立独立副本。",
+          "writes": [
+            "demo-preservation.json",
+            "原件位置与保留行为清单"
+          ],
+          "done": [
+            "原件与输出目录分离；每个保留项有稳定 ID、操作和预期。"
+          ]
+        },
+        "validation": {
+          "objective": "使用 normalize-demo.mjs 规范化副本；逐项核对保留行为后交接。",
+          "done": [
+            "原件未变；保留项全部有浏览器结果；未验证项不可标记通过。"
+          ]
+        }
+      }
+    }
+  ]
+}

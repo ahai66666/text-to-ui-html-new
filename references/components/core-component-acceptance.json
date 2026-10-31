@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "batchId": "pattern-core-01",
+  "label": "Pattern core components",
+  "components": [
+    "Button/Primary/Default",
+    "Primary Navigation Item/Level 1",
+    "Sidebar Item/Default",
+    "Titlebar/Default",
+    "Search/White Surface/Default",
+    "List Item/White Surface/Default",
+    "Checkbox/Default",
+    "Form Field/Default"
+  ],
+  "requiredEvidence": {
+    "visualParity": ["approved gallery screenshots for required variants and states"],
+    "behaviorParity": ["HTML runtime interaction tests for declared behaviors"],
+    "accessibilityParity": ["keyboard, focus, role, name, state, and contrast evidence"]
+  }
+}

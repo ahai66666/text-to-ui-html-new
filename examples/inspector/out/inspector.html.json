@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "skill": "text-to-ui-html-new",
+  "version": "0.1.0",
+  "output": "out/inspector.html",
+  "sha256": "d2124093ea2b76648fe40c57f4f2612ad20c4626ec29d25ea66cea4cdfb9b46c",
+  "bytes": 370508,
+  "modules": 35,
+  "stylesheets": 17,
+  "assets": 0,
+  "format": "classic-script",
+  "requiresServer": false
+}

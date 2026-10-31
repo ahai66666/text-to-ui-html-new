@@ -1,0 +1,152 @@
+{
+  "id": "sidebar",
+  "logicalName": "Sidebar Item/Default",
+  "variants": [
+    "default",
+    "selected",
+    "collapsed"
+  ],
+  "states": [
+    "default",
+    "hover",
+    "pressed",
+    "focus",
+    "selected",
+    "disabled"
+  ],
+  "props": [
+    "label",
+    "icon",
+    "selected",
+    "collapsed",
+    "count",
+    "items",
+    "groups",
+    "ariaLabel",
+    "disabled",
+    "state",
+    "leading",
+    "trailing"
+  ],
+  "slots": [
+    "leading",
+    "label",
+    "trailing"
+  ],
+  "tokenRoles": [
+    "color.sidebar-bg",
+    "color.sidebar-selected",
+    "color.text",
+    "color.primary",
+    "size.list-item-height",
+    "radius.list-item",
+    "typography.body-l"
+  ],
+  "iconAliases": [
+    "navigation/grid",
+    "navigation/recent",
+    "action/more"
+  ],
+  "source": "canonical-custom",
+  "status": "partial",
+  "implementations": {
+    "html": "packages/components-html/src/sidebar/index.js#render"
+  },
+  "visualAuthority": "apps/component-gallery/index.html#runtime-view",
+  "sourceStrategy": "canonical-custom",
+  "contractNotes": "每个 Sidebar Item 按钮独立拥有 sidebar / Sidebar Item/Default 身份；nav 与组容器只负责布局。批量 items/groups 一次调用可产生多个实例。Pixso 仅保留已核实的 logical-mapping，不扩大变体覆盖声明。",
+  "readiness": {
+    "sourceReady": true,
+    "contractReady": true,
+    "visualParity": false,
+    "behaviorParity": false,
+    "accessibilityParity": false,
+    "tokenParity": true
+  },
+  "frameworks": {
+    "html": {
+      "status": "partial",
+      "source": "packages/components-html/src/sidebar/index.js#render"
+    }
+  },
+  "pixso": {
+    "status": "logical-mapping",
+    "libraryPage": "NewComponents",
+    "resolveGuidsAtRuntime": true,
+    "linkedInstanceRequired": true,
+    "variableReadbackRequired": true
+  },
+  "category": "navigation",
+  "categoryLabel": "导航类",
+  "order": 12,
+  "canonicalSection": "[data-runtime-category=\"navigation\"]",
+  "canonicalSelector": "#runtime-view [data-runtime-category=\"navigation\"] .tui-runtime-card__preview[data-fixture-id=\"fixture-sidebar\"]",
+  "legacyVisualGroup": "navigation",
+  "canonicalSpecimen": "gallery:navigation:sidebar",
+  "specimens": [
+    {
+      "id": "default",
+      "variant": "default",
+      "state": "default",
+      "surface": "white"
+    }
+  ],
+  "fixtureId": "fixture-sidebar",
+  "surface": "white",
+  "sizing": "fill",
+  "allowedStates": [
+    "default",
+    "hover",
+    "pressed",
+    "focus",
+    "selected",
+    "disabled"
+  ],
+  "behaviors": [
+    "select",
+    "keyboard-activation",
+    "disabled"
+  ],
+  "textRoles": [
+    "label:body-l",
+    "count:body-m"
+  ],
+  "iconSlots": [
+    {
+      "alias": "navigation/grid",
+      "displaySizes": [
+        16,
+        20,
+        24
+      ],
+      "kind": "regular"
+    },
+    {
+      "alias": "navigation/recent",
+      "displaySizes": [
+        16,
+        20,
+        24
+      ],
+      "kind": "regular"
+    },
+    {
+      "alias": "action/more",
+      "displaySizes": [
+        16,
+        20,
+        24
+      ],
+      "kind": "regular"
+    }
+  ],
+  "iconSemantic": "navigation/grid",
+  "comparisonGroup": "navigation",
+  "identityNode": {
+    "kind": "item",
+    "selector": ".tui-sidebar-item",
+    "tagName": "button",
+    "scopeSelector": ".tui-sidebar",
+    "wrapperOwnsIdentity": false
+  }
+}

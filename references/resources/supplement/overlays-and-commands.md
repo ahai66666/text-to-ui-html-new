@@ -1,0 +1,13 @@
+## Overlays And Commands
+
+| Component | Anatomy | Required behavior |
+|---|---|---|
+| Popover | Trigger, positioned content | Only the positioned content surface uses `--shadow-2`. Short contextual task; Escape/outside click closes; focus enters only when content is interactive. |
+| Hover Card | Trigger, non-blocking preview | Only the preview surface uses `--shadow-2`. Opens on hover and focus after a short delay; never contains the only essential action. |
+| Dropdown Menu | Trigger, positioned menu, menu items | Only the expanded menu surface uses `--shadow-2`; the trigger and items have no shadow. Escape closes and returns focus. |
+| Context Menu | Target, menu, menu items | Only the menu surface uses `--shadow-3`. Right-click or Shift+F10 opens at the target; arrows navigate; Escape restores target focus. |
+| Dialog | 400px surface, centered 56px title region, content, one or two 40px actions | The outer surface uses `--shadow-4`. Use for short focused flows such as deletion confirmation, update guidance, download progress, or warnings. The Title_S heading keeps the same 8px top inset token as Semi-modal, and there is no top-right close control. Content padding is 24px. One action fills the content width; two actions form equal columns, with Secondary on the left and Primary or Danger on the right. Outside click does not dismiss. |
+| Alert Dialog | Dialog surface, title, description, cancel, destructive action | The outer surface uses `--shadow-4`. It is the destructive Dialog variant. Focus begins on the safe action, outside click does not dismiss, and the affected object or scope is named. |
+| Semi-modal | Independent S/M/L size, White/Gray surface, 56px header, content, 80px footer | The outer surface uses `--shadow-5`. Default behavior is non-modal. Size is exactly S 480px, M 640px, or L 800px; every size supports both White and Gray surfaces. White surface uses the existing gray Input/Search/Select/Textarea variants; Gray surface uses the existing white variants. Header uses Title_S, 8px top and 24px horizontal padding, a left title, and a right Ghost Icon Button. Content padding is X 24px and Y 0px. Two-column form grids own the 16px `--gap-form-field` row/column gap; same-row fields align title and control starts with no inherited vertical sibling margin. Footer vertically centers existing 40px Secondary and Primary Buttons aligned right. The modal supplies layout only; it must not define child-control styles. Modal mode is an explicit behavioral variant rather than a size or color token. |
+| Snackbar | 48px compact live feedback | Uses white `--color-surface`, `--color-text`, and `--shadow-1` on its outer surface. It is non-blocking and short-lived. A distinct Toast has no shadow. |
+

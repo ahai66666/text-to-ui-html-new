@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "kind": "text-to-ui-route-material-manifest",
+  "description": "HTML route material closure. Logical skill-support paths are resolved locally; no sibling skill directory is required.",
+  "baseMaterials": [
+    {
+      "path": "skill-support/references/requirement-spec.md",
+      "role": "requirement-contract"
+    },
+    {
+      "path": "skill-support/references/layouts/html-layout-routing.md",
+      "role": "layout-routing"
+    },
+    {
+      "path": "skill-support/references/components/source-resolution.md",
+      "role": "component-resolution"
+    },
+    {
+      "path": "skill-support/assets/design-system/pattern-contracts.json",
+      "role": "pattern-contract"
+    },
+    {
+      "path": "skill-support/references/components/component-selection-rules.json",
+      "role": "component-selection-rules"
+    },
+    {
+      "path": "skill-support/references/components/component-readiness-policy.json",
+      "role": "component-readiness-policy"
+    },
+    {
+      "path": "packages/tokens/src/token-runtime-map.json",
+      "role": "token-registry"
+    },
+    {
+      "path": "skill-support/assets/icons/icon-aliases.json",
+      "role": "icon-registry"
+    },
+    {
+      "path": "skill-support/references/resources/source.json",
+      "role": "resource-source-manifest"
+    },
+    {
+      "path": "skill-support/references/resource-workflow.md",
+      "role": "stage-resource-workflow"
+    },
+    {
+      "path": "skill-support/references/index/generated/resource-index.json",
+      "role": "focused-resource-index"
+    }
+  ],
+  "routes": {
+    "new-page": {
+      "materials": [
+        {
+          "path": "skill-support/references/routes/new-page.md",
+          "role": "route"
+        },
+        {
+          "path": "skill-support/references/index/task-routes.source.json",
+          "role": "task-route-registry"
+        },
+        {
+          "path": "skill-support/references/page-design-guidance.md",
+          "role": "page-guidance"
+        },
+        {
+          "path": "skill-support/references/page-blueprint-design.md",
+          "role": "page-blueprint"
+        },
+        {
+          "path": "skill-support/references/components/page-composition.md",
+          "role": "page-composition"
+        },
+        {
+          "path": "skill-support/references/html-component-reuse-gate.md",
+          "role": "web-component-reuse"
+        },
+        {
+          "path": "skill-support/assets/design-system/titlebar-scene-contracts.json",
+          "role": "titlebar-scene-contract"
+        },
+        {
+          "path": "packages/pattern-runtime/README.md",
+          "role": "pattern-runtime-api"
+        },
+        {
+          "path": "skill-support/references/workflows/fast-preview.md",
+          "role": "validation"
+        },
+        {
+          "path": "skill-support/references/components/local-component-delivery.md",
+          "role": "local-component-workflow"
+        },
+        {
+          "path": "skill-support/references/html-output-rules.md",
+          "role": "dynamic-output-contract"
+        }
+      ],
+      "dynamicMaterials": [
+        "pattern-references",
+        "task-route-domain-reference",
+        "titlebar-segments",
+        "selected-component-contracts",
+        "selected-component-runtime"
+      ]
+    },
+    "micro-revision": {
+      "materials": [
+        {
+          "path": "skill-support/references/routes/micro-revision.md",
+          "role": "route"
+        },
+        {
+          "path": "skill-support/references/page-design-guidance.md",
+          "role": "page-guidance"
+        }
+      ]
+    },
+    "skill-maintenance": {
+      "materials": [
+        {
+          "path": "skill-support/references/routes/skill-maintenance.md",
+          "role": "route"
+        },
+        {
+          "path": "scripts/workflow-policy.mjs",
+          "role": "workflow-policy"
+        }
+      ]
+    },
+    "normalize-demo": {
+      "materials": [
+        {
+          "path": "skill-support/references/routes/normalize-demo.md",
+          "role": "route"
+        },
+        {
+          "path": "skill-support/references/index/task-routes.source.json",
+          "role": "task-route-registry"
+        },
+        {
+          "path": "skill-support/references/page-design-guidance.md",
+          "role": "page-guidance"
+        },
+        {
+          "path": "skill-support/references/page-blueprint-design.md",
+          "role": "page-blueprint"
+        },
+        {
+          "path": "skill-support/references/components/page-composition.md",
+          "role": "page-composition"
+        },
+        {
+          "path": "skill-support/references/html-component-reuse-gate.md",
+          "role": "web-component-reuse"
+        },
+        {
+          "path": "skill-support/assets/design-system/titlebar-scene-contracts.json",
+          "role": "titlebar-scene-contract"
+        },
+        {
+          "path": "packages/pattern-runtime/README.md",
+          "role": "pattern-runtime-api"
+        },
+        {
+          "path": "skill-support/references/workflows/fast-preview.md",
+          "role": "validation"
+        },
+        {
+          "path": "skill-support/references/components/local-component-delivery.md",
+          "role": "local-component-workflow"
+        },
+        {
+          "path": "skill-support/references/html-output-rules.md",
+          "role": "dynamic-output-contract"
+        }
+      ],
+      "dynamicMaterials": [
+        "pattern-references",
+        "task-route-domain-reference",
+        "titlebar-segments",
+        "selected-component-contracts",
+        "selected-component-runtime"
+      ]
+    }
+  }
+}

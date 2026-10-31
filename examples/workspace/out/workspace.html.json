@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "skill": "text-to-ui-html-new",
+  "version": "0.1.0",
+  "output": "out/workspace.html",
+  "sha256": "24f8783d6e1333349c1783d9019c1112b61c3fa305975efe6c3ab8138cf77fe2",
+  "bytes": 365627,
+  "modules": 35,
+  "stylesheets": 17,
+  "assets": 0,
+  "format": "classic-script",
+  "requiresServer": false
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "layouts": [
+    {
+      "id": "pattern-a-two-pane",
+      "label": "Pattern A: Two-Pane Navigation + Content",
+      "workflow": "navigation-to-content",
+      "paneOrder": ["primary-navigation", "main-content"],
+      "requiredSlots": ["primary-navigation-shell", "global-title-layer", "global-primary-action"],
+      "references": [
+        "references/harmonyos-layout-patterns.md#pattern-a-two-pane-navigation--content",
+        "references/layout-system.md#2-application-shell",
+        "references/pc-framework-layout-gate.md#required-order"
+      ]
+    },
+    {
+      "id": "pattern-b-three-pane",
+      "label": "Pattern B: Three-Pane Navigation + List + Detail",
+      "workflow": "repeated-list-to-detail",
+      "paneOrder": ["primary-navigation", "secondary-list", "main-detail"],
+      "requiredSlots": ["primary-navigation-shell", "global-title-layer", "global-primary-action", "main-detail-actions"],
+      "references": [
+        "references/harmonyos-layout-patterns.md#pattern-b-three-pane-navigation--list--detail",
+        "references/layout-system.md#pane-inset-matrix",
+        "references/pc-framework-layout-gate.md#mandatory-framework-rules"
+      ]
+    },
+    {
+      "id": "pattern-c-tool-workspace",
+      "label": "Pattern C: Navigation + Tool Workspace",
+      "workflow": "navigation-to-tool-canvas",
+      "paneOrder": ["primary-navigation", "tool-workspace"],
+      "requiredSlots": ["primary-navigation-shell", "global-title-layer", "workspace-toolbar"],
+      "references": [
+        "references/harmonyos-layout-patterns.md#pattern-c-navigation--tool-workspace",
+        "references/layout-system.md#2-application-shell",
+        "references/pc-framework-layout-gate.md#mandatory-framework-rules"
+      ]
+    },
+    {
+      "id": "pattern-d-inspector",
+      "label": "Pattern D: Optional Inspector",
+      "workflow": "contextual-inspection",
+      "paneOrder": ["primary-navigation", "secondary-or-canvas", "main-content", "inspector"],
+      "requiredSlots": ["global-title-layer", "inspector-toggle"],
+      "references": [
+        "references/harmonyos-layout-patterns.md#pattern-d-optional-inspector",
+        "references/layout-system.md#2-application-shell"
+      ]
+    }
+  ]
+}

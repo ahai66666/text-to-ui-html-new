@@ -1,0 +1,155 @@
+/* This stylesheet is for legacy/static Pattern markup. Pattern Runtime keeps
+   the same data attributes for semantic inspection, so every rule here must
+   be rooted below a non-runtime shell. Otherwise importing both stylesheets
+   makes static pane, slot and scroll-body rules leak into Runtime output. */
+[data-pattern]:not(.tui-pattern-runtime) {
+  width: 100%;
+  height: 100dvh;
+  min-height: 720px;
+  display: grid;
+  overflow: hidden;
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+[data-pattern="pattern-a-two-pane"]:not(.tui-pattern-runtime) {
+  min-width: 960px;
+  grid-template-columns: var(--layout-sidebar-width) minmax(0, 1fr);
+}
+
+[data-pattern="pattern-b-three-pane"]:not(.tui-pattern-runtime) {
+  min-width: 1100px;
+  grid-template-columns: var(--layout-sidebar-width) var(--layout-secondary-pane-width) minmax(500px, 1fr);
+}
+
+[data-pattern="pattern-c-tool-workspace"]:not(.tui-pattern-runtime) {
+  min-width: 1024px;
+  grid-template-columns: var(--layout-sidebar-width) minmax(0, 1fr);
+}
+
+[data-pattern="pattern-d-inspector"]:not(.tui-pattern-runtime) {
+  min-width: 1280px;
+  grid-template-columns: var(--layout-sidebar-width) minmax(0, 1fr) minmax(0, 1fr) var(--layout-sidebar-width-wide);
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-region] {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  background: var(--color-surface);
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-region="primary-navigation"] {
+  background: var(--color-bg-subtle);
+  border-inline-end: var(--layout-navigation-divider-width, 0.5px) solid var(--color-border);
+}
+
+/* Pattern-owned two-level navigation: page composition can fill each slot,
+   but cannot change their vertical order or move the primary rail upward. */
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-region="primary-navigation"][data-navigation-mode="two-level"] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot] {
+  min-width: 0;
+  padding-inline: var(--space-5);
+  box-sizing: border-box;
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot][data-pattern-shell-placement="top"] {
+  flex: 0 0 auto;
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="global-primary-action"] {
+  padding-inline: var(--layout-primary-action-slot-inset-x, var(--space-6));
+  margin-block: var(--layout-primary-action-slot-gap-top, var(--space-3)) var(--layout-primary-action-slot-gap-bottom, var(--space-4));
+  display: grid;
+}
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="global-primary-action"] > [data-tui-behavior] {
+  display: grid;
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="secondary-navigation-content"] {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  overscroll-behavior: contain;
+  mask-image: linear-gradient(to bottom, #000 calc(100% - var(--space-5)), transparent);
+}
+
+[data-pattern="pattern-b-three-pane"]:not(.tui-pattern-runtime) [data-pattern-shell-slot="global-primary-action"] {
+  padding-inline: var(--space-5);
+  margin-block-start: var(--space-3);
+}
+
+[data-pattern="pattern-a-two-pane"]:not(.tui-pattern-runtime) [data-pattern-shell-slot="global-primary-action"] {
+  padding-inline: var(--space-5);
+}
+
+[data-pattern="pattern-b-three-pane"]:not(.tui-pattern-runtime) [data-pattern-shell-slot="secondary-navigation-content"] {
+  padding-inline: var(--space-5);
+  box-sizing: border-box;
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="primary-navigation-bottom"] {
+  flex: 0 0 auto;
+  margin-block-start: auto;
+  padding-block-end: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-1);
+}
+
+[data-pattern="pattern-a-two-pane"]:not(.tui-pattern-runtime) [data-pattern-shell-slot="primary-navigation-footer"] {
+  padding-block-end: var(--space-3);
+}
+
+/* Wrappers are slot content, not a second shell. Nested rail/action groups
+   must retain the renderer-owned axis even when a model adds grouping. */
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="primary-navigation-bottom"] [data-composition-id] {
+  display: contents;
+}
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="global-primary-action"] [data-composition-id],
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="global-primary-action"] [data-tui-behavior] {
+  display: grid;
+  width: 100%;
+}
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="global-primary-action"] .tui-button {
+  width: 100%;
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-region="secondary-list"],
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-region="main-content"] {
+  border-inline-end: var(--layout-navigation-divider-width, 0.5px) solid var(--color-border);
+}
+
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-segmented] {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-title-segment],
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-shell-slot="global-title-layer"] {
+  height: var(--layout-titlebar-height);
+  flex: 0 0 var(--layout-titlebar-height);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-title-segment="secondary-list"]:not(:has(> .tui-titlebar[data-pane-role="secondary-pane"])) {
+  padding-inline: var(--space-5);
+}
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-title-segment] > * { min-width: 0; width: 100%; }
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-scroll-body] {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding: var(--layout-main-detail-padding-top) var(--layout-main-detail-padding-x) var(--layout-main-detail-padding-bottom);
+}
+[data-pattern]:not(.tui-pattern-runtime) [data-pattern-region="secondary-list"] > [data-pattern-scroll-body] {
+  padding: var(--layout-secondary-pane-padding-y) var(--layout-secondary-pane-padding-x) 0;
+}

@@ -1,0 +1,2702 @@
+{
+  "schemaVersion": 1,
+  "kind": "text-to-ui-skill-catalog-index",
+  "skill": "text-to-ui-html-new",
+  "policy": {
+    "canonicalSource": "this repository",
+    "missingOrHashDriftIsBlocking": true
+  },
+  "groups": [
+    {
+      "id": "html-runtime",
+      "purpose": "Local executable and normative source closure",
+      "files": [
+        {
+          "path": ".gitignore",
+          "sha256": "f2a1d6f6cea8067ec6445b86a94a291252a24cbc592b33d49cd605cbc8f2025d",
+          "availability": "local"
+        },
+        {
+          "path": "LICENSE",
+          "sha256": "6b3642061b315f5473e9734f1840c0db26a12bebc8dbca113fd682300a431429",
+          "availability": "local"
+        },
+        {
+          "path": "README.md",
+          "sha256": "19267b3c04fd6789821b03a277565590d3ddb45507fff2aeaf679e7cbe46cab5",
+          "availability": "local"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "0d91b3c33e377913286c48780cc399c9566266af98b3ad199def06f3e48645f3",
+          "availability": "local"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f4a266079c501546395d58db8e550220b2445ba43b241bdc022b0c86ca928777",
+          "availability": "local"
+        },
+        {
+          "path": "apps/color-reference-demo/index.html",
+          "sha256": "7b2509572f6ccbcb5709ff44351149d4b2979e027e4dc5b5e0fdd122a509d482",
+          "availability": "local"
+        },
+        {
+          "path": "apps/color-reference-demo/main.js",
+          "sha256": "808f2cd1bb179f867c79e8787c8c5ebb99ebafc65e9856ba63f66fedcfca0024",
+          "availability": "local"
+        },
+        {
+          "path": "apps/color-reference-demo/styles.css",
+          "sha256": "dced04c9b5ea809dda2ca348db414ad3ab1c559f2d8b4d73a533f39ccb46e84d",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/catalog-helpers.js",
+          "sha256": "5e39c19def586c0192ca5a25df115aa2a1f3611b4476358a2688cf40781e8ac6",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/contract-inspector.js",
+          "sha256": "6fc41d26e63829eaea5372104bca1a9c005a9379e201f7192ceff6a9eaff7f6a",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/design-component-mappings.json",
+          "sha256": "6ef01aa493aff241c8771e805f52c70d8312cf97637bdf724a1f30d65e60cc30",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/index.html",
+          "sha256": "0aa7d89254ef2d710b080e79a2d2e553766ffd0f1aea2f966d8de66dd46f3b1b",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/main.js",
+          "sha256": "16ca8a18fcd75cace83cb2aa10772eae01ae40275f6741226ae56da185e50fbf",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/pattern-baseline.js",
+          "sha256": "b2984dc6a5d670c91825d9735e9918b154cd0cb6f97cbe4c20277d7d43e03a74",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/preview-interactions.js",
+          "sha256": "a11da04a9596e34d16642c64d90f0b537b9b8ffdcbd49284db66cc9071a2177a",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/styles/canonical-runtime.css",
+          "sha256": "fbca27200738c90fd158b02dacb46cd8d32b94cab3d28833c18b6899ec967fe6",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/styles/canonical-shell.css",
+          "sha256": "09f4aa8bad3c229959cdb19d1b577ef4627a6ff83bd2198a7d2e4c294551124d",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/styles/compact-adaptations.css",
+          "sha256": "d761b3ec6b9ed59a9606ddcb8749fcede93743953566a6f785b47c8dc67bdb7d",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/styles/gallery.css",
+          "sha256": "39be5157cb3e4562538ba86df8fdaff69e6e7de9e915858175b598536446e1f1",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/styles/index.css",
+          "sha256": "5828bf5da48aaedf289133ea1d943f102675d7bacf20ce3dd26b720c755f7f8b",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/styles/pattern-framework.css",
+          "sha256": "0ccd369785c9500fc1110afe68269e0b44fba297d8a09cdf9c4ef8d4e5cc9b9e",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/component-usage.schema.json",
+          "sha256": "91e840c6cd987bcb3058c18748f2e90d88525850ae69ef6e187c7a9b1c486dcf",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/core-color-token-table.md",
+          "sha256": "8fbbac71c324bcb1845e3716ed1956b8425b979a676fc10754f484d74e0aeaac",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/core-foundation-token-table.md",
+          "sha256": "e4037a3ed0da16ad51d209e6d5fb0183144cc20f5ae224cc3c2af53e644ff8f6",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/design.md",
+          "sha256": "2e30b5fb2266d63a2088e71d0df7cd23627ae60bc0daa6ee0e28a57be1ffd044",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/dual-output-token-map.json",
+          "sha256": "ed12718e8e32406117f5d7ee9ca42e3ebbbb3c6983d6d7ecca4d95d3f4942a6f",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/effect-style-map.json",
+          "sha256": "41c783e7e2ec6dcc97363a113491e0f7df9794c2db3d85f4a71a6f2dde1f6324",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/html-component-adapter-map.json",
+          "sha256": "001a6d5e35bf589a266e7b36407dc168be99504e11e3f4a4239642cf08b92eff",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/html-component-adapter-map.schema.json",
+          "sha256": "d697c2f0e1a7e826f359c4ff3bad41a4e65d097f23d28e1fc561ae70aeb35108",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/page-binding-audit.schema.json",
+          "sha256": "1791c9b6fedde83b74f503318b74d9de4faab8d62f83e8071c80b76d2a563180",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/page-spec.example.json",
+          "sha256": "478f31c36326569a47635f9822750eef48d70d07072d0d5d36e7dffa7a5a123b",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/page-spec.schema.json",
+          "sha256": "c34b5b947c216f83e4057be939b42fbe8ceb70e7f858ff5fbf82af3548103e19",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/pattern-contracts.json",
+          "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/pattern-contracts.schema.json",
+          "sha256": "30871a1c7620f1c58a7cc45c0025ea76755e4d0bb8db6b6247f88927a0231d4d",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/titlebar-scene-contracts.json",
+          "sha256": "56c53568f289e221dc8084f2377a5ee74b3ac6076e5146ae18ec1725b42c2565",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/token-runtime-map.json",
+          "sha256": "af423b313eedd7b3ef1f5b2faa6cc50c21e61cd844b7216b212c689651f91cb6",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/token-utility-map.json",
+          "sha256": "8b5bd25651c7c7b2fa90f2b8999ca3964d24fd47a52525d25ac2c2b013f55eda",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.colors.css",
+          "sha256": "00c25b283287b5c42ba5676efa11a497541710a3269c6e06c80fd19f28b4a94c",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.colors.json",
+          "sha256": "928f56e621856108ae75214339953582707fb418fe9fec7e5ace42bcc666ff12",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.icon.css",
+          "sha256": "e4f2e7f649a7d9842b53bba06de12812590b161495f68246c963f526442e5883",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.icon.json",
+          "sha256": "85c1c790166e6dcd7deccdd0b000bd794a0ad69541522b50044628c019b42598",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.layout.css",
+          "sha256": "6a6bd5f3be075de0797091a4c742f6f0af62c3cc3385a62119c6572a382e73ed",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.layout.json",
+          "sha256": "fad559a9d23786dd44df91a94bf8f15b36cb2b36bb61645c8f4227dc3b390e7c",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.radius.css",
+          "sha256": "5afad92e8bc2f557975c1b73cc5eb9915270b60a4d3e4101d52becebed4cb97d",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.radius.json",
+          "sha256": "f11b993c2d131c34e2b84c5213779609c14bde2cde31257b9fb938178a84eb01",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.shadow.css",
+          "sha256": "77db0d1eb9843c25650a32a9d14d0aeee41f1f6939168569dfab87b4e09337a5",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.shadow.json",
+          "sha256": "5bde2b214516d387a8721bc06dd089ad3737da7ae70f1a66af7fa0fc6506aedd",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.size.css",
+          "sha256": "9c283e4e8764a622ee73ba066c7206e6b202da665d5e41537ac204c58a37e4a7",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.size.json",
+          "sha256": "4aab8b8eb088bb2d1389ba5756bd05d6d1d5811f737367ff104e6a9d12c079a1",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.spacing.css",
+          "sha256": "75cc5f9781105b5037f32d6dab05e561ce03dbebdb419dcb3cb11c9f5063b506",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.spacing.json",
+          "sha256": "a8cd8dfee267fb7f22c988e8a7a69552f538e67438b437e8eb3d42a64964e2ad",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.typography.css",
+          "sha256": "a41abd576aec72d5697aa9d4be5c7d7ed7df7373fd2121f9517741dd4ba66d06",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.typography.json",
+          "sha256": "eb1109551f014197a25eab1e77c374c89211675b4af05e95a1684904595e5657",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/tokens.utility.css",
+          "sha256": "8952af44a1067c6cedce86719f978c34349358f5afcc2d276cfdf909ffc04576",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/typography-style-map.json",
+          "sha256": "6588594641e898f77a9908ecf0f23a7cabe578e7a2cd37976a1f6c38ad063956",
+          "availability": "local"
+        },
+        {
+          "path": "assets/design-system/ui-scene.schema.json",
+          "sha256": "c44acfaaaeb575258229b4eb6c66075e501df251a76f3bc94ee9547a485cabcc",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/components/checkbox-check.svg",
+          "sha256": "974f9201822e6916cc24d6b276dd400bb647c3417d77529a646fa02e8f9f0b8c",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/icon-aliases.json",
+          "sha256": "45cdccec1de711c0e515f7eaa9cb5527f6d2cf7923f6db031ca8d5629e8027db",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/status/danger-circle.svg",
+          "sha256": "fa50b80afbd388656e6b2605b2fceb7a7cbd314c70e1c8f94ceae5a472a82946",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/status/info-circle.svg",
+          "sha256": "1168587237cc1197204808497041acb788d32ce5a26dc3f2d8ccba751d6c96fd",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/status/neutral-circle.svg",
+          "sha256": "c0e0ea1e69ff0538d9f6d9bb74c1efc187ffc3b52c071707210c43e49ccc444d",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/status/success-circle.svg",
+          "sha256": "5352fd2399a04a81ba39b1b98c073ef39566d6138ff6221b8056e5e749e94bd2",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/status/warning-circle.svg",
+          "sha256": "8695debbb73dad24701c51651639b4574e474554bcea36511dbcf388b96a077e",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/titlebar/README.md",
+          "sha256": "1f87c08f70a51a7cac69d6a08d6e689d09cde59131271120a5344d9846742a04",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/titlebar/window-close.svg",
+          "sha256": "0504a832e16b201abdf76cb44415a6d05496113e968b135cde47fda163a5fb5d",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/titlebar/window-maximize.svg",
+          "sha256": "4bdb98a0148b667ae7ebf4b83e2f5718ea94a653ab092c0c9bfdea0019399824",
+          "availability": "local"
+        },
+        {
+          "path": "assets/icons/titlebar/window-minimize.svg",
+          "sha256": "8df21e3322cb0ff46162b80537288cc29d8b5208c96482fd438c241e0346fffa",
+          "availability": "local"
+        },
+        {
+          "path": "consumer/catalog.json",
+          "sha256": "47aea917d81c135572c3c682ba808e7c2ed817c40e9995b25984ae19c1a0f1a0",
+          "availability": "local"
+        },
+        {
+          "path": "consumer/coverage.json",
+          "sha256": "048c1ad613e55e503d6b06491b0c80f4900e10b1656857ad9b02a14132abc5ce",
+          "availability": "local"
+        },
+        {
+          "path": "package.json",
+          "sha256": "5d5ec3a72fda6faaf697334357708fe685fbe2810d3f7880a3998fd55584086e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/package.json",
+          "sha256": "b83b747cb3e6f9eb3b8983e13cd434d410417aa178fb834957024f14f5bbd4f0",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components.json",
+          "sha256": "ede6f686de8f8dd2f020fd558bf1f6e156de921373fa7f685bc0f39e4ef47b28",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/accordion.json",
+          "sha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/alert-dialog.json",
+          "sha256": "8017bd049ccbfa350297a8116659c35500d906c944f2aa8bdd40cc10747055d7",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/alert.json",
+          "sha256": "66c7ffc790a9399fe74114586097b4d984c743f8786146994f55cab275676397",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/attachment.json",
+          "sha256": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/avatar.json",
+          "sha256": "eb4241fa1e6dc0b4bdd7773284a3e4198b5215e4133bed5bcaab813a3f29c07e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/badge.json",
+          "sha256": "411ca3b956912f81329d8f324e39b753844ae442218d8d2a3c640016119a41ee",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/breadcrumb.json",
+          "sha256": "0e4dde6c16263377478e84c2af87da3a63fe150e5db05e24f7f0c8b109808a6c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/button.json",
+          "sha256": "5fe21e0684a1bc77723cec127fbce8b8cc866f9c9295b0dc267d67741f9b2dbf",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/calendar.json",
+          "sha256": "633310e492fc029e73eb19b922f9f12883217f652521ca06b2aeacf11b078257",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/checkbox.json",
+          "sha256": "e9d8fb5e7cf91f815053692811a495efbbbc7ca009ccb6e8d045d62fc310494d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/chips.json",
+          "sha256": "cb696e10d3ed29963b22e10bd3cd2d6a8ccc59fe012e64bff444981e87a1ff64",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/collapsible.json",
+          "sha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/color-picker.json",
+          "sha256": "b3fc9607ead099c7a411f664830dc1962981cf38a9e841d2d0ce17c310d3f72e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/combobox.json",
+          "sha256": "db07bf58e810ff12f89617f4445582ce8d609788ee83043f430470468f2938e5",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/context-menu.json",
+          "sha256": "ab1aeee861535bc583de7a76f4d4ec51793c97fe143ee74500d909ec084383bd",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/date-picker.json",
+          "sha256": "afed1e52d33589928555cbe5444d58b44df33e6446a3c03058285a1020d92d17",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/dialog.json",
+          "sha256": "e8135420de6f3ce23ea6392224551c34ed3368cefc0fc7afbdd37b84a2409e1c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/dropdown-menu.json",
+          "sha256": "ecb2612a139d4aa2ee5b84b5122f734d14a0d84922235c023ba89f2adaab5c85",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/field.json",
+          "sha256": "aadffe7262caa78762fe6cf334620a17045f89d56a9864090ce0fb380280947e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/form-field.json",
+          "sha256": "2419fad30955b260674a33182298387bb05104390b3cb9dba3d56ba523cb03a5",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/hover-card.json",
+          "sha256": "c26658f7199d7820e65bf06afa95f8b3778048a3c11d1038ba541388ea92dcfc",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/input.json",
+          "sha256": "b3a68f6d2b762252d37adeefd8ddb01499b75345de98d6748451a7feb02d698e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/label.json",
+          "sha256": "18df89851b843796ebd1790fd9f1ef573002094aec62cb48a1c69978c21eca8d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/list-card.json",
+          "sha256": "2c67d674bb10d52b87ee29d458bf31352743c60f1a74c630c6f80d63a58c07ad",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/menubar.json",
+          "sha256": "65474143ea766a7f5e58218101542b40e4162ae981bbb327e3945994aa7fc4dd",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/native-select.json",
+          "sha256": "01f2a549f7ceb676251aa75ee2b8c0a9f5020972b51a951cf31f3a3ada83d75e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/number-selector.json",
+          "sha256": "14840959212e589daec0dcce287516ba2df93d902432d879d5fdff4464cd2c58",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/pagination.json",
+          "sha256": "9c30f1cf3fcd5f884535debc2dcb847b48da26d27b99c9befd445a31b4bc830f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/popover.json",
+          "sha256": "c9bbce982b7a4c806b1a788ccaec9cc2b08ebf4eae08b8cbe079ad98ba789d08",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/primary-navigation-item.json",
+          "sha256": "70ca9089bc4fc9e6c6dc2a4650524ac8bbcd9140e76a610920145a28c3440f53",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/progress.json",
+          "sha256": "63b968a4677cb4e30ef80d76408cfee7d4bfefd8b1001216ec910f4437489f97",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/radio-group.json",
+          "sha256": "ccaa4aeea0d04a965a9444667438b3ceb709817b0feff94742263b7e4825aebc",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/radio.json",
+          "sha256": "1fb4c5974f2249f9a04502475c86bd01d8db0d92b47569d2f178a2d328d77a2c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/search.json",
+          "sha256": "ad7cb7f2acfebb5229aa0f14d78e0f2f836f733590795f3fde0c37a58ab2b798",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/segmented-button.json",
+          "sha256": "8140dbc35e6e151b8db24549fa182f86a7b41d5fb1489382a30ace0c56903611",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/select.json",
+          "sha256": "4ffdb40b3457483512cc296bbe1d365646952822f4f1019966920f1f4e2fe43c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/semi-modal.json",
+          "sha256": "f89ff2321e62cf260a587eee531dd342d3892152d3db9efae090f24a4ecc240c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/sidebar.json",
+          "sha256": "ea1dfbbd9048bac8200b179b20ab3fabe82780f8b43b1ce477c5a9ee1ab5cd66",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/slider.json",
+          "sha256": "ed618dd2d01402d7763af643333d7fbcda0827b314f5b1e6e45563f1bbbfbe0a",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/snackbar.json",
+          "sha256": "78ebb419553e79dab0cc36407cd623b3b7fe2dbcc1169b61785aa1a1bbc45a27",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/sub-tabs.json",
+          "sha256": "af999c0e5d86a427e904fdbe5b188f83973cdbf89136f32e4c9d76d7ef060d61",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/switch.json",
+          "sha256": "eae03c9be86b338f965ce9c2064d7624d00701877bcad66709802e97901ed7a7",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/table.json",
+          "sha256": "e19a95ccdea16a8d99134010df9b6ba7d6a0794273b89fe1e9be64fadebbb985",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/tabs.json",
+          "sha256": "fcdd70e3c0a785aac7acadcc06de19cadb113a4a509c7378cb0f72b2ecf02bbb",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/textarea.json",
+          "sha256": "06f9048b5b18abec44ed845f0ae3986066ac3229f887495aaa77e7f1ec761431",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/time-picker.json",
+          "sha256": "186380f80bb8dd3eafb1decbd83f632ccd87989b55e355318d297f518e50730a",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/titlebar.json",
+          "sha256": "db123d170477fcdfb0bb98d28d976285caaac6e9e5cd324fb8ee868fd4b95a83",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/tooltip.json",
+          "sha256": "e0a8ce75cb5c3d4ce59837d9526b4fde45ad24a226fa387d0cc05e2c39baae84",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/components/tree-view.json",
+          "sha256": "83a89cbb3530f86c07ea87642cbce0343ff9b742d75af6a4531cc78828b8bf97",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/readiness-policy.js",
+          "sha256": "d996debdba568941832ae6103185a7620fc5fe90ce6bd6e357149a412b11fa1f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/registry.json",
+          "sha256": "bbaefee610516c19322dc59af35d14a651cdde6d6417cb5bb8a25adc3101f295",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-contracts/src/titlebar-segments.js",
+          "sha256": "f845ee76d7b26a95d9166a4e3881e58a67f831716b7aefa7dc7dfdb56d19699b",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-styles/package.json",
+          "sha256": "198b0d99fadc062a2bc1f4157c10247efff3a60d50a284e198c2e0c61f2febc8",
+          "availability": "local"
+        },
+        {
+          "path": "packages/component-styles/src/index.css",
+          "sha256": "9a4059501abf9318eb18dba9c88e9fac844b4a13403565adb29fc4e9e319af74",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/package.json",
+          "sha256": "85b5b7accba65fb8b1899be97366d5a1b956db968d6e60984f587610e41db4b5",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/accordion/index.js",
+          "sha256": "2ba79341e92481e49f08d5ec876626a47b8d4f6cde83f896ff34c7b54fd3a63d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/advanced.js",
+          "sha256": "863a724e46c0b7ee0c6cc13a66161186e14926e3f82f1e9b21ab660f44d84ba7",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/alert-dialog/index.js",
+          "sha256": "dfc7fd081966dac98f6a817d5151104ae07cf8a5535aba48e2b1b3400f8c5e8d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/alert/index.js",
+          "sha256": "5ab31bb9eece6420616e169f29a31b2c13b76e65b8832454ef31c899b81b1f9c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/attachment/index.js",
+          "sha256": "27abefcd05b87ea5687a895d5c74ce77fdd9176690c0b624ebf5f8dd8bc9fc38",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/avatar/index.js",
+          "sha256": "3b9c0f3e6eb823f365ce1710aef6beb727ea2a7486ba15945e5e431cd28684f7",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/badge/index.js",
+          "sha256": "843d33b721f05451761704f9eee9f6833e77ab47db338798857f4ef22058993c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/breadcrumb/index.js",
+          "sha256": "e284a2d213f0dc6cce78c0bcaefb765e930bdee4a0f5ede223d3eb2fffbafa56",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/button.html",
+          "sha256": "70122a7953ea03e8eaee01bf9f51c6d2a04f0473895ba8a2d6c5c7c78d48eb28",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/button/index.js",
+          "sha256": "6b738de0d45d1a8a9f527132522a05ce3864166b1435ba681d3d80e6edb101b4",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/calendar/index.js",
+          "sha256": "c16a540848e45b6231ebfc3e48b07000af0b68ec7b550973d5fb0798502698a8",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/chart/index.js",
+          "sha256": "e0c8f5c4f106fbbe85890a4b14211080d2818af9ecc4e982165e6f823883b984",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/checkbox/index.js",
+          "sha256": "c27ab05401085cd7be1321ed60374f76ce6f695cd304aec95bd71c55b19763ff",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/chips/index.js",
+          "sha256": "07447b5796d841367de3e6282d03c4a97b30d0e6df4817605a6ec7d3c2fb274b",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/collapsible/index.js",
+          "sha256": "0ddfc9328413c98c95f4997d1a651e33ba3bea164f673f580ce9696976ce7528",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/color-picker/index.js",
+          "sha256": "3d48c85070cec0d199d6eaba3bc96e43813038bb76e7518fd404697623d4f9f5",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/color-references/css-syntax.js",
+          "sha256": "dd29977b32fdc8a2c43b0a4977ea9dd9537f0348fc66156567acd795f5693df3",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/color-references/index.js",
+          "sha256": "690c27ecfb0928847f9845e792c1382930a365d54fc83c33585ba4247af65694",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/color-references/token-colors.js",
+          "sha256": "a058767a102ee0675404d1aa30e936651b9b70ac986b66aa1b02d028e57e86ca",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/combobox/index.js",
+          "sha256": "181781abe4b66d94bc0db00edb52d4baff84c3378ab6d8df175c494dcb321186",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/component-icons.svg",
+          "sha256": "95cd0b6d07be1f78a5fb3fdba6a6b1f624db26da53ed29f56b33117b36cb154d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/component-identity.js",
+          "sha256": "19bc14d8bdfe251537656a78f6a1300cffaf17bed88367ffb67642ac2ccf40a8",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/context-menu/index.js",
+          "sha256": "9f261476925ced4ce9b69ed54b23a9c8f75ed61af9465ff5368ab6eec2697666",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/data-table/index.js",
+          "sha256": "e6c7e88c0a6f149f9923b00d688c051386cc6c1dd6566385af3911c3708f8e96",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/date-picker/index.js",
+          "sha256": "ab9827e70ac0845252dc1ba88a4e49d6b8f151009f2427b9e455e0fb71b893bc",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/dialog/index.js",
+          "sha256": "c2f49d910ed0410953d1f16642088a04e2a15e9dd39f16c6d055e42301bf5c15",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/dropdown-menu/index.js",
+          "sha256": "33638975e6367f42f65fefb0e431483e3c1db4c1b99ce4144148315711501d24",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/empty/index.js",
+          "sha256": "177afcf8907629ae3101ad24d13c3c5e6c49dab87072e1e97725aac472ede957",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/field/index.js",
+          "sha256": "091e24a95fbf3e658ea7e21a315ee5e12bc6213275539e65c821f5bb495f180c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/form-field/index.js",
+          "sha256": "a7634eb6db7c8d98824e2815db2728a2a499a19b88bfad5a7a5b0c3dc9c98ee1",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/gallery.js",
+          "sha256": "d51a3abfafd4567768cf6ffbbc68a260693c501994d7d43c6ddc600fd78d2848",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/alert-dialog.html",
+          "sha256": "3a5c42aba6493917191942cc03a9533598302117c64d28df4fa4cbdc2e94e07f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/alert.html",
+          "sha256": "b99cc54a2fe65716f93f39fe66d4e6d190b7667df069e057cf667a6e169740a9",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/attachment.html",
+          "sha256": "6e8c57610547a03aab923305255edd951747c1839bc95f6f838a727dbd7f9a1d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/avatar.html",
+          "sha256": "d8724ac59e3ca4c01d1a7799535789bdd676724e00c56765cfbc5c87fb7e001e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/badge.html",
+          "sha256": "4d3e31355ecbd3f348ddf453f5212c7acb4defc6661e0157db915187bf46cfbf",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/breadcrumb.html",
+          "sha256": "c14a33bacad2187b4aaa06c911526beceda001fda8e6d03810c23f82e6a310ef",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/calendar.html",
+          "sha256": "a12b77341b8298ed4df12d0b466cfe09b777d25f94a4062655757d8dfa945d66",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/chart.html",
+          "sha256": "1716765fe965641b83a12e0a411ff34817665a3efc35298d8f9ef7138e43e652",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/checkbox.html",
+          "sha256": "cbc7231e1185d9bb7f9746952d813de0f2b2827cf1b6eb70ce144e1d7b74a112",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/collapsible.html",
+          "sha256": "591c9509f170954cdbec4553007054cbedb6d76da0eb80a4b1a3f6a194b857bd",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/color-picker.html",
+          "sha256": "0c50d5996f6fea325b7c75e904509b12c46c45df7207b8498d3976b8cd394bef",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/combobox.html",
+          "sha256": "2058a3dbed708d80b84a2c658264fcca74a9c3125199290365e9afb3e072cb89",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/context-menu.html",
+          "sha256": "5cd81464b85798fc76bc4ddc59949265ee7fc095b841b897be0ce5189494f7d8",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/data-table.html",
+          "sha256": "26812679423afe2a210b40e3c25368d336250d0117889c993771880e1b86122b",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/date-picker.html",
+          "sha256": "286cab1d02733e0af3f87b7207ae88383760816079600a9721c6674836f2c953",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/dialog.html",
+          "sha256": "1f3d3f17ee2ac99e718d50f67319e3103e95f031392e6e46327aadd902573edc",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/dropdown-menu.html",
+          "sha256": "1987433dde3df9a01c60f019056d6d04065d681ea192debff5912ad9a6a790ad",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/empty.html",
+          "sha256": "8d091c1becc1395544a15d7480d90affbeb78c78ee4fb6bf2f25377751687051",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/field.html",
+          "sha256": "4eaf5bc16eb9eed96ed1d4b448045d8e72484947b611958245d4f5879ed9efbf",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/form-field.html",
+          "sha256": "527ff5ea4d8d42f0fd06560ebd20d3d5a8e571f8a9306787bc1db58aaf78364f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/gallery.js",
+          "sha256": "65448ac69c7b9f17886ea61a49fa3b1435bd96e2519c935ac0427f5f539928c1",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/hover-card.html",
+          "sha256": "ddd0b7d9f5df8d5f4f655ed1abdce98f5adef93742f2cb7af36d01dc8793cc80",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/index.js",
+          "sha256": "e3b2ef56954888a8859d46925a49775ac099cf1694604d2f9471695c5d1ce761",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/input-otp.html",
+          "sha256": "7f6c4d86fef93a37ef9d3d062e5a2b577aceeca84ddf5c45db470433a4d99f14",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/kbd.html",
+          "sha256": "8b592ef59d2c0bc5a2194a22dd00fe9bc6704acc2ffc9467f53a189c81394bb0",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/label.html",
+          "sha256": "ec5d7682928b51a984bd50b63f434dd972465c000f7e16bb3195f15e9c2e6173",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/menubar.html",
+          "sha256": "8a85b8436b315fa323435809e5a190b85c28c51954f596e47e45c35aa3c9cc93",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/native-select.html",
+          "sha256": "2dc7f467405fc74215041b9304264b422822d991ef4130e6b6ef7973ce1c8082",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/number-selector.html",
+          "sha256": "d4d3d7170a7d095f14c41096be6cf591623820bd15a8e85e88f5ebbe17205f8e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/pagination.html",
+          "sha256": "31948200d5167e9940c206b7d284106ce50eb4ee20b593f22bc52a1fb6d0c937",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/popover.html",
+          "sha256": "284b4b477bda265e09cee91fced1538ef37099a473c5fb0393eddafc8901e7dc",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/progress.html",
+          "sha256": "cb1dee855a62eb48d39e7103f7e85ac5967cecb01e2afd1ce40cf9f5a40fc111",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/radio-group.html",
+          "sha256": "a3a5f3851975509977dcd1e50be444c161500237455230d97648793f4f8d27fb",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/segmented-button.html",
+          "sha256": "8ec3ba68ed925d0e3bcd7e4f0258a93a9fa5d79e8cb148b6db912b57373ef6ad",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/select.html",
+          "sha256": "c92422617c62ca9274fa1af5195f672bd778b6606fe42a27dac48dd08313f331",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/semi-modal.html",
+          "sha256": "0a837e1be904b7b447555146a4e7a7e5aa33c51bcc15a07d3e5c7405ae3fab90",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/slider.html",
+          "sha256": "f4463e1390df05b40305ce308e1ab5bb11de10f35cf888092f928f13935f4e1d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/switch.html",
+          "sha256": "461d00beddea5b56c4c36fb585413f69fe9e404512ea06164731041469fe13c8",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/table.html",
+          "sha256": "8d890453cf22957f9a559045bb97bb3384ee71b363c70190c1cebe0dc2414c2e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/tabs.html",
+          "sha256": "b5d452aacd1ae1e077baa40ac800c9310c590ec6b2c5ef7e9a401b1162dd2bda",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/textarea.html",
+          "sha256": "e1f27bfd80bfb16b9fb31a524b97952a88f1b0467881eeb073e17c63a0917d21",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/time-picker.html",
+          "sha256": "2067a387e7c5a855016099a395588e31391b5b6790bb6bd2add0b2f6464045c4",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/titlebar.html",
+          "sha256": "6ec73907e522a4ae894b03dbc776e8d3e568379f422fba5c519770c4d817114e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/toast.html",
+          "sha256": "051a93197c7224b97795dfc22ea52854564d811535e04c947ca70f45389b5b45",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/generated/tooltip.html",
+          "sha256": "3e08857452b4c08a6166489695fa4eda737b24c12e8c3e58a7f4913147cb8fe5",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/hover-card/index.js",
+          "sha256": "bc10a89ffb1d8ba31d1dac78b3c4548e78939e90f12b732531c5b329a8f6ea21",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/icon-map.js",
+          "sha256": "33677ce4ed5d1712e122aed8872f653e253ad7b164e039a76e5859b369e17257",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/identity-contracts.js",
+          "sha256": "570faf62b7c3c0b11b63fb404842970b78c842a2aa39427b96e594b636e34452",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/index.js",
+          "sha256": "8722b45ed898c2f87ea34b39da9a9e859bb4267089797fd80cf91267de00d291",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/input-otp/index.js",
+          "sha256": "521326f9ac3254fe278781861a55c9da34b74699492353844b0d1ffa796c27d2",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/input.html",
+          "sha256": "e0f2b6aa64233cc56ccaf0f4c6ec8e9a5d6d6db1b23d9643e76ed40a7ad9da70",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/input/behavior.js",
+          "sha256": "78780cc4c9d89421c5ce92f6e781b8a55a24696002a50404db8b0e7abd11890f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/input/index.js",
+          "sha256": "c08cbf83f52584616b32c574c1b677e296578531a7ec6d36eeb991f72c5e507f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/item/index.js",
+          "sha256": "23d8a8618c3ac62630e82d66d581d2e8d882e7de42b571e6f843fe56598aba82",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/kbd/index.js",
+          "sha256": "9ee4b868f4cd323983354d01dfe10c9e8bdd002b0ae33fbea65aba24aa398f8d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/label/index.js",
+          "sha256": "b95218fce5647f56478b5782b8465b6ebbc3483638ea200ebacbc19a167f3712",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/list-card.html",
+          "sha256": "401e2d3dd1428808e529a1c65e4adbbd80e5c17876d33ae2b8628f23c7b65cce",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/list-card/index.js",
+          "sha256": "f6f27e2bcaac0d9002913b7768239e18fcfa9945dc599447f46c597a56d27269",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/menubar/index.js",
+          "sha256": "2e781b28fee9d5ece9f91fbb71d84a826627ed23cd959b09dd2e6d5426903337",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/native-select/index.js",
+          "sha256": "a486f59919238139e8f2e48e2818bab55beca4c0df270f49d4b0fe95de61068b",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/number-selector/index.js",
+          "sha256": "c9a60ec79cf70d77f710f818700c59a5e200eb389a52536c72817ca616df40b4",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/pagination/index.js",
+          "sha256": "ba33f118b26adc94f2bd79d66f4fdc7bb52d96695f4eaa2169f217bf2e02fa7b",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/pattern-shell.css",
+          "sha256": "80b2bc4d86f991be0031cb4284a9c5d7e0060a0ef278631806753c7b5232a08f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/popover/index.js",
+          "sha256": "3278a1f7467cdec5745f28f556a19136301d0e0097c364d39d30bc395714c3c7",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/primary-navigation-item.html",
+          "sha256": "6637eaff55f6ae4d407edc23431e19fe86a5d53ef6ec41f3af954cbf9b5fb269",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/primary-navigation-item/index.js",
+          "sha256": "66c962646afcaeca5d7869880b43edb1b3184be559fe47124460d2781dae6f0b",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/progress/index.js",
+          "sha256": "4f72afc5519131a674e9f5f923d443380a8c2685389d85cccafa0370b215ed30",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/radio-group/index.js",
+          "sha256": "11fd543d205f419d2676add362658c71d6c300c389cc7d86f7ef30a54805c2fe",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/radio/index.js",
+          "sha256": "361b1b5e23022f624fc209e88bdbec53ab77c552a07bdb9af7539ba948d6b41f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/runtime.js",
+          "sha256": "6e724b5ef5807842973a59b01390d950692b704fa3781311eb7f37408c5a7a14",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/search.html",
+          "sha256": "661e331ce8079355a9d747ecf602d04b6893d75ce3fc1547f3c253d6ffc9fb17",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/search/index.js",
+          "sha256": "78399fa3b8d49c25e9001b3305eb03803188b483f80c399cf29cc3fbe6e4be41",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/segmented-button/index.js",
+          "sha256": "9ad0ec9675ca016002eccddd9bd1fbb45acc7b22fa3cde895eb96ca85584d652",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/select/index.js",
+          "sha256": "ebb34b9750f5d2da550bd6dd78d884787113b45f8a9e185e8b9fd4e243f79405",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/semi-modal/index.js",
+          "sha256": "7143fc4b364e1e56e913f414ffedfdacdbf848c0e9c2d505d54ca5245509898d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-attrs.js",
+          "sha256": "9063006dc4eed52e49f173728d59704cd55cbae6f23992f5801cd851f25b351a",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-calendarDayMarkup.js",
+          "sha256": "a43eb62a04e927efec6f0b801dc1f570ff8e424552f56628fec280019efe2139",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-calendarDays.js",
+          "sha256": "5eb1f75452bacd4cce59ac79e328358a41286923f6c4446c409f212d119f7d50",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-calendarWeekMarkup.js",
+          "sha256": "92d4789be9346a24b2b3b75d7d87b8cfeb799ab701fc43dd6945e1c94996b758",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-calendarWeekdays.js",
+          "sha256": "bf1071da7ca8cb49bec32f05fc92ed70352c9768c37948761e7af933fdb6f74d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-closeOverlayHandler.js",
+          "sha256": "0e895dd58e44f8888280d6e7213d670db2b805c5926062a6095e15dd2657bd21",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-escapeHtml.js",
+          "sha256": "4e027031c361b1f384d146e98bcff519e078f6010e6190042dbd3d00b193d7f6",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-escapeOverlayHandler.js",
+          "sha256": "7389f446d4456207f30d18a0321855fd34b19b4e6ce91ab1e2ecd92e7456e0de",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-icon.js",
+          "sha256": "87a312df79255528f227703ed7299e8917beeae244dbf924e07a7bd521a6513e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-menu.js",
+          "sha256": "f9aa82594402837ddee3e12ec3b48872470ee876811e868e7e5099973328fc17",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-menuComponent.js",
+          "sha256": "dd138d66b8362501737666392dd2f0dca543ec967813768dee1528e886d25df1",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-openOverlayHandler.js",
+          "sha256": "d18729c58683222e9c34b8ed3fb982d721f54a2b16a44f165c1b4d068ec44527",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-overlayLayer.js",
+          "sha256": "8dd0af84671f76830a31be1864afa1c8a0f9277a662d496c3cb12038d9b82e0c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/advanced-picker.js",
+          "sha256": "3b7fb5eb59fab967067aaf8ab4cc62daeeb1142b69803bb867b2bf149a06d526",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/core-attrs.js",
+          "sha256": "188a7b61604b7fa9455460b53eb2f9c5ecbe4343f3d09f56938abbd5e4fc4c49",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/core-disclosureState.js",
+          "sha256": "112f446e7f9a143c90bc32b513803f19e49aaa5e78049af8457698398bb7606b",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/core-escapeHtml.js",
+          "sha256": "4e027031c361b1f384d146e98bcff519e078f6010e6190042dbd3d00b193d7f6",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/core-icon.js",
+          "sha256": "965e7c7070bf6e1d8240fb6951464fe6614607176a10a2486f36607bb0bef176",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/core-renderInputTagChip.js",
+          "sha256": "35aa1a04ae0c641c8b2c7070201892cd060ca3d3c5d3771a3db39747319e0494",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/core-slot.js",
+          "sha256": "b09e91fde7bcc53b81c3b99c833c33144d29608fde8bc58bd7c2a3a5961af154",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/disclosure-behavior.js",
+          "sha256": "bd7bac18d9ea19957e99db67b946c688d3118902e94f8de248ac4b55485bf2e6",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/render-markup.js",
+          "sha256": "b80948ac09d3cf5869fd993150c20eec2ef2cc99d51243043ae9c3338637d276",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/shared/sidebar-behavior.js",
+          "sha256": "5721d963d68df854f89248b23033515246e368b7a9b0e7777752290857ea329f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/sidebar.html",
+          "sha256": "6b6d114d3f5b1d73d13ee0c477dc9d5524b7011f2ddb0d1fc26dc2ae7cae829d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/sidebar/index.js",
+          "sha256": "1f17541317392077eb2b0ae86f1c86c4adab835f7a49078f41f1adb5e4571e63",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/slider/index.js",
+          "sha256": "99b26f39fe7e56eef1c7baee28541d90a4a88b457289b4c3a091f9494d3072a4",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/snackbar/index.js",
+          "sha256": "abed52dd5de2b1673de1fd9caa01620f50598609c296bc1418c20a63ec2d969c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/styles.css",
+          "sha256": "1d28986d87641e5f1ab3f9ad09dc544f2da22ea714ca01bf468e41ea206b2914",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/sub-tabs/index.js",
+          "sha256": "7a9a2f3cea8325193a97feddd4e98cf295bf41f8ad1d4557cd9ebaaca9da3d57",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/switch/index.js",
+          "sha256": "bcac3d761e075ad2bc9027501d61b8fae33767aba1c184ab9a03bbcde31f43b4",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/table/index.js",
+          "sha256": "615d7b49a64deca8067e3be6f687c67bdbe626db396d2b3adaa112de04b824fe",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/tabs/index.js",
+          "sha256": "ab9af728ff040e5e8a70c82d2b5de77e03cf042597ce1deaff6d5a0b5ecb0757",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/textarea/index.js",
+          "sha256": "bc8044c97d3f9db38af40ba8b72dd84fb19f07a4a8dc9b5ca747bf35a37f2261",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/time-picker/index.js",
+          "sha256": "9b3bcf0e33d775cc94d9591b8beaadde71d0693542382083f9c276a43fe470f9",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/titlebar-overflow.js",
+          "sha256": "f6443c7c97736d75efba9e4b259964c4dcd317dd410f4a50eaaf2653e522a198",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/titlebar/index.js",
+          "sha256": "87a1d3b2229b59c55409398a56caee00073cbf02e5e0c0f7aec4d4b7fd15b60e",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/tooltip/index.js",
+          "sha256": "33a784a92ab80ae019942ce9dc05bb5afcae6a60524e85f6e24d91e5b1da30ec",
+          "availability": "local"
+        },
+        {
+          "path": "packages/components-html/src/tree-view/index.js",
+          "sha256": "0987ba80eb19ded910500326ae6f5b0dc7df44788600ae0a0e51ac97651bc450",
+          "availability": "local"
+        },
+        {
+          "path": "packages/pattern-runtime/README.md",
+          "sha256": "3133897ff2808ce31c230c57a7018282c4e8268ef852f29b4d05a250d8c73b19",
+          "availability": "local"
+        },
+        {
+          "path": "packages/pattern-runtime/package.json",
+          "sha256": "63b3eae16299f59216c0619c9c818d24e7d72ac2d34d6dc32c74075fad73e93d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/pattern-runtime/src/index.js",
+          "sha256": "f5965a00ebf44b355912a41a3587a97ece77d5c5bdb0837d07dd0d4920f2fde5",
+          "availability": "local"
+        },
+        {
+          "path": "packages/pattern-runtime/src/styles.css",
+          "sha256": "8c84e792179e03e1aa9ebc2269783bd0a6768b44dc717883008ad81887d8f12a",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/package.json",
+          "sha256": "f0c117dd18435a03a3e4bc7e000b99b7879f77c8f3585ad6655c84c620f97b06",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/dual-output-token-map.json",
+          "sha256": "ed12718e8e32406117f5d7ee9ca42e3ebbbb3c6983d6d7ecca4d95d3f4942a6f",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/index.css",
+          "sha256": "9da5b4d2936e60a47746d82e7fc3ff92870e6d8c29793d00a994c5522ab397fc",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/token-runtime-map.json",
+          "sha256": "af423b313eedd7b3ef1f5b2faa6cc50c21e61cd844b7216b212c689651f91cb6",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/token-utility-map.json",
+          "sha256": "8b5bd25651c7c7b2fa90f2b8999ca3964d24fd47a52525d25ac2c2b013f55eda",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.colors.css",
+          "sha256": "00c25b283287b5c42ba5676efa11a497541710a3269c6e06c80fd19f28b4a94c",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.icon.css",
+          "sha256": "e4f2e7f649a7d9842b53bba06de12812590b161495f68246c963f526442e5883",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.layout.css",
+          "sha256": "6a6bd5f3be075de0797091a4c742f6f0af62c3cc3385a62119c6572a382e73ed",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.radius.css",
+          "sha256": "5afad92e8bc2f557975c1b73cc5eb9915270b60a4d3e4101d52becebed4cb97d",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.shadow.css",
+          "sha256": "77db0d1eb9843c25650a32a9d14d0aeee41f1f6939168569dfab87b4e09337a5",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.size.css",
+          "sha256": "71a36eb06f88daaf395900c1e419f4bad8f4826b5aaa16d0e05490a98e95a6fe",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.spacing.css",
+          "sha256": "75cc5f9781105b5037f32d6dab05e561ce03dbebdb419dcb3cb11c9f5063b506",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.typography.css",
+          "sha256": "a41abd576aec72d5697aa9d4be5c7d7ed7df7373fd2121f9517741dd4ba66d06",
+          "availability": "local"
+        },
+        {
+          "path": "packages/tokens/src/tokens.utility.css",
+          "sha256": "8952af44a1067c6cedce86719f978c34349358f5afcc2d276cfdf909ffc04576",
+          "availability": "local"
+        },
+        {
+          "path": "pnpm-workspace.yaml",
+          "sha256": "226909e7726c235c6b854540949bc8144625420ccdd6298fca1f7885d8bfe524",
+          "availability": "local"
+        },
+        {
+          "path": "references/approved-pages/README.md",
+          "sha256": "358dd8a359f321bbc75722fd409604bf59bce0b6d6d8a04f0602fc6257b2902e",
+          "availability": "local"
+        },
+        {
+          "path": "references/approved-pages/index.json",
+          "sha256": "c8dcb1bc22cc5e9e153b8926ba3e6cee7ff72ba962a32e0980e5f3e53940ac47",
+          "availability": "local"
+        },
+        {
+          "path": "references/component-coverage.md",
+          "sha256": "59a712bffb566297016dfac2c5f29d88ed76db45e8159b6db1dc04f62d67fce8",
+          "availability": "local"
+        },
+        {
+          "path": "references/component-package-integration.md",
+          "sha256": "37b90b4245009cd84684fc96bd7340a783f2753824308c256a19b8b05bdfd249",
+          "availability": "local"
+        },
+        {
+          "path": "references/component-specs-extended.md",
+          "sha256": "02518e29abef8f39dc81c71fdf497e745a13567738b868d094d036f6b565cf72",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/color-reference-markers.md",
+          "sha256": "a255d932dba68b25383f324bc9d31f59e66bc419dfafc2b2091da4bf0809d9c8",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/compatibility-modules.json",
+          "sha256": "a527f66c1ffedcbcafc5bbb3ff76a6a319ada9610ace503d0416bb75be208002",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/component-readiness-policy.json",
+          "sha256": "0537ed9e8cce0556b5208fe3abcbd7a1662f0c689549289a4cdc2588ee77533d",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/component-selection-rules.json",
+          "sha256": "16eebc2aaab67c7430c340e889d902b19a5b03bcb13a6c9f64b5e090a6854d02",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/consumer-search.json",
+          "sha256": "e578787ac33840ccbecab2b4d064d8750556e8735ef4cb86f81b1b00df7d3419",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/core-component-acceptance.json",
+          "sha256": "a4481ba0444f3833226f68040388de9cde257373fb140f7b4f87a5c57971eada",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/local-component-delivery.md",
+          "sha256": "51b92445a8f301d05902042bfd515af972cbe75c854e0a6ae311df4697a8a031",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/page-composition.md",
+          "sha256": "8145bf1a9064927c8ce63738c978d891adf20cbe632cc7f5c6952c16c66971f3",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/source-resolution.md",
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067",
+          "availability": "local"
+        },
+        {
+          "path": "references/components/titlebar-segments.md",
+          "sha256": "1acbd60337eb4c2e84a0cdf34d726215e3d9c111bdbcc5ee0bced4964b973695",
+          "availability": "local"
+        },
+        {
+          "path": "references/consumer-input.md",
+          "sha256": "c3dd9aa95c74a68b3dbe0a8d1cb305fc71f4d7348d5da08e273900654d519c51",
+          "availability": "local"
+        },
+        {
+          "path": "references/consumer-normalize.md",
+          "sha256": "f8a6fa8d1bec00b179a89b5da6eb00b440b4d8fdc51bd5b36bda2dd5b9a36a40",
+          "availability": "local"
+        },
+        {
+          "path": "references/design-system.md",
+          "sha256": "6921786d47d2a701701e96db62d6cc64a30ebdfd8d571dd8c25b2e82628c2253",
+          "availability": "local"
+        },
+        {
+          "path": "references/distribution.md",
+          "sha256": "ab96aa70991f1aa6b32686dc4ece3f0860fde7f576e8cdb0912a8461a6d4d244",
+          "availability": "local"
+        },
+        {
+          "path": "references/domains/email-workbench.md",
+          "sha256": "570ca8fc863be8d4c7956c7e39be907ccaa5f632f2f5fa030a1e729dac86f816",
+          "availability": "local"
+        },
+        {
+          "path": "references/governance/major-version-update-checklist.md",
+          "sha256": "7ce1e00dd7cb55fe3249eebf926cdd46b00abfa9334ab913e623f3f299eee5b7",
+          "availability": "local"
+        },
+        {
+          "path": "references/governance/skill-catalog-refresh.md",
+          "sha256": "525f4a52f5a7b3459a8525d60b08e842e3b62be13bc65c0b8e67d79ec9b0c6b1",
+          "availability": "local"
+        },
+        {
+          "path": "references/handoff-protocol.md",
+          "sha256": "25debae6d5cbf7e35caacd9759d7d50d155aa5ef57ad7c109ef9f08774968a5c",
+          "availability": "local"
+        },
+        {
+          "path": "references/harmonyos-component-mapping-table.md",
+          "sha256": "b5b8c3ff5d97616d9b587a9f72916905d797b230857becbb883057abd615e7e7",
+          "availability": "local"
+        },
+        {
+          "path": "references/harmonyos-layout-patterns.md",
+          "sha256": "bb42a569d487b0b83e6d0dc6a19052aff051f1efc634a5036bad7d35438a244d",
+          "availability": "local"
+        },
+        {
+          "path": "references/html-component-mapping.md",
+          "sha256": "0f8e1d6e223e57ec9bb0964fa6732e2a8c7261b3102983dc53a9fa5970952023",
+          "availability": "local"
+        },
+        {
+          "path": "references/html-component-reuse-gate.md",
+          "sha256": "264ebcda7b819e9d5ea75c78895330dbb6f02bfd9a3f71743f7e0fa7fbb0b926",
+          "availability": "local"
+        },
+        {
+          "path": "references/html-draft-delivery.md",
+          "sha256": "e56748dc7b0be8d2b6f4d5b2f40ed4cac62ae958650965e17902f4ac45c3b6f4",
+          "availability": "local"
+        },
+        {
+          "path": "references/html-output-rules.md",
+          "sha256": "6fdd31ec6eeb47e9e8fa5e9523923b034f7178f6e89a265862ab31bb6cbb4ed3",
+          "availability": "local"
+        },
+        {
+          "path": "references/icon-selection.md",
+          "sha256": "8dc4e4da9988cc924ee70e143229d032bc046c731a0caca74a4bc3da2e238397",
+          "availability": "local"
+        },
+        {
+          "path": "references/index/capability-aliases.source.json",
+          "sha256": "db9a7dd35f3fb3e50df70d89a754d7774dfa61a960853abea4d5a38b15fff9d3",
+          "availability": "local"
+        },
+        {
+          "path": "references/index/layout-routes.source.json",
+          "sha256": "0d7303f6853d5658ce9ae499d1e2bec3b8a312685dc51a4e4a8e64a6f1887bbf",
+          "availability": "local"
+        },
+        {
+          "path": "references/index/task-routes.source.json",
+          "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a",
+          "availability": "local"
+        },
+        {
+          "path": "references/input-checklist.md",
+          "sha256": "b0999c0c734cc4f91dbc7c764226690f9449ee5ffcd3113e2aecfd6a8a554162",
+          "availability": "local"
+        },
+        {
+          "path": "references/interaction-spec.md",
+          "sha256": "2c3d2dd19b4f0967bd0bda8daadc64b1bf95b233293c75bd2cbfaf408ced5894",
+          "availability": "local"
+        },
+        {
+          "path": "references/layout-system.md",
+          "sha256": "bd08e62bdb99919a290511031c963fb447b1906f9e264542bbee3a05bfb281ad",
+          "availability": "local"
+        },
+        {
+          "path": "references/layouts/html-layout-routing.md",
+          "sha256": "4e1867f7529a53e2d1d2a7a736618bf57b0ffc53c69f27cddf2658a9e1716d8f",
+          "availability": "local"
+        },
+        {
+          "path": "references/page-blueprint-design.md",
+          "sha256": "077311e7da77d04c3cca26512c27302aaaabf18e257bb7808f5e0e2592cf4309",
+          "availability": "local"
+        },
+        {
+          "path": "references/page-contract.md",
+          "sha256": "a91cd0f6a505bc34a33eeb99cdf613ff6288d97faf43f919cb62d10c568fbc53",
+          "availability": "local"
+        },
+        {
+          "path": "references/page-design-guidance.md",
+          "sha256": "400a6c9db73b12d5f426bbc39b88e9dacbde224ff703cfbe1149635b17dd3875",
+          "availability": "local"
+        },
+        {
+          "path": "references/pc-framework-layout-gate.md",
+          "sha256": "18cd2be66de5862d40e1ef635ba219f9398ec80ae646fad6fe62c7bb8b1d75b7",
+          "availability": "local"
+        },
+        {
+          "path": "references/progressive-review-gates.md",
+          "sha256": "79826749a8f64aadcbb6e7077fbbb8e8f3323e9e0d2b74567ded7c920d36040c",
+          "availability": "local"
+        },
+        {
+          "path": "references/registered-reuse-mode.md",
+          "sha256": "22b6867057271548cd9d5dfb72ba5c7d1574326b8963dd9b3fb1e1b0226e0790",
+          "availability": "local"
+        },
+        {
+          "path": "references/requirement-spec.md",
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31",
+          "availability": "local"
+        },
+        {
+          "path": "references/resource-workflow.md",
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/blueprint/design-before-assembly.md",
+          "sha256": "e74b2277d6a11bfd0217a8e23fabfacad0a2dee408afb8d407e8faf1a24d03b0",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/blueprint/minimal-shape.md",
+          "sha256": "af53adeab4659c56e379ca0e36a53f6bdd0c53da5f98ce8a673c6d18cf0f7c30",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/blueprint/overview.md",
+          "sha256": "a7c7118929af077934baa555f137ec5c59560deca157b0b7073dfc10ec04ab08",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/blueprint/pattern-b-assembly-decisions.md",
+          "sha256": "f179d94f1258d0197b75bf14635a895e3272087046ceae05d7d59472f438d48e",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/blueprint/required-decisions.md",
+          "sha256": "51fd7700569cbc52fc6eb4db5b24d4c106c999aac319c5c5dfd872291592834c",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/component-visual/buttons.md",
+          "sha256": "72b3a3a2b0e080775f55af5c0bdb29aab916a0b4d73b03e027549caeb2da83a2",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/component-visual/cards.md",
+          "sha256": "c8b563f98d695a79d77bd7e6ba2c794b265a93f7d5204601d08c388debe5b70c",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/component-visual/data.md",
+          "sha256": "638e86a03544b1fd41e85b848d25b3e57802767d6f88afb779d1dce68ab69a0d",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/component-visual/feedback-and-overlays.md",
+          "sha256": "efb2e965c157ae549e830001df7dd1c724f169853680d513789d7d5d1ac356e5",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/component-visual/inputs.md",
+          "sha256": "4ef4c687952866fb7d0618e88513ecc1bbded95f1027a53576420ede8abc23b4",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/component-visual/navigation-and-lists.md",
+          "sha256": "eaa6b9886a5a0efe010a618eed20410e039393c95129951fbc398c7696eb91bc",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/component-visual/tooltip.md",
+          "sha256": "1f973dadee9be8f6f82e747f5e007a48188c3be5d775a8b26c3d5537c5ae0a20",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/composition/content-recipes-decide-before-binding.md",
+          "sha256": "f5f0a42d7f717a5d862785f4109307b78f55ff66cce2bb67b2d5162ff0d9d342",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/composition/executable-html-business-composites.md",
+          "sha256": "b1ff5c0370077fc79be720a941d629e4fb980e8adf209899bcc59e92b2be1dfb",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/composition/overview.md",
+          "sha256": "93766a787d0619121f5d6225e54837d2479a14cae6d51102cd2fa7f30c45d41b",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/composition/pattern-owned-navigation-shells.md",
+          "sha256": "434f226cf4dec948075d0834cb93d5276d4a780506f2f5cc7c9750fc463d85fa",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/composition/plans.md",
+          "sha256": "f5575338c00a67bf5920135ab0141ff0b03a023c164e7e8749eee5cb48e72a64",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/composition/stroke-ownership.md",
+          "sha256": "a65e185a40b380a8dbc89cb55c838348348a38771e414a959941a19fdd9f9bce",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/core/delivery.md",
+          "sha256": "7203620a2511f73c5d7d9a0d7908c2bd28f11732539dee3be8247d42f79cec02",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/delivery/calling.md",
+          "sha256": "09ebc38b011fab8341062b2bd8bdb1085a80817040636d5e5337cfae0840fd78",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/delivery/overview.md",
+          "sha256": "c95b33d3505aab56a76565b3763edf51db133f53fa5d364656a14fb84e216b3c",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/delivery/prepare.md",
+          "sha256": "371f882ce96c9978074511d65c1fb852b306b62e0711a38bd8d9a6c96bab0a9f",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/delivery/project-output.md",
+          "sha256": "dd7fe5a09e3b6f4cd8b0fe4deda381309dfbee77f0eca953cc3aec9d07a98587",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/delivery/reading.md",
+          "sha256": "19adfa0ec3ea6e28bbb693cb34d82caccf700339e73ba861b6d3db0b1450f876",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/delivery/styles.md",
+          "sha256": "72df1b20f3f4213c2cea14c8341bbc9e14b3736f3e5e08830c578bc800b57d81",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/design/design-at-the-real-content-width.md",
+          "sha256": "ef6298c89575869cba19954c5464014f368962e1c87599ca420d7a458b6c84d0",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/design/one-deliberate-first-preview.md",
+          "sha256": "93f1861b34a94e26a72c0bbdfc48940bb708f31ae291ab7f3514739042237882",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/design/overview.md",
+          "sha256": "f06673b40d05dcb635d436f80598f57c0d6e559b3ba43f66223aa5b5b876bceb",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/design/reuse-controls-design-missing-business-composites.md",
+          "sha256": "f890c44d5c08545c4716a8e4a7e161b99a41c2b7a9ff35c5524acdb228328943",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/design/start-with-the-task-not-the-inventory.md",
+          "sha256": "bcff80a80b2d1b48c5dba715cbb4a54bbffa3f63a9d0b72bf1c7de9930857d4e",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/design/visual-alignment-and-grouping.md",
+          "sha256": "d0cb864e105e189ea2e81baf09eac629709e3dfc2e54f49f2907c64b446a3833",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/foundations/colors.md",
+          "sha256": "1870969216902cde5d6c97c04ea15d2e2e4c1b704617750e8d999f5469bb32f2",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/foundations/radius.md",
+          "sha256": "8d5e530df4f6239bbe3643d9438ee3aa99ae971e71010956e4c992f09d7866e2",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/foundations/shadows.md",
+          "sha256": "4c583d054b7eb67a8f025c290931a0376182d5ce82ebaebfeb8230516fdf3f5a",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/foundations/size.md",
+          "sha256": "4b4482be90777d7ae623073a43234c733b69d4640fe6267e72a2046c282d2699",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/foundations/spacing.md",
+          "sha256": "363c84ece944bda8cfcc2693ac083da5d951ae84c072984465bb55906cb8d827",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/foundations/typography.md",
+          "sha256": "1f5b97ec5d36f831af3947879f2843af281a1a00f37de1460e00c050e30422bf",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/common-shortcuts.md",
+          "sha256": "a30119b84645e6321d883b3971169429e95f1593010a7b9c19f432cc64588167",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/date-picker.md",
+          "sha256": "4cd08412bf23a3462d2eaa237a79f46d42efdaa50839946f37a68d3799322b4f",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/forms-and-validation.md",
+          "sha256": "9a7862aa522545917138323977dc09d537bffce8ec9635fe0040bf11a3ac4a77",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/interaction-qa-gate.md",
+          "sha256": "3d65ed647f8a9d04d7bb735f8e6985516348539dfb6edf281abf9130cebd68e6",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/interactive-frontend-demonstration.md",
+          "sha256": "99db17d083773f4cb7f9792ed76bfad96c81e9bb9258c9bed1e2c8c667fa3536",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/keyboard-and-focus.md",
+          "sha256": "fec07785e9ccae09b6015f2ff1dff04726ed4a1d1a8cb3801e0b30a383b3ae9f",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/motion-sound-and-accessibility.md",
+          "sha256": "957bf0966d4a70dcb5a3727891f9277574f0738514c9463997fb2552726104b5",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/navigation-and-selection.md",
+          "sha256": "bae4e29b471353fd78970aec1d298c4aa84adc42cd8c11eabc9a4f77f77e0eb6",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/official-platform-principles.md",
+          "sha256": "d8e2ad775193b581e2617f3a2f7c89aabb11210e9524cadcfce5f41c6ee7057f",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/overlay-selection.md",
+          "sha256": "e658301098e0cd2b8da93b9988c8096f8c72bd6803be98d73316c04d24c47acd",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/overview.md",
+          "sha256": "be129987b6cad37d9945d0dd9e68f3df34346033e1b263dab2695eb5ad271d9e",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/per-interaction-record.md",
+          "sha256": "8a9d2c97d145111594e26b96c80ab3649d1f6d0c3852e4ea2fd1a28c440076ae",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/pointer-and-mouse.md",
+          "sha256": "517a413a6913351b788790d1044817efaaa6cc8c38698d3c18e9852f79d66ba7",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/scope-and-source-levels.md",
+          "sha256": "39fb917a993c4a957008c0d5804ed3ee59fc93e7feffe5772cf2a86a1a13d3f2",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/state-feedback.md",
+          "sha256": "fb15aef974bd3b607da9ce8fd7aaecc9ae4e6cd13a7ac3aabd54e65fb9eabd84",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/time-picker.md",
+          "sha256": "a0df30f297491a4e0f4b472868a14d5756d9bb0b14ed9271625da7b7aa77372c",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/undo-and-destructive-actions.md",
+          "sha256": "e2e68306a240bd15ac3d096af374ce53041a6ae09843b93c0ceb966d23731668",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/interaction/window-and-resize-behavior.md",
+          "sha256": "56c9b7edb0e0c50e134567c135a85ab2e001565a8e3dd2a7f973dd9120fd35c8",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/layout/application-shell.md",
+          "sha256": "e1b0b265ac7f1c5f80b0a849ec7eceeaefdcf6ab9245972eb513572d861b5adb",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/layout/decisions-to-confirm.md",
+          "sha256": "445d5d240d7c468f2c585c995e2490f07c8bcb2337cdc29bc237cdac1493af25",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/layout/grid.md",
+          "sha256": "c3b278acca7b0ed9eaddc302b6c15e9af6c09f50a30c7bfb0895f2f177017295",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/layout/html-mapping.md",
+          "sha256": "46990409a2284ec1761d20035b244ede4823a7d714c609a103b84abd531bd06e",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/layout/overview.md",
+          "sha256": "bd0dfe9745376cee22f20b30bbb0b147cbb410123a81092a8af1a13d6289af38",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/layout/page-spacing.md",
+          "sha256": "b86b2bc55b1e29099d302eb6bf83a64977d74e1e8e3dfdc2b1996644676182e5",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/layout/resize-rules.md",
+          "sha256": "6bf6c2b0951be0d093780d4d65da6f1fdf37f913a573fe29e3a57e8423256aa1",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/layout/window-foundation.md",
+          "sha256": "83504fedf649f0ff4e92531e0eef822ab9db891d28396fca41fcebc1711a6e05",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/context-area.md",
+          "sha256": "7d65f631d96e47e3264cca3a87db681037cd62a30116ce5d49411c6096612b69",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/final-pane-leading-slot.md",
+          "sha256": "4d4e488edb6c3f711aed904887f56ca7c4d8611d5c2b65944bde110d103d6170",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/inspector.md",
+          "sha256": "ab7da72e1d9e9aaa55df50639d41bb71f5cd673acb60d4c2a0d94c184c622584",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/left-brand-anchor.md",
+          "sha256": "fa4e33b2e5937f01ee06d3ad5aa8741a0e7d2e33d2a6f780fb646d96d6a54337",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/main-content.md",
+          "sha256": "81e922005965a2ef4fa9a8fe0b35ffe8558a517c42af88860aaf01687d2278f6",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/overview.md",
+          "sha256": "56743e04cbbd643ca6b4ed1a9cbb31b39521b0f92a8388166a11ad52f6e8f341",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/pattern-a-two-pane-navigation-content.md",
+          "sha256": "4d51cc44ef20055cca37e5bb06b25396712f2ec773bc990b839bdbd304d7cb97",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/pattern-b-three-pane-navigation-list-detail.md",
+          "sha256": "a7713b949ab6da8ae59011522edbbd85efcbc24beff16eb9ddf1918d427ca152",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/pattern-c-navigation-tool-workspace.md",
+          "sha256": "387db891b95ea633995d10534ca6d085b5b1d42a9aff0718b057b48d34c61638",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/pattern-d-optional-inspector.md",
+          "sha256": "b87ef7f17cbbaa2b1007b170523ae3c8d22649869ef1c18f06c4344d02079d82",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/primary-navigation.md",
+          "sha256": "a01c933a514fb5ff776b4bca01d24c49e60fcd1eead8e2d5b1aaf1f6abe31329",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/primary-shell-global-primary-slot.md",
+          "sha256": "8aaeb01ee05172a59f308c205f6b59cc0ec875692ecbbd86c9b826e64a0b3291",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/reusable-pattern-primary-navigation-shell.md",
+          "sha256": "6fd94aec394417a9fd9fa78cb5cbd127ca1fffa75b56779e46b0c28b81a2cfd4",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md",
+          "sha256": "c0f0b890cd1da4ebc3dfb369bcdb0370d8c16463a2fa70067f6599391bffa46d",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/right-action-and-window-area.md",
+          "sha256": "1de55c1cb9f7af9a5e310abe209d90ab1a9af97cd539c2e465e07551a7b9eb22",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/scrolling.md",
+          "sha256": "f7aaad5a7c6f0fca1b0364c0379af7f59cfb70246f414176a1ce59efc0bb8576",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/secondary-pane.md",
+          "sha256": "962857ae646ed124d79dc091be60d580ce522409a08bdee1a946c10fa1a5fcbc",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/shared-window-anatomy.md",
+          "sha256": "59400e77c989230a39fe3646e8598c22687d20f4dcde25bcce79d06595d87ecb",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/shell-selection-rule.md",
+          "sha256": "c1b4f8296828bad8e7600ca8a60d6bfa5e45faa9ff9fb777460b5d7f07b3a73f",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/surface-and-divider-behavior.md",
+          "sha256": "4f709a324f3c7b67e2167caed4f5fb54df8e9166be42319ca43c3f8f86c633b6",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/patterns/system-ui-boundary.md",
+          "sha256": "3db93c646b1b7d6149e75a92765a00e0658afffe70d4086c2873500c473bfa73",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/adaptive-question-policy.md",
+          "sha256": "a95ffc0dc6c1be872764d7b0df986dac8b3dd0d0974c51def71e1649a37134f7",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/anti-patterns.md",
+          "sha256": "47c43da39f70b43050df6ab1e082747a434742b2d4230c9b1c16898911561848",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/contents.md",
+          "sha256": "c3b576fcb91ececae2ef72acf9aceb90a2b21374e87508453a389ae63904887a",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/first-preview-planning.md",
+          "sha256": "f3e25a60ea2dd5bb5011f28cfa2ac9de0cb6a56335f218e695b3a943f4b20583",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/fixed-harmonyos-defaults-from-native-references.md",
+          "sha256": "a18e56abae12af497cc14ab6882c89cd9bbbd92848dc12d72327db501081b488",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/generated-requirement-contract.md",
+          "sha256": "b7e3a3bc3a9621a90dacacbe2ba6e41561a2e3f3aef00cdc419770300d44ecc9",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/intake-principle.md",
+          "sha256": "30b5322d47c15ed9f53394923be9136bd0ad91bcf55dc736111c615e245de567",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/overview.md",
+          "sha256": "e4e73fb4038bd1758a1392364b4c450d3a61913d6b428e80679b0444c544bf15",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/three-decision-layers.md",
+          "sha256": "22e094bf8151e2daf672f4142911ff1374bd756ff0fb6566c54b0fe5f50e7475",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/requirements/user-input-guidance.md",
+          "sha256": "f8bdede69e84d1ff193290c56e0875763ee7f94f8f03c957bf44364cc86e3198",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/source.json",
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/source.schema.json",
+          "sha256": "2d23813ffbb1eb5a1e5ee750fe31808b5b958e554d0f01447f5f4484da6dd76a",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/supplement/form-composition.md",
+          "sha256": "d1c0b952624ceddd02f33ff5d8b741e7871dce69812aa4ef5e818dca76f6d7a0",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/supplement/loading-data-and-dates.md",
+          "sha256": "2b1f797fe6db5469f7690996f9cd09a9c6b71d1e26240cbdd61ba5c668b47be2",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/supplement/navigation-and-disclosure.md",
+          "sha256": "a87fc88587c603899ea908d9181cd853562e4021eff465b7a1d5349aeb779ec4",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/supplement/overlays-and-commands.md",
+          "sha256": "a3c991321be271525020ed810aa4bcf1155ddbbb425f0609973191c07ef83fb4",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/supplement/overview.md",
+          "sha256": "302d6872026c3c13e482ed74c0ce991d3a69e1cd79fda98a994bf4227bca7301",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/supplement/specialized-content-and-layout.md",
+          "sha256": "af2fa4e89253cca291f1568734a6f963c2f33923ba2482b9291923d21653c410",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/supplement/universal-contract.md",
+          "sha256": "1a2424f0b9105bb5f4b50c6326927a2099fd2b2b8da829ff58d9a551160fe420",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/titlebar/executable-html-slots.md",
+          "sha256": "fbd089ae46a5cb71dab0fda0aaaf9e99941bdd6be33bf59d002c56e87fffdc24",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/titlebar/generated-titlebar-scene.md",
+          "sha256": "6a87c38bb531c93164d10728a09bd31e27cc04254dab305760baddfefa71bd94",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/titlebar/overview.md",
+          "sha256": "d7b2f2381ce4d5571c83497f43adf5ccc2a3c3e24bfb5ca28fa4b7b36e662c57",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/titlebar/scenarios.md",
+          "sha256": "4386361cc73359aad8e2bd1298f04a70ef8ea7d33c6b78b83b5c07bb0533422d",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/titlebar/title-typography.md",
+          "sha256": "dcc7276e986c8c54ab761b54a80563af783087ab12cc88f00fd84401bece210a",
+          "availability": "local"
+        },
+        {
+          "path": "references/resources/titlebar/trailing-inset.md",
+          "sha256": "83aa2307bc23c0c489eadd62e797ab16b95eb42ac3f2871e93fc6f7823716400",
+          "availability": "local"
+        },
+        {
+          "path": "references/routes/index.json",
+          "sha256": "4c74853840943eacd88d0ff7d6ba73518e6128b56527f1e9a9563a7fbe50562b",
+          "availability": "local"
+        },
+        {
+          "path": "references/routes/materials.source.json",
+          "sha256": "b3f6f3914247c26f447377dbd7f0997d31986ba333999e40d2930e4ca54b7d93",
+          "availability": "local"
+        },
+        {
+          "path": "references/routes/micro-revision.md",
+          "sha256": "fab2fe82c2566329f21ffb5e70fc70e909cc52ae97b49ce2a68859dfa3fdc1c8",
+          "availability": "local"
+        },
+        {
+          "path": "references/routes/new-page.md",
+          "sha256": "43ad38df17f7c1e817a51ce63e634c6d1ad10b679d9c892325e41ca0afe86b84",
+          "availability": "local"
+        },
+        {
+          "path": "references/routes/normalize-demo.md",
+          "sha256": "29c42e08496a95064a1e7319766b65ac99842c805bc4aeaf75e5230e2a364aa6",
+          "availability": "local"
+        },
+        {
+          "path": "references/routes/skill-maintenance.md",
+          "sha256": "4a97f24e84277e5dbaab90d914dfddc931a750073dffb310a82b393afbf5ab5c",
+          "availability": "local"
+        },
+        {
+          "path": "references/routing-guide.md",
+          "sha256": "31632a38873ea0501b24effe3004071d60259d014486b1bc4762345772522df1",
+          "availability": "local"
+        },
+        {
+          "path": "references/skill-update-workflow.md",
+          "sha256": "799f56dc75bc309c76c2077d7b5fe4817d2ce16abb12c46f7158dcf6352d74ed",
+          "availability": "local"
+        },
+        {
+          "path": "references/tool-design-intelligence.md",
+          "sha256": "ca26db7cd474289bec703e26e4641082e8fd3636cf0f49f20a9a2be511535415",
+          "availability": "local"
+        },
+        {
+          "path": "references/tool-design-qa.md",
+          "sha256": "e3c3e97ef3ada89c2669d173bc0c6512a19d78bf02e2ab44993c11911e5c5829",
+          "availability": "local"
+        },
+        {
+          "path": "references/visual-qa.md",
+          "sha256": "f036d8b1f313749cb0d7252dcd491f93b7a41bcc8d963db04eda5dfab003cc84",
+          "availability": "local"
+        },
+        {
+          "path": "references/workflows/fast-preview.md",
+          "sha256": "df11e0ea0417ac8be1fbf072ad6f2183be6c6f1a3075e30df55446ef40c5264d",
+          "availability": "local"
+        },
+        {
+          "path": "references/workflows/release-validation.md",
+          "sha256": "663b7a714f7add8a1f289816a83fd48ed5b20408f61f047c263fb731b94e9c24",
+          "availability": "local"
+        },
+        {
+          "path": "schemas/html-handoff.schema.json",
+          "sha256": "27c97624d83f4b8bd54e4473b6aee5fd76997b8704bda31bcdcb0b407df0bdf5",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/artifact-dependencies.mjs",
+          "sha256": "84fca6966ee5ae340cc3f4a8fb7ac90e82ff75c1f056430a8757aec35b49742a",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/audit-icons.mjs",
+          "sha256": "96a172c7993cbcd4d27999175f0159bbac94fcf9e54ed85c739e1862a352f3ab",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/build-color-reference-tokens.mjs",
+          "sha256": "58c9c70bad55386f6aa0c8b16687a5ed25863207933a672b69b8d0958f73d873",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/build-component-contract-registry.mjs",
+          "sha256": "32e497142a42fae2cb442f205a80659b510f9dc6dc5f4afc20d39b4c2b830641",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/build-component-route-index.mjs",
+          "sha256": "62ca3faa7a41feb5873f38b9cdcd1d5dd406585d0e248a956dee9e6310dffb7c",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/build-consumer.mjs",
+          "sha256": "6d2f1f979e823ef587fc753232215e81509682cc838f3e7513180498f15bc531",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/build-navigation-index.mjs",
+          "sha256": "9ee83cbf4a43ed04c35552169c52df13cfb91da1a017a7a7150a8d55b9deb897",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/build-resource-index.mjs",
+          "sha256": "cb04df4f28ca02eb1e0b18507b3e1ff8957718f0d616da202527c377734f1167",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/build-skill-catalog-index.mjs",
+          "sha256": "223b5eb88d2b255a07f96b1560944c75f808881f9282ae4f51f884e74557c2b4",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/business-css.mjs",
+          "sha256": "746b71d33454cc3e1a9bf5536bd796fcacefeb492f2b054a287265f09b48216e",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/component-contract-loader.mjs",
+          "sha256": "585fda2d3a5eb149ffdd3d62fbe2ac8de29b24801652a019202b34243241b7e5",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/component-query-lib.mjs",
+          "sha256": "c82ee03911309cc88c8867ba7a570603003abff9b7db7d8fc4af5195fabed49d",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/component-readiness-policy.mjs",
+          "sha256": "5f2599c03dceec7562768a82b268d6c8f32b5f6789efb094d660867a64a1e2d0",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/component-route-index.mjs",
+          "sha256": "acd25dcded06c2414dddedbaa2ec3a47035025c763b1f3e9d3322daa4dc6fe98",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/component-selection.mjs",
+          "sha256": "5e67b2e92cf3415a9972044e38e5edeff86f6263203c697bbafe40b9acd26755",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/consumer-lib.mjs",
+          "sha256": "e17e263e3d1f55a37fd7328dd1ca310b920bf42953fad08af0178e41138f625f",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/consumer.mjs",
+          "sha256": "a0df4fe0876badc41615e02247cef178b6532ec3eca4250876810c287c8ec70d",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/discover-page.mjs",
+          "sha256": "04d8c37b34b5daa9835f5f56ce2259da64bcccd179b428aec946a2c3f9095a95",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/export-icon-sprite.mjs",
+          "sha256": "53a2a94b27e9718145f1c9aee2e590bff49523a61e1adf9e3bf9d175d088d389",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/generate-compliant-page.mjs",
+          "sha256": "a8543a0e8ef55bc55a9bbc8da83c52350297f5c1002588004290991a9882eefc",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/generate-html-page.mjs",
+          "sha256": "ba9de060fd1a2eb1ec2ab74b2ca5b36072e48edd14e201b8bb4a86855ab2c22a",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/generate-layout-contract.mjs",
+          "sha256": "acb91e4f865ab5773f88342cce90d0957e374cdfa1547be3b2ed5b901b0c93de",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/html-artifact-graph.mjs",
+          "sha256": "d562446d719d2d83eec75a9b8c09041450aabd87a689c53b886adf23ef8f805d",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/html-handoff.mjs",
+          "sha256": "797f079f3b3387db80b60a6e591993b2cf263070da9d059cbf2d3950ed2349f6",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/html-renderer-contract.mjs",
+          "sha256": "efc94586ccc82a61e0d7dd2330159d0169630b773cb6b809f1b39a4b7fa1bb2a",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/icon-tools.mjs",
+          "sha256": "0f6ddae12ed2696ca15a398f24ef33c16462c2a29306c53fb35913a5ec11859d",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/navigation-index-lib.mjs",
+          "sha256": "0096610b1bbd8a9718716b4fa512ea2218622d9851996107b017a9c47369a320",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/normalize-demo.mjs",
+          "sha256": "8a64bf4669d6a2df7675b378944af33283c02e40fb7c606fd3bc01f81108839c",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/offline.mjs",
+          "sha256": "7bbbb2a3ce7f47acab3e44ff5df5c7347188af9fe34c0aa3e427ba8bf81e3930",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/pack-consumer.mjs",
+          "sha256": "ffdfee68671b3f71a6453ab5c3662daf180ee2d8241b7c7f6619e0f12f450d9d",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/page-blueprint.mjs",
+          "sha256": "480c04c178afe24fd8c7357377d1295889e1be75bee88848df2a6714ecbaa75b",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/page-content-recipes.mjs",
+          "sha256": "3313941c4d0ab10bd25b70e1d1918b50ed484d0a80af06462e2ddef658e14465",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/page-runtime-preflight.mjs",
+          "sha256": "51aa8d8e90bd84dcf25039a14328bf59423bd6e4cde4c7b82376ff48299cf1e4",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/page-token-usage-lib.mjs",
+          "sha256": "23e66a0af8ac1dd52c068c877a0d4fabba44afe6dd9acb83c81bf7de411e97df",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/page-ui-scene.mjs",
+          "sha256": "965f78083933ec7615caa19ad61bb313cd3249fdd5bc2e0e3abb53d20a5e7165",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/page-viewport-boundary.mjs",
+          "sha256": "978f2bfcc7099c2690b0301ad739343c849fd8f8c8cb65bb51b97c768a5d10e4",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/page.mjs",
+          "sha256": "9da536c78f540677f2a769638fc7be76c91b59df7a73f60f050bce859cb76d37",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/pattern-contract-lib.mjs",
+          "sha256": "7627f755452efa6ed90fbe1333c98a6d5b7d6e3022fc2fa6826e0c1ae473fa01",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/prepare-page-components.mjs",
+          "sha256": "249722307552667b55304e3a00736fc2d2cedf2fe3b102fb16c50ad762ee0509",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/prepare-page-styles.mjs",
+          "sha256": "da63c8c6bbdf1f397cc20ad55ac9cc71bce7a193449870f7729ebf3a7a66afdb",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/preview-components.mjs",
+          "sha256": "06c20eb27f2e669ebe69e16aee08d82b39fc367d1e459ff17420cfd3e0810e1c",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/preview-page.mjs",
+          "sha256": "60b4423f89942c2cc87d34f69826692e2967959f1a1f6679354805d0c53fad8d",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/query-components.mjs",
+          "sha256": "bc08fa3da2d7a2ff5c94d11041fae14da91cf1a69c5ffcdcc183b47af22b8ff9",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/query-layouts.mjs",
+          "sha256": "5548c08094c859a10e611a1983d8e637f96e18cfa4a1313bdfb605ec6d225be4",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/query-resources.mjs",
+          "sha256": "b3fed12bb37fcc031ae3fcaf17fdec063eb8339e33a11b451ad97e6b9af95876",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/query-tokens.mjs",
+          "sha256": "3b40e5eb932e9f2ab0ca405d1e9efc3d0481bb190c2ff009184c36231a943b37",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/register-approved-page-reference.mjs",
+          "sha256": "decbc76f3dbf17633934316397cb51efe559ef4b06161ab104a7b8f1ba09d747",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/resolve-context.mjs",
+          "sha256": "75fb09d2e1065ce7ceef1d07724c3c5d2a43624df50258ede01b18f2a67ae0ee",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/resolve-pattern-contract.mjs",
+          "sha256": "1514c5f58ddb865879128b2a0d237fa95623998e215d0b422aae389a43bec52a",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/resolve-workflow-route.mjs",
+          "sha256": "3656c963bc629daa88bbf8a5b67c746693733d37dbbfe57c3167d2b389372a7f",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/resource-index-lib.mjs",
+          "sha256": "2911760d92dc62c9a0cfe19afbf307673c763db62f830b9988cace95c2880592",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/resource-projection.mjs",
+          "sha256": "66e3762876453c38bfa6fda861fb3f4bacba19e14e666f595a67b3256565bd1e",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/route-material-lib.mjs",
+          "sha256": "eecdad5ff69330680fdbaa39ea8ea5453810fcb3682eddf512083660afe2f8fa",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/scaffold-standalone-project.mjs",
+          "sha256": "6cf4a222317ab33ea346f857e388d940d61a63a3086d0e9924a880f4130cb569",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/shared-data.mjs",
+          "sha256": "faff2f0d1aebbe58a05d80443875dafd10a411968c05fa11bad16c46fbc31282",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/skill-distribution.mjs",
+          "sha256": "b42fa28cf7d8adaf1205aae7d8f8c449ecbbe6f95185583b54912c621eede104",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/stage-context-lib.mjs",
+          "sha256": "15acdd074346e0ef759801bc68945dfc54a82fd8dd9287976b0406f710456da9",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/stamp-html-artifact.mjs",
+          "sha256": "f25ee0d687adc647dbefa3e819237c7a49a8948e9bb9f8371cadde404e047b33",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/task-route-lib.mjs",
+          "sha256": "a0cf99197a1d868d9bd46faa2068cd540218a09586f77b0343b79e5dea380745",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/titlebar-scene.mjs",
+          "sha256": "13dc49447f6a374d33e4099c44d1a35d04e404999dd36ee1fdd820ad263f3208",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/ui-scene-core.mjs",
+          "sha256": "bc1aca0045d7b22ae3eabc7083265d372f1825042b70b2677647553406f85c9f",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-component-identity.mjs",
+          "sha256": "cc2ea6826f11b06652ab7938cfbec1978b11ba6ba047bcc141cbb7aca8b306d4",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-navigation-index.mjs",
+          "sha256": "c6611dd514a746eeebe66147606b43590566486e242b20cfd3f2ad8488bce535",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-page-composite-boundaries.mjs",
+          "sha256": "2abe2798048f648afae9658570eac9762a01954ad0799595c7d7047271a746c7",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-page-css-boundaries.mjs",
+          "sha256": "a8090327a47eec6e7b14d67267b6b4f6bb132db750bbf45e342f4520fec9ff6e",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-page-project.mjs",
+          "sha256": "9d943fb18e5e2bbe2170d7f8b5ca4214eaeda0889972345b0c7b45c0c1ff36e1",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-page-token-usage.mjs",
+          "sha256": "15d72b128fc4f043c0793b73b1764cf34168ec3d6186b285b513c756bd89b418",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-pattern-contracts.mjs",
+          "sha256": "6d53ecbda62ac2a1483ef3acc707273e88896fd3f3a59ab6b268d55428a1971f",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-pc-framework-layout.mjs",
+          "sha256": "4edff8f5877eb501683fa50ff5578e44fb7e330fe4e7c6f9235cff80521eea0a",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-runtime-component-reuse.mjs",
+          "sha256": "80a1d8cc863167b14ba867f241a04dccd7c3653e42ffb74b7beb4309d33c7108",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/validate-web-component-reuse.mjs",
+          "sha256": "eb8251adddd84fb5336fe055300658ada7b9e7faf6751791286fe1f841238bba",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/verify-context-materials.mjs",
+          "sha256": "f8b6e9850b248c11abc31c3929acc2a226b2dfd9c39d477567cf253a495e6e3f",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/verify-fast-preview.mjs",
+          "sha256": "e88d8c69eced9a3afda4829b5bd9cb47d84ea70723c1a304f773e223e7bb7420",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/verify-html-artifact.mjs",
+          "sha256": "1c1c6457c8f6203a4c5e7f685085a55da0b264c5b2a682b9d352c36851664494",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/verify-route-materials.mjs",
+          "sha256": "dcc9a101b4fe61a56ff4262a95adedea4dccfc02d742d0316f66a5ac67e2fd2b",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/workflow-policy.mjs",
+          "sha256": "2ff2ad9cfd8147394fc9fceb882070f366694670903a258833e6c15a398bf848",
+          "availability": "local"
+        },
+        {
+          "path": "skill-profile.json",
+          "sha256": "aded995aa3ffd08837dc3a360bcfbeab4d6847131209126df2de51ba79439cb4",
+          "availability": "local"
+        },
+        {
+          "path": "vendor/ACORN-LICENSE",
+          "sha256": "76a876cf886ff9be2a8b5e2e86514fed06223c8c9f0c1e9ee9606e93841e00b7",
+          "availability": "local"
+        },
+        {
+          "path": "vendor/acorn.mjs",
+          "sha256": "efb0124a960b34d53f9928c4926bfcfd300bb6a3d7ab64ee949b3a8bed1c7e5f",
+          "availability": "local"
+        }
+      ]
+    }
+  ]
+}

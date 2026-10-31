@@ -1,0 +1,42 @@
+{
+  "name": "text-to-ui-html-new",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Controlled HarmonyOS HTML consumer with portable dynamic output",
+  "license": "MIT",
+  "scripts": {
+    "resources:build": "node scripts/build-resource-index.mjs --repo .",
+    "resources:check": "node scripts/build-resource-index.mjs --repo . --check",
+    "resources:query": "node scripts/query-resources.mjs",
+    "catalog:build": "node scripts/build-skill-catalog-index.mjs",
+    "catalog:check": "node scripts/build-skill-catalog-index.mjs --check",
+    "index:build": "node scripts/build-navigation-index.mjs --repo . --skill-root .",
+    "index:check": "node scripts/build-navigation-index.mjs --repo . --skill-root . --check",
+    "workflow:route": "node scripts/resolve-workflow-route.mjs",
+    "skill:manifest": "node scripts/skill-distribution.mjs manifest",
+    "skill:check": "node scripts/skill-distribution.mjs check",
+    "skill:pack": "node scripts/pack-consumer.mjs",
+    "page:generate": "node scripts/page.mjs generate",
+    "page:normalize": "node scripts/normalize-demo.mjs",
+    "page:components": "node scripts/prepare-page-components.mjs",
+    "page:styles": "node scripts/prepare-page-styles.mjs",
+    "page:validate": "node scripts/validate-page-project.mjs",
+    "page:handoff": "node scripts/html-handoff.mjs create",
+    "data:export": "node scripts/shared-data.mjs export",
+    "preview": "node scripts/preview-page.mjs",
+    "components:index:build": "node scripts/build-component-route-index.mjs",
+    "components:index:check": "node scripts/build-component-route-index.mjs --check",
+    "components:registry:build": "node scripts/build-component-contract-registry.mjs",
+    "components:preview": "node scripts/preview-components.mjs",
+    "colors:check": "node scripts/build-color-reference-tokens.mjs --check",
+    "consumer:build": "node scripts/build-consumer.mjs",
+    "consumer:query": "node scripts/consumer.mjs",
+    "page:compile": "node scripts/page.mjs compile",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "kind": "text-to-ui-compatibility-components",
+  "policy": "compatibility-only; excluded from standard component selection and task packs",
+  "modules": [
+    {
+      "id": "item",
+      "sourcePath": "packages/components-html/src/item/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "data-table",
+      "sourcePath": "packages/components-html/src/data-table/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "empty",
+      "sourcePath": "packages/components-html/src/empty/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "input-otp",
+      "sourcePath": "packages/components-html/src/input-otp/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "kbd",
+      "sourcePath": "packages/components-html/src/kbd/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    },
+    {
+      "id": "chart",
+      "sourcePath": "packages/components-html/src/chart/index.js",
+      "status": "compatibility-only",
+      "instruction": "Use a registered standard component if suitable; opening this adapter to new generation requires its own reviewed contract and acceptance evidence."
+    }
+  ]
+}

@@ -1,0 +1,2021 @@
+{
+  "$schema": "./source.schema.json",
+  "schemaVersion": 1,
+  "kind": "text-to-ui-resource-sources",
+  "documents": [
+    {
+      "path": "references/requirement-spec.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "requirements.overview",
+        "requirements.contents",
+        "requirements.intake-principle",
+        "requirements.three-decision-layers",
+        "requirements.adaptive-question-policy",
+        "requirements.user-input-guidance",
+        "requirements.first-preview-planning",
+        "requirements.generated-requirement-contract",
+        "requirements.fixed-harmonyos-defaults-from-native-references",
+        "requirements.anti-patterns"
+      ],
+      "baselineSha256": "b9960810610843f0802070264545b0ebf14b2ce21949bb7fbcc19b44e72451b1",
+      "baselineBytes": 13930
+    },
+    {
+      "path": "references/layout-system.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "layout.overview",
+        "layout.window-foundation",
+        "layout.application-shell",
+        "layout.page-spacing",
+        "layout.grid",
+        "layout.resize-rules",
+        "layout.html-mapping",
+        "layout.decisions-to-confirm"
+      ],
+      "baselineSha256": "1b63fe82134fcdc2e36a4b72edc41aa2d08908f700f84d705d6e2452089c6a9e",
+      "baselineBytes": 20610
+    },
+    {
+      "path": "references/harmonyos-layout-patterns.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "patterns.overview",
+        "patterns.shared-window-anatomy",
+        "patterns.left-brand-anchor",
+        "patterns.primary-shell-global-primary-slot",
+        "patterns.context-area",
+        "patterns.right-action-and-window-area",
+        "patterns.final-pane-leading-slot",
+        "patterns.reusable-pattern-primary-navigation-shell",
+        "patterns.pattern-a-two-pane-navigation-content",
+        "patterns.reusable-pattern-secondary-page-hierarchy",
+        "patterns.pattern-b-three-pane-navigation-list-detail",
+        "patterns.pattern-c-navigation-tool-workspace",
+        "patterns.pattern-d-optional-inspector",
+        "patterns.primary-navigation",
+        "patterns.secondary-pane",
+        "patterns.main-content",
+        "patterns.inspector",
+        "patterns.surface-and-divider-behavior",
+        "patterns.scrolling",
+        "patterns.system-ui-boundary",
+        "patterns.shell-selection-rule"
+      ],
+      "baselineSha256": "1f9aa5db712efd953f93c896c32cf5ced7aeabd3b92b51f3f348b0f79b447070",
+      "baselineBytes": 26210
+    },
+    {
+      "path": "references/interaction-spec.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "interaction.overview",
+        "interaction.scope-and-source-levels",
+        "interaction.official-platform-principles",
+        "interaction.pointer-and-mouse",
+        "interaction.keyboard-and-focus",
+        "interaction.date-picker",
+        "interaction.time-picker",
+        "interaction.common-shortcuts",
+        "interaction.navigation-and-selection",
+        "interaction.window-and-resize-behavior",
+        "interaction.overlay-selection",
+        "interaction.forms-and-validation",
+        "interaction.state-feedback",
+        "interaction.undo-and-destructive-actions",
+        "interaction.motion-sound-and-accessibility",
+        "interaction.interactive-frontend-demonstration",
+        "interaction.per-interaction-record",
+        "interaction.interaction-qa-gate"
+      ],
+      "baselineSha256": "0c019113ceef82e2557ec3e0e518d4f7b66e5d803ba2e5cefe72a51674961cbf",
+      "baselineBytes": 21085
+    },
+    {
+      "path": "references/components/page-composition.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "composition.overview",
+        "composition.content-recipes-decide-before-binding",
+        "composition.executable-html-business-composites",
+        "composition.plans",
+        "composition.pattern-owned-navigation-shells",
+        "composition.stroke-ownership"
+      ],
+      "baselineSha256": "f7370603361d201da67e27843f5b0da97ce2284380fb3f3a1bb235d183a95633",
+      "baselineBytes": 13839
+    },
+    {
+      "path": "references/page-blueprint-design.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "blueprint.overview",
+        "blueprint.required-decisions",
+        "blueprint.design-before-assembly",
+        "blueprint.pattern-b-assembly-decisions",
+        "blueprint.minimal-shape"
+      ],
+      "baselineSha256": "077311e7da77d04c3cca26512c27302aaaabf18e257bb7808f5e0e2592cf4309",
+      "baselineBytes": 4552
+    },
+    {
+      "path": "references/page-design-guidance.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "design.overview",
+        "design.start-with-the-task-not-the-inventory",
+        "design.design-at-the-real-content-width",
+        "design.visual-alignment-and-grouping",
+        "design.reuse-controls-design-missing-business-composites",
+        "design.one-deliberate-first-preview"
+      ],
+      "baselineSha256": "400a6c9db73b12d5f426bbc39b88e9dacbde224ff703cfbe1149635b17dd3875",
+      "baselineBytes": 4136
+    },
+    {
+      "path": "references/component-specs-extended.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "supplement.overview",
+        "supplement.universal-contract",
+        "supplement.navigation-and-disclosure",
+        "supplement.overlays-and-commands",
+        "supplement.form-composition",
+        "supplement.loading-data-and-dates",
+        "supplement.specialized-content-and-layout"
+      ],
+      "baselineSha256": "a4f77749fb20832896ac483372f3683339e94bba940ac178fe96664fe8679a5d",
+      "baselineBytes": 14448
+    },
+    {
+      "path": "references/components/titlebar-segments.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "titlebar.overview",
+        "titlebar.scenarios",
+        "titlebar.title-typography",
+        "titlebar.trailing-inset",
+        "titlebar.executable-html-slots",
+        "titlebar.generated-titlebar-scene"
+      ],
+      "baselineSha256": "2c19061b781307de78fb71b71e5a34bbf55ff07a056c518d521b0780754509b2",
+      "baselineBytes": 10972
+    },
+    {
+      "path": "references/components/local-component-delivery.md",
+      "policy": "generated-compatibility-aggregate",
+      "parts": [
+        "delivery.overview",
+        "delivery.reading",
+        "delivery.project-output",
+        "delivery.prepare",
+        "delivery.styles",
+        "delivery.calling"
+      ],
+      "baselineSha256": "4868a10e8c01443ba6b674c7b84ef520c88f4f3cc9d38521bc462387d00521c6",
+      "baselineBytes": 5628
+    }
+  ],
+  "resources": [
+    {
+      "id": "requirements.overview",
+      "path": "references/resources/requirements/overview.md",
+      "purpose": "Adaptive Requirement Specification",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "requirements.contents",
+      "path": "references/resources/requirements/contents.md",
+      "purpose": "Contents",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "requirements.intake-principle",
+      "path": "references/resources/requirements/intake-principle.md",
+      "purpose": "1. Intake Principle",
+      "stage": [
+        "intake"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "requirements.three-decision-layers",
+      "path": "references/resources/requirements/three-decision-layers.md",
+      "purpose": "2. Three Decision Layers",
+      "stage": [
+        "intake"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "requirements.adaptive-question-policy",
+      "path": "references/resources/requirements/adaptive-question-policy.md",
+      "purpose": "3. Adaptive Question Policy",
+      "stage": [
+        "intake"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "requirements.user-input-guidance",
+      "path": "references/resources/requirements/user-input-guidance.md",
+      "purpose": "4. User Input Guidance",
+      "stage": [
+        "intake"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "requirements.first-preview-planning",
+      "path": "references/resources/requirements/first-preview-planning.md",
+      "purpose": "5. First preview planning",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 6,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "requirements.generated-requirement-contract",
+      "path": "references/resources/requirements/generated-requirement-contract.md",
+      "purpose": "6. Generated Requirement Contract",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 7,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "requirements.fixed-harmonyos-defaults-from-native-references",
+      "path": "references/resources/requirements/fixed-harmonyos-defaults-from-native-references.md",
+      "purpose": "7. Fixed HarmonyOS Defaults From Native References",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 8,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "requirements.anti-patterns",
+      "path": "references/resources/requirements/anti-patterns.md",
+      "purpose": "8. Anti-Patterns",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 9,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "layout.overview",
+      "path": "references/resources/layout/overview.md",
+      "purpose": "HarmonyOS Desktop Layout System",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "layout.window-foundation",
+      "path": "references/resources/layout/window-foundation.md",
+      "purpose": "1. Window Foundation",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "layout.application-shell",
+      "path": "references/resources/layout/application-shell.md",
+      "purpose": "2. Application Shell",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "layout.page-spacing",
+      "path": "references/resources/layout/page-spacing.md",
+      "purpose": "3. Page Spacing",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "layout.grid",
+      "path": "references/resources/layout/grid.md",
+      "purpose": "4. Grid",
+      "stage": [
+        "styling"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "layout.resize-rules",
+      "path": "references/resources/layout/resize-rules.md",
+      "purpose": "5. Resize Rules",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "layout.html-mapping",
+      "path": "references/resources/layout/html-mapping.md",
+      "purpose": "7. HTML Mapping",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 7,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "layout.decisions-to-confirm",
+      "path": "references/resources/layout/decisions-to-confirm.md",
+      "purpose": "8. Decisions To Confirm",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 8,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "patterns.overview",
+      "path": "references/resources/patterns/overview.md",
+      "purpose": "HarmonyOS Native Desktop Layout Patterns",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "patterns.shared-window-anatomy",
+      "path": "references/resources/patterns/shared-window-anatomy.md",
+      "purpose": "1. Shared Window Anatomy",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.left-brand-anchor",
+      "path": "references/resources/patterns/left-brand-anchor.md",
+      "purpose": "Left Brand Anchor",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.primary-shell-global-primary-slot",
+      "path": "references/resources/patterns/primary-shell-global-primary-slot.md",
+      "purpose": "Primary Shell Global Primary Slot",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.context-area",
+      "path": "references/resources/patterns/context-area.md",
+      "purpose": "Context Area",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.right-action-and-window-area",
+      "path": "references/resources/patterns/right-action-and-window-area.md",
+      "purpose": "Right Action And Window Area",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.final-pane-leading-slot",
+      "path": "references/resources/patterns/final-pane-leading-slot.md",
+      "purpose": "Final Pane Leading Slot",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 6,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.reusable-pattern-primary-navigation-shell",
+      "path": "references/resources/patterns/reusable-pattern-primary-navigation-shell.md",
+      "purpose": "Reusable Pattern: Primary Navigation Shell",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 7,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "patterns.pattern-a-two-pane-navigation-content",
+      "path": "references/resources/patterns/pattern-a-two-pane-navigation-content.md",
+      "purpose": "Pattern A: Two-Pane Navigation + Content",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-a-two-pane"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 8,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.reusable-pattern-secondary-page-hierarchy",
+      "path": "references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md",
+      "purpose": "Reusable Pattern: Secondary Page Hierarchy",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "secondary-page"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 9,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.pattern-b-three-pane-navigation-list-detail",
+      "path": "references/resources/patterns/pattern-b-three-pane-navigation-list-detail.md",
+      "purpose": "Pattern B: Three-Pane Navigation + List + Detail",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-b-three-pane"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 10,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.pattern-c-navigation-tool-workspace",
+      "path": "references/resources/patterns/pattern-c-navigation-tool-workspace.md",
+      "purpose": "Pattern C: Navigation + Tool Workspace",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-c-tool-workspace"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 11,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.pattern-d-optional-inspector",
+      "path": "references/resources/patterns/pattern-d-optional-inspector.md",
+      "purpose": "Pattern D: Optional Inspector",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-d-inspector"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 12,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.primary-navigation",
+      "path": "references/resources/patterns/primary-navigation.md",
+      "purpose": "Primary Navigation",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 13,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.secondary-pane",
+      "path": "references/resources/patterns/secondary-pane.md",
+      "purpose": "Secondary Pane",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-b-three-pane"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 14,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.main-content",
+      "path": "references/resources/patterns/main-content.md",
+      "purpose": "Main Content",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 15,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.inspector",
+      "path": "references/resources/patterns/inspector.md",
+      "purpose": "Inspector",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-d-inspector"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 16,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.surface-and-divider-behavior",
+      "path": "references/resources/patterns/surface-and-divider-behavior.md",
+      "purpose": "5. Surface And Divider Behavior",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 17,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.scrolling",
+      "path": "references/resources/patterns/scrolling.md",
+      "purpose": "6. Scrolling",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 18,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.system-ui-boundary",
+      "path": "references/resources/patterns/system-ui-boundary.md",
+      "purpose": "7. System UI Boundary",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 19,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "patterns.shell-selection-rule",
+      "path": "references/resources/patterns/shell-selection-rule.md",
+      "purpose": "8. Shell Selection Rule",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 20,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "interaction.overview",
+      "path": "references/resources/interaction/overview.md",
+      "purpose": "HarmonyOS Desktop Interaction Specification",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "interaction.scope-and-source-levels",
+      "path": "references/resources/interaction/scope-and-source-levels.md",
+      "purpose": "1. Scope And Source Levels",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "interaction.official-platform-principles",
+      "path": "references/resources/interaction/official-platform-principles.md",
+      "purpose": "2. Official Platform Principles",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "interaction.pointer-and-mouse",
+      "path": "references/resources/interaction/pointer-and-mouse.md",
+      "purpose": "3. Pointer And Mouse",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "pointer"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.keyboard-and-focus",
+      "path": "references/resources/interaction/keyboard-and-focus.md",
+      "purpose": "4. Keyboard And Focus",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "keyboard"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.common-shortcuts",
+      "path": "references/resources/interaction/common-shortcuts.md",
+      "purpose": "5. Common Shortcuts",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "keyboard"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 7,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.navigation-and-selection",
+      "path": "references/resources/interaction/navigation-and-selection.md",
+      "purpose": "6. Navigation And Selection",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "selection"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 8,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.window-and-resize-behavior",
+      "path": "references/resources/interaction/window-and-resize-behavior.md",
+      "purpose": "7. Window And Resize Behavior",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "resize"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 9,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.overlay-selection",
+      "path": "references/resources/interaction/overlay-selection.md",
+      "purpose": "8. Overlay Selection",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "overlay"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 10,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.forms-and-validation",
+      "path": "references/resources/interaction/forms-and-validation.md",
+      "purpose": "9. Forms And Validation",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "form"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 11,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.state-feedback",
+      "path": "references/resources/interaction/state-feedback.md",
+      "purpose": "10. State Feedback",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "feedback"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 12,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.undo-and-destructive-actions",
+      "path": "references/resources/interaction/undo-and-destructive-actions.md",
+      "purpose": "11. Undo And Destructive Actions",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "undo"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 13,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.motion-sound-and-accessibility",
+      "path": "references/resources/interaction/motion-sound-and-accessibility.md",
+      "purpose": "12. Motion, Sound, And Accessibility",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "motion"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 14,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.interactive-frontend-demonstration",
+      "path": "references/resources/interaction/interactive-frontend-demonstration.md",
+      "purpose": "13. Interactive Frontend Demonstration",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 15,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "interaction.per-interaction-record",
+      "path": "references/resources/interaction/per-interaction-record.md",
+      "purpose": "14. Per-Interaction Record",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "record"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 16,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.interaction-qa-gate",
+      "path": "references/resources/interaction/interaction-qa-gate.md",
+      "purpose": "15. Interaction QA Gate",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "validation"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 17,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "composition.overview",
+      "path": "references/resources/composition/overview.md",
+      "purpose": "Page composition contract",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 0,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "composition.content-recipes-decide-before-binding",
+      "path": "references/resources/composition/content-recipes-decide-before-binding.md",
+      "purpose": "Content recipes: decide before binding",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 1,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "composition.executable-html-business-composites",
+      "path": "references/resources/composition/executable-html-business-composites.md",
+      "purpose": "Executable HTML business composites",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "page-module"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 2,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "composition.plans",
+      "path": "references/resources/composition/plans.md",
+      "purpose": "StylePlan 与 BehaviorPlan 参数和可执行行为",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [
+        "composition.overview"
+      ],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 3,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "composition.pattern-owned-navigation-shells",
+      "path": "references/resources/composition/pattern-owned-navigation-shells.md",
+      "purpose": "Pattern-owned navigation shells",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [
+        "composition.stroke-ownership"
+      ],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 4,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "composition.stroke-ownership",
+      "path": "references/resources/composition/stroke-ownership.md",
+      "purpose": "Stroke ownership",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 5,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "blueprint.overview",
+      "path": "references/resources/blueprint/overview.md",
+      "purpose": "Page Blueprint Design Contract",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "blueprint.required-decisions",
+      "path": "references/resources/blueprint/required-decisions.md",
+      "purpose": "Required decisions",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "blueprint.design-before-assembly",
+      "path": "references/resources/blueprint/design-before-assembly.md",
+      "purpose": "Design before assembly",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "blueprint.pattern-b-assembly-decisions",
+      "path": "references/resources/blueprint/pattern-b-assembly-decisions.md",
+      "purpose": "Pattern B assembly decisions",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-b-three-pane"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "blueprint.minimal-shape",
+      "path": "references/resources/blueprint/minimal-shape.md",
+      "purpose": "Minimal shape",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "design.overview",
+      "path": "references/resources/design/overview.md",
+      "purpose": "Design decisions before assembly",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "design.start-with-the-task-not-the-inventory",
+      "path": "references/resources/design/start-with-the-task-not-the-inventory.md",
+      "purpose": "Start with the task, not the inventory",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "design.design-at-the-real-content-width",
+      "path": "references/resources/design/design-at-the-real-content-width.md",
+      "purpose": "Design at the real content width",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "design.visual-alignment-and-grouping",
+      "path": "references/resources/design/visual-alignment-and-grouping.md",
+      "purpose": "Visual alignment and grouping",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "design.reuse-controls-design-missing-business-composites",
+      "path": "references/resources/design/reuse-controls-design-missing-business-composites.md",
+      "purpose": "Reuse controls; design missing business composites",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "design.one-deliberate-first-preview",
+      "path": "references/resources/design/one-deliberate-first-preview.md",
+      "purpose": "One deliberate first preview",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "supplement.overview",
+      "path": "references/resources/supplement/overview.md",
+      "purpose": "Extended Component Specifications",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "supplement.universal-contract",
+      "path": "references/resources/supplement/universal-contract.md",
+      "purpose": "Universal Contract",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "supplement.navigation-and-disclosure",
+      "path": "references/resources/supplement/navigation-and-disclosure.md",
+      "purpose": "Navigation And Disclosure",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "accordion",
+          "collapsible",
+          "tabs",
+          "sidebar",
+          "primary-navigation-item",
+          "breadcrumb",
+          "tree-view"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "supplement.overlays-and-commands",
+      "path": "references/resources/supplement/overlays-and-commands.md",
+      "purpose": "Overlays And Commands",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "dialog",
+          "alert-dialog",
+          "context-menu",
+          "dropdown-menu",
+          "popover",
+          "tooltip"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "extensionReferences": [
+        "command"
+      ],
+      "readPolicy": "stage"
+    },
+    {
+      "id": "supplement.form-composition",
+      "path": "references/resources/supplement/form-composition.md",
+      "purpose": "Form Composition",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "input",
+          "textarea",
+          "checkbox",
+          "radio",
+          "switch",
+          "combobox",
+          "native-select",
+          "select",
+          "slider",
+          "field",
+          "form-field",
+          "label",
+          "number-selector"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "supplement.loading-data-and-dates",
+      "path": "references/resources/supplement/loading-data-and-dates.md",
+      "purpose": "Loading, Data, And Dates",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "calendar",
+          "date-picker",
+          "time-picker",
+          "progress",
+          "table"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "extensionReferences": [
+        "skeleton",
+        "data-table"
+      ],
+      "readPolicy": "stage"
+    },
+    {
+      "id": "supplement.specialized-content-and-layout",
+      "path": "references/resources/supplement/specialized-content-and-layout.md",
+      "purpose": "Specialized Content And Layout",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "attachment",
+          "avatar",
+          "badge",
+          "list-card",
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 6,
+        "linkBase": "references"
+      },
+      "extensionReferences": [
+        "resizable",
+        "scroll-area",
+        "separator"
+      ],
+      "readPolicy": "stage"
+    },
+    {
+      "id": "titlebar.overview",
+      "path": "references/resources/titlebar/overview.md",
+      "purpose": "Titlebar · 分段标题栏",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 0,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "titlebar.scenarios",
+      "path": "references/resources/titlebar/scenarios.md",
+      "purpose": "Scenarios",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [
+        "titlebar.overview",
+        "titlebar.title-typography",
+        "titlebar.trailing-inset"
+      ],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 1,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "titlebar.title-typography",
+      "path": "references/resources/titlebar/title-typography.md",
+      "purpose": "Title typography",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 2,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "titlebar.trailing-inset",
+      "path": "references/resources/titlebar/trailing-inset.md",
+      "purpose": "Trailing inset",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 3,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "titlebar.executable-html-slots",
+      "path": "references/resources/titlebar/executable-html-slots.md",
+      "purpose": "Executable HTML slots",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [
+        "titlebar.overview",
+        "titlebar.title-typography",
+        "titlebar.trailing-inset"
+      ],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 4,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "titlebar.generated-titlebar-scene",
+      "path": "references/resources/titlebar/generated-titlebar-scene.md",
+      "purpose": "Generated Titlebar Scene",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [
+        "titlebar.overview",
+        "titlebar.title-typography",
+        "titlebar.trailing-inset"
+      ],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 5,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "delivery.overview",
+      "path": "references/resources/delivery/overview.md",
+      "purpose": "页面本地组件与动态渲染",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 0,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "delivery.reading",
+      "path": "references/resources/delivery/reading.md",
+      "purpose": "读取范围",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 1,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "delivery.project-output",
+      "path": "references/resources/delivery/project-output.md",
+      "purpose": "项目输出",
+      "stage": [
+        "design",
+        "validation"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 2,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "delivery.prepare",
+      "path": "references/resources/delivery/prepare.md",
+      "purpose": "两阶段命令",
+      "stage": [
+        "bindings",
+        "validation"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 3,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "delivery.styles",
+      "path": "references/resources/delivery/styles.md",
+      "purpose": "样式装配与读取边界",
+      "stage": [
+        "styling"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 4,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "delivery.calling",
+      "path": "references/resources/delivery/calling.md",
+      "purpose": "页面调用",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 5,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage"
+    },
+    {
+      "id": "core.delivery",
+      "path": "references/resources/core/delivery.md",
+      "purpose": "所有阶段的交付与来源边界",
+      "stage": [
+        "intake",
+        "design",
+        "discovery",
+        "bindings",
+        "styling",
+        "validation"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "stage"
+    },
+    {
+      "id": "validation.preview",
+      "path": "references/workflows/fast-preview.md",
+      "purpose": "Fast Preview 最小验证",
+      "stage": [
+        "validation"
+      ],
+      "appliesTo": {},
+      "requires": [
+        "core.delivery"
+      ],
+      "readPolicy": "stage"
+    },
+    {
+      "id": "validation.release",
+      "path": "references/workflows/release-validation.md",
+      "purpose": "正式发布验证",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [
+        "core.delivery"
+      ],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "components.resolution",
+      "path": "references/components/source-resolution.md",
+      "purpose": "组件来源、语义与成熟度",
+      "stage": [
+        "discovery"
+      ],
+      "appliesTo": {},
+      "requires": [
+        "core.delivery"
+      ],
+      "readPolicy": "stage"
+    },
+    {
+      "id": "interaction.date-picker",
+      "path": "references/resources/interaction/date-picker.md",
+      "purpose": "date-picker keyboard and commit behavior",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "date"
+        ]
+      },
+      "requires": [
+        "interaction.keyboard-and-focus"
+      ],
+      "readPolicy": "stage",
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      }
+    },
+    {
+      "id": "interaction.time-picker",
+      "path": "references/resources/interaction/time-picker.md",
+      "purpose": "time-picker keyboard and commit behavior",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "time"
+        ]
+      },
+      "requires": [
+        "interaction.keyboard-and-focus"
+      ],
+      "readPolicy": "stage",
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 6,
+        "linkBase": "references"
+      }
+    },
+    {
+      "id": "foundations.colors",
+      "path": "references/resources/foundations/colors.md",
+      "purpose": "Colors：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "foundations.typography",
+      "path": "references/resources/foundations/typography.md",
+      "purpose": "Typography：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "foundations.spacing",
+      "path": "references/resources/foundations/spacing.md",
+      "purpose": "Spacing：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "foundations.radius",
+      "path": "references/resources/foundations/radius.md",
+      "purpose": "Radius：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "foundations.size",
+      "path": "references/resources/foundations/size.md",
+      "purpose": "Size and Dimensions：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "foundations.shadows",
+      "path": "references/resources/foundations/shadows.md",
+      "purpose": "Shadows：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "component-visual.buttons",
+      "path": "references/resources/component-visual/buttons.md",
+      "purpose": "Buttons：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "component-visual.inputs",
+      "path": "references/resources/component-visual/inputs.md",
+      "purpose": "Inputs：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "component-visual.cards",
+      "path": "references/resources/component-visual/cards.md",
+      "purpose": "Cards：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "component-visual.navigation-and-lists",
+      "path": "references/resources/component-visual/navigation-and-lists.md",
+      "purpose": "Tabs, Navigation, and Lists：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "component-visual.data",
+      "path": "references/resources/component-visual/data.md",
+      "purpose": "Data Display：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "component-visual.feedback-and-overlays",
+      "path": "references/resources/component-visual/feedback-and-overlays.md",
+      "purpose": "Modals / Toasts：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "component-visual.tooltip",
+      "path": "references/resources/component-visual/tooltip.md",
+      "purpose": "Tooltip：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    },
+    {
+      "id": "maintenance.compatibility-components",
+      "path": "references/components/compatibility-modules.json",
+      "purpose": "未注册的历史兼容模块边界；不进入新页面组件选择",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query"
+    }
+  ],
+  "aliases": {
+    "patterns.global-title-layer": "patterns.left-brand-anchor",
+    "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
+    "patterns.pane-behavior": "patterns.primary-navigation",
+    "composition.style-and-behavior-plans": "composition.plans"
+  }
+}

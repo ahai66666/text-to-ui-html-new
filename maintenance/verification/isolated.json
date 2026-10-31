@@ -1,0 +1,78 @@
+[
+  {
+    "example": "settings",
+    "generated": true,
+    "result": {
+      "ok": true,
+      "schemaVersion": 1,
+      "skill": "text-to-ui-html-new",
+      "version": "0.1.0",
+      "output": "out/settings.html",
+      "sha256": "16fbea059219dfe9dce66188544cc0a7e3bac1056c79523723ccdd0da2be1166",
+      "bytes": 365831,
+      "modules": 35,
+      "stylesheets": 17,
+      "assets": 0,
+      "format": "classic-script",
+      "requiresServer": false
+    },
+    "sourceValid": true
+  },
+  {
+    "example": "records",
+    "generated": true,
+    "result": {
+      "ok": true,
+      "schemaVersion": 1,
+      "skill": "text-to-ui-html-new",
+      "version": "0.1.0",
+      "output": "out/records.html",
+      "sha256": "f112514cb7c1fc98d9536ff10f0919bfa942f64629afaac89de19b3ffa8d630d",
+      "bytes": 372810,
+      "modules": 36,
+      "stylesheets": 17,
+      "assets": 0,
+      "format": "classic-script",
+      "requiresServer": false
+    },
+    "sourceValid": true
+  },
+  {
+    "example": "workspace",
+    "generated": true,
+    "result": {
+      "ok": true,
+      "schemaVersion": 1,
+      "skill": "text-to-ui-html-new",
+      "version": "0.1.0",
+      "output": "out/workspace.html",
+      "sha256": "24f8783d6e1333349c1783d9019c1112b61c3fa305975efe6c3ab8138cf77fe2",
+      "bytes": 365627,
+      "modules": 35,
+      "stylesheets": 17,
+      "assets": 0,
+      "format": "classic-script",
+      "requiresServer": false
+    },
+    "sourceValid": true
+  },
+  {
+    "example": "inspector",
+    "generated": true,
+    "result": {
+      "ok": true,
+      "schemaVersion": 1,
+      "skill": "text-to-ui-html-new",
+      "version": "0.1.0",
+      "output": "out/inspector.html",
+      "sha256": "d2124093ea2b76648fe40c57f4f2612ad20c4626ec29d25ea66cea4cdfb9b46c",
+      "bytes": 370508,
+      "modules": 35,
+      "stylesheets": 17,
+      "assets": 0,
+      "format": "classic-script",
+      "requiresServer": false
+    },
+    "sourceValid": true
+  }
+]

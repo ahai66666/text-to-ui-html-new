@@ -1,0 +1,10 @@
+/* HTML-only catalog additions; component appearance comes from canonical CSS. */
+.tui-runtime-card[data-loading] { min-height:180px; }
+.tui-runtime-card { scroll-margin-top:calc(var(--height-titlebar-lg) + var(--space-5)); }
+.compact-parameter-preview { margin-top:var(--space-4); }
+.compact-parameter-preview summary { color:var(--color-brand-100); cursor:pointer; }
+.compact-parameter-preview textarea { display:block; width:100%; min-height:100px; padding:var(--space-3); margin-block:var(--space-3); border:1px solid var(--color-border); border-radius:var(--radius-2); background:var(--color-surface); color:var(--color-text); font:var(--type-body-m-size)/var(--type-body-m-leading) monospace; }
+.compact-parameter-message { color:var(--color-text-muted); font-size:var(--type-body-s-size); }
+
+.tui-runtime-card__head > .compact-component-title { display:flex; align-items:center; flex-wrap:wrap; gap:var(--space-2); }
+.compact-design-mapping-badge { display:inline-flex; align-items:center; flex-shrink:0; white-space:nowrap; padding:var(--space-1) var(--space-2); border-radius:var(--radius-2); color:var(--color-brand-100); background:var(--color-brand-10); font:var(--type-body-s-weight) var(--type-body-s-size)/var(--type-body-s-leading) var(--font-sans); }

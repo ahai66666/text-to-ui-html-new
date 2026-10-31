@@ -1,0 +1,469 @@
+.tui-pattern-runtime {
+  box-sizing: border-box;
+  display: grid;
+  /* The global title layer and the pane grid are two rows of one shell.
+     Without an explicit single track, CSS Grid auto-placement can put them
+     in adjacent implicit columns, which looks like a fourth pane and makes
+     title content paint over the first body row. */
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+  /* Fill the host window without imposing a fixed canvas size. This keeps
+     Pattern-owned bottom navigation pinned inside responsive previews while
+     preserving the page's natural width and the Pixso-only import dimensions. */
+  height: 100%;
+  min-width: var(--tui-pattern-min-width, 0);
+  min-height: var(--tui-pattern-min-height, 0);
+  overflow: hidden;
+  background: var(--color-surface, #fff);
+}
+
+/* Pattern shell CSS may define columns on the root for its pane geometry. The
+   Runtime renderer owns a different level of layout: one global title row over
+   one pane-grid row. Keep that contract explicit and more specific so import
+   order cannot turn the title layer into an accidental extra pane. */
+.tui-pattern-runtime[data-pattern] {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.tui-pattern-runtime__global-title,
+.tui-pattern-runtime__pane-title {
+  min-width: 0;
+  min-height: var(--layout-titlebar-height, 64px);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.tui-pattern-runtime__global-title {
+  padding-inline: var(--padding-titlebar-leading, var(--space-6, 24px)) var(--padding-titlebar-trailing-l, var(--space-5, 20px));
+  border-bottom: var(--layout-navigation-divider-width, 0.5px) solid var(--color-border, #e4e7eb);
+}
+
+/* A page-owned global title layer may provide the contract's pane-aligned
+   segments (Primary Navigation → Main Content or Primary Navigation →
+   Secondary → Main Detail). Keep the renderer responsible for the shared
+   grid while allowing the Titlebar component to own each segment's content. */
+.tui-pattern-runtime__global-title:has(> .tui-pattern-runtime__title-segments) {
+  min-height: 0;
+  display: block;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.tui-pattern-runtime__title-segments {
+  width: 100%;
+  min-width: 0;
+  min-height: var(--layout-titlebar-height, 64px);
+  display: grid;
+  grid-template-columns: repeat(var(--tui-pattern-pane-count, 1), minmax(0, 1fr));
+}
+
+.tui-pattern-runtime__title-segment {
+  min-width: 0;
+  height: var(--layout-titlebar-height, 64px);
+  min-height: var(--layout-titlebar-height, 64px);
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-inline-end: var(--layout-navigation-divider-width, 0.5px) solid var(--color-border, #e4e7eb);
+}
+
+.tui-pattern-runtime__title-segment:last-child { border-inline-end: 0; }
+
+.tui-pattern-runtime__title-segment > .tui-titlebar {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Pattern B's direct middle slot is content, not a second Titlebar. The
+   renderer owns its 64px row, 16px pane inset, and cross-axis centering so a
+   Search (or another future registered slot component) cannot stick to the
+   top edge or invent page-local padding. If a segment is intentionally
+   rendered by the Titlebar component, that component owns the same inset and
+   the shell must not apply it twice. */
+[data-tui-pattern="pattern-b-three-pane"] [data-pattern-title-segment="secondary-list"]:not(:has(> .tui-titlebar[data-pane-role="secondary-pane"])) {
+  padding-inline: var(--space-5, 16px);
+}
+
+[data-tui-pattern="pattern-b-three-pane"] [data-pattern-title-segment="secondary-list"] > .tui-component,
+[data-tui-pattern="pattern-b-three-pane"] [data-pattern-title-segment="secondary-list"] > [data-tui-behavior],
+[data-tui-pattern="pattern-b-three-pane"] [data-pattern-title-segment="secondary-list"] > [data-tui-action-behaviors] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+/* The final Titlebar owns responsive business-action overflow. Its menu must
+   be allowed to escape the segment while the component keeps the fixed
+   3×40px window-control group protected on the trailing edge. */
+[data-tui-pattern="pattern-b-three-pane"] [data-pattern-title-segment="main-detail"] {
+  overflow: visible;
+}
+
+[data-tui-pattern="pattern-b-three-pane"] [data-pattern-title-segment="main-detail"] > [data-tui-behavior],
+[data-tui-pattern="pattern-b-three-pane"] [data-pattern-title-segment="main-detail"] > [data-tui-action-behaviors] {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.tui-pattern-runtime__title-segment:first-child {
+  background: var(--color-sidebar-bg, #f7f8fa);
+}
+
+.tui-pattern-runtime__title-segment:not(:first-child) {
+  background: var(--color-surface, #fff);
+}
+
+/* The shell surface supplies the subtle navigation background.  Titlebar is
+   a transparent content component, so it must not paint a second coloured
+   strip under the logo or create a false layer below the primary segment. */
+.tui-pattern-runtime__title-segment .tui-titlebar {
+  background: var(--color-titlebar-normal-bg, transparent);
+}
+
+[data-tui-pattern="pattern-a-two-pane"] .tui-pattern-runtime__title-segments {
+  grid-template-columns: var(--layout-sidebar-width, 240px) minmax(0, 1fr);
+}
+
+[data-tui-pattern="pattern-b-three-pane"] .tui-pattern-runtime__title-segments {
+  grid-template-columns: var(--layout-sidebar-width, 240px) var(--layout-secondary-pane-width, 360px) minmax(500px, 1fr);
+}
+
+.tui-pattern-runtime:has(> .tui-pattern-runtime__global-title > .tui-pattern-runtime__title-segments) > .tui-pattern-runtime__pane-grid > .tui-pattern-runtime__pane > .tui-pattern-runtime__pane-title {
+  display: none;
+}
+
+.tui-pattern-runtime__pane-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--tui-pattern-pane-count, 1), minmax(0, 1fr));
+  min-width: 0;
+  min-height: 0;
+  box-sizing: border-box;
+}
+
+.tui-pattern-runtime__pane {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  overflow: hidden;
+  box-sizing: border-box;
+  background: var(--color-surface, #fff);
+  border-inline-end: var(--layout-navigation-divider-width, 0.5px) solid var(--color-border, #e4e7eb);
+}
+
+.tui-pattern-runtime__pane:last-child { border-inline-end: 0; }
+
+.tui-pattern-runtime__pane--navigation {
+  background: var(--color-sidebar-bg, #f7f8fa);
+}
+
+/* Pattern A: action above Sidebar, configurable footer outside scrolling. */
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation {
+  display: flex;
+  flex-direction: column;
+}
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
+  flex: 1 1 auto;
+  padding-block-start: var(--space-3, 8px);
+}
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] {
+  padding-inline: var(--space-5, 16px);
+  margin-block-start: 0;
+}
+.tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-footer"] {
+  flex: 0 0 auto;
+  padding-inline: var(--layout-sidebar-padding-x, var(--space-3, 12px));
+  padding-block: var(--space-3, 8px);
+  text-align: start;
+}
+
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane--navigation {
+  display: flex;
+  flex-direction: column;
+  padding-block-start: var(--space-3, 8px);
+}
+/* `data-pattern-shell-slot` remains on this wrapper for compatibility with
+   static Pattern markup. The Runtime owns this wrapper, though, so it must not
+   inherit the static shell's horizontal inset: the action slot below already
+   owns the single canonical pane inset. Otherwise generated pages that import
+   pattern-shell.css apply 16px twice and render a narrower primary action than
+   the Pattern Runtime Renderer. */
+.tui-pattern-runtime__navigation-top {
+  flex: 0 0 auto;
+  padding-inline: 0;
+  box-sizing: border-box;
+}
+.tui-pattern-runtime__navigation-top:empty { display: none; }
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] { margin-block-start: 0; }
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] {
+  padding-inline: var(--space-5, 16px);
+}
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  mask-image: linear-gradient(to bottom, #000 calc(100% - var(--space-5, 16px)), transparent);
+}
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding-block-start: var(--space-3, 8px);
+}
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > nav {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > span {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
+}
+
+.tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__pane-title {
+  padding-inline: 0;
+}
+
+.tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__pane-title:empty {
+  display: none;
+}
+
+.tui-pattern-runtime__pane-title {
+  padding-inline: var(--space-5, 20px);
+  border-bottom: var(--layout-navigation-divider-width, 0.5px) solid var(--color-border, #e4e7eb);
+}
+
+.tui-pattern-runtime__pane--navigation .tui-pattern-runtime__scroll-body {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  padding: 0;
+}
+
+.tui-pattern-runtime__scroll-body {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--space-5, 20px);
+  box-sizing: border-box;
+}
+
+/* Pattern B's Secondary List owns the horizontal surface inset and an 8px
+   top rhythm. Its scroll body ends flush with the pane so the collection can
+   define its own bottom edge. */
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane[data-tui-pane-role="secondary-list"] > .tui-pattern-runtime__scroll-body {
+  padding-inline: var(--layout-secondary-list-card-inset-x, var(--space-5, 16px));
+  padding-block-start: var(--space-3, 8px);
+  padding-block-end: var(--space-0, 0px);
+}
+
+/* Pane content insets are Pattern-owned, just like the Titlebar segments.
+   Do not let the generic scroll-body padding decide the final pane geometry. */
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane[data-tui-pane-role="main-detail"] > .tui-pattern-runtime__scroll-body {
+  padding-inline: var(--layout-main-detail-padding-x, var(--space-6, 24px));
+  padding-block-start: var(--layout-main-detail-padding-top, var(--space-5, 16px));
+  padding-block-end: var(--layout-main-detail-padding-bottom, var(--space-0, 0px));
+}
+
+.tui-pattern-runtime__slot {
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-shell-placement="middle-scroll"] {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+}
+
+.tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-shell-placement="bottom"] {
+  flex: 0 0 auto;
+  margin-block-start: auto;
+  padding-block-end: var(--space-3, 8px);
+}
+
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-footer"] {
+  padding-block-end: var(--space-3, 8px);
+}
+
+.tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] {
+  flex: 0 0 auto;
+  padding-inline: var(--layout-primary-action-slot-inset-x, var(--space-3, 12px));
+  margin-block: var(--layout-primary-action-slot-gap-top, var(--space-4, 16px)) var(--layout-primary-action-slot-gap-bottom, var(--space-3, 12px));
+}
+
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body > .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] {
+  padding-inline: var(--space-5, 16px);
+}
+
+.tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] .tui-button {
+  width: 100%;
+}
+
+.tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-shell"] {
+  flex: 0 0 auto;
+  padding-inline: var(--layout-sidebar-padding-x, var(--space-3, 12px));
+}
+
+.tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="secondary-navigation-content"] {
+  min-height: 0;
+  flex: 1 1 auto;
+  padding-inline: var(--layout-sidebar-padding-x, var(--space-3, 12px));
+  overflow: auto;
+}
+
+[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="secondary-navigation-content"] {
+  padding-inline: var(--space-5, 16px);
+  box-sizing: border-box;
+}
+
+.tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] {
+  padding-inline: var(--layout-sidebar-padding-x, var(--space-3, 12px));
+  padding-block-end: var(--space-3, 8px);
+}
+
+.tui-pattern-runtime__pane--content .tui-pattern-runtime__slot[data-pattern-slot="global-title-layer"],
+.tui-pattern-runtime__pane--content .tui-pattern-runtime__slot[data-pattern-slot="main-detail-actions"] {
+  display: flex;
+  align-items: center;
+}
+
+.tui-pattern-runtime__pane--content .tui-pattern-runtime__slot[data-pattern-slot="main-detail-actions"] {
+  justify-content: flex-end;
+}
+
+.tui-pattern-runtime__pane--content .tui-pattern-runtime__slot[data-pattern-slot="main-content-title"] {
+  width: 100%;
+}
+
+.tui-pattern-runtime__slot-placeholder {
+  display: block;
+  width: min(100%, 180px);
+  height: var(--height-button, 40px);
+  border-radius: var(--radius-card, 12px);
+  background: var(--color-neutral-dark-10, #e5e7eb);
+}
+
+[data-tui-pattern="pattern-a-two-pane"] {
+  --tui-pattern-min-width: 960px;
+  --tui-pattern-min-height: 640px;
+}
+
+[data-tui-pattern="pattern-a-two-pane"] > .tui-pattern-runtime__pane-grid {
+  grid-template-columns: var(--layout-sidebar-width, 240px) minmax(0, 1fr);
+}
+
+[data-tui-pattern="pattern-b-three-pane"] {
+  --tui-pattern-min-width: 1100px;
+  --tui-pattern-min-height: 720px;
+}
+
+[data-tui-pattern="pattern-b-three-pane"] > .tui-pattern-runtime__pane-grid {
+  grid-template-columns: var(--layout-sidebar-width, 240px) var(--layout-secondary-pane-width, 360px) minmax(500px, 1fr);
+}
+
+[data-tui-pattern="pattern-c-tool-workspace"] {
+  --tui-pattern-min-width: 1024px;
+  --tui-pattern-min-height: 720px;
+}
+
+[data-tui-pattern="pattern-c-tool-workspace"] > .tui-pattern-runtime__pane-grid {
+  grid-template-columns: var(--layout-sidebar-width, 240px) minmax(0, 1fr);
+}
+
+[data-tui-pattern="pattern-d-inspector"] {
+  --tui-pattern-min-width: 1280px;
+  --tui-pattern-min-height: 720px;
+}
+
+[data-tui-pattern="pattern-d-inspector"] > .tui-pattern-runtime__pane-grid {
+  grid-template-columns: var(--layout-sidebar-width, 240px) minmax(0, 1fr) minmax(0, 1fr) var(--layout-sidebar-width-wide, 360px);
+}
+
+.tui-secondary-page-runtime {
+  box-sizing: border-box;
+  min-width: var(--tui-secondary-page-min-width, 720px);
+  min-height: var(--tui-secondary-page-min-height, 520px);
+  overflow: hidden;
+  background: var(--color-surface, #fff);
+}
+
+.tui-secondary-page-runtime--continuation {
+  display: grid;
+  grid-template-columns: var(--layout-sidebar-width, 240px) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.tui-secondary-page-runtime--continuation > .tui-secondary-page-runtime__navigation {
+  grid-column: 1;
+  grid-row: 1 / -1;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border-inline-end: var(--layout-navigation-divider-width, 0.5px) solid var(--color-border, #e4e7eb);
+  background: var(--color-sidebar-bg, #f7f8fa);
+}
+
+.tui-secondary-page-runtime--continuation > .tui-secondary-page-runtime__titlebar {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.tui-secondary-page-runtime--continuation > .tui-secondary-page-runtime__content {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/* Continuation is the same two-pane shell as Pattern A. Its only extra
+   affordance is the page-owned return button before the right title. */
+.tui-secondary-page-runtime--continuation > .tui-secondary-page-runtime__titlebar {
+  min-height: var(--layout-titlebar-height, 64px);
+  border-block-end: 0;
+}
+
+.tui-secondary-page-runtime--new-page {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+.tui-secondary-page-runtime--new-page > .tui-secondary-page-runtime__content {
+  padding: var(--space-5, 16px) var(--space-6, 24px) 0;
+}
+
+.tui-secondary-page-runtime__titlebar {
+  min-width: 0;
+  min-height: var(--layout-titlebar-height-small, 40px);
+  display: flex;
+  align-items: center;
+  border-block-end: var(--layout-navigation-divider-width, 0.5px) solid var(--color-border, #e4e7eb);
+  background: var(--color-surface, #fff);
+}
+
+.tui-secondary-page-runtime__content {
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  padding: var(--layout-main-content-padding-top, var(--space-5, 20px)) var(--layout-main-content-padding-x, var(--space-6, 24px)) var(--layout-main-content-padding-bottom, var(--space-5, 20px));
+  background: var(--color-surface, #fff);
+}
+
+.tui-secondary-page-runtime__slot-placeholder {
+  display: block;
+  width: min(100%, 260px);
+  height: var(--height-button, 40px);
+  border-radius: var(--radius-button, 8px);
+  background: var(--color-neutral-dark-10, #e5e7eb);
+}
+
+/* A Pattern pane with the native hidden state must not keep its flex display. */
+.tui-pattern-runtime__pane[hidden] { display: none !important; }

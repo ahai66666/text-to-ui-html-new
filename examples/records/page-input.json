@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "id": "records",
+  "title": "记录管理",
+  "task": "记录管理",
+  "user": "桌面用户",
+  "workObject": "页面偏好",
+  "primaryJob": "查看设置并切换提示",
+  "entities": [
+    {
+      "id": "preference",
+      "fields": [
+        "name",
+        "value"
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "id": "navigation",
+      "region": "primary-navigation",
+      "purpose": "设置导航",
+      "children": [
+        {
+          "id": "nav",
+          "use": "primary-navigation-item",
+          "context": "primary-navigation-shell",
+          "options": {
+            "label": "记录管理",
+            "icon": "action/settings",
+            "selected": true
+          },
+          "behavior": "navigate"
+        }
+      ]
+    },
+    {
+      "id": "content-0",
+      "region": "secondary-list",
+      "purpose": "记录列表",
+      "composition": "search-toolbar",
+      "children": [
+        {
+          "id": "search",
+          "use": "search",
+          "context": "secondary-list-search",
+          "options": {
+            "placeholder": "搜索记录"
+          },
+          "behavior": "search-records"
+        },
+        {
+          "id": "toggle",
+          "use": "button",
+          "context": "page-primary-action",
+          "options": {
+            "label": "切换提示"
+          },
+          "behavior": "toggle-status"
+        },
+        {
+          "id": "status",
+          "text": "示例记录"
+        }
+      ]
+    },
+    {
+      "id": "content-1",
+      "region": "main-detail",
+      "purpose": "记录信息",
+      "composition": "field-group",
+      "children": [
+        {
+          "id": "info-1",
+          "text": "用户提供的信息"
+        }
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "navigate",
+      "kind": "component-native",
+      "triggers": [
+        "nav"
+      ],
+      "outcome": "选择设置导航"
+    },
+    {
+      "id": "toggle-status",
+      "kind": "toggle-hidden",
+      "sourceGroup": "content-0",
+      "triggers": [
+        "toggle"
+      ],
+      "targetSelector": "[data-composition-id=\"status\"]",
+      "outcome": "切换提示显示"
+    },
+    {
+      "id": "search-records",
+      "kind": "filter-collection",
+      "triggers": [
+        "search"
+      ],
+      "targetSelector": "[data-composition-id=\"status\"]",
+      "outcome": "按关键词筛选记录"
+    }
+  ],
+  "successCriteria": [
+    "切换提示按钮可隐藏和显示提示"
+  ],
+  "recoveryPaths": [
+    "重新打开页面恢复初始状态"
+  ],
+  "pattern": "pattern-b-three-pane",
+  "patternReason": "展示当前任务允许的布局"
+}

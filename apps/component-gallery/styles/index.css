@@ -1,0 +1,7 @@
+@import url("../../../packages/components-html/src/styles.css");
+@import url("../../../packages/pattern-runtime/src/styles.css");
+@import url("./canonical-shell.css");
+@import url("./canonical-runtime.css");
+@import url("./gallery.css");
+@import url("./pattern-framework.css");
+@import url("./compact-adaptations.css");

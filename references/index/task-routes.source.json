@@ -1,0 +1,206 @@
+{
+  "schemaVersion": 1,
+  "routes": [
+    {
+      "id": "communication-workbench",
+      "aliases": [
+        "mail-workbench",
+        "email-workbench",
+        "邮件工作台",
+        "邮箱",
+        "coremail",
+        "邮件",
+        "邮件页面",
+        "收件箱",
+        "电子邮件",
+        "邮件搜索"
+      ],
+      "domains": [
+        "mail",
+        "communication"
+      ],
+      "domainReference": "references/domains/email-workbench.md",
+      "layout": "pattern-b-three-pane",
+      "requiredCapabilities": [
+        "titlebar",
+        "primary-navigation-item",
+        "sidebar",
+        "search",
+        "list-item",
+        "checkbox",
+        "button",
+        "icon-button",
+        "tooltip",
+        "context-menu"
+      ],
+      "optionalCapabilities": [
+        "avatar",
+        "badge",
+        "snackbar",
+        "attachment",
+        "collapsible",
+        "combobox",
+        "native-select",
+        "select",
+        "dialog"
+      ],
+      "customCompositions": [
+        "email-message-row",
+        "mail-message-list",
+        "mail-detail-content"
+      ],
+      "allowedPatterns": [
+        "pattern-b-three-pane",
+        "pattern-a-two-pane",
+        "pattern-d-inspector"
+      ],
+      "patternSelection": {
+        "default": "pattern-b-three-pane",
+        "explicitAlternativeRequires": "--pattern-reason describing the primary information relationship",
+        "inspectorBase": "pattern-b-three-pane"
+      }
+    },
+    {
+      "id": "record-management-workbench",
+      "aliases": [
+        "contacts",
+        "tasks",
+        "file-list",
+        "联系人",
+        "任务管理",
+        "记录管理",
+        "通讯录",
+        "地址簿",
+        "待办事项"
+      ],
+      "domains": [
+        "contacts",
+        "tasks",
+        "records"
+      ],
+      "layout": "pattern-b-three-pane",
+      "requiredCapabilities": [
+        "titlebar",
+        "primary-navigation-item",
+        "sidebar",
+        "search",
+        "list-item",
+        "button",
+        "icon-button",
+        "context-menu"
+      ],
+      "optionalCapabilities": [
+        "checkbox",
+        "badge",
+        "dialog"
+      ],
+      "customCompositions": [
+        "domain-list-row",
+        "record-detail-content"
+      ],
+      "allowedPatterns": [
+        "pattern-b-three-pane",
+        "pattern-a-two-pane",
+        "pattern-d-inspector"
+      ],
+      "patternSelection": {
+        "default": "pattern-b-three-pane",
+        "explicitAlternativeRequires": "--pattern-reason describing the primary information relationship",
+        "inspectorBase": "pattern-b-three-pane"
+      }
+    },
+    {
+      "id": "dashboard-or-settings",
+      "aliases": [
+        "dashboard",
+        "settings",
+        "内容中心",
+        "设置",
+        "仪表盘",
+        "偏好设置",
+        "控制台"
+      ],
+      "domains": [
+        "dashboard",
+        "settings",
+        "content-hub"
+      ],
+      "layout": "pattern-a-two-pane",
+      "requiredCapabilities": [
+        "titlebar",
+        "primary-navigation-item",
+        "button"
+      ],
+      "optionalCapabilities": [
+        "tabs",
+        "search",
+        "combobox",
+        "native-select",
+        "select",
+        "switch",
+        "dialog",
+        "list-item"
+      ],
+      "customCompositions": [
+        "dashboard-section",
+        "dashboard-card"
+      ],
+      "allowedPatterns": [
+        "pattern-a-two-pane",
+        "pattern-b-three-pane"
+      ],
+      "patternSelection": {
+        "default": "pattern-a-two-pane",
+        "explicitAlternativeRequires": "--pattern-reason describing the primary information relationship",
+        "inspectorBase": null
+      }
+    },
+    {
+      "id": "tool-workspace",
+      "aliases": [
+        "file-manager",
+        "editor",
+        "asset-manager",
+        "文件管理",
+        "编辑器",
+        "工具工作台",
+        "文件浏览器",
+        "素材管理"
+      ],
+      "domains": [
+        "files",
+        "editor",
+        "assets"
+      ],
+      "layout": "pattern-c-tool-workspace",
+      "requiredCapabilities": [
+        "titlebar",
+        "primary-navigation-item",
+        "tabs",
+        "search",
+        "button",
+        "icon-button",
+        "context-menu"
+      ],
+      "optionalCapabilities": [
+        "tree-view",
+        "breadcrumb",
+        "tooltip",
+        "dialog"
+      ],
+      "customCompositions": [
+        "workspace-canvas",
+        "workspace-toolbar"
+      ],
+      "allowedPatterns": [
+        "pattern-c-tool-workspace",
+        "pattern-d-inspector"
+      ],
+      "patternSelection": {
+        "default": "pattern-c-tool-workspace",
+        "explicitAlternativeRequires": "--pattern-reason describing the primary information relationship",
+        "inspectorBase": "pattern-c-tool-workspace"
+      }
+    }
+  ]
+}

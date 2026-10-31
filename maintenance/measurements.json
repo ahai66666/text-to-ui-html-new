@@ -1,0 +1,72 @@
+{
+  "scope": "Measured instruction/query bundles for fixed examples, not a tokenizer or an external-model benchmark. Old: entry+route+shared binding packet+component API packets using real task discovery context, choosing the smaller JSON or Markdown and excluding read-plan. New: entry+consumer input+compact interfaces. Discovery/design/styling stage reads are not included for either side. Authoring counts compare equivalent expanded inputs; required business facts are not removed.",
+  "oldSkillUnchanged": true,
+  "changed": [],
+  "added": [],
+  "baseline": {
+    "files": 533,
+    "bytes": 3561573,
+    "repackedZipBytes": 909079,
+    "zipNote": "Repacked installed snapshot using same ZIP algorithm, not the previously published archive."
+  },
+  "consumer": {
+    "name": "text-to-ui-html-new",
+    "files": 451,
+    "bytes": 2603732,
+    "zipBytes": 804691,
+    "sha256": "ba43dc58957ad100d9e7ac33265e737e363d7ecb4c3d35109f070b7394087e7e"
+  },
+  "uncompressedReductionPercent": 26.9,
+  "tasks": [
+    {
+      "name": "settings",
+      "oldReadBytes": 76163,
+      "newReadBytes": 7389,
+      "reductionPercent": 90.3,
+      "authoring": {
+        "oldFiles": 4,
+        "newFiles": 1,
+        "oldJsonFields": 158,
+        "newJsonFields": 49,
+        "oldFixedOptions": 3,
+        "newFixedOptions": 0
+      }
+    },
+    {
+      "name": "records",
+      "oldReadBytes": 84782,
+      "newReadBytes": 8068,
+      "reductionPercent": 90.5,
+      "authoring": {
+        "oldFiles": 4,
+        "newFiles": 1,
+        "oldJsonFields": 233,
+        "newJsonFields": 69,
+        "oldFixedOptions": 3,
+        "newFixedOptions": 0
+      }
+    },
+    {
+      "name": "workspace",
+      "oldReadBytes": 80642,
+      "newReadBytes": 7400,
+      "reductionPercent": 90.8,
+      "authoring": {
+        "oldFiles": 4,
+        "newFiles": 1,
+        "oldJsonFields": 160,
+        "newJsonFields": 53,
+        "oldFixedOptions": 3,
+        "newFixedOptions": 0
+      }
+    },
+    {
+      "name": "micro-revision",
+      "oldReadBytes": 21398,
+      "newReadBytes": 6559,
+      "reductionPercent": 69.3
+    }
+  ],
+  "tokenCount": null,
+  "zipReductionPercent": 11.5
+}

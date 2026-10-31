@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "publisher": "ahai66666/text-to-ui-pixso",
+    "path": "assets/design-system/mapping-registry.json",
+    "profile": "html-to-pixso-harmonyos-client",
+    "sha256": "f25eaa450d1174e62d105c3edcef9d5522274ba58821ff4ca45533ccf3b88e61",
+    "confirmedOn": "2026-10-26"
+  },
+  "meaning": "已登记对应的 Pixso 设计组件；不代表全部变体或视觉验收通过。",
+  "components": [
+    {
+      "id": "accordion",
+      "logicalName": "Accordion/Default",
+      "pixsoTarget": "Accordion"
+    },
+    {
+      "id": "alert",
+      "logicalName": "Alert/Default",
+      "pixsoTarget": "Alert"
+    },
+    {
+      "id": "badge",
+      "logicalName": "Badge/Default",
+      "pixsoTarget": "Badge"
+    },
+    {
+      "id": "breadcrumb",
+      "logicalName": "Breadcrumb/Default",
+      "pixsoTarget": "Breadcrumb"
+    },
+    {
+      "id": "button",
+      "logicalName": "Button/Primary/Default",
+      "pixsoTarget": "Button"
+    },
+    {
+      "id": "checkbox",
+      "logicalName": "Checkbox/Default",
+      "pixsoTarget": "CheckBox"
+    },
+    {
+      "id": "chips",
+      "logicalName": "Chips/Default",
+      "pixsoTarget": "Chips"
+    },
+    {
+      "id": "radio",
+      "logicalName": "Radio/Unselected/Default",
+      "pixsoTarget": "Radio"
+    },
+    {
+      "id": "collapsible",
+      "logicalName": "Collapsible/Default",
+      "pixsoTarget": "Collapsible"
+    },
+    {
+      "id": "dialog",
+      "logicalName": "Dialog/Default",
+      "pixsoTarget": "Dialog-2in1"
+    },
+    {
+      "id": "form-field",
+      "logicalName": "Form Field/Default",
+      "pixsoTarget": "Form Field"
+    },
+    {
+      "id": "input",
+      "logicalName": "Input/White Surface/Default",
+      "pixsoTarget": "Input"
+    },
+    {
+      "id": "menubar",
+      "logicalName": "Menubar/Default",
+      "pixsoTarget": "Menubar"
+    },
+    {
+      "id": "number-selector",
+      "logicalName": "Number Selector/Default",
+      "pixsoTarget": "Number Selector/Default"
+    },
+    {
+      "id": "pagination",
+      "logicalName": "Pagination/Default",
+      "pixsoTarget": "Pagination/Default"
+    },
+    {
+      "id": "progress",
+      "logicalName": "Progress/Default",
+      "pixsoTarget": "Progress/Default"
+    },
+    {
+      "id": "search",
+      "logicalName": "Search/White Surface/Default",
+      "pixsoTarget": "Search"
+    },
+    {
+      "id": "segmented-button",
+      "logicalName": "Segmented Button/Default",
+      "pixsoTarget": "Segmented Button"
+    },
+    {
+      "id": "sidebar",
+      "logicalName": "Sidebar Item/Default",
+      "pixsoTarget": "Sidebar Item"
+    },
+    {
+      "id": "slider",
+      "logicalName": "Slider/Default",
+      "pixsoTarget": "Slider"
+    },
+    {
+      "id": "color-picker",
+      "logicalName": "ColorPicker/Tablet",
+      "pixsoTarget": "Snackbar/ColorPicker-Tablet"
+    },
+    {
+      "id": "switch",
+      "logicalName": "Switch/Default",
+      "pixsoTarget": "Switch"
+    },
+    {
+      "id": "sub-tabs",
+      "logicalName": "Sub Tabs/Default",
+      "pixsoTarget": "Sub Tabs Item",
+      "note": "默认样式已登记；small 尺寸尚未映射。"
+    },
+    {
+      "id": "textarea",
+      "logicalName": "Textarea/Default",
+      "pixsoTarget": "Textarea"
+    },
+    {
+      "id": "snackbar",
+      "logicalName": "Snackbar/Default",
+      "pixsoTarget": "Snackbar"
+    },
+    {
+      "id": "primary-navigation-item",
+      "logicalName": "Primary Navigation Item/Level 1",
+      "pixsoTarget": "Primary Navigation Item icon",
+      "note": "按用户制作的单项组件登记五种状态；focus 未覆盖，内部图标20px与契约24px有差异，图标替换未暴露。"
+    }
+  ]
+}

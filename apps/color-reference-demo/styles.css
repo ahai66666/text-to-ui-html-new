@@ -1,0 +1,9 @@
+@import '../../packages/tokens/src/index.css';
+@import '../../packages/component-styles/src/index.css';
+:root { --demo-brand:var(--color-primary); --demo-link:var(--color-primary); }
+body { margin:0; padding:32px; font-family:var(--font-sans); color:var(--color-text); background:var(--color-surface); }
+main { max-width:1000px; margin:auto; } #app { display:flex; gap:16px; flex-wrap:wrap; padding:24px 0; }
+.demo-brand { color:var(--demo-brand); background:var(--color-surface); border:1px solid var(--demo-brand); }
+.demo-brand:hover { background:var(--color-brand-10); }
+.demo-link { color:var(--demo-link); background:var(--color-surface); border:1px solid var(--demo-link); }
+pre { white-space:pre-wrap; overflow-wrap:anywhere; background:var(--color-sidebar-bg); padding:16px; border-radius:8px; }

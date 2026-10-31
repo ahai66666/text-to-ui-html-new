@@ -1,0 +1,485 @@
+/* Gallery-shell rules only. Canonical component and runtime CSS are imported
+   as module dependencies by preview.js so Vite emits a self-contained bundle. */
+
+/* Pattern is a flat baseline surface. Each complete Pattern owns one row so
+   its title, controls and preview can be read as a single horizontal unit. */
+.pattern-baseline-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-5);
+}
+
+.pattern-baseline-grid > .pattern-baseline-card {
+  min-width: 0;
+  margin: 0;
+  display: block;
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section {
+  margin: 0;
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section > .section-head {
+  margin-bottom: var(--space-3);
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section > .section-head h3 {
+  font-size: var(--type-subtitle-l-size);
+  line-height: var(--type-subtitle-l-leading);
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section > .section-head .section-note {
+  max-width: 56ch;
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section > .pattern-preview-controls {
+  margin-bottom: var(--space-3);
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section > .pattern-sample,
+.pattern-baseline-grid > .pattern-baseline-card > .section > [data-secondary-page-mode-panel] > .pattern-sample {
+  max-width: 100%;
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section > .pattern-sample {
+  overflow: auto;
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section > .three-pane-pattern-viewport {
+  overflow-x: auto;
+}
+
+.pattern-baseline-grid > .pattern-baseline-card > .section > .secondary-page-mode-switch {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.pattern-runtime-renderer-card > .section {
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.pattern-runtime-renderer-card .section-head {
+  align-items: flex-start;
+}
+
+.pattern-runtime-renderer-card .section-head > div {
+  min-width: 0;
+}
+
+.pattern-runtime-renderer-card .section-head h3 {
+  margin-bottom: var(--space-2);
+}
+
+.pattern-runtime-preview-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  padding: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-button);
+  background: var(--color-bg-subtle);
+}
+
+.pattern-runtime-preview-control-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  flex-wrap: wrap;
+}
+
+.pattern-runtime-preview-control-group > span {
+  margin-inline: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--type-body-s-size);
+  line-height: var(--type-body-s-leading);
+}
+
+.pattern-runtime-preview-control {
+  min-height: var(--height-button-sm);
+  padding-inline: var(--space-3);
+  border: 0;
+  border-radius: var(--radius-button);
+  color: var(--color-text-muted);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+}
+
+.pattern-runtime-preview-control:hover {
+  background: var(--state-layer-hover);
+}
+
+.pattern-runtime-preview-control.is-selected {
+  color: var(--color-sidebar-selected-text);
+  background: var(--color-sidebar-selected);
+  font-weight: var(--type-subtitle-s-weight);
+}
+
+.pattern-runtime-preview-control:focus-visible {
+  outline: 2px solid var(--color-focus-ring);
+  outline-offset: 2px;
+}
+
+.pattern-runtime-renderer-sample {
+  /* Keep the renderer viewport in the same visual frame as the approved
+     Primary Navigation Shell .pattern-sample (440px baseline). The runtime
+     contract still exposes its own minimum window via data-pattern-minimum-window;
+     this is only the gallery viewport used for side-by-side review. */
+  min-height: 440px;
+  overflow: auto;
+  background: var(--color-bg-subtle);
+}
+
+.pattern-runtime-renderer-sample > .tui-pattern-runtime {
+  height: 440px;
+  max-height: 440px;
+  min-height: 440px;
+  width: 100%;
+  background: var(--color-bg-subtle);
+}
+
+.pattern-runtime-preview-heading {
+  width: 100%;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.pattern-runtime-preview-heading strong {
+  display: block;
+}
+
+.pattern-runtime-preview-heading span {
+  color: var(--color-text-muted);
+}
+
+.pattern-runtime-preview-primary-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.pattern-runtime-preview-primary-items .tui-primary-navigation-item {
+  min-width: 0;
+}
+
+.pattern-runtime-preview-detail-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.pattern-runtime-preview-content {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.pattern-runtime-preview-card {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--padding-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.pattern-runtime-preview-card > span,
+.pattern-runtime-preview-content p,
+.pattern-runtime-preview-card small {
+  color: var(--color-text-muted);
+}
+
+.pattern-runtime-preview-card--large {
+  min-height: 180px;
+  align-content: start;
+  gap: var(--space-4);
+}
+
+.pattern-runtime-preview-line {
+  display: block;
+  width: 78%;
+  height: 12px;
+  border-radius: var(--radius-2);
+  background: var(--color-neutral-dark-10);
+}
+
+.pattern-runtime-preview-line--wide { width: 100%; }
+.pattern-runtime-preview-line--short { width: 58%; }
+
+.pattern-runtime-preview-list {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.pattern-runtime-preview-list-heading {
+  min-height: var(--height-list-heading);
+  padding-inline: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.pattern-runtime-preview-list-heading span {
+  color: var(--color-text-muted);
+}
+
+.pattern-runtime-preview-list-heading-actions {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-1);
+}
+
+.pattern-runtime-preview-list-meta {
+  min-height: var(--type-body-m-leading);
+  padding-inline: var(--space-3);
+  display: flex;
+  align-items: center;
+  color: var(--color-text-muted);
+}
+
+.pattern-runtime-preview-list-item {
+  width: 100%;
+  min-height: 64px;
+  padding: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  border: 0;
+  border-radius: var(--radius-list-item);
+  color: var(--color-text);
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.pattern-runtime-preview-list-item:hover {
+  background: var(--state-layer-hover);
+}
+
+.pattern-runtime-preview-list-item.is-selected {
+  background: var(--color-sidebar-selected);
+}
+
+.pattern-runtime-preview-list-item > span:last-child {
+  min-width: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.pattern-runtime-preview-list-item-content {
+  flex: 1 1 auto;
+}
+
+.pattern-runtime-preview-list-item small {
+  color: var(--color-text-muted);
+}
+
+.pattern-runtime-preview-list-icon {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-icon-button);
+  color: var(--color-brand-100);
+  background: var(--color-brand-10);
+  font-size: var(--type-body-s-size);
+}
+
+.pattern-runtime-preview-detail-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.pattern-runtime-preview-detail-heading + p {
+  margin: calc(var(--space-2) * -1) 0 0;
+}
+
+.pattern-runtime-preview-status {
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  color: var(--color-success);
+  background: var(--color-success-subtle);
+  font-size: var(--type-body-s-size);
+}
+
+.secondary-page-runtime-sample {
+  min-height: 0;
+  overflow: visible;
+  background: var(--color-bg-subtle);
+}
+
+.secondary-page-runtime-sample > .tui-secondary-page-runtime {
+  --tui-secondary-page-min-width: 720px;
+  --tui-secondary-page-min-height: 0px;
+  height: auto;
+}
+
+/* The continuation layout reuses the canonical Pattern Runtime left shell:
+   Titlebar brand -> primary action -> Sidebar -> bottom utility action. */
+.tui-secondary-page-runtime--continuation > .tui-secondary-page-runtime__navigation {
+  padding: 0;
+  display: flex;
+  overflow: hidden;
+}
+
+.secondary-page-runtime-navigation-shell {
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.secondary-page-runtime-navigation-titlebar {
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.secondary-page-runtime-navigation-titlebar > .tui-titlebar {
+  border-block-end: 0;
+  background-image: none;
+}
+
+.secondary-page-runtime-navigation-body {
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  padding-block-start: var(--space-3, 8px);
+}
+
+.secondary-page-runtime-primary-action {
+  flex: 0 0 auto;
+  padding-inline: var(--space-5, 16px);
+  margin-block-end: var(--space-3, 8px);
+}
+
+.secondary-page-runtime-primary-action > .tui-button {
+  width: 100%;
+}
+
+.secondary-page-runtime-navigation-body > .tui-sidebar {
+  padding-inline: var(--space-5, 16px);
+}
+
+.secondary-page-runtime-navigation-footer {
+  flex: 0 0 auto;
+  padding: var(--space-3, 8px) var(--space-5, 16px);
+}
+
+.secondary-page-runtime-navigation-footer > .tui-button {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.tui-secondary-page-runtime--continuation > .tui-secondary-page-runtime__titlebar > .tui-titlebar {
+  min-width: 0;
+  width: 100%;
+  border-block-end: 0;
+  background: var(--color-surface, #fff);
+}
+
+/* A Secondary Page Skeleton represents the full Titlebar slot. The generic
+   slot placeholder is intentionally compact for ordinary content slots, but
+   it must not collapse a shell-owned titlebar to a 260px content block. */
+.tui-secondary-page-runtime--continuation > .tui-secondary-page-runtime__titlebar > .tui-secondary-page-runtime__slot-placeholder {
+  width: 100%;
+  height: var(--layout-titlebar-height, 64px);
+  min-height: var(--layout-titlebar-height, 64px);
+  border-radius: 0;
+}
+
+.tui-secondary-page-runtime--new-page > .tui-secondary-page-runtime__titlebar > .tui-secondary-page-runtime__slot-placeholder {
+  width: 100%;
+  height: var(--layout-titlebar-height-small, 40px);
+  min-height: var(--layout-titlebar-height-small, 40px);
+  border-radius: 0;
+}
+
+.secondary-page-runtime-content {
+  display: grid;
+  gap: var(--space-5);
+}
+
+.secondary-page-runtime-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-5);
+}
+
+.secondary-page-runtime-heading h4 {
+  margin: 0;
+  font-size: var(--type-title-m-size);
+  line-height: var(--type-title-m-leading);
+  font-weight: var(--type-title-m-weight);
+}
+
+.secondary-page-runtime-heading p {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+}
+
+.secondary-page-runtime-form {
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+}
+
+.secondary-page-runtime-setting {
+  min-height: 80px;
+  padding: 0 var(--padding-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  border-block-end: 1px solid var(--color-divider);
+}
+
+.secondary-page-runtime-setting:last-child {
+  border-block-end: 0;
+}
+
+.secondary-page-runtime-setting > span:first-child {
+  min-width: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.secondary-page-runtime-setting small {
+  color: var(--color-text-muted);
+}
+
+.secondary-page-runtime-setting .tui-switch {
+  flex: 0 0 auto;
+}
+
+@media (max-width: 720px) {
+  .pattern-runtime-preview-controls {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .pattern-runtime-preview-control-group {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 720px) {
+  .pattern-baseline-grid {
+    gap: var(--space-4);
+  }
+}

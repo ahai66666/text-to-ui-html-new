@@ -1,0 +1,2416 @@
+{
+  "schemaVersion": 1,
+  "components": [
+    {
+      "id": "accordion",
+      "source": "packages/components-html/src/accordion/index.js",
+      "contractSha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "size": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "alert-dialog",
+      "source": "packages/components-html/src/alert-dialog/index.js",
+      "contractSha256": "8017bd049ccbfa350297a8116659c35500d906c944f2aa8bdd40cc10747055d7",
+      "parameters": {
+        "open": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "title": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "description": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "confirmLabel": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "cancelLabel": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "statusIcon": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onConfirm",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onCancel",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onOpenChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "alert",
+      "source": "packages/components-html/src/alert/index.js",
+      "contractSha256": "66c7ffc790a9399fe74114586097b4d984c743f8786146994f55cab275676397",
+      "parameters": {
+        "title": {
+          "disposition": "model-writable"
+        },
+        "detail": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "expanded": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "contentId": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "attachment",
+      "source": "packages/components-html/src/attachment/index.js",
+      "contractSha256": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee",
+      "parameters": {
+        "type": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "name": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "meta": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "leading": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "content": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "actions": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "message-attachment",
+          "capabilities": [
+            "attachment",
+            "message-attachment"
+          ],
+          "parameters": {
+            "type": {
+              "disposition": "model-writable"
+            },
+            "name": {
+              "disposition": "model-writable"
+            },
+            "meta": {
+              "disposition": "model-writable"
+            },
+            "leading": {
+              "disposition": "model-writable"
+            },
+            "content": {
+              "disposition": "model-writable"
+            },
+            "actions": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onAction",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onPreview",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onDownload",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "avatar",
+      "source": "packages/components-html/src/avatar/index.js",
+      "contractSha256": "eb4241fa1e6dc0b4bdd7773284a3e4198b5215e4133bed5bcaab813a3f29c07e",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "description": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "checked": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "name": {
+          "disposition": "model-writable"
+        },
+        "ariaLabel": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "badge",
+      "source": "packages/components-html/src/badge/index.js",
+      "contractSha256": "411ca3b956912f81329d8f324e39b753844ae442218d8d2a3c640016119a41ee",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "tone": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "breadcrumb",
+      "source": "packages/components-html/src/breadcrumb/index.js",
+      "contractSha256": "0e4dde6c16263377478e84c2af87da3a63fe150e5db05e24f7f0c8b109808a6c",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "button",
+      "source": "packages/components-html/src/button/index.js",
+      "contractSha256": "5fe21e0684a1bc77723cec127fbce8b8cc866f9c9295b0dc267d67741f9b2dbf",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "variant": {
+          "disposition": "model-writable"
+        },
+        "size": {
+          "disposition": "model-writable"
+        },
+        "mode": {
+          "disposition": "model-writable"
+        },
+        "iconOnly": {
+          "disposition": "model-writable"
+        },
+        "icon": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "iconSize": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "menuItems": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "page-primary-action",
+          "capabilities": [
+            "button",
+            "page-primary-action"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "variant": {
+              "disposition": "scenario-fixed",
+              "value": "primary"
+            },
+            "size": {
+              "disposition": "scenario-fixed",
+              "value": "standard"
+            },
+            "mode": {
+              "disposition": "scenario-fixed",
+              "value": "text"
+            },
+            "iconOnly": {
+              "disposition": "model-writable"
+            },
+            "icon": {
+              "disposition": "model-writable"
+            },
+            "iconSize": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "menuItems": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "toolbar-action",
+          "capabilities": [
+            "icon-button",
+            "toolbar-icon-action"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "variant": {
+              "disposition": "scenario-fixed",
+              "value": "ghost"
+            },
+            "size": {
+              "disposition": "scenario-fixed",
+              "value": "small"
+            },
+            "mode": {
+              "disposition": "scenario-fixed",
+              "value": "icon"
+            },
+            "iconOnly": {
+              "disposition": "model-writable"
+            },
+            "icon": {
+              "disposition": "model-writable"
+            },
+            "iconSize": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "menuItems": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "toolbar-action",
+          "capabilities": [
+            "icon-text-button",
+            "toolbar-icon-text-action"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "variant": {
+              "disposition": "scenario-fixed",
+              "value": "ghost"
+            },
+            "size": {
+              "disposition": "scenario-fixed",
+              "value": "standard"
+            },
+            "mode": {
+              "disposition": "scenario-fixed",
+              "value": "icon-text"
+            },
+            "iconOnly": {
+              "disposition": "model-writable"
+            },
+            "icon": {
+              "disposition": "model-writable"
+            },
+            "iconSize": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "menuItems": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "titlebar-main-detail-actions",
+          "capabilities": [
+            "icon-button",
+            "icon-text-button",
+            "main-detail-action"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "variant": {
+              "disposition": "scenario-fixed",
+              "value": "ghost"
+            },
+            "size": {
+              "disposition": "model-writable"
+            },
+            "mode": {
+              "disposition": "model-writable"
+            },
+            "iconOnly": {
+              "disposition": "model-writable"
+            },
+            "icon": {
+              "disposition": "model-writable"
+            },
+            "iconSize": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "menuItems": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "destructive-action",
+          "capabilities": [
+            "button",
+            "destructive-action"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "variant": {
+              "disposition": "scenario-fixed",
+              "value": "danger"
+            },
+            "size": {
+              "disposition": "scenario-fixed",
+              "value": "standard"
+            },
+            "mode": {
+              "disposition": "scenario-fixed",
+              "value": "text"
+            },
+            "iconOnly": {
+              "disposition": "model-writable"
+            },
+            "icon": {
+              "disposition": "model-writable"
+            },
+            "iconSize": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "menuItems": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "calendar",
+      "source": "packages/components-html/src/calendar/index.js",
+      "contractSha256": "633310e492fc029e73eb19b922f9f12883217f652521ca06b2aeacf11b078257",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "checkbox",
+      "source": "packages/components-html/src/checkbox/index.js",
+      "contractSha256": "e9d8fb5e7cf91f815053692811a495efbbbc7ca009ccb6e8d045d62fc310494d",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "selection-control",
+          "capabilities": [
+            "checkbox",
+            "selection-control"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "value": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "chips",
+      "source": "packages/components-html/src/chips/index.js",
+      "contractSha256": "cb696e10d3ed29963b22e10bd3cd2d6a8ccc59fe012e64bff444981e87a1ff64",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "icon": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "closable": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onClose",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "collapsible",
+      "source": "packages/components-html/src/collapsible/index.js",
+      "contractSha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455",
+      "parameters": {
+        "title": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "detail": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "expanded": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "contentId": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "color-picker",
+      "source": "packages/components-html/src/color-picker/index.js",
+      "contractSha256": "b3fc9607ead099c7a411f664830dc1962981cf38a9e841d2d0ce17c310d3f72e",
+      "parameters": {
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "defaultValue": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": [
+        {
+          "name": "onChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "combobox",
+      "source": "packages/components-html/src/combobox/index.js",
+      "contractSha256": "db07bf58e810ff12f89617f4445582ce8d609788ee83043f430470468f2938e5",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "context-menu",
+      "source": "packages/components-html/src/context-menu/index.js",
+      "contractSha256": "ab1aeee861535bc583de7a76f4d4ec51793c97fe143ee74500d909ec084383bd",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "date-picker",
+      "source": "packages/components-html/src/date-picker/index.js",
+      "contractSha256": "afed1e52d33589928555cbe5444d58b44df33e6446a3c03058285a1020d92d17",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "dialog",
+      "source": "packages/components-html/src/dialog/index.js",
+      "contractSha256": "e8135420de6f3ce23ea6392224551c34ed3368cefc0fc7afbdd37b84a2409e1c",
+      "parameters": {
+        "open": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "title": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "description": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "intent": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "actionLayout": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "confirmLabel": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "cancelLabel": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "thirdActionLabel": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onConfirm",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onCancel",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onThirdAction",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onOpenChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "dropdown-menu",
+      "source": "packages/components-html/src/dropdown-menu/index.js",
+      "contractSha256": "ecb2612a139d4aa2ee5b84b5122f734d14a0d84922235c023ba89f2adaab5c85",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "field",
+      "source": "packages/components-html/src/field/index.js",
+      "contractSha256": "aadffe7262caa78762fe6cf334620a17045f89d56a9864090ce0fb380280947e",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "form-field",
+      "source": "packages/components-html/src/form-field/index.js",
+      "contractSha256": "2419fad30955b260674a33182298387bb05104390b3cb9dba3d56ba523cb03a5",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "required": {
+          "disposition": "model-writable"
+        },
+        "error": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "surface": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "form-field",
+          "capabilities": [
+            "form-field",
+            "field-wrapper"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "required": {
+              "disposition": "model-writable"
+            },
+            "error": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "surface": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "hover-card",
+      "source": "packages/components-html/src/hover-card/index.js",
+      "contractSha256": "c26658f7199d7820e65bf06afa95f8b3778048a3c11d1038ba541388ea92dcfc",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "input",
+      "source": "packages/components-html/src/input/index.js",
+      "contractSha256": "b3a68f6d2b762252d37adeefd8ddb01499b75345de98d6748451a7feb02d698e",
+      "parameters": {
+        "value": {
+          "disposition": "model-writable"
+        },
+        "placeholder": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "error": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "variant": {
+          "disposition": "model-writable"
+        },
+        "label": {
+          "disposition": "model-writable"
+        },
+        "options": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "tags": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "defaultTags": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "surface": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "label",
+      "source": "packages/components-html/src/label/index.js",
+      "contractSha256": "18df89851b843796ebd1790fd9f1ef573002094aec62cb48a1c69978c21eca8d",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "list-card",
+      "source": "packages/components-html/src/list-card/index.js",
+      "contractSha256": "2c67d674bb10d52b87ee29d458bf31352743c60f1a74c630c6f80d63a58c07ad",
+      "parameters": {
+        "title": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "description": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "meta": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "selected": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "unread": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "repeated-list-row",
+          "capabilities": [
+            "list-item",
+            "list-row"
+          ],
+          "parameters": {
+            "title": {
+              "disposition": "model-writable"
+            },
+            "description": {
+              "disposition": "model-writable"
+            },
+            "meta": {
+              "disposition": "model-writable"
+            },
+            "selected": {
+              "disposition": "model-writable"
+            },
+            "unread": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "menubar",
+      "source": "packages/components-html/src/menubar/index.js",
+      "contractSha256": "65474143ea766a7f5e58218101542b40e4162ae981bbb327e3945994aa7fc4dd",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "items": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "surface": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "native-select",
+      "source": "packages/components-html/src/native-select/index.js",
+      "contractSha256": "01f2a549f7ceb676251aa75ee2b8c0a9f5020972b51a951cf31f3a3ada83d75e",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "number-selector",
+      "source": "packages/components-html/src/number-selector/index.js",
+      "contractSha256": "14840959212e589daec0dcce287516ba2df93d902432d879d5fdff4464cd2c58",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "defaultValue": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "min": {
+          "disposition": "model-writable"
+        },
+        "max": {
+          "disposition": "model-writable"
+        },
+        "step": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "pagination",
+      "source": "packages/components-html/src/pagination/index.js",
+      "contractSha256": "9c30f1cf3fcd5f884535debc2dcb847b48da26d27b99c9befd445a31b4bc830f",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "popover",
+      "source": "packages/components-html/src/popover/index.js",
+      "contractSha256": "c9bbce982b7a4c806b1a788ccaec9cc2b08ebf4eae08b8cbe079ad98ba789d08",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "primary-navigation-item",
+      "source": "packages/components-html/src/primary-navigation-item/index.js",
+      "contractSha256": "70ca9089bc4fc9e6c6dc2a4650524ac8bbcd9140e76a610920145a28c3440f53",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "ariaLabel": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "icon": {
+          "disposition": "model-writable"
+        },
+        "selected": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "primary-navigation-shell",
+          "capabilities": [
+            "primary-navigation",
+            "primary-navigation-item",
+            "level-one-navigation"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "ariaLabel": {
+              "disposition": "model-writable"
+            },
+            "icon": {
+              "disposition": "model-writable"
+            },
+            "selected": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": [
+        {
+          "name": "onSelect",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "progress",
+      "source": "packages/components-html/src/progress/index.js",
+      "contractSha256": "63b968a4677cb4e30ef80d76408cfee7d4bfefd8b1001216ec910f4437489f97",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "radio-group",
+      "source": "packages/components-html/src/radio-group/index.js",
+      "contractSha256": "ccaa4aeea0d04a965a9444667438b3ceb709817b0feff94742263b7e4825aebc",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "radio",
+      "source": "packages/components-html/src/radio/index.js",
+      "contractSha256": "1fb4c5974f2249f9a04502475c86bd01d8db0d92b47569d2f178a2d328d77a2c",
+      "parameters": {
+        "checked": {
+          "disposition": "model-writable"
+        },
+        "defaultChecked": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "label": {
+          "disposition": "model-writable"
+        },
+        "name": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "search",
+      "source": "packages/components-html/src/search/index.js",
+      "contractSha256": "ad7cb7f2acfebb5229aa0f14d78e0f2f836f733590795f3fde0c37a58ab2b798",
+      "parameters": {
+        "value": {
+          "disposition": "model-writable"
+        },
+        "defaultValue": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "placeholder": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable"
+        },
+        "surface": {
+          "disposition": "model-writable"
+        },
+        "scope": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "defaultScope": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "scopeOptions": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "scopeLabel": {
+          "disposition": "model-writable"
+        },
+        "advancedSearch": {
+          "disposition": "model-writable"
+        },
+        "advancedSearchLabel": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "secondary-list-search",
+          "capabilities": [
+            "search",
+            "list-search"
+          ],
+          "parameters": {
+            "value": {
+              "disposition": "model-writable"
+            },
+            "defaultValue": {
+              "disposition": "model-writable"
+            },
+            "placeholder": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "surface": {
+              "disposition": "scenario-fixed",
+              "value": "white"
+            },
+            "scope": {
+              "disposition": "model-writable"
+            },
+            "defaultScope": {
+              "disposition": "model-writable"
+            },
+            "scopeOptions": {
+              "disposition": "model-writable"
+            },
+            "scopeLabel": {
+              "disposition": "model-writable"
+            },
+            "advancedSearch": {
+              "disposition": "model-writable"
+            },
+            "advancedSearchLabel": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onScopeChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onAdvancedSearch",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onClear",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "segmented-button",
+      "source": "packages/components-html/src/segmented-button/index.js",
+      "contractSha256": "8140dbc35e6e151b8db24549fa182f86a7b41d5fb1489382a30ace0c56903611",
+      "parameters": {
+        "options": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "defaultValue": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "label": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "select",
+      "source": "packages/components-html/src/select/index.js",
+      "contractSha256": "4ffdb40b3457483512cc296bbe1d365646952822f4f1019966920f1f4e2fe43c",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "semi-modal",
+      "source": "packages/components-html/src/semi-modal/index.js",
+      "contractSha256": "f89ff2321e62cf260a587eee531dd342d3892152d3db9efae090f24a4ecc240c",
+      "parameters": {
+        "open": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "size": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "surface": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "mode": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "title": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onConfirm",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onCancel",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onClose",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onOpenChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "sidebar",
+      "source": "packages/components-html/src/sidebar/index.js",
+      "contractSha256": "ea1dfbbd9048bac8200b179b20ab3fabe82780f8b43b1ce477c5a9ee1ab5cd66",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "icon": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "selected": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "collapsed": {
+          "disposition": "model-writable"
+        },
+        "count": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "items": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "groups": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "ariaLabel": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "leading": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "trailing": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "secondary-navigation",
+          "capabilities": [
+            "sidebar",
+            "sidebar-item",
+            "level-two-navigation"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "icon": {
+              "disposition": "model-writable"
+            },
+            "selected": {
+              "disposition": "model-writable"
+            },
+            "collapsed": {
+              "disposition": "model-writable"
+            },
+            "count": {
+              "disposition": "model-writable"
+            },
+            "items": {
+              "disposition": "model-writable"
+            },
+            "groups": {
+              "disposition": "model-writable"
+            },
+            "ariaLabel": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "leading": {
+              "disposition": "model-writable"
+            },
+            "trailing": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "slider",
+      "source": "packages/components-html/src/slider/index.js",
+      "contractSha256": "ed618dd2d01402d7763af643333d7fbcda0827b314f5b1e6e45563f1bbbfbe0a",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "snackbar",
+      "source": "packages/components-html/src/snackbar/index.js",
+      "contractSha256": "78ebb419553e79dab0cc36407cd623b3b7fe2dbcc1169b61785aa1a1bbc45a27",
+      "parameters": {
+        "title": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "subtitle": {
+          "disposition": "model-writable"
+        },
+        "actionLabel": {
+          "disposition": "model-writable"
+        },
+        "leftArea": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "closable": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onAction",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onClose",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "sub-tabs",
+      "source": "packages/components-html/src/sub-tabs/index.js",
+      "contractSha256": "af999c0e5d86a427e904fdbe5b188f83973cdbf89136f32e4c9d76d7ef060d61",
+      "parameters": {
+        "tabs": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "defaultValue": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onChange",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "switch",
+      "source": "packages/components-html/src/switch/index.js",
+      "contractSha256": "eae03c9be86b338f965ce9c2064d7624d00701877bcad66709802e97901ed7a7",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "table",
+      "source": "packages/components-html/src/table/index.js",
+      "contractSha256": "e19a95ccdea16a8d99134010df9b6ba7d6a0794273b89fe1e9be64fadebbb985",
+      "parameters": {
+        "title": {
+          "disposition": "model-writable"
+        },
+        "columns": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "rows": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "tabs",
+      "source": "packages/components-html/src/tabs/index.js",
+      "contractSha256": "fcdd70e3c0a785aac7acadcc06de19cadb113a4a509c7378cb0f72b2ecf02bbb",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "textarea",
+      "source": "packages/components-html/src/textarea/index.js",
+      "contractSha256": "06f9048b5b18abec44ed845f0ae3986066ac3229f887495aaa77e7f1ec761431",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable"
+        },
+        "value": {
+          "disposition": "model-writable"
+        },
+        "disabled": {
+          "disposition": "model-writable"
+        },
+        "state": {
+          "disposition": "model-writable"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "time-picker",
+      "source": "packages/components-html/src/time-picker/index.js",
+      "contractSha256": "186380f80bb8dd3eafb1decbd83f632ccd87989b55e355318d297f518e50730a",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "titlebar",
+      "source": "packages/components-html/src/titlebar/index.js",
+      "contractSha256": "db123d170477fcdfb0bb98d28d976285caaac6e9e5cd324fb8ee868fd4b95a83",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "paneTitle": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "size": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "layout": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "segmentRole": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "showWindowControls": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "showLogo": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "logoSrc": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "logoAlt": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "mainDetailActions": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [
+        {
+          "context": "main-detail-titlebar",
+          "capabilities": [
+            "titlebar",
+            "page-titlebar"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "paneTitle": {
+              "disposition": "model-writable"
+            },
+            "size": {
+              "disposition": "model-writable"
+            },
+            "layout": {
+              "disposition": "scenario-fixed",
+              "value": "three-column"
+            },
+            "segmentRole": {
+              "disposition": "scenario-fixed",
+              "value": "main-detail"
+            },
+            "showWindowControls": {
+              "disposition": "model-writable"
+            },
+            "showLogo": {
+              "disposition": "model-writable"
+            },
+            "logoSrc": {
+              "disposition": "model-writable"
+            },
+            "logoAlt": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "mainDetailActions": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "primary-navigation-titlebar",
+          "capabilities": [
+            "titlebar",
+            "primary-navigation-titlebar"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "paneTitle": {
+              "disposition": "model-writable"
+            },
+            "size": {
+              "disposition": "model-writable"
+            },
+            "layout": {
+              "disposition": "model-writable"
+            },
+            "segmentRole": {
+              "disposition": "scenario-fixed",
+              "value": "primary-navigation"
+            },
+            "showWindowControls": {
+              "disposition": "model-writable"
+            },
+            "showLogo": {
+              "disposition": "model-writable"
+            },
+            "logoSrc": {
+              "disposition": "model-writable"
+            },
+            "logoAlt": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "mainDetailActions": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "global-titlebar",
+          "capabilities": [
+            "titlebar",
+            "global-titlebar"
+          ],
+          "parameters": {
+            "label": {
+              "disposition": "model-writable"
+            },
+            "paneTitle": {
+              "disposition": "model-writable"
+            },
+            "size": {
+              "disposition": "model-writable"
+            },
+            "layout": {
+              "disposition": "model-writable"
+            },
+            "segmentRole": {
+              "disposition": "model-writable"
+            },
+            "showWindowControls": {
+              "disposition": "model-writable"
+            },
+            "showLogo": {
+              "disposition": "model-writable"
+            },
+            "logoSrc": {
+              "disposition": "model-writable"
+            },
+            "logoAlt": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "mainDetailActions": {
+              "disposition": "model-writable"
+            }
+          }
+        }
+      ],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className",
+        "slots"
+      ],
+      "unsupported": [
+        {
+          "name": "onMainDetailAction",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onAction",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    },
+    {
+      "id": "tooltip",
+      "source": "packages/components-html/src/tooltip/index.js",
+      "contractSha256": "e0a8ce75cb5c3d4ce59837d9526b4fde45ad24a226fa387d0cc05e2c39baae84",
+      "parameters": {
+        "label": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "value": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "state": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading",
+        "className"
+      ],
+      "unsupported": []
+    },
+    {
+      "id": "tree-view",
+      "source": "packages/components-html/src/tree-view/index.js",
+      "contractSha256": "83a89cbb3530f86c07ea87642cbce0343ff9b742d75af6a4531cc78828b8bf97",
+      "parameters": {
+        "nodes": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "selectedId": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "expandedIds": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "defaultSelectedId": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "defaultExpandedIds": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
+        "disabled": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        }
+      },
+      "scenarios": [],
+      "systemManaged": [
+        "component-identity",
+        "implementation",
+        "canonical-style-loading"
+      ],
+      "unsupported": [
+        {
+          "name": "onSelect",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        },
+        {
+          "name": "onToggle",
+          "reason": "JSON consumer binds behavior through interactions; function callbacks require a declared business module"
+        }
+      ]
+    }
+  ]
+}

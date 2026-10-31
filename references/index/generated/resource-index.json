@@ -1,0 +1,3966 @@
+{
+  "schemaVersion": 1,
+  "kind": "text-to-ui-resource-index",
+  "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
+  "digest": "c9f1608f0f78ef3d80fd43af220f358358feecb3718e89f157ec18a97fea00a7",
+  "aliases": {
+    "patterns.global-title-layer": "patterns.left-brand-anchor",
+    "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
+    "patterns.pane-behavior": "patterns.primary-navigation",
+    "composition.style-and-behavior-plans": "composition.plans"
+  },
+  "sources": [
+    {
+      "path": "assets/design-system/pattern-contracts.json",
+      "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e"
+    },
+    {
+      "path": "packages/component-contracts/src/components/accordion.json",
+      "sha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0"
+    },
+    {
+      "path": "packages/component-contracts/src/components/alert-dialog.json",
+      "sha256": "8017bd049ccbfa350297a8116659c35500d906c944f2aa8bdd40cc10747055d7"
+    },
+    {
+      "path": "packages/component-contracts/src/components/alert.json",
+      "sha256": "66c7ffc790a9399fe74114586097b4d984c743f8786146994f55cab275676397"
+    },
+    {
+      "path": "packages/component-contracts/src/components/attachment.json",
+      "sha256": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee"
+    },
+    {
+      "path": "packages/component-contracts/src/components/avatar.json",
+      "sha256": "eb4241fa1e6dc0b4bdd7773284a3e4198b5215e4133bed5bcaab813a3f29c07e"
+    },
+    {
+      "path": "packages/component-contracts/src/components/badge.json",
+      "sha256": "411ca3b956912f81329d8f324e39b753844ae442218d8d2a3c640016119a41ee"
+    },
+    {
+      "path": "packages/component-contracts/src/components/breadcrumb.json",
+      "sha256": "0e4dde6c16263377478e84c2af87da3a63fe150e5db05e24f7f0c8b109808a6c"
+    },
+    {
+      "path": "packages/component-contracts/src/components/button.json",
+      "sha256": "5fe21e0684a1bc77723cec127fbce8b8cc866f9c9295b0dc267d67741f9b2dbf"
+    },
+    {
+      "path": "packages/component-contracts/src/components/calendar.json",
+      "sha256": "633310e492fc029e73eb19b922f9f12883217f652521ca06b2aeacf11b078257"
+    },
+    {
+      "path": "packages/component-contracts/src/components/checkbox.json",
+      "sha256": "e9d8fb5e7cf91f815053692811a495efbbbc7ca009ccb6e8d045d62fc310494d"
+    },
+    {
+      "path": "packages/component-contracts/src/components/chips.json",
+      "sha256": "cb696e10d3ed29963b22e10bd3cd2d6a8ccc59fe012e64bff444981e87a1ff64"
+    },
+    {
+      "path": "packages/component-contracts/src/components/collapsible.json",
+      "sha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455"
+    },
+    {
+      "path": "packages/component-contracts/src/components/color-picker.json",
+      "sha256": "b3fc9607ead099c7a411f664830dc1962981cf38a9e841d2d0ce17c310d3f72e"
+    },
+    {
+      "path": "packages/component-contracts/src/components/combobox.json",
+      "sha256": "db07bf58e810ff12f89617f4445582ce8d609788ee83043f430470468f2938e5"
+    },
+    {
+      "path": "packages/component-contracts/src/components/context-menu.json",
+      "sha256": "ab1aeee861535bc583de7a76f4d4ec51793c97fe143ee74500d909ec084383bd"
+    },
+    {
+      "path": "packages/component-contracts/src/components/date-picker.json",
+      "sha256": "afed1e52d33589928555cbe5444d58b44df33e6446a3c03058285a1020d92d17"
+    },
+    {
+      "path": "packages/component-contracts/src/components/dialog.json",
+      "sha256": "e8135420de6f3ce23ea6392224551c34ed3368cefc0fc7afbdd37b84a2409e1c"
+    },
+    {
+      "path": "packages/component-contracts/src/components/dropdown-menu.json",
+      "sha256": "ecb2612a139d4aa2ee5b84b5122f734d14a0d84922235c023ba89f2adaab5c85"
+    },
+    {
+      "path": "packages/component-contracts/src/components/field.json",
+      "sha256": "aadffe7262caa78762fe6cf334620a17045f89d56a9864090ce0fb380280947e"
+    },
+    {
+      "path": "packages/component-contracts/src/components/form-field.json",
+      "sha256": "2419fad30955b260674a33182298387bb05104390b3cb9dba3d56ba523cb03a5"
+    },
+    {
+      "path": "packages/component-contracts/src/components/hover-card.json",
+      "sha256": "c26658f7199d7820e65bf06afa95f8b3778048a3c11d1038ba541388ea92dcfc"
+    },
+    {
+      "path": "packages/component-contracts/src/components/input.json",
+      "sha256": "b3a68f6d2b762252d37adeefd8ddb01499b75345de98d6748451a7feb02d698e"
+    },
+    {
+      "path": "packages/component-contracts/src/components/label.json",
+      "sha256": "18df89851b843796ebd1790fd9f1ef573002094aec62cb48a1c69978c21eca8d"
+    },
+    {
+      "path": "packages/component-contracts/src/components/list-card.json",
+      "sha256": "2c67d674bb10d52b87ee29d458bf31352743c60f1a74c630c6f80d63a58c07ad"
+    },
+    {
+      "path": "packages/component-contracts/src/components/menubar.json",
+      "sha256": "65474143ea766a7f5e58218101542b40e4162ae981bbb327e3945994aa7fc4dd"
+    },
+    {
+      "path": "packages/component-contracts/src/components/native-select.json",
+      "sha256": "01f2a549f7ceb676251aa75ee2b8c0a9f5020972b51a951cf31f3a3ada83d75e"
+    },
+    {
+      "path": "packages/component-contracts/src/components/number-selector.json",
+      "sha256": "14840959212e589daec0dcce287516ba2df93d902432d879d5fdff4464cd2c58"
+    },
+    {
+      "path": "packages/component-contracts/src/components/pagination.json",
+      "sha256": "9c30f1cf3fcd5f884535debc2dcb847b48da26d27b99c9befd445a31b4bc830f"
+    },
+    {
+      "path": "packages/component-contracts/src/components/popover.json",
+      "sha256": "c9bbce982b7a4c806b1a788ccaec9cc2b08ebf4eae08b8cbe079ad98ba789d08"
+    },
+    {
+      "path": "packages/component-contracts/src/components/primary-navigation-item.json",
+      "sha256": "70ca9089bc4fc9e6c6dc2a4650524ac8bbcd9140e76a610920145a28c3440f53"
+    },
+    {
+      "path": "packages/component-contracts/src/components/progress.json",
+      "sha256": "63b968a4677cb4e30ef80d76408cfee7d4bfefd8b1001216ec910f4437489f97"
+    },
+    {
+      "path": "packages/component-contracts/src/components/radio-group.json",
+      "sha256": "ccaa4aeea0d04a965a9444667438b3ceb709817b0feff94742263b7e4825aebc"
+    },
+    {
+      "path": "packages/component-contracts/src/components/radio.json",
+      "sha256": "1fb4c5974f2249f9a04502475c86bd01d8db0d92b47569d2f178a2d328d77a2c"
+    },
+    {
+      "path": "packages/component-contracts/src/components/search.json",
+      "sha256": "ad7cb7f2acfebb5229aa0f14d78e0f2f836f733590795f3fde0c37a58ab2b798"
+    },
+    {
+      "path": "packages/component-contracts/src/components/segmented-button.json",
+      "sha256": "8140dbc35e6e151b8db24549fa182f86a7b41d5fb1489382a30ace0c56903611"
+    },
+    {
+      "path": "packages/component-contracts/src/components/select.json",
+      "sha256": "4ffdb40b3457483512cc296bbe1d365646952822f4f1019966920f1f4e2fe43c"
+    },
+    {
+      "path": "packages/component-contracts/src/components/semi-modal.json",
+      "sha256": "f89ff2321e62cf260a587eee531dd342d3892152d3db9efae090f24a4ecc240c"
+    },
+    {
+      "path": "packages/component-contracts/src/components/sidebar.json",
+      "sha256": "ea1dfbbd9048bac8200b179b20ab3fabe82780f8b43b1ce477c5a9ee1ab5cd66"
+    },
+    {
+      "path": "packages/component-contracts/src/components/slider.json",
+      "sha256": "ed618dd2d01402d7763af643333d7fbcda0827b314f5b1e6e45563f1bbbfbe0a"
+    },
+    {
+      "path": "packages/component-contracts/src/components/snackbar.json",
+      "sha256": "78ebb419553e79dab0cc36407cd623b3b7fe2dbcc1169b61785aa1a1bbc45a27"
+    },
+    {
+      "path": "packages/component-contracts/src/components/sub-tabs.json",
+      "sha256": "af999c0e5d86a427e904fdbe5b188f83973cdbf89136f32e4c9d76d7ef060d61"
+    },
+    {
+      "path": "packages/component-contracts/src/components/switch.json",
+      "sha256": "eae03c9be86b338f965ce9c2064d7624d00701877bcad66709802e97901ed7a7"
+    },
+    {
+      "path": "packages/component-contracts/src/components/table.json",
+      "sha256": "e19a95ccdea16a8d99134010df9b6ba7d6a0794273b89fe1e9be64fadebbb985"
+    },
+    {
+      "path": "packages/component-contracts/src/components/tabs.json",
+      "sha256": "fcdd70e3c0a785aac7acadcc06de19cadb113a4a509c7378cb0f72b2ecf02bbb"
+    },
+    {
+      "path": "packages/component-contracts/src/components/textarea.json",
+      "sha256": "06f9048b5b18abec44ed845f0ae3986066ac3229f887495aaa77e7f1ec761431"
+    },
+    {
+      "path": "packages/component-contracts/src/components/time-picker.json",
+      "sha256": "186380f80bb8dd3eafb1decbd83f632ccd87989b55e355318d297f518e50730a"
+    },
+    {
+      "path": "packages/component-contracts/src/components/titlebar.json",
+      "sha256": "db123d170477fcdfb0bb98d28d976285caaac6e9e5cd324fb8ee868fd4b95a83"
+    },
+    {
+      "path": "packages/component-contracts/src/components/tooltip.json",
+      "sha256": "e0a8ce75cb5c3d4ce59837d9526b4fde45ad24a226fa387d0cc05e2c39baae84"
+    },
+    {
+      "path": "packages/component-contracts/src/components/tree-view.json",
+      "sha256": "83a89cbb3530f86c07ea87642cbce0343ff9b742d75af6a4531cc78828b8bf97"
+    },
+    {
+      "path": "packages/component-contracts/src/registry.json",
+      "sha256": "bbaefee610516c19322dc59af35d14a651cdde6d6417cb5bb8a25adc3101f295"
+    },
+    {
+      "path": "packages/tokens/src/index.css",
+      "sha256": "9da5b4d2936e60a47746d82e7fc3ff92870e6d8c29793d00a994c5522ab397fc"
+    },
+    {
+      "path": "packages/tokens/src/token-runtime-map.json",
+      "sha256": "af423b313eedd7b3ef1f5b2faa6cc50c21e61cd844b7216b212c689651f91cb6"
+    },
+    {
+      "path": "packages/tokens/src/tokens.colors.css",
+      "sha256": "00c25b283287b5c42ba5676efa11a497541710a3269c6e06c80fd19f28b4a94c"
+    },
+    {
+      "path": "packages/tokens/src/tokens.icon.css",
+      "sha256": "e4f2e7f649a7d9842b53bba06de12812590b161495f68246c963f526442e5883"
+    },
+    {
+      "path": "packages/tokens/src/tokens.layout.css",
+      "sha256": "6a6bd5f3be075de0797091a4c742f6f0af62c3cc3385a62119c6572a382e73ed"
+    },
+    {
+      "path": "packages/tokens/src/tokens.radius.css",
+      "sha256": "5afad92e8bc2f557975c1b73cc5eb9915270b60a4d3e4101d52becebed4cb97d"
+    },
+    {
+      "path": "packages/tokens/src/tokens.shadow.css",
+      "sha256": "77db0d1eb9843c25650a32a9d14d0aeee41f1f6939168569dfab87b4e09337a5"
+    },
+    {
+      "path": "packages/tokens/src/tokens.size.css",
+      "sha256": "71a36eb06f88daaf395900c1e419f4bad8f4826b5aaa16d0e05490a98e95a6fe"
+    },
+    {
+      "path": "packages/tokens/src/tokens.spacing.css",
+      "sha256": "75cc5f9781105b5037f32d6dab05e561ce03dbebdb419dcb3cb11c9f5063b506"
+    },
+    {
+      "path": "packages/tokens/src/tokens.typography.css",
+      "sha256": "a41abd576aec72d5697aa9d4be5c7d7ed7df7373fd2121f9517741dd4ba66d06"
+    },
+    {
+      "path": "packages/tokens/src/tokens.utility.css",
+      "sha256": "8952af44a1067c6cedce86719f978c34349358f5afcc2d276cfdf909ffc04576"
+    },
+    {
+      "path": "references/component-specs-extended.md",
+      "sha256": "02518e29abef8f39dc81c71fdf497e745a13567738b868d094d036f6b565cf72"
+    },
+    {
+      "path": "references/components/compatibility-modules.json",
+      "sha256": "a527f66c1ffedcbcafc5bbb3ff76a6a319ada9610ace503d0416bb75be208002"
+    },
+    {
+      "path": "references/components/component-readiness-policy.json",
+      "sha256": "0537ed9e8cce0556b5208fe3abcbd7a1662f0c689549289a4cdc2588ee77533d"
+    },
+    {
+      "path": "references/components/component-selection-rules.json",
+      "sha256": "16eebc2aaab67c7430c340e889d902b19a5b03bcb13a6c9f64b5e090a6854d02"
+    },
+    {
+      "path": "references/components/local-component-delivery.md",
+      "sha256": "51b92445a8f301d05902042bfd515af972cbe75c854e0a6ae311df4697a8a031"
+    },
+    {
+      "path": "references/components/page-composition.md",
+      "sha256": "8145bf1a9064927c8ce63738c978d891adf20cbe632cc7f5c6952c16c66971f3"
+    },
+    {
+      "path": "references/components/source-resolution.md",
+      "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
+    },
+    {
+      "path": "references/components/titlebar-segments.md",
+      "sha256": "1acbd60337eb4c2e84a0cdf34d726215e3d9c111bdbcc5ee0bced4964b973695"
+    },
+    {
+      "path": "references/harmonyos-layout-patterns.md",
+      "sha256": "bb42a569d487b0b83e6d0dc6a19052aff051f1efc634a5036bad7d35438a244d"
+    },
+    {
+      "path": "references/index/capability-aliases.source.json",
+      "sha256": "db9a7dd35f3fb3e50df70d89a754d7774dfa61a960853abea4d5a38b15fff9d3"
+    },
+    {
+      "path": "references/index/task-routes.source.json",
+      "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a"
+    },
+    {
+      "path": "references/interaction-spec.md",
+      "sha256": "2c3d2dd19b4f0967bd0bda8daadc64b1bf95b233293c75bd2cbfaf408ced5894"
+    },
+    {
+      "path": "references/layout-system.md",
+      "sha256": "bd08e62bdb99919a290511031c963fb447b1906f9e264542bbee3a05bfb281ad"
+    },
+    {
+      "path": "references/page-blueprint-design.md",
+      "sha256": "077311e7da77d04c3cca26512c27302aaaabf18e257bb7808f5e0e2592cf4309"
+    },
+    {
+      "path": "references/page-design-guidance.md",
+      "sha256": "400a6c9db73b12d5f426bbc39b88e9dacbde224ff703cfbe1149635b17dd3875"
+    },
+    {
+      "path": "references/requirement-spec.md",
+      "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
+    },
+    {
+      "path": "references/resource-workflow.md",
+      "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
+    },
+    {
+      "path": "references/resources/blueprint/design-before-assembly.md",
+      "sha256": "e74b2277d6a11bfd0217a8e23fabfacad0a2dee408afb8d407e8faf1a24d03b0"
+    },
+    {
+      "path": "references/resources/blueprint/minimal-shape.md",
+      "sha256": "af53adeab4659c56e379ca0e36a53f6bdd0c53da5f98ce8a673c6d18cf0f7c30"
+    },
+    {
+      "path": "references/resources/blueprint/overview.md",
+      "sha256": "a7c7118929af077934baa555f137ec5c59560deca157b0b7073dfc10ec04ab08"
+    },
+    {
+      "path": "references/resources/blueprint/pattern-b-assembly-decisions.md",
+      "sha256": "f179d94f1258d0197b75bf14635a895e3272087046ceae05d7d59472f438d48e"
+    },
+    {
+      "path": "references/resources/blueprint/required-decisions.md",
+      "sha256": "51fd7700569cbc52fc6eb4db5b24d4c106c999aac319c5c5dfd872291592834c"
+    },
+    {
+      "path": "references/resources/component-visual/buttons.md",
+      "sha256": "72b3a3a2b0e080775f55af5c0bdb29aab916a0b4d73b03e027549caeb2da83a2"
+    },
+    {
+      "path": "references/resources/component-visual/cards.md",
+      "sha256": "c8b563f98d695a79d77bd7e6ba2c794b265a93f7d5204601d08c388debe5b70c"
+    },
+    {
+      "path": "references/resources/component-visual/data.md",
+      "sha256": "638e86a03544b1fd41e85b848d25b3e57802767d6f88afb779d1dce68ab69a0d"
+    },
+    {
+      "path": "references/resources/component-visual/feedback-and-overlays.md",
+      "sha256": "efb2e965c157ae549e830001df7dd1c724f169853680d513789d7d5d1ac356e5"
+    },
+    {
+      "path": "references/resources/component-visual/inputs.md",
+      "sha256": "4ef4c687952866fb7d0618e88513ecc1bbded95f1027a53576420ede8abc23b4"
+    },
+    {
+      "path": "references/resources/component-visual/navigation-and-lists.md",
+      "sha256": "eaa6b9886a5a0efe010a618eed20410e039393c95129951fbc398c7696eb91bc"
+    },
+    {
+      "path": "references/resources/component-visual/tooltip.md",
+      "sha256": "1f973dadee9be8f6f82e747f5e007a48188c3be5d775a8b26c3d5537c5ae0a20"
+    },
+    {
+      "path": "references/resources/composition/content-recipes-decide-before-binding.md",
+      "sha256": "f5f0a42d7f717a5d862785f4109307b78f55ff66cce2bb67b2d5162ff0d9d342"
+    },
+    {
+      "path": "references/resources/composition/executable-html-business-composites.md",
+      "sha256": "b1ff5c0370077fc79be720a941d629e4fb980e8adf209899bcc59e92b2be1dfb"
+    },
+    {
+      "path": "references/resources/composition/overview.md",
+      "sha256": "93766a787d0619121f5d6225e54837d2479a14cae6d51102cd2fa7f30c45d41b"
+    },
+    {
+      "path": "references/resources/composition/pattern-owned-navigation-shells.md",
+      "sha256": "434f226cf4dec948075d0834cb93d5276d4a780506f2f5cc7c9750fc463d85fa"
+    },
+    {
+      "path": "references/resources/composition/plans.md",
+      "sha256": "f5575338c00a67bf5920135ab0141ff0b03a023c164e7e8749eee5cb48e72a64"
+    },
+    {
+      "path": "references/resources/composition/stroke-ownership.md",
+      "sha256": "a65e185a40b380a8dbc89cb55c838348348a38771e414a959941a19fdd9f9bce"
+    },
+    {
+      "path": "references/resources/core/delivery.md",
+      "sha256": "7203620a2511f73c5d7d9a0d7908c2bd28f11732539dee3be8247d42f79cec02"
+    },
+    {
+      "path": "references/resources/delivery/calling.md",
+      "sha256": "09ebc38b011fab8341062b2bd8bdb1085a80817040636d5e5337cfae0840fd78"
+    },
+    {
+      "path": "references/resources/delivery/overview.md",
+      "sha256": "c95b33d3505aab56a76565b3763edf51db133f53fa5d364656a14fb84e216b3c"
+    },
+    {
+      "path": "references/resources/delivery/prepare.md",
+      "sha256": "371f882ce96c9978074511d65c1fb852b306b62e0711a38bd8d9a6c96bab0a9f"
+    },
+    {
+      "path": "references/resources/delivery/project-output.md",
+      "sha256": "dd7fe5a09e3b6f4cd8b0fe4deda381309dfbee77f0eca953cc3aec9d07a98587"
+    },
+    {
+      "path": "references/resources/delivery/reading.md",
+      "sha256": "19adfa0ec3ea6e28bbb693cb34d82caccf700339e73ba861b6d3db0b1450f876"
+    },
+    {
+      "path": "references/resources/delivery/styles.md",
+      "sha256": "72df1b20f3f4213c2cea14c8341bbc9e14b3736f3e5e08830c578bc800b57d81"
+    },
+    {
+      "path": "references/resources/design/design-at-the-real-content-width.md",
+      "sha256": "ef6298c89575869cba19954c5464014f368962e1c87599ca420d7a458b6c84d0"
+    },
+    {
+      "path": "references/resources/design/one-deliberate-first-preview.md",
+      "sha256": "93f1861b34a94e26a72c0bbdfc48940bb708f31ae291ab7f3514739042237882"
+    },
+    {
+      "path": "references/resources/design/overview.md",
+      "sha256": "f06673b40d05dcb635d436f80598f57c0d6e559b3ba43f66223aa5b5b876bceb"
+    },
+    {
+      "path": "references/resources/design/reuse-controls-design-missing-business-composites.md",
+      "sha256": "f890c44d5c08545c4716a8e4a7e161b99a41c2b7a9ff35c5524acdb228328943"
+    },
+    {
+      "path": "references/resources/design/start-with-the-task-not-the-inventory.md",
+      "sha256": "bcff80a80b2d1b48c5dba715cbb4a54bbffa3f63a9d0b72bf1c7de9930857d4e"
+    },
+    {
+      "path": "references/resources/design/visual-alignment-and-grouping.md",
+      "sha256": "d0cb864e105e189ea2e81baf09eac629709e3dfc2e54f49f2907c64b446a3833"
+    },
+    {
+      "path": "references/resources/foundations/colors.md",
+      "sha256": "1870969216902cde5d6c97c04ea15d2e2e4c1b704617750e8d999f5469bb32f2"
+    },
+    {
+      "path": "references/resources/foundations/radius.md",
+      "sha256": "8d5e530df4f6239bbe3643d9438ee3aa99ae971e71010956e4c992f09d7866e2"
+    },
+    {
+      "path": "references/resources/foundations/shadows.md",
+      "sha256": "4c583d054b7eb67a8f025c290931a0376182d5ce82ebaebfeb8230516fdf3f5a"
+    },
+    {
+      "path": "references/resources/foundations/size.md",
+      "sha256": "4b4482be90777d7ae623073a43234c733b69d4640fe6267e72a2046c282d2699"
+    },
+    {
+      "path": "references/resources/foundations/spacing.md",
+      "sha256": "363c84ece944bda8cfcc2693ac083da5d951ae84c072984465bb55906cb8d827"
+    },
+    {
+      "path": "references/resources/foundations/typography.md",
+      "sha256": "1f5b97ec5d36f831af3947879f2843af281a1a00f37de1460e00c050e30422bf"
+    },
+    {
+      "path": "references/resources/interaction/common-shortcuts.md",
+      "sha256": "a30119b84645e6321d883b3971169429e95f1593010a7b9c19f432cc64588167"
+    },
+    {
+      "path": "references/resources/interaction/date-picker.md",
+      "sha256": "4cd08412bf23a3462d2eaa237a79f46d42efdaa50839946f37a68d3799322b4f"
+    },
+    {
+      "path": "references/resources/interaction/forms-and-validation.md",
+      "sha256": "9a7862aa522545917138323977dc09d537bffce8ec9635fe0040bf11a3ac4a77"
+    },
+    {
+      "path": "references/resources/interaction/interaction-qa-gate.md",
+      "sha256": "3d65ed647f8a9d04d7bb735f8e6985516348539dfb6edf281abf9130cebd68e6"
+    },
+    {
+      "path": "references/resources/interaction/interactive-frontend-demonstration.md",
+      "sha256": "99db17d083773f4cb7f9792ed76bfad96c81e9bb9258c9bed1e2c8c667fa3536"
+    },
+    {
+      "path": "references/resources/interaction/keyboard-and-focus.md",
+      "sha256": "fec07785e9ccae09b6015f2ff1dff04726ed4a1d1a8cb3801e0b30a383b3ae9f"
+    },
+    {
+      "path": "references/resources/interaction/motion-sound-and-accessibility.md",
+      "sha256": "957bf0966d4a70dcb5a3727891f9277574f0738514c9463997fb2552726104b5"
+    },
+    {
+      "path": "references/resources/interaction/navigation-and-selection.md",
+      "sha256": "bae4e29b471353fd78970aec1d298c4aa84adc42cd8c11eabc9a4f77f77e0eb6"
+    },
+    {
+      "path": "references/resources/interaction/official-platform-principles.md",
+      "sha256": "d8e2ad775193b581e2617f3a2f7c89aabb11210e9524cadcfce5f41c6ee7057f"
+    },
+    {
+      "path": "references/resources/interaction/overlay-selection.md",
+      "sha256": "e658301098e0cd2b8da93b9988c8096f8c72bd6803be98d73316c04d24c47acd"
+    },
+    {
+      "path": "references/resources/interaction/overview.md",
+      "sha256": "be129987b6cad37d9945d0dd9e68f3df34346033e1b263dab2695eb5ad271d9e"
+    },
+    {
+      "path": "references/resources/interaction/per-interaction-record.md",
+      "sha256": "8a9d2c97d145111594e26b96c80ab3649d1f6d0c3852e4ea2fd1a28c440076ae"
+    },
+    {
+      "path": "references/resources/interaction/pointer-and-mouse.md",
+      "sha256": "517a413a6913351b788790d1044817efaaa6cc8c38698d3c18e9852f79d66ba7"
+    },
+    {
+      "path": "references/resources/interaction/scope-and-source-levels.md",
+      "sha256": "39fb917a993c4a957008c0d5804ed3ee59fc93e7feffe5772cf2a86a1a13d3f2"
+    },
+    {
+      "path": "references/resources/interaction/state-feedback.md",
+      "sha256": "fb15aef974bd3b607da9ce8fd7aaecc9ae4e6cd13a7ac3aabd54e65fb9eabd84"
+    },
+    {
+      "path": "references/resources/interaction/time-picker.md",
+      "sha256": "a0df30f297491a4e0f4b472868a14d5756d9bb0b14ed9271625da7b7aa77372c"
+    },
+    {
+      "path": "references/resources/interaction/undo-and-destructive-actions.md",
+      "sha256": "e2e68306a240bd15ac3d096af374ce53041a6ae09843b93c0ceb966d23731668"
+    },
+    {
+      "path": "references/resources/interaction/window-and-resize-behavior.md",
+      "sha256": "56c9b7edb0e0c50e134567c135a85ab2e001565a8e3dd2a7f973dd9120fd35c8"
+    },
+    {
+      "path": "references/resources/layout/application-shell.md",
+      "sha256": "e1b0b265ac7f1c5f80b0a849ec7eceeaefdcf6ab9245972eb513572d861b5adb"
+    },
+    {
+      "path": "references/resources/layout/decisions-to-confirm.md",
+      "sha256": "445d5d240d7c468f2c585c995e2490f07c8bcb2337cdc29bc237cdac1493af25"
+    },
+    {
+      "path": "references/resources/layout/grid.md",
+      "sha256": "c3b278acca7b0ed9eaddc302b6c15e9af6c09f50a30c7bfb0895f2f177017295"
+    },
+    {
+      "path": "references/resources/layout/html-mapping.md",
+      "sha256": "46990409a2284ec1761d20035b244ede4823a7d714c609a103b84abd531bd06e"
+    },
+    {
+      "path": "references/resources/layout/overview.md",
+      "sha256": "bd0dfe9745376cee22f20b30bbb0b147cbb410123a81092a8af1a13d6289af38"
+    },
+    {
+      "path": "references/resources/layout/page-spacing.md",
+      "sha256": "b86b2bc55b1e29099d302eb6bf83a64977d74e1e8e3dfdc2b1996644676182e5"
+    },
+    {
+      "path": "references/resources/layout/resize-rules.md",
+      "sha256": "6bf6c2b0951be0d093780d4d65da6f1fdf37f913a573fe29e3a57e8423256aa1"
+    },
+    {
+      "path": "references/resources/layout/window-foundation.md",
+      "sha256": "83504fedf649f0ff4e92531e0eef822ab9db891d28396fca41fcebc1711a6e05"
+    },
+    {
+      "path": "references/resources/patterns/context-area.md",
+      "sha256": "7d65f631d96e47e3264cca3a87db681037cd62a30116ce5d49411c6096612b69"
+    },
+    {
+      "path": "references/resources/patterns/final-pane-leading-slot.md",
+      "sha256": "4d4e488edb6c3f711aed904887f56ca7c4d8611d5c2b65944bde110d103d6170"
+    },
+    {
+      "path": "references/resources/patterns/inspector.md",
+      "sha256": "ab7da72e1d9e9aaa55df50639d41bb71f5cd673acb60d4c2a0d94c184c622584"
+    },
+    {
+      "path": "references/resources/patterns/left-brand-anchor.md",
+      "sha256": "fa4e33b2e5937f01ee06d3ad5aa8741a0e7d2e33d2a6f780fb646d96d6a54337"
+    },
+    {
+      "path": "references/resources/patterns/main-content.md",
+      "sha256": "81e922005965a2ef4fa9a8fe0b35ffe8558a517c42af88860aaf01687d2278f6"
+    },
+    {
+      "path": "references/resources/patterns/overview.md",
+      "sha256": "56743e04cbbd643ca6b4ed1a9cbb31b39521b0f92a8388166a11ad52f6e8f341"
+    },
+    {
+      "path": "references/resources/patterns/pattern-a-two-pane-navigation-content.md",
+      "sha256": "4d51cc44ef20055cca37e5bb06b25396712f2ec773bc990b839bdbd304d7cb97"
+    },
+    {
+      "path": "references/resources/patterns/pattern-b-three-pane-navigation-list-detail.md",
+      "sha256": "a7713b949ab6da8ae59011522edbbd85efcbc24beff16eb9ddf1918d427ca152"
+    },
+    {
+      "path": "references/resources/patterns/pattern-c-navigation-tool-workspace.md",
+      "sha256": "387db891b95ea633995d10534ca6d085b5b1d42a9aff0718b057b48d34c61638"
+    },
+    {
+      "path": "references/resources/patterns/pattern-d-optional-inspector.md",
+      "sha256": "b87ef7f17cbbaa2b1007b170523ae3c8d22649869ef1c18f06c4344d02079d82"
+    },
+    {
+      "path": "references/resources/patterns/primary-navigation.md",
+      "sha256": "a01c933a514fb5ff776b4bca01d24c49e60fcd1eead8e2d5b1aaf1f6abe31329"
+    },
+    {
+      "path": "references/resources/patterns/primary-shell-global-primary-slot.md",
+      "sha256": "8aaeb01ee05172a59f308c205f6b59cc0ec875692ecbbd86c9b826e64a0b3291"
+    },
+    {
+      "path": "references/resources/patterns/reusable-pattern-primary-navigation-shell.md",
+      "sha256": "6fd94aec394417a9fd9fa78cb5cbd127ca1fffa75b56779e46b0c28b81a2cfd4"
+    },
+    {
+      "path": "references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md",
+      "sha256": "c0f0b890cd1da4ebc3dfb369bcdb0370d8c16463a2fa70067f6599391bffa46d"
+    },
+    {
+      "path": "references/resources/patterns/right-action-and-window-area.md",
+      "sha256": "1de55c1cb9f7af9a5e310abe209d90ab1a9af97cd539c2e465e07551a7b9eb22"
+    },
+    {
+      "path": "references/resources/patterns/scrolling.md",
+      "sha256": "f7aaad5a7c6f0fca1b0364c0379af7f59cfb70246f414176a1ce59efc0bb8576"
+    },
+    {
+      "path": "references/resources/patterns/secondary-pane.md",
+      "sha256": "962857ae646ed124d79dc091be60d580ce522409a08bdee1a946c10fa1a5fcbc"
+    },
+    {
+      "path": "references/resources/patterns/shared-window-anatomy.md",
+      "sha256": "59400e77c989230a39fe3646e8598c22687d20f4dcde25bcce79d06595d87ecb"
+    },
+    {
+      "path": "references/resources/patterns/shell-selection-rule.md",
+      "sha256": "c1b4f8296828bad8e7600ca8a60d6bfa5e45faa9ff9fb777460b5d7f07b3a73f"
+    },
+    {
+      "path": "references/resources/patterns/surface-and-divider-behavior.md",
+      "sha256": "4f709a324f3c7b67e2167caed4f5fb54df8e9166be42319ca43c3f8f86c633b6"
+    },
+    {
+      "path": "references/resources/patterns/system-ui-boundary.md",
+      "sha256": "3db93c646b1b7d6149e75a92765a00e0658afffe70d4086c2873500c473bfa73"
+    },
+    {
+      "path": "references/resources/requirements/adaptive-question-policy.md",
+      "sha256": "a95ffc0dc6c1be872764d7b0df986dac8b3dd0d0974c51def71e1649a37134f7"
+    },
+    {
+      "path": "references/resources/requirements/anti-patterns.md",
+      "sha256": "47c43da39f70b43050df6ab1e082747a434742b2d4230c9b1c16898911561848"
+    },
+    {
+      "path": "references/resources/requirements/contents.md",
+      "sha256": "c3b576fcb91ececae2ef72acf9aceb90a2b21374e87508453a389ae63904887a"
+    },
+    {
+      "path": "references/resources/requirements/first-preview-planning.md",
+      "sha256": "f3e25a60ea2dd5bb5011f28cfa2ac9de0cb6a56335f218e695b3a943f4b20583"
+    },
+    {
+      "path": "references/resources/requirements/fixed-harmonyos-defaults-from-native-references.md",
+      "sha256": "a18e56abae12af497cc14ab6882c89cd9bbbd92848dc12d72327db501081b488"
+    },
+    {
+      "path": "references/resources/requirements/generated-requirement-contract.md",
+      "sha256": "b7e3a3bc3a9621a90dacacbe2ba6e41561a2e3f3aef00cdc419770300d44ecc9"
+    },
+    {
+      "path": "references/resources/requirements/intake-principle.md",
+      "sha256": "30b5322d47c15ed9f53394923be9136bd0ad91bcf55dc736111c615e245de567"
+    },
+    {
+      "path": "references/resources/requirements/overview.md",
+      "sha256": "e4e73fb4038bd1758a1392364b4c450d3a61913d6b428e80679b0444c544bf15"
+    },
+    {
+      "path": "references/resources/requirements/three-decision-layers.md",
+      "sha256": "22e094bf8151e2daf672f4142911ff1374bd756ff0fb6566c54b0fe5f50e7475"
+    },
+    {
+      "path": "references/resources/requirements/user-input-guidance.md",
+      "sha256": "f8bdede69e84d1ff193290c56e0875763ee7f94f8f03c957bf44364cc86e3198"
+    },
+    {
+      "path": "references/resources/source.json",
+      "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
+    },
+    {
+      "path": "references/resources/source.schema.json",
+      "sha256": "2d23813ffbb1eb5a1e5ee750fe31808b5b958e554d0f01447f5f4484da6dd76a"
+    },
+    {
+      "path": "references/resources/supplement/form-composition.md",
+      "sha256": "d1c0b952624ceddd02f33ff5d8b741e7871dce69812aa4ef5e818dca76f6d7a0"
+    },
+    {
+      "path": "references/resources/supplement/loading-data-and-dates.md",
+      "sha256": "2b1f797fe6db5469f7690996f9cd09a9c6b71d1e26240cbdd61ba5c668b47be2"
+    },
+    {
+      "path": "references/resources/supplement/navigation-and-disclosure.md",
+      "sha256": "a87fc88587c603899ea908d9181cd853562e4021eff465b7a1d5349aeb779ec4"
+    },
+    {
+      "path": "references/resources/supplement/overlays-and-commands.md",
+      "sha256": "a3c991321be271525020ed810aa4bcf1155ddbbb425f0609973191c07ef83fb4"
+    },
+    {
+      "path": "references/resources/supplement/overview.md",
+      "sha256": "302d6872026c3c13e482ed74c0ce991d3a69e1cd79fda98a994bf4227bca7301"
+    },
+    {
+      "path": "references/resources/supplement/specialized-content-and-layout.md",
+      "sha256": "af2fa4e89253cca291f1568734a6f963c2f33923ba2482b9291923d21653c410"
+    },
+    {
+      "path": "references/resources/supplement/universal-contract.md",
+      "sha256": "1a2424f0b9105bb5f4b50c6326927a2099fd2b2b8da829ff58d9a551160fe420"
+    },
+    {
+      "path": "references/resources/titlebar/executable-html-slots.md",
+      "sha256": "fbd089ae46a5cb71dab0fda0aaaf9e99941bdd6be33bf59d002c56e87fffdc24"
+    },
+    {
+      "path": "references/resources/titlebar/generated-titlebar-scene.md",
+      "sha256": "6a87c38bb531c93164d10728a09bd31e27cc04254dab305760baddfefa71bd94"
+    },
+    {
+      "path": "references/resources/titlebar/overview.md",
+      "sha256": "d7b2f2381ce4d5571c83497f43adf5ccc2a3c3e24bfb5ca28fa4b7b36e662c57"
+    },
+    {
+      "path": "references/resources/titlebar/scenarios.md",
+      "sha256": "4386361cc73359aad8e2bd1298f04a70ef8ea7d33c6b78b83b5c07bb0533422d"
+    },
+    {
+      "path": "references/resources/titlebar/title-typography.md",
+      "sha256": "dcc7276e986c8c54ab761b54a80563af783087ab12cc88f00fd84401bece210a"
+    },
+    {
+      "path": "references/resources/titlebar/trailing-inset.md",
+      "sha256": "83aa2307bc23c0c489eadd62e797ab16b95eb42ac3f2871e93fc6f7823716400"
+    },
+    {
+      "path": "references/routes/index.json",
+      "sha256": "4c74853840943eacd88d0ff7d6ba73518e6128b56527f1e9a9563a7fbe50562b"
+    },
+    {
+      "path": "references/routes/materials.source.json",
+      "sha256": "b3f6f3914247c26f447377dbd7f0997d31986ba333999e40d2930e4ca54b7d93"
+    },
+    {
+      "path": "references/workflows/fast-preview.md",
+      "sha256": "df11e0ea0417ac8be1fbf072ad6f2183be6c6f1a3075e30df55446ef40c5264d"
+    },
+    {
+      "path": "references/workflows/release-validation.md",
+      "sha256": "663b7a714f7add8a1f289816a83fd48ed5b20408f61f047c263fb731b94e9c24"
+    },
+    {
+      "path": "scripts/build-resource-index.mjs",
+      "sha256": "cb04df4f28ca02eb1e0b18507b3e1ff8957718f0d616da202527c377734f1167"
+    },
+    {
+      "path": "scripts/component-query-lib.mjs",
+      "sha256": "c82ee03911309cc88c8867ba7a570603003abff9b7db7d8fc4af5195fabed49d"
+    },
+    {
+      "path": "scripts/component-route-index.mjs",
+      "sha256": "acd25dcded06c2414dddedbaa2ec3a47035025c763b1f3e9d3322daa4dc6fe98"
+    },
+    {
+      "path": "scripts/query-resources.mjs",
+      "sha256": "b3fed12bb37fcc031ae3fcaf17fdec063eb8339e33a11b451ad97e6b9af95876"
+    },
+    {
+      "path": "scripts/resource-index-lib.mjs",
+      "sha256": "2911760d92dc62c9a0cfe19afbf307673c763db62f830b9988cace95c2880592"
+    },
+    {
+      "path": "scripts/resource-projection.mjs",
+      "sha256": "66e3762876453c38bfa6fda861fb3f4bacba19e14e666f595a67b3256565bd1e"
+    },
+    {
+      "path": "scripts/stage-context-lib.mjs",
+      "sha256": "15acdd074346e0ef759801bc68945dfc54a82fd8dd9287976b0406f710456da9"
+    },
+    {
+      "path": "scripts/workflow-policy.mjs",
+      "sha256": "2ff2ad9cfd8147394fc9fceb882070f366694670903a258833e6c15a398bf848"
+    },
+    {
+      "path": "skill-profile.json",
+      "sha256": "aded995aa3ffd08837dc3a360bcfbeab4d6847131209126df2de51ba79439cb4"
+    }
+  ],
+  "resources": [
+    {
+      "id": "requirements.overview",
+      "path": "references/resources/requirements/overview.md",
+      "purpose": "Adaptive Requirement Specification",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 296,
+      "sha256": "e4e73fb4038bd1758a1392364b4c450d3a61913d6b428e80679b0444c544bf15",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.contents",
+      "path": "references/resources/requirements/contents.md",
+      "purpose": "Contents",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 223,
+      "sha256": "c3b576fcb91ececae2ef72acf9aceb90a2b21374e87508453a389ae63904887a",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.intake-principle",
+      "path": "references/resources/requirements/intake-principle.md",
+      "purpose": "1. Intake Principle",
+      "stage": [
+        "intake"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1006,
+      "sha256": "30b5322d47c15ed9f53394923be9136bd0ad91bcf55dc736111c615e245de567",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.three-decision-layers",
+      "path": "references/resources/requirements/three-decision-layers.md",
+      "purpose": "2. Three Decision Layers",
+      "stage": [
+        "intake"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 2036,
+      "sha256": "22e094bf8151e2daf672f4142911ff1374bd756ff0fb6566c54b0fe5f50e7475",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.adaptive-question-policy",
+      "path": "references/resources/requirements/adaptive-question-policy.md",
+      "purpose": "3. Adaptive Question Policy",
+      "stage": [
+        "intake"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1708,
+      "sha256": "a95ffc0dc6c1be872764d7b0df986dac8b3dd0d0974c51def71e1649a37134f7",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.user-input-guidance",
+      "path": "references/resources/requirements/user-input-guidance.md",
+      "purpose": "4. User Input Guidance",
+      "stage": [
+        "intake"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 523,
+      "sha256": "f8bdede69e84d1ff193290c56e0875763ee7f94f8f03c957bf44364cc86e3198",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.first-preview-planning",
+      "path": "references/resources/requirements/first-preview-planning.md",
+      "purpose": "5. First preview planning",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 6,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 1039,
+      "sha256": "f3e25a60ea2dd5bb5011f28cfa2ac9de0cb6a56335f218e695b3a943f4b20583",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.generated-requirement-contract",
+      "path": "references/resources/requirements/generated-requirement-contract.md",
+      "purpose": "6. Generated Requirement Contract",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 7,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 3016,
+      "sha256": "b7e3a3bc3a9621a90dacacbe2ba6e41561a2e3f3aef00cdc419770300d44ecc9",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.fixed-harmonyos-defaults-from-native-references",
+      "path": "references/resources/requirements/fixed-harmonyos-defaults-from-native-references.md",
+      "purpose": "7. Fixed HarmonyOS Defaults From Native References",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 8,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 3297,
+      "sha256": "a18e56abae12af497cc14ab6882c89cd9bbbd92848dc12d72327db501081b488",
+      "kind": "document"
+    },
+    {
+      "id": "requirements.anti-patterns",
+      "path": "references/resources/requirements/anti-patterns.md",
+      "purpose": "8. Anti-Patterns",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/requirement-spec.md",
+        "ordinal": 9,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 606,
+      "sha256": "47c43da39f70b43050df6ab1e082747a434742b2d4230c9b1c16898911561848",
+      "kind": "document"
+    },
+    {
+      "id": "layout.overview",
+      "path": "references/resources/layout/overview.md",
+      "purpose": "HarmonyOS Desktop Layout System",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 286,
+      "sha256": "bd0dfe9745376cee22f20b30bbb0b147cbb410123a81092a8af1a13d6289af38",
+      "kind": "document"
+    },
+    {
+      "id": "layout.window-foundation",
+      "path": "references/resources/layout/window-foundation.md",
+      "purpose": "1. Window Foundation",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 712,
+      "sha256": "83504fedf649f0ff4e92531e0eef822ab9db891d28396fca41fcebc1711a6e05",
+      "kind": "document"
+    },
+    {
+      "id": "layout.application-shell",
+      "path": "references/resources/layout/application-shell.md",
+      "purpose": "2. Application Shell",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 7401,
+      "sha256": "e1b0b265ac7f1c5f80b0a849ec7eceeaefdcf6ab9245972eb513572d861b5adb",
+      "kind": "document"
+    },
+    {
+      "id": "layout.page-spacing",
+      "path": "references/resources/layout/page-spacing.md",
+      "purpose": "3. Page Spacing",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 8583,
+      "sha256": "b86b2bc55b1e29099d302eb6bf83a64977d74e1e8e3dfdc2b1996644676182e5",
+      "kind": "document"
+    },
+    {
+      "id": "layout.grid",
+      "path": "references/resources/layout/grid.md",
+      "purpose": "4. Grid",
+      "stage": [
+        "styling"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 492,
+      "sha256": "c3b278acca7b0ed9eaddc302b6c15e9af6c09f50a30c7bfb0895f2f177017295",
+      "kind": "document"
+    },
+    {
+      "id": "layout.resize-rules",
+      "path": "references/resources/layout/resize-rules.md",
+      "purpose": "5. Resize Rules",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 511,
+      "sha256": "6bf6c2b0951be0d093780d4d65da6f1fdf37f913a573fe29e3a57e8423256aa1",
+      "kind": "document"
+    },
+    {
+      "id": "layout.html-mapping",
+      "path": "references/resources/layout/html-mapping.md",
+      "purpose": "7. HTML Mapping",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 7,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 1718,
+      "sha256": "46990409a2284ec1761d20035b244ede4823a7d714c609a103b84abd531bd06e",
+      "kind": "document"
+    },
+    {
+      "id": "layout.decisions-to-confirm",
+      "path": "references/resources/layout/decisions-to-confirm.md",
+      "purpose": "8. Decisions To Confirm",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/layout-system.md",
+        "ordinal": 8,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 272,
+      "sha256": "445d5d240d7c468f2c585c995e2490f07c8bcb2337cdc29bc237cdac1493af25",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.overview",
+      "path": "references/resources/patterns/overview.md",
+      "purpose": "HarmonyOS Native Desktop Layout Patterns",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 660,
+      "sha256": "56743e04cbbd643ca6b4ed1a9cbb31b39521b0f92a8388166a11ad52f6e8f341",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.shared-window-anatomy",
+      "path": "references/resources/patterns/shared-window-anatomy.md",
+      "purpose": "1. Shared Window Anatomy",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1250,
+      "sha256": "59400e77c989230a39fe3646e8598c22687d20f4dcde25bcce79d06595d87ecb",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.left-brand-anchor",
+      "path": "references/resources/patterns/left-brand-anchor.md",
+      "purpose": "Left Brand Anchor",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 405,
+      "sha256": "fa4e33b2e5937f01ee06d3ad5aa8741a0e7d2e33d2a6f780fb646d96d6a54337",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.primary-shell-global-primary-slot",
+      "path": "references/resources/patterns/primary-shell-global-primary-slot.md",
+      "purpose": "Primary Shell Global Primary Slot",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1499,
+      "sha256": "8aaeb01ee05172a59f308c205f6b59cc0ec875692ecbbd86c9b826e64a0b3291",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.context-area",
+      "path": "references/resources/patterns/context-area.md",
+      "purpose": "Context Area",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 384,
+      "sha256": "7d65f631d96e47e3264cca3a87db681037cd62a30116ce5d49411c6096612b69",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.right-action-and-window-area",
+      "path": "references/resources/patterns/right-action-and-window-area.md",
+      "purpose": "Right Action And Window Area",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 874,
+      "sha256": "1de55c1cb9f7af9a5e310abe209d90ab1a9af97cd539c2e465e07551a7b9eb22",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.final-pane-leading-slot",
+      "path": "references/resources/patterns/final-pane-leading-slot.md",
+      "purpose": "Final Pane Leading Slot",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 6,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 2170,
+      "sha256": "4d4e488edb6c3f711aed904887f56ca7c4d8611d5c2b65944bde110d103d6170",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.reusable-pattern-primary-navigation-shell",
+      "path": "references/resources/patterns/reusable-pattern-primary-navigation-shell.md",
+      "purpose": "Reusable Pattern: Primary Navigation Shell",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 7,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 5249,
+      "sha256": "6fd94aec394417a9fd9fa78cb5cbd127ca1fffa75b56779e46b0c28b81a2cfd4",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.pattern-a-two-pane-navigation-content",
+      "path": "references/resources/patterns/pattern-a-two-pane-navigation-content.md",
+      "purpose": "Pattern A: Two-Pane Navigation + Content",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-a-two-pane"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 8,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 810,
+      "sha256": "4d51cc44ef20055cca37e5bb06b25396712f2ec773bc990b839bdbd304d7cb97",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.reusable-pattern-secondary-page-hierarchy",
+      "path": "references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md",
+      "purpose": "Reusable Pattern: Secondary Page Hierarchy",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "secondary-page"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 9,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 3502,
+      "sha256": "c0f0b890cd1da4ebc3dfb369bcdb0370d8c16463a2fa70067f6599391bffa46d",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.pattern-b-three-pane-navigation-list-detail",
+      "path": "references/resources/patterns/pattern-b-three-pane-navigation-list-detail.md",
+      "purpose": "Pattern B: Three-Pane Navigation + List + Detail",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-b-three-pane"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 10,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 4107,
+      "sha256": "a7713b949ab6da8ae59011522edbbd85efcbc24beff16eb9ddf1918d427ca152",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.pattern-c-navigation-tool-workspace",
+      "path": "references/resources/patterns/pattern-c-navigation-tool-workspace.md",
+      "purpose": "Pattern C: Navigation + Tool Workspace",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-c-tool-workspace"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 11,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1216,
+      "sha256": "387db891b95ea633995d10534ca6d085b5b1d42a9aff0718b057b48d34c61638",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.pattern-d-optional-inspector",
+      "path": "references/resources/patterns/pattern-d-optional-inspector.md",
+      "purpose": "Pattern D: Optional Inspector",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-d-inspector"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 12,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 402,
+      "sha256": "b87ef7f17cbbaa2b1007b170523ae3c8d22649869ef1c18f06c4344d02079d82",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.primary-navigation",
+      "path": "references/resources/patterns/primary-navigation.md",
+      "purpose": "Primary Navigation",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 13,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 527,
+      "sha256": "a01c933a514fb5ff776b4bca01d24c49e60fcd1eead8e2d5b1aaf1f6abe31329",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.secondary-pane",
+      "path": "references/resources/patterns/secondary-pane.md",
+      "purpose": "Secondary Pane",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-b-three-pane"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 14,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 592,
+      "sha256": "962857ae646ed124d79dc091be60d580ce522409a08bdee1a946c10fa1a5fcbc",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.main-content",
+      "path": "references/resources/patterns/main-content.md",
+      "purpose": "Main Content",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 15,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 799,
+      "sha256": "81e922005965a2ef4fa9a8fe0b35ffe8558a517c42af88860aaf01687d2278f6",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.inspector",
+      "path": "references/resources/patterns/inspector.md",
+      "purpose": "Inspector",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-d-inspector"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 16,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 132,
+      "sha256": "ab7da72e1d9e9aaa55df50639d41bb71f5cd673acb60d4c2a0d94c184c622584",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.surface-and-divider-behavior",
+      "path": "references/resources/patterns/surface-and-divider-behavior.md",
+      "purpose": "5. Surface And Divider Behavior",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 17,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1165,
+      "sha256": "4f709a324f3c7b67e2167caed4f5fb54df8e9166be42319ca43c3f8f86c633b6",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.scrolling",
+      "path": "references/resources/patterns/scrolling.md",
+      "purpose": "6. Scrolling",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 18,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 352,
+      "sha256": "f7aaad5a7c6f0fca1b0364c0379af7f59cfb70246f414176a1ce59efc0bb8576",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.system-ui-boundary",
+      "path": "references/resources/patterns/system-ui-boundary.md",
+      "purpose": "7. System UI Boundary",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 19,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 296,
+      "sha256": "3db93c646b1b7d6149e75a92765a00e0658afffe70d4086c2873500c473bfa73",
+      "kind": "document"
+    },
+    {
+      "id": "patterns.shell-selection-rule",
+      "path": "references/resources/patterns/shell-selection-rule.md",
+      "purpose": "8. Shell Selection Rule",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/harmonyos-layout-patterns.md",
+        "ordinal": 20,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 366,
+      "sha256": "c1b4f8296828bad8e7600ca8a60d6bfa5e45faa9ff9fb777460b5d7f07b3a73f",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.overview",
+      "path": "references/resources/interaction/overview.md",
+      "purpose": "HarmonyOS Desktop Interaction Specification",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 208,
+      "sha256": "be129987b6cad37d9945d0dd9e68f3df34346033e1b263dab2695eb5ad271d9e",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.scope-and-source-levels",
+      "path": "references/resources/interaction/scope-and-source-levels.md",
+      "purpose": "1. Scope And Source Levels",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 1058,
+      "sha256": "39fb917a993c4a957008c0d5804ed3ee59fc93e7feffe5772cf2a86a1a13d3f2",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.official-platform-principles",
+      "path": "references/resources/interaction/official-platform-principles.md",
+      "purpose": "2. Official Platform Principles",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 1001,
+      "sha256": "d8e2ad775193b581e2617f3a2f7c89aabb11210e9524cadcfce5f41c6ee7057f",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.pointer-and-mouse",
+      "path": "references/resources/interaction/pointer-and-mouse.md",
+      "purpose": "3. Pointer And Mouse",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "pointer"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 743,
+      "sha256": "517a413a6913351b788790d1044817efaaa6cc8c38698d3c18e9852f79d66ba7",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.keyboard-and-focus",
+      "path": "references/resources/interaction/keyboard-and-focus.md",
+      "purpose": "4. Keyboard And Focus",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "keyboard"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 941,
+      "sha256": "fec07785e9ccae09b6015f2ff1dff04726ed4a1d1a8cb3801e0b30a383b3ae9f",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.common-shortcuts",
+      "path": "references/resources/interaction/common-shortcuts.md",
+      "purpose": "5. Common Shortcuts",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "keyboard"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 7,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 748,
+      "sha256": "a30119b84645e6321d883b3971169429e95f1593010a7b9c19f432cc64588167",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.navigation-and-selection",
+      "path": "references/resources/interaction/navigation-and-selection.md",
+      "purpose": "6. Navigation And Selection",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "selection"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 8,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 5544,
+      "sha256": "bae4e29b471353fd78970aec1d298c4aa84adc42cd8c11eabc9a4f77f77e0eb6",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.window-and-resize-behavior",
+      "path": "references/resources/interaction/window-and-resize-behavior.md",
+      "purpose": "7. Window And Resize Behavior",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "resize"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 9,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1027,
+      "sha256": "56c9b7edb0e0c50e134567c135a85ab2e001565a8e3dd2a7f973dd9120fd35c8",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.overlay-selection",
+      "path": "references/resources/interaction/overlay-selection.md",
+      "purpose": "8. Overlay Selection",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "overlay"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 10,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1907,
+      "sha256": "e658301098e0cd2b8da93b9988c8096f8c72bd6803be98d73316c04d24c47acd",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.forms-and-validation",
+      "path": "references/resources/interaction/forms-and-validation.md",
+      "purpose": "9. Forms And Validation",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "form"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 11,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 2200,
+      "sha256": "9a7862aa522545917138323977dc09d537bffce8ec9635fe0040bf11a3ac4a77",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.state-feedback",
+      "path": "references/resources/interaction/state-feedback.md",
+      "purpose": "10. State Feedback",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "feedback"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 12,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1253,
+      "sha256": "fb15aef974bd3b607da9ce8fd7aaecc9ae4e6cd13a7ac3aabd54e65fb9eabd84",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.undo-and-destructive-actions",
+      "path": "references/resources/interaction/undo-and-destructive-actions.md",
+      "purpose": "11. Undo And Destructive Actions",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "undo"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 13,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 487,
+      "sha256": "e2e68306a240bd15ac3d096af374ce53041a6ae09843b93c0ceb966d23731668",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.motion-sound-and-accessibility",
+      "path": "references/resources/interaction/motion-sound-and-accessibility.md",
+      "purpose": "12. Motion, Sound, And Accessibility",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "motion"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 14,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 706,
+      "sha256": "957bf0966d4a70dcb5a3727891f9277574f0738514c9463997fb2552726104b5",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.interactive-frontend-demonstration",
+      "path": "references/resources/interaction/interactive-frontend-demonstration.md",
+      "purpose": "13. Interactive Frontend Demonstration",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 15,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 706,
+      "sha256": "99db17d083773f4cb7f9792ed76bfad96c81e9bb9258c9bed1e2c8c667fa3536",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.per-interaction-record",
+      "path": "references/resources/interaction/per-interaction-record.md",
+      "purpose": "14. Per-Interaction Record",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "record"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 16,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 475,
+      "sha256": "8a9d2c97d145111594e26b96c80ab3649d1f6d0c3852e4ea2fd1a28c440076ae",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.interaction-qa-gate",
+      "path": "references/resources/interaction/interaction-qa-gate.md",
+      "purpose": "15. Interaction QA Gate",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "validation"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 17,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 487,
+      "sha256": "3d65ed647f8a9d04d7bb735f8e6985516348539dfb6edf281abf9130cebd68e6",
+      "kind": "document"
+    },
+    {
+      "id": "composition.overview",
+      "path": "references/resources/composition/overview.md",
+      "purpose": "Page composition contract",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 0,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 2070,
+      "sha256": "93766a787d0619121f5d6225e54837d2479a14cae6d51102cd2fa7f30c45d41b",
+      "kind": "document"
+    },
+    {
+      "id": "composition.content-recipes-decide-before-binding",
+      "path": "references/resources/composition/content-recipes-decide-before-binding.md",
+      "purpose": "Content recipes: decide before binding",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 1,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 1029,
+      "sha256": "f5f0a42d7f717a5d862785f4109307b78f55ff66cce2bb67b2d5162ff0d9d342",
+      "kind": "document"
+    },
+    {
+      "id": "composition.executable-html-business-composites",
+      "path": "references/resources/composition/executable-html-business-composites.md",
+      "purpose": "Executable HTML business composites",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "page-module"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 2,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 4322,
+      "sha256": "b1ff5c0370077fc79be720a941d629e4fb980e8adf209899bcc59e92b2be1dfb",
+      "kind": "document"
+    },
+    {
+      "id": "composition.plans",
+      "path": "references/resources/composition/plans.md",
+      "purpose": "StylePlan 与 BehaviorPlan 参数和可执行行为",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [
+        "composition.overview"
+      ],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 3,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 2598,
+      "sha256": "f5575338c00a67bf5920135ab0141ff0b03a023c164e7e8749eee5cb48e72a64",
+      "kind": "document"
+    },
+    {
+      "id": "composition.pattern-owned-navigation-shells",
+      "path": "references/resources/composition/pattern-owned-navigation-shells.md",
+      "purpose": "Pattern-owned navigation shells",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [
+        "composition.stroke-ownership"
+      ],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 4,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 1851,
+      "sha256": "434f226cf4dec948075d0834cb93d5276d4a780506f2f5cc7c9750fc463d85fa",
+      "kind": "document"
+    },
+    {
+      "id": "composition.stroke-ownership",
+      "path": "references/resources/composition/stroke-ownership.md",
+      "purpose": "Stroke ownership",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/page-composition.md",
+        "ordinal": 5,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 2938,
+      "sha256": "a65e185a40b380a8dbc89cb55c838348348a38771e414a959941a19fdd9f9bce",
+      "kind": "document"
+    },
+    {
+      "id": "blueprint.overview",
+      "path": "references/resources/blueprint/overview.md",
+      "purpose": "Page Blueprint Design Contract",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 335,
+      "sha256": "a7c7118929af077934baa555f137ec5c59560deca157b0b7073dfc10ec04ab08",
+      "kind": "document"
+    },
+    {
+      "id": "blueprint.required-decisions",
+      "path": "references/resources/blueprint/required-decisions.md",
+      "purpose": "Required decisions",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1096,
+      "sha256": "51fd7700569cbc52fc6eb4db5b24d4c106c999aac319c5c5dfd872291592834c",
+      "kind": "document"
+    },
+    {
+      "id": "blueprint.design-before-assembly",
+      "path": "references/resources/blueprint/design-before-assembly.md",
+      "purpose": "Design before assembly",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1247,
+      "sha256": "e74b2277d6a11bfd0217a8e23fabfacad0a2dee408afb8d407e8faf1a24d03b0",
+      "kind": "document"
+    },
+    {
+      "id": "blueprint.pattern-b-assembly-decisions",
+      "path": "references/resources/blueprint/pattern-b-assembly-decisions.md",
+      "purpose": "Pattern B assembly decisions",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {
+        "patterns": [
+          "pattern-b-three-pane"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 1063,
+      "sha256": "f179d94f1258d0197b75bf14635a895e3272087046ceae05d7d59472f438d48e",
+      "kind": "document"
+    },
+    {
+      "id": "blueprint.minimal-shape",
+      "path": "references/resources/blueprint/minimal-shape.md",
+      "purpose": "Minimal shape",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-blueprint-design.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 811,
+      "sha256": "af53adeab4659c56e379ca0e36a53f6bdd0c53da5f98ce8a673c6d18cf0f7c30",
+      "kind": "document"
+    },
+    {
+      "id": "design.overview",
+      "path": "references/resources/design/overview.md",
+      "purpose": "Design decisions before assembly",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 267,
+      "sha256": "f06673b40d05dcb635d436f80598f57c0d6e559b3ba43f66223aa5b5b876bceb",
+      "kind": "document"
+    },
+    {
+      "id": "design.start-with-the-task-not-the-inventory",
+      "path": "references/resources/design/start-with-the-task-not-the-inventory.md",
+      "purpose": "Start with the task, not the inventory",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 653,
+      "sha256": "bcff80a80b2d1b48c5dba715cbb4a54bbffa3f63a9d0b72bf1c7de9930857d4e",
+      "kind": "document"
+    },
+    {
+      "id": "design.design-at-the-real-content-width",
+      "path": "references/resources/design/design-at-the-real-content-width.md",
+      "purpose": "Design at the real content width",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 923,
+      "sha256": "ef6298c89575869cba19954c5464014f368962e1c87599ca420d7a458b6c84d0",
+      "kind": "document"
+    },
+    {
+      "id": "design.visual-alignment-and-grouping",
+      "path": "references/resources/design/visual-alignment-and-grouping.md",
+      "purpose": "Visual alignment and grouping",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 783,
+      "sha256": "d0cb864e105e189ea2e81baf09eac629709e3dfc2e54f49f2907c64b446a3833",
+      "kind": "document"
+    },
+    {
+      "id": "design.reuse-controls-design-missing-business-composites",
+      "path": "references/resources/design/reuse-controls-design-missing-business-composites.md",
+      "purpose": "Reuse controls; design missing business composites",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 592,
+      "sha256": "f890c44d5c08545c4716a8e4a7e161b99a41c2b7a9ff35c5524acdb228328943",
+      "kind": "document"
+    },
+    {
+      "id": "design.one-deliberate-first-preview",
+      "path": "references/resources/design/one-deliberate-first-preview.md",
+      "purpose": "One deliberate first preview",
+      "stage": [
+        "design"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/page-design-guidance.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 918,
+      "sha256": "93f1861b34a94e26a72c0bbdfc48940bb708f31ae291ab7f3514739042237882",
+      "kind": "document"
+    },
+    {
+      "id": "supplement.overview",
+      "path": "references/resources/supplement/overview.md",
+      "purpose": "Extended Component Specifications",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 0,
+        "linkBase": "references"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 501,
+      "sha256": "302d6872026c3c13e482ed74c0ce991d3a69e1cd79fda98a994bf4227bca7301",
+      "kind": "document"
+    },
+    {
+      "id": "supplement.universal-contract",
+      "path": "references/resources/supplement/universal-contract.md",
+      "purpose": "Universal Contract",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 1,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 766,
+      "sha256": "1a2424f0b9105bb5f4b50c6326927a2099fd2b2b8da829ff58d9a551160fe420",
+      "kind": "document"
+    },
+    {
+      "id": "supplement.navigation-and-disclosure",
+      "path": "references/resources/supplement/navigation-and-disclosure.md",
+      "purpose": "Navigation And Disclosure",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "accordion",
+          "collapsible",
+          "tabs",
+          "sidebar",
+          "primary-navigation-item",
+          "breadcrumb",
+          "tree-view"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 2,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 4365,
+      "sha256": "a87fc88587c603899ea908d9181cd853562e4021eff465b7a1d5349aeb779ec4",
+      "kind": "document"
+    },
+    {
+      "id": "supplement.overlays-and-commands",
+      "path": "references/resources/supplement/overlays-and-commands.md",
+      "purpose": "Overlays And Commands",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "dialog",
+          "alert-dialog",
+          "context-menu",
+          "dropdown-menu",
+          "popover",
+          "tooltip"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 3,
+        "linkBase": "references"
+      },
+      "extensionReferences": [
+        "command"
+      ],
+      "readPolicy": "stage",
+      "bytes": 2745,
+      "sha256": "a3c991321be271525020ed810aa4bcf1155ddbbb425f0609973191c07ef83fb4",
+      "kind": "document"
+    },
+    {
+      "id": "supplement.form-composition",
+      "path": "references/resources/supplement/form-composition.md",
+      "purpose": "Form Composition",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "input",
+          "textarea",
+          "checkbox",
+          "radio",
+          "switch",
+          "combobox",
+          "native-select",
+          "select",
+          "slider",
+          "field",
+          "form-field",
+          "label",
+          "number-selector"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 4,
+        "linkBase": "references"
+      },
+      "readPolicy": "stage",
+      "bytes": 3497,
+      "sha256": "d1c0b952624ceddd02f33ff5d8b741e7871dce69812aa4ef5e818dca76f6d7a0",
+      "kind": "document"
+    },
+    {
+      "id": "supplement.loading-data-and-dates",
+      "path": "references/resources/supplement/loading-data-and-dates.md",
+      "purpose": "Loading, Data, And Dates",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "calendar",
+          "date-picker",
+          "time-picker",
+          "progress",
+          "table"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "extensionReferences": [
+        "skeleton",
+        "data-table"
+      ],
+      "readPolicy": "stage",
+      "bytes": 1737,
+      "sha256": "2b1f797fe6db5469f7690996f9cd09a9c6b71d1e26240cbdd61ba5c668b47be2",
+      "kind": "document"
+    },
+    {
+      "id": "supplement.specialized-content-and-layout",
+      "path": "references/resources/supplement/specialized-content-and-layout.md",
+      "purpose": "Specialized Content And Layout",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "attachment",
+          "avatar",
+          "badge",
+          "list-card",
+          "titlebar"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/component-specs-extended.md",
+        "ordinal": 6,
+        "linkBase": "references"
+      },
+      "extensionReferences": [
+        "resizable",
+        "scroll-area",
+        "separator"
+      ],
+      "readPolicy": "stage",
+      "bytes": 821,
+      "sha256": "af2fa4e89253cca291f1568734a6f963c2f33923ba2482b9291923d21653c410",
+      "kind": "document"
+    },
+    {
+      "id": "titlebar.overview",
+      "path": "references/resources/titlebar/overview.md",
+      "purpose": "Titlebar · 分段标题栏",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 0,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 2086,
+      "sha256": "d7b2f2381ce4d5571c83497f43adf5ccc2a3c3e24bfb5ca28fa4b7b36e662c57",
+      "kind": "document"
+    },
+    {
+      "id": "titlebar.scenarios",
+      "path": "references/resources/titlebar/scenarios.md",
+      "purpose": "Scenarios",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [
+        "titlebar.overview",
+        "titlebar.title-typography",
+        "titlebar.trailing-inset"
+      ],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 1,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 1688,
+      "sha256": "4386361cc73359aad8e2bd1298f04a70ef8ea7d33c6b78b83b5c07bb0533422d",
+      "kind": "document"
+    },
+    {
+      "id": "titlebar.title-typography",
+      "path": "references/resources/titlebar/title-typography.md",
+      "purpose": "Title typography",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 2,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 437,
+      "sha256": "dcc7276e986c8c54ab761b54a80563af783087ab12cc88f00fd84401bece210a",
+      "kind": "document"
+    },
+    {
+      "id": "titlebar.trailing-inset",
+      "path": "references/resources/titlebar/trailing-inset.md",
+      "purpose": "Trailing inset",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 3,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 369,
+      "sha256": "83aa2307bc23c0c489eadd62e797ab16b95eb42ac3f2871e93fc6f7823716400",
+      "kind": "document"
+    },
+    {
+      "id": "titlebar.executable-html-slots",
+      "path": "references/resources/titlebar/executable-html-slots.md",
+      "purpose": "Executable HTML slots",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [
+        "titlebar.overview",
+        "titlebar.title-typography",
+        "titlebar.trailing-inset"
+      ],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 4,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 4340,
+      "sha256": "fbd089ae46a5cb71dab0fda0aaaf9e99941bdd6be33bf59d002c56e87fffdc24",
+      "kind": "document"
+    },
+    {
+      "id": "titlebar.generated-titlebar-scene",
+      "path": "references/resources/titlebar/generated-titlebar-scene.md",
+      "purpose": "Generated Titlebar Scene",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [
+        "titlebar.overview",
+        "titlebar.title-typography",
+        "titlebar.trailing-inset"
+      ],
+      "source": {
+        "aggregate": "references/components/titlebar-segments.md",
+        "ordinal": 5,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 3258,
+      "sha256": "6a87c38bb531c93164d10728a09bd31e27cc04254dab305760baddfefa71bd94",
+      "kind": "document"
+    },
+    {
+      "id": "delivery.overview",
+      "path": "references/resources/delivery/overview.md",
+      "purpose": "页面本地组件与动态渲染",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 0,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 245,
+      "sha256": "c95b33d3505aab56a76565b3763edf51db133f53fa5d364656a14fb84e216b3c",
+      "kind": "document"
+    },
+    {
+      "id": "delivery.reading",
+      "path": "references/resources/delivery/reading.md",
+      "purpose": "读取范围",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 1,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "explicit-query",
+      "bytes": 489,
+      "sha256": "19adfa0ec3ea6e28bbb693cb34d82caccf700339e73ba861b6d3db0b1450f876",
+      "kind": "document"
+    },
+    {
+      "id": "delivery.project-output",
+      "path": "references/resources/delivery/project-output.md",
+      "purpose": "项目输出",
+      "stage": [
+        "design",
+        "validation"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 2,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 2944,
+      "sha256": "dd7fe5a09e3b6f4cd8b0fe4deda381309dfbee77f0eca953cc3aec9d07a98587",
+      "kind": "document"
+    },
+    {
+      "id": "delivery.prepare",
+      "path": "references/resources/delivery/prepare.md",
+      "purpose": "两阶段命令",
+      "stage": [
+        "bindings",
+        "validation"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 3,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 1873,
+      "sha256": "371f882ce96c9978074511d65c1fb852b306b62e0711a38bd8d9a6c96bab0a9f",
+      "kind": "document"
+    },
+    {
+      "id": "delivery.styles",
+      "path": "references/resources/delivery/styles.md",
+      "purpose": "样式装配与读取边界",
+      "stage": [
+        "styling"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 4,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 1804,
+      "sha256": "72df1b20f3f4213c2cea14c8341bbc9e14b3736f3e5e08830c578bc800b57d81",
+      "kind": "document"
+    },
+    {
+      "id": "delivery.calling",
+      "path": "references/resources/delivery/calling.md",
+      "purpose": "页面调用",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "workflows": [
+          "new-page",
+          "normalize-demo"
+        ]
+      },
+      "requires": [],
+      "source": {
+        "aggregate": "references/components/local-component-delivery.md",
+        "ordinal": 5,
+        "linkBase": "references/components"
+      },
+      "readPolicy": "stage",
+      "bytes": 516,
+      "sha256": "09ebc38b011fab8341062b2bd8bdb1085a80817040636d5e5337cfae0840fd78",
+      "kind": "document"
+    },
+    {
+      "id": "core.delivery",
+      "path": "references/resources/core/delivery.md",
+      "purpose": "所有阶段的交付与来源边界",
+      "stage": [
+        "intake",
+        "design",
+        "discovery",
+        "bindings",
+        "styling",
+        "validation"
+      ],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "stage",
+      "bytes": 1206,
+      "sha256": "7203620a2511f73c5d7d9a0d7908c2bd28f11732539dee3be8247d42f79cec02",
+      "kind": "document"
+    },
+    {
+      "id": "validation.preview",
+      "path": "references/workflows/fast-preview.md",
+      "purpose": "Fast Preview 最小验证",
+      "stage": [
+        "validation"
+      ],
+      "appliesTo": {},
+      "requires": [
+        "core.delivery"
+      ],
+      "readPolicy": "stage",
+      "bytes": 1322,
+      "sha256": "df11e0ea0417ac8be1fbf072ad6f2183be6c6f1a3075e30df55446ef40c5264d",
+      "kind": "document"
+    },
+    {
+      "id": "validation.release",
+      "path": "references/workflows/release-validation.md",
+      "purpose": "正式发布验证",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [
+        "core.delivery"
+      ],
+      "readPolicy": "explicit-query",
+      "bytes": 999,
+      "sha256": "663b7a714f7add8a1f289816a83fd48ed5b20408f61f047c263fb731b94e9c24",
+      "kind": "document"
+    },
+    {
+      "id": "components.resolution",
+      "path": "references/components/source-resolution.md",
+      "purpose": "组件来源、语义与成熟度",
+      "stage": [
+        "discovery"
+      ],
+      "appliesTo": {},
+      "requires": [
+        "core.delivery"
+      ],
+      "readPolicy": "stage",
+      "bytes": 4173,
+      "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.date-picker",
+      "path": "references/resources/interaction/date-picker.md",
+      "purpose": "date-picker keyboard and commit behavior",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "date"
+        ]
+      },
+      "requires": [
+        "interaction.keyboard-and-focus"
+      ],
+      "readPolicy": "stage",
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 5,
+        "linkBase": "references"
+      },
+      "bytes": 823,
+      "sha256": "4cd08412bf23a3462d2eaa237a79f46d42efdaa50839946f37a68d3799322b4f",
+      "kind": "document"
+    },
+    {
+      "id": "interaction.time-picker",
+      "path": "references/resources/interaction/time-picker.md",
+      "purpose": "time-picker keyboard and commit behavior",
+      "stage": [
+        "bindings"
+      ],
+      "appliesTo": {
+        "interactions": [
+          "time"
+        ]
+      },
+      "requires": [
+        "interaction.keyboard-and-focus"
+      ],
+      "readPolicy": "stage",
+      "source": {
+        "aggregate": "references/interaction-spec.md",
+        "ordinal": 6,
+        "linkBase": "references"
+      },
+      "bytes": 787,
+      "sha256": "a0df30f297491a4e0f4b472868a14d5756d9bb0b14ed9271625da7b7aa77372c",
+      "kind": "document"
+    },
+    {
+      "id": "foundations.colors",
+      "path": "references/resources/foundations/colors.md",
+      "purpose": "Colors：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 7643,
+      "sha256": "1870969216902cde5d6c97c04ea15d2e2e4c1b704617750e8d999f5469bb32f2",
+      "kind": "document"
+    },
+    {
+      "id": "foundations.typography",
+      "path": "references/resources/foundations/typography.md",
+      "purpose": "Typography：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 7242,
+      "sha256": "1f5b97ec5d36f831af3947879f2843af281a1a00f37de1460e00c050e30422bf",
+      "kind": "document"
+    },
+    {
+      "id": "foundations.spacing",
+      "path": "references/resources/foundations/spacing.md",
+      "purpose": "Spacing：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 17227,
+      "sha256": "363c84ece944bda8cfcc2693ac083da5d951ae84c072984465bb55906cb8d827",
+      "kind": "document"
+    },
+    {
+      "id": "foundations.radius",
+      "path": "references/resources/foundations/radius.md",
+      "purpose": "Radius：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 3669,
+      "sha256": "8d5e530df4f6239bbe3643d9438ee3aa99ae971e71010956e4c992f09d7866e2",
+      "kind": "document"
+    },
+    {
+      "id": "foundations.size",
+      "path": "references/resources/foundations/size.md",
+      "purpose": "Size and Dimensions：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 7867,
+      "sha256": "4b4482be90777d7ae623073a43234c733b69d4640fe6267e72a2046c282d2699",
+      "kind": "document"
+    },
+    {
+      "id": "foundations.shadows",
+      "path": "references/resources/foundations/shadows.md",
+      "purpose": "Shadows：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 4269,
+      "sha256": "4c583d054b7eb67a8f025c290931a0376182d5ce82ebaebfeb8230516fdf3f5a",
+      "kind": "document"
+    },
+    {
+      "id": "component-visual.buttons",
+      "path": "references/resources/component-visual/buttons.md",
+      "purpose": "Buttons：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 5663,
+      "sha256": "72b3a3a2b0e080775f55af5c0bdb29aab916a0b4d73b03e027549caeb2da83a2",
+      "kind": "document"
+    },
+    {
+      "id": "component-visual.inputs",
+      "path": "references/resources/component-visual/inputs.md",
+      "purpose": "Inputs：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 7595,
+      "sha256": "4ef4c687952866fb7d0618e88513ecc1bbded95f1027a53576420ede8abc23b4",
+      "kind": "document"
+    },
+    {
+      "id": "component-visual.cards",
+      "path": "references/resources/component-visual/cards.md",
+      "purpose": "Cards：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 1204,
+      "sha256": "c8b563f98d695a79d77bd7e6ba2c794b265a93f7d5204601d08c388debe5b70c",
+      "kind": "document"
+    },
+    {
+      "id": "component-visual.navigation-and-lists",
+      "path": "references/resources/component-visual/navigation-and-lists.md",
+      "purpose": "Tabs, Navigation, and Lists：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 8182,
+      "sha256": "eaa6b9886a5a0efe010a618eed20410e039393c95129951fbc398c7696eb91bc",
+      "kind": "document"
+    },
+    {
+      "id": "component-visual.data",
+      "path": "references/resources/component-visual/data.md",
+      "purpose": "Data Display：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 2951,
+      "sha256": "638e86a03544b1fd41e85b848d25b3e57802767d6f88afb779d1dce68ab69a0d",
+      "kind": "document"
+    },
+    {
+      "id": "component-visual.feedback-and-overlays",
+      "path": "references/resources/component-visual/feedback-and-overlays.md",
+      "purpose": "Modals / Toasts：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 5763,
+      "sha256": "efb2e965c157ae549e830001df7dd1c724f169853680d513789d7d5d1ac356e5",
+      "kind": "document"
+    },
+    {
+      "id": "component-visual.tooltip",
+      "path": "references/resources/component-visual/tooltip.md",
+      "purpose": "Tooltip：共享规范维护深度参考",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 1082,
+      "sha256": "1f973dadee9be8f6f82e747f5e007a48188c3be5d775a8b26c3d5537c5ae0a20",
+      "kind": "document"
+    },
+    {
+      "id": "maintenance.compatibility-components",
+      "path": "references/components/compatibility-modules.json",
+      "purpose": "未注册的历史兼容模块边界；不进入新页面组件选择",
+      "stage": [],
+      "appliesTo": {},
+      "requires": [],
+      "readPolicy": "explicit-query",
+      "bytes": 2058,
+      "sha256": "a527f66c1ffedcbcafc5bbb3ff76a6a319ada9610ace503d0416bb75be208002",
+      "kind": "document"
+    },
+    {
+      "id": "component.accordion",
+      "kind": "component",
+      "purpose": "Accordion/Default",
+      "path": "packages/component-contracts/src/components/accordion.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "accordion"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2761,
+      "sha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0"
+    },
+    {
+      "id": "component.alert-dialog",
+      "kind": "component",
+      "purpose": "Alert Dialog/Default",
+      "path": "packages/component-contracts/src/components/alert-dialog.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "alert-dialog"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2900,
+      "sha256": "8017bd049ccbfa350297a8116659c35500d906c944f2aa8bdd40cc10747055d7"
+    },
+    {
+      "id": "component.alert",
+      "kind": "component",
+      "purpose": "Alert/Default",
+      "path": "packages/component-contracts/src/components/alert.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "alert"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 4502,
+      "sha256": "66c7ffc790a9399fe74114586097b4d984c743f8786146994f55cab275676397"
+    },
+    {
+      "id": "component.attachment",
+      "kind": "component",
+      "purpose": "Attachment/Default",
+      "path": "packages/component-contracts/src/components/attachment.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "attachment"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 3580,
+      "sha256": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee"
+    },
+    {
+      "id": "component.avatar",
+      "kind": "component",
+      "purpose": "Avatar/Default",
+      "path": "packages/component-contracts/src/components/avatar.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "avatar"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2519,
+      "sha256": "eb4241fa1e6dc0b4bdd7773284a3e4198b5215e4133bed5bcaab813a3f29c07e"
+    },
+    {
+      "id": "component.badge",
+      "kind": "component",
+      "purpose": "Badge/Default",
+      "path": "packages/component-contracts/src/components/badge.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "badge"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2182,
+      "sha256": "411ca3b956912f81329d8f324e39b753844ae442218d8d2a3c640016119a41ee"
+    },
+    {
+      "id": "component.breadcrumb",
+      "kind": "component",
+      "purpose": "Breadcrumb/Default",
+      "path": "packages/component-contracts/src/components/breadcrumb.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "breadcrumb"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2508,
+      "sha256": "0e4dde6c16263377478e84c2af87da3a63fe150e5db05e24f7f0c8b109808a6c"
+    },
+    {
+      "id": "component.button",
+      "kind": "component",
+      "purpose": "Button/Primary/Default",
+      "path": "packages/component-contracts/src/components/button.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "button"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 5755,
+      "sha256": "5fe21e0684a1bc77723cec127fbce8b8cc866f9c9295b0dc267d67741f9b2dbf"
+    },
+    {
+      "id": "component.calendar",
+      "kind": "component",
+      "purpose": "Calendar/Default",
+      "path": "packages/component-contracts/src/components/calendar.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "calendar"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2487,
+      "sha256": "633310e492fc029e73eb19b922f9f12883217f652521ca06b2aeacf11b078257"
+    },
+    {
+      "id": "component.checkbox",
+      "kind": "component",
+      "purpose": "Checkbox/Default",
+      "path": "packages/component-contracts/src/components/checkbox.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "checkbox"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2476,
+      "sha256": "e9d8fb5e7cf91f815053692811a495efbbbc7ca009ccb6e8d045d62fc310494d"
+    },
+    {
+      "id": "component.chips",
+      "kind": "component",
+      "purpose": "Chips/Default",
+      "path": "packages/component-contracts/src/components/chips.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "chips"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 3094,
+      "sha256": "cb696e10d3ed29963b22e10bd3cd2d6a8ccc59fe012e64bff444981e87a1ff64"
+    },
+    {
+      "id": "component.collapsible",
+      "kind": "component",
+      "purpose": "Collapsible/Default",
+      "path": "packages/component-contracts/src/components/collapsible.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "collapsible"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2853,
+      "sha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455"
+    },
+    {
+      "id": "component.color-picker",
+      "kind": "component",
+      "purpose": "ColorPicker/Tablet",
+      "path": "packages/component-contracts/src/components/color-picker.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "color-picker"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2558,
+      "sha256": "b3fc9607ead099c7a411f664830dc1962981cf38a9e841d2d0ce17c310d3f72e"
+    },
+    {
+      "id": "component.combobox",
+      "kind": "component",
+      "purpose": "Combobox/Default",
+      "path": "packages/component-contracts/src/components/combobox.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "combobox"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2570,
+      "sha256": "db07bf58e810ff12f89617f4445582ce8d609788ee83043f430470468f2938e5"
+    },
+    {
+      "id": "component.context-menu",
+      "kind": "component",
+      "purpose": "Context Menu/Default",
+      "path": "packages/component-contracts/src/components/context-menu.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "context-menu"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2555,
+      "sha256": "ab1aeee861535bc583de7a76f4d4ec51793c97fe143ee74500d909ec084383bd"
+    },
+    {
+      "id": "component.date-picker",
+      "kind": "component",
+      "purpose": "Date Picker/Default",
+      "path": "packages/component-contracts/src/components/date-picker.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "date-picker"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2588,
+      "sha256": "afed1e52d33589928555cbe5444d58b44df33e6446a3c03058285a1020d92d17"
+    },
+    {
+      "id": "component.dialog",
+      "kind": "component",
+      "purpose": "Dialog/Default",
+      "path": "packages/component-contracts/src/components/dialog.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "dialog"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 4032,
+      "sha256": "e8135420de6f3ce23ea6392224551c34ed3368cefc0fc7afbdd37b84a2409e1c"
+    },
+    {
+      "id": "component.dropdown-menu",
+      "kind": "component",
+      "purpose": "Dropdown Menu/Default",
+      "path": "packages/component-contracts/src/components/dropdown-menu.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "dropdown-menu"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2591,
+      "sha256": "ecb2612a139d4aa2ee5b84b5122f734d14a0d84922235c023ba89f2adaab5c85"
+    },
+    {
+      "id": "component.field",
+      "kind": "component",
+      "purpose": "Field/Default",
+      "path": "packages/component-contracts/src/components/field.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "field"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2290,
+      "sha256": "aadffe7262caa78762fe6cf334620a17045f89d56a9864090ce0fb380280947e"
+    },
+    {
+      "id": "component.form-field",
+      "kind": "component",
+      "purpose": "Form Field/Default",
+      "path": "packages/component-contracts/src/components/form-field.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "form-field"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2959,
+      "sha256": "2419fad30955b260674a33182298387bb05104390b3cb9dba3d56ba523cb03a5"
+    },
+    {
+      "id": "component.hover-card",
+      "kind": "component",
+      "purpose": "Hover Card/Default",
+      "path": "packages/component-contracts/src/components/hover-card.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "hover-card"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2556,
+      "sha256": "c26658f7199d7820e65bf06afa95f8b3778048a3c11d1038ba541388ea92dcfc"
+    },
+    {
+      "id": "component.input",
+      "kind": "component",
+      "purpose": "Input/White Surface/Default",
+      "path": "packages/component-contracts/src/components/input.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "input"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2773,
+      "sha256": "b3a68f6d2b762252d37adeefd8ddb01499b75345de98d6748451a7feb02d698e"
+    },
+    {
+      "id": "component.label",
+      "kind": "component",
+      "purpose": "Label/Default",
+      "path": "packages/component-contracts/src/components/label.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "label"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2467,
+      "sha256": "18df89851b843796ebd1790fd9f1ef573002094aec62cb48a1c69978c21eca8d"
+    },
+    {
+      "id": "component.list-card",
+      "kind": "component",
+      "purpose": "List Item/White Surface/Default",
+      "path": "packages/component-contracts/src/components/list-card.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "list-card"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 3497,
+      "sha256": "2c67d674bb10d52b87ee29d458bf31352743c60f1a74c630c6f80d63a58c07ad"
+    },
+    {
+      "id": "component.menubar",
+      "kind": "component",
+      "purpose": "Menubar/Default",
+      "path": "packages/component-contracts/src/components/menubar.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "menubar"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 3680,
+      "sha256": "65474143ea766a7f5e58218101542b40e4162ae981bbb327e3945994aa7fc4dd"
+    },
+    {
+      "id": "component.native-select",
+      "kind": "component",
+      "purpose": "Native Select/Default",
+      "path": "packages/component-contracts/src/components/native-select.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "native-select"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2536,
+      "sha256": "01f2a549f7ceb676251aa75ee2b8c0a9f5020972b51a951cf31f3a3ada83d75e"
+    },
+    {
+      "id": "component.number-selector",
+      "kind": "component",
+      "purpose": "Number Selector/Default",
+      "path": "packages/component-contracts/src/components/number-selector.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "number-selector"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2449,
+      "sha256": "14840959212e589daec0dcce287516ba2df93d902432d879d5fdff4464cd2c58"
+    },
+    {
+      "id": "component.pagination",
+      "kind": "component",
+      "purpose": "Pagination/Default",
+      "path": "packages/component-contracts/src/components/pagination.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "pagination"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2729,
+      "sha256": "9c30f1cf3fcd5f884535debc2dcb847b48da26d27b99c9befd445a31b4bc830f"
+    },
+    {
+      "id": "component.popover",
+      "kind": "component",
+      "purpose": "Popover/Default",
+      "path": "packages/component-contracts/src/components/popover.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "popover"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2535,
+      "sha256": "c9bbce982b7a4c806b1a788ccaec9cc2b08ebf4eae08b8cbe079ad98ba789d08"
+    },
+    {
+      "id": "component.primary-navigation-item",
+      "kind": "component",
+      "purpose": "Primary Navigation Item/Level 1",
+      "path": "packages/component-contracts/src/components/primary-navigation-item.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "primary-navigation-item"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 3495,
+      "sha256": "70ca9089bc4fc9e6c6dc2a4650524ac8bbcd9140e76a610920145a28c3440f53"
+    },
+    {
+      "id": "component.progress",
+      "kind": "component",
+      "purpose": "Progress/Default",
+      "path": "packages/component-contracts/src/components/progress.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "progress"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2562,
+      "sha256": "63b968a4677cb4e30ef80d76408cfee7d4bfefd8b1001216ec910f4437489f97"
+    },
+    {
+      "id": "component.radio-group",
+      "kind": "component",
+      "purpose": "Radio Group/Default",
+      "path": "packages/component-contracts/src/components/radio-group.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "radio-group"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2497,
+      "sha256": "ccaa4aeea0d04a965a9444667438b3ceb709817b0feff94742263b7e4825aebc"
+    },
+    {
+      "id": "component.radio",
+      "kind": "component",
+      "purpose": "Radio/Unselected/Default",
+      "path": "packages/component-contracts/src/components/radio.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "radio"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2552,
+      "sha256": "1fb4c5974f2249f9a04502475c86bd01d8db0d92b47569d2f178a2d328d77a2c"
+    },
+    {
+      "id": "component.search",
+      "kind": "component",
+      "purpose": "Search/White Surface/Default",
+      "path": "packages/component-contracts/src/components/search.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "search"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 4791,
+      "sha256": "ad7cb7f2acfebb5229aa0f14d78e0f2f836f733590795f3fde0c37a58ab2b798"
+    },
+    {
+      "id": "component.segmented-button",
+      "kind": "component",
+      "purpose": "Segmented Button/Default",
+      "path": "packages/component-contracts/src/components/segmented-button.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "segmented-button"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2409,
+      "sha256": "8140dbc35e6e151b8db24549fa182f86a7b41d5fb1489382a30ace0c56903611"
+    },
+    {
+      "id": "component.select",
+      "kind": "component",
+      "purpose": "Select/Default",
+      "path": "packages/component-contracts/src/components/select.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "select"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2685,
+      "sha256": "4ffdb40b3457483512cc296bbe1d365646952822f4f1019966920f1f4e2fe43c"
+    },
+    {
+      "id": "component.semi-modal",
+      "kind": "component",
+      "purpose": "Semi-modal/Default",
+      "path": "packages/component-contracts/src/components/semi-modal.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "semi-modal"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 4397,
+      "sha256": "f89ff2321e62cf260a587eee531dd342d3892152d3db9efae090f24a4ecc240c"
+    },
+    {
+      "id": "component.sidebar",
+      "kind": "component",
+      "purpose": "Sidebar Item/Default",
+      "path": "packages/component-contracts/src/components/sidebar.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "sidebar"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 3347,
+      "sha256": "ea1dfbbd9048bac8200b179b20ab3fabe82780f8b43b1ce477c5a9ee1ab5cd66"
+    },
+    {
+      "id": "component.slider",
+      "kind": "component",
+      "purpose": "Slider/Default",
+      "path": "packages/component-contracts/src/components/slider.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "slider"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2438,
+      "sha256": "ed618dd2d01402d7763af643333d7fbcda0827b314f5b1e6e45563f1bbbfbe0a"
+    },
+    {
+      "id": "component.snackbar",
+      "kind": "component",
+      "purpose": "Snackbar/Default",
+      "path": "packages/component-contracts/src/components/snackbar.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "snackbar"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 3860,
+      "sha256": "78ebb419553e79dab0cc36407cd623b3b7fe2dbcc1169b61785aa1a1bbc45a27"
+    },
+    {
+      "id": "component.sub-tabs",
+      "kind": "component",
+      "purpose": "Sub Tabs/Default",
+      "path": "packages/component-contracts/src/components/sub-tabs.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "sub-tabs"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2425,
+      "sha256": "af999c0e5d86a427e904fdbe5b188f83973cdbf89136f32e4c9d76d7ef060d61"
+    },
+    {
+      "id": "component.switch",
+      "kind": "component",
+      "purpose": "Switch/Default",
+      "path": "packages/component-contracts/src/components/switch.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "switch"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2483,
+      "sha256": "eae03c9be86b338f965ce9c2064d7624d00701877bcad66709802e97901ed7a7"
+    },
+    {
+      "id": "component.table",
+      "kind": "component",
+      "purpose": "Table/Default",
+      "path": "packages/component-contracts/src/components/table.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "table"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2337,
+      "sha256": "e19a95ccdea16a8d99134010df9b6ba7d6a0794273b89fe1e9be64fadebbb985"
+    },
+    {
+      "id": "component.tabs",
+      "kind": "component",
+      "purpose": "Tabs/Default",
+      "path": "packages/component-contracts/src/components/tabs.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "tabs"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2443,
+      "sha256": "fcdd70e3c0a785aac7acadcc06de19cadb113a4a509c7378cb0f72b2ecf02bbb"
+    },
+    {
+      "id": "component.textarea",
+      "kind": "component",
+      "purpose": "Textarea/Default",
+      "path": "packages/component-contracts/src/components/textarea.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "textarea"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2516,
+      "sha256": "06f9048b5b18abec44ed845f0ae3986066ac3229f887495aaa77e7f1ec761431"
+    },
+    {
+      "id": "component.time-picker",
+      "kind": "component",
+      "purpose": "Time Picker/Default",
+      "path": "packages/component-contracts/src/components/time-picker.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "time-picker"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2579,
+      "sha256": "186380f80bb8dd3eafb1decbd83f632ccd87989b55e355318d297f518e50730a"
+    },
+    {
+      "id": "component.titlebar",
+      "kind": "component",
+      "purpose": "Titlebar/Default",
+      "path": "packages/component-contracts/src/components/titlebar.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "titlebar"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 10871,
+      "sha256": "db123d170477fcdfb0bb98d28d976285caaac6e9e5cd324fb8ee868fd4b95a83"
+    },
+    {
+      "id": "component.tooltip",
+      "kind": "component",
+      "purpose": "Tooltip/Default",
+      "path": "packages/component-contracts/src/components/tooltip.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "tooltip"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 2409,
+      "sha256": "e0a8ce75cb5c3d4ce59837d9526b4fde45ad24a226fa387d0cc05e2c39baae84"
+    },
+    {
+      "id": "component.tree-view",
+      "kind": "component",
+      "purpose": "Tree View/Default",
+      "path": "packages/component-contracts/src/components/tree-view.json",
+      "stage": [
+        "discovery",
+        "bindings"
+      ],
+      "appliesTo": {
+        "components": [
+          "tree-view"
+        ]
+      },
+      "requires": [
+        "core.delivery"
+      ],
+      "bytes": 3089,
+      "sha256": "83a89cbb3530f86c07ea87642cbce0343ff9b742d75af6a4531cc78828b8bf97"
+    }
+  ]
+}

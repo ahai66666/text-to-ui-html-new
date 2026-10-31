@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "skill": "text-to-ui-html-new",
+  "version": "0.1.0",
+  "output": "out/settings.html",
+  "sha256": "16fbea059219dfe9dce66188544cc0a7e3bac1056c79523723ccdd0da2be1166",
+  "bytes": 365831,
+  "modules": 35,
+  "stylesheets": 17,
+  "assets": 0,
+  "format": "classic-script",
+  "requiresServer": false
+}

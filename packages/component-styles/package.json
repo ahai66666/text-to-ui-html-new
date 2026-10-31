@@ -1,0 +1,13 @@
+{
+  "name": "@text-to-ui/component-styles",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "dependencies": {
+    "@text-to-ui/tokens": "workspace:*"
+  },
+  "exports": {
+    ".": "./src/index.css",
+    "./index.css": "./src/index.css"
+  }
+}

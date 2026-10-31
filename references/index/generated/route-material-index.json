@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 1,
+  "kind": "text-to-ui-route-material-manifest",
+  "generatedFrom": [
+    {
+      "path": "skill-support/references/routes/materials.source.json",
+      "sha256": "b3f6f3914247c26f447377dbd7f0997d31986ba333999e40d2930e4ca54b7d93"
+    },
+    {
+      "path": "skill-support/references/routes/index.json",
+      "sha256": "4c74853840943eacd88d0ff7d6ba73518e6128b56527f1e9a9563a7fbe50562b"
+    }
+  ],
+  "policy": {
+    "canonicalRoot": "skill-support",
+    "pathBasis": "repository-relative",
+    "missingMaterialIsBlocking": true,
+    "staleSnapshotIsBlocking": true
+  },
+  "routes": {
+    "new-page": {
+      "id": "new-page",
+      "dynamicMaterials": [
+        "pattern-references",
+        "task-route-domain-reference",
+        "titlebar-segments",
+        "selected-component-contracts",
+        "selected-component-runtime"
+      ],
+      "materialsDigest": "39dd918d3d9402559207325b079c369a47dc3e573d2a0a0802619224153e81a2",
+      "materials": [
+        {
+          "path": "packages/pattern-runtime/README.md",
+          "role": "pattern-runtime-api",
+          "required": true,
+          "sha256": "3133897ff2808ce31c230c57a7018282c4e8268ef852f29b4d05a250d8c73b19"
+        },
+        {
+          "path": "packages/tokens/src/token-runtime-map.json",
+          "role": "token-registry",
+          "required": true,
+          "sha256": "af423b313eedd7b3ef1f5b2faa6cc50c21e61cd844b7216b212c689651f91cb6"
+        },
+        {
+          "path": "skill-support/assets/design-system/pattern-contracts.json",
+          "role": "pattern-contract",
+          "required": true,
+          "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e"
+        },
+        {
+          "path": "skill-support/assets/design-system/titlebar-scene-contracts.json",
+          "role": "titlebar-scene-contract",
+          "required": true,
+          "sha256": "56c53568f289e221dc8084f2377a5ee74b3ac6076e5146ae18ec1725b42c2565"
+        },
+        {
+          "path": "skill-support/assets/icons/icon-aliases.json",
+          "role": "icon-registry",
+          "required": true,
+          "sha256": "45cdccec1de711c0e515f7eaa9cb5527f6d2cf7923f6db031ca8d5629e8027db"
+        },
+        {
+          "path": "skill-support/references/components/component-readiness-policy.json",
+          "role": "component-readiness-policy",
+          "required": true,
+          "sha256": "0537ed9e8cce0556b5208fe3abcbd7a1662f0c689549289a4cdc2588ee77533d"
+        },
+        {
+          "path": "skill-support/references/components/component-selection-rules.json",
+          "role": "component-selection-rules",
+          "required": true,
+          "sha256": "16eebc2aaab67c7430c340e889d902b19a5b03bcb13a6c9f64b5e090a6854d02"
+        },
+        {
+          "path": "skill-support/references/components/local-component-delivery.md",
+          "role": "local-component-workflow",
+          "required": true,
+          "sha256": "51b92445a8f301d05902042bfd515af972cbe75c854e0a6ae311df4697a8a031"
+        },
+        {
+          "path": "skill-support/references/components/page-composition.md",
+          "role": "page-composition",
+          "required": true,
+          "sha256": "8145bf1a9064927c8ce63738c978d891adf20cbe632cc7f5c6952c16c66971f3"
+        },
+        {
+          "path": "skill-support/references/components/source-resolution.md",
+          "role": "component-resolution",
+          "required": true,
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
+        },
+        {
+          "path": "skill-support/references/html-component-reuse-gate.md",
+          "role": "web-component-reuse",
+          "required": true,
+          "sha256": "264ebcda7b819e9d5ea75c78895330dbb6f02bfd9a3f71743f7e0fa7fbb0b926"
+        },
+        {
+          "path": "skill-support/references/html-output-rules.md",
+          "role": "dynamic-output-contract",
+          "required": true,
+          "sha256": "6fdd31ec6eeb47e9e8fa5e9523923b034f7178f6e89a265862ab31bb6cbb4ed3"
+        },
+        {
+          "path": "skill-support/references/index/generated/resource-index.json",
+          "role": "focused-resource-index",
+          "required": true,
+          "sha256": "6d44a2d255a7e5a95a753701f6b3174d25e0b25e8855bd64f0a1f5e3a7ad214c"
+        },
+        {
+          "path": "skill-support/references/index/task-routes.source.json",
+          "role": "task-route-registry",
+          "required": true,
+          "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a"
+        },
+        {
+          "path": "skill-support/references/layouts/html-layout-routing.md",
+          "role": "layout-routing",
+          "required": true,
+          "sha256": "4e1867f7529a53e2d1d2a7a736618bf57b0ffc53c69f27cddf2658a9e1716d8f"
+        },
+        {
+          "path": "skill-support/references/page-blueprint-design.md",
+          "role": "page-blueprint",
+          "required": true,
+          "sha256": "077311e7da77d04c3cca26512c27302aaaabf18e257bb7808f5e0e2592cf4309"
+        },
+        {
+          "path": "skill-support/references/page-design-guidance.md",
+          "role": "page-guidance",
+          "required": true,
+          "sha256": "400a6c9db73b12d5f426bbc39b88e9dacbde224ff703cfbe1149635b17dd3875"
+        },
+        {
+          "path": "skill-support/references/requirement-spec.md",
+          "role": "requirement-contract",
+          "required": true,
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
+        },
+        {
+          "path": "skill-support/references/resource-workflow.md",
+          "role": "stage-resource-workflow",
+          "required": true,
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
+        },
+        {
+          "path": "skill-support/references/resources/source.json",
+          "role": "resource-source-manifest",
+          "required": true,
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
+        },
+        {
+          "path": "skill-support/references/routes/new-page.md",
+          "role": "route-reference",
+          "required": true,
+          "sha256": "43ad38df17f7c1e817a51ce63e634c6d1ad10b679d9c892325e41ca0afe86b84"
+        },
+        {
+          "path": "skill-support/references/workflows/fast-preview.md",
+          "role": "validation",
+          "required": true,
+          "sha256": "df11e0ea0417ac8be1fbf072ad6f2183be6c6f1a3075e30df55446ef40c5264d"
+        }
+      ]
+    },
+    "micro-revision": {
+      "id": "micro-revision",
+      "dynamicMaterials": [],
+      "materialsDigest": "4dfdb540374e10fa7156a51f5871213ed7a02600a027c94f9af68af81701ea4a",
+      "materials": [
+        {
+          "path": "packages/tokens/src/token-runtime-map.json",
+          "role": "token-registry",
+          "required": true,
+          "sha256": "af423b313eedd7b3ef1f5b2faa6cc50c21e61cd844b7216b212c689651f91cb6"
+        },
+        {
+          "path": "skill-support/assets/design-system/pattern-contracts.json",
+          "role": "pattern-contract",
+          "required": true,
+          "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e"
+        },
+        {
+          "path": "skill-support/assets/icons/icon-aliases.json",
+          "role": "icon-registry",
+          "required": true,
+          "sha256": "45cdccec1de711c0e515f7eaa9cb5527f6d2cf7923f6db031ca8d5629e8027db"
+        },
+        {
+          "path": "skill-support/references/components/component-readiness-policy.json",
+          "role": "component-readiness-policy",
+          "required": true,
+          "sha256": "0537ed9e8cce0556b5208fe3abcbd7a1662f0c689549289a4cdc2588ee77533d"
+        },
+        {
+          "path": "skill-support/references/components/component-selection-rules.json",
+          "role": "component-selection-rules",
+          "required": true,
+          "sha256": "16eebc2aaab67c7430c340e889d902b19a5b03bcb13a6c9f64b5e090a6854d02"
+        },
+        {
+          "path": "skill-support/references/components/source-resolution.md",
+          "role": "component-resolution",
+          "required": true,
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
+        },
+        {
+          "path": "skill-support/references/index/generated/resource-index.json",
+          "role": "focused-resource-index",
+          "required": true,
+          "sha256": "6d44a2d255a7e5a95a753701f6b3174d25e0b25e8855bd64f0a1f5e3a7ad214c"
+        },
+        {
+          "path": "skill-support/references/layouts/html-layout-routing.md",
+          "role": "layout-routing",
+          "required": true,
+          "sha256": "4e1867f7529a53e2d1d2a7a736618bf57b0ffc53c69f27cddf2658a9e1716d8f"
+        },
+        {
+          "path": "skill-support/references/page-design-guidance.md",
+          "role": "page-guidance",
+          "required": true,
+          "sha256": "400a6c9db73b12d5f426bbc39b88e9dacbde224ff703cfbe1149635b17dd3875"
+        },
+        {
+          "path": "skill-support/references/requirement-spec.md",
+          "role": "requirement-contract",
+          "required": true,
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
+        },
+        {
+          "path": "skill-support/references/resource-workflow.md",
+          "role": "stage-resource-workflow",
+          "required": true,
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
+        },
+        {
+          "path": "skill-support/references/resources/source.json",
+          "role": "resource-source-manifest",
+          "required": true,
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
+        },
+        {
+          "path": "skill-support/references/routes/micro-revision.md",
+          "role": "route-reference",
+          "required": true,
+          "sha256": "fab2fe82c2566329f21ffb5e70fc70e909cc52ae97b49ce2a68859dfa3fdc1c8"
+        }
+      ]
+    },
+    "skill-maintenance": {
+      "id": "skill-maintenance",
+      "dynamicMaterials": [],
+      "materialsDigest": "6e4edcd122918db1d0c4609f4c31fdd64a6572994acb7834cb0283a8fdd60310",
+      "materials": [
+        {
+          "path": "packages/tokens/src/token-runtime-map.json",
+          "role": "token-registry",
+          "required": true,
+          "sha256": "af423b313eedd7b3ef1f5b2faa6cc50c21e61cd844b7216b212c689651f91cb6"
+        },
+        {
+          "path": "scripts/workflow-policy.mjs",
+          "role": "workflow-policy",
+          "required": true,
+          "sha256": "2ff2ad9cfd8147394fc9fceb882070f366694670903a258833e6c15a398bf848"
+        },
+        {
+          "path": "skill-support/assets/design-system/pattern-contracts.json",
+          "role": "pattern-contract",
+          "required": true,
+          "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e"
+        },
+        {
+          "path": "skill-support/assets/icons/icon-aliases.json",
+          "role": "icon-registry",
+          "required": true,
+          "sha256": "45cdccec1de711c0e515f7eaa9cb5527f6d2cf7923f6db031ca8d5629e8027db"
+        },
+        {
+          "path": "skill-support/references/components/component-readiness-policy.json",
+          "role": "component-readiness-policy",
+          "required": true,
+          "sha256": "0537ed9e8cce0556b5208fe3abcbd7a1662f0c689549289a4cdc2588ee77533d"
+        },
+        {
+          "path": "skill-support/references/components/component-selection-rules.json",
+          "role": "component-selection-rules",
+          "required": true,
+          "sha256": "16eebc2aaab67c7430c340e889d902b19a5b03bcb13a6c9f64b5e090a6854d02"
+        },
+        {
+          "path": "skill-support/references/components/source-resolution.md",
+          "role": "component-resolution",
+          "required": true,
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
+        },
+        {
+          "path": "skill-support/references/index/generated/resource-index.json",
+          "role": "focused-resource-index",
+          "required": true,
+          "sha256": "6d44a2d255a7e5a95a753701f6b3174d25e0b25e8855bd64f0a1f5e3a7ad214c"
+        },
+        {
+          "path": "skill-support/references/layouts/html-layout-routing.md",
+          "role": "layout-routing",
+          "required": true,
+          "sha256": "4e1867f7529a53e2d1d2a7a736618bf57b0ffc53c69f27cddf2658a9e1716d8f"
+        },
+        {
+          "path": "skill-support/references/requirement-spec.md",
+          "role": "requirement-contract",
+          "required": true,
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
+        },
+        {
+          "path": "skill-support/references/resource-workflow.md",
+          "role": "stage-resource-workflow",
+          "required": true,
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
+        },
+        {
+          "path": "skill-support/references/resources/source.json",
+          "role": "resource-source-manifest",
+          "required": true,
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
+        },
+        {
+          "path": "skill-support/references/routes/skill-maintenance.md",
+          "role": "route-reference",
+          "required": true,
+          "sha256": "4a97f24e84277e5dbaab90d914dfddc931a750073dffb310a82b393afbf5ab5c"
+        }
+      ]
+    },
+    "normalize-demo": {
+      "id": "normalize-demo",
+      "dynamicMaterials": [
+        "pattern-references",
+        "task-route-domain-reference",
+        "titlebar-segments",
+        "selected-component-contracts",
+        "selected-component-runtime"
+      ],
+      "materialsDigest": "a427a29122a838387fd3359b72703fedb69c54edfbaf5ce82401ebcca16fed74",
+      "materials": [
+        {
+          "path": "packages/pattern-runtime/README.md",
+          "role": "pattern-runtime-api",
+          "required": true,
+          "sha256": "3133897ff2808ce31c230c57a7018282c4e8268ef852f29b4d05a250d8c73b19"
+        },
+        {
+          "path": "packages/tokens/src/token-runtime-map.json",
+          "role": "token-registry",
+          "required": true,
+          "sha256": "af423b313eedd7b3ef1f5b2faa6cc50c21e61cd844b7216b212c689651f91cb6"
+        },
+        {
+          "path": "skill-support/assets/design-system/pattern-contracts.json",
+          "role": "pattern-contract",
+          "required": true,
+          "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e"
+        },
+        {
+          "path": "skill-support/assets/design-system/titlebar-scene-contracts.json",
+          "role": "titlebar-scene-contract",
+          "required": true,
+          "sha256": "56c53568f289e221dc8084f2377a5ee74b3ac6076e5146ae18ec1725b42c2565"
+        },
+        {
+          "path": "skill-support/assets/icons/icon-aliases.json",
+          "role": "icon-registry",
+          "required": true,
+          "sha256": "45cdccec1de711c0e515f7eaa9cb5527f6d2cf7923f6db031ca8d5629e8027db"
+        },
+        {
+          "path": "skill-support/references/components/component-readiness-policy.json",
+          "role": "component-readiness-policy",
+          "required": true,
+          "sha256": "0537ed9e8cce0556b5208fe3abcbd7a1662f0c689549289a4cdc2588ee77533d"
+        },
+        {
+          "path": "skill-support/references/components/component-selection-rules.json",
+          "role": "component-selection-rules",
+          "required": true,
+          "sha256": "16eebc2aaab67c7430c340e889d902b19a5b03bcb13a6c9f64b5e090a6854d02"
+        },
+        {
+          "path": "skill-support/references/components/local-component-delivery.md",
+          "role": "local-component-workflow",
+          "required": true,
+          "sha256": "51b92445a8f301d05902042bfd515af972cbe75c854e0a6ae311df4697a8a031"
+        },
+        {
+          "path": "skill-support/references/components/page-composition.md",
+          "role": "page-composition",
+          "required": true,
+          "sha256": "8145bf1a9064927c8ce63738c978d891adf20cbe632cc7f5c6952c16c66971f3"
+        },
+        {
+          "path": "skill-support/references/components/source-resolution.md",
+          "role": "component-resolution",
+          "required": true,
+          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067"
+        },
+        {
+          "path": "skill-support/references/html-component-reuse-gate.md",
+          "role": "web-component-reuse",
+          "required": true,
+          "sha256": "264ebcda7b819e9d5ea75c78895330dbb6f02bfd9a3f71743f7e0fa7fbb0b926"
+        },
+        {
+          "path": "skill-support/references/html-output-rules.md",
+          "role": "dynamic-output-contract",
+          "required": true,
+          "sha256": "6fdd31ec6eeb47e9e8fa5e9523923b034f7178f6e89a265862ab31bb6cbb4ed3"
+        },
+        {
+          "path": "skill-support/references/index/generated/resource-index.json",
+          "role": "focused-resource-index",
+          "required": true,
+          "sha256": "6d44a2d255a7e5a95a753701f6b3174d25e0b25e8855bd64f0a1f5e3a7ad214c"
+        },
+        {
+          "path": "skill-support/references/index/task-routes.source.json",
+          "role": "task-route-registry",
+          "required": true,
+          "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a"
+        },
+        {
+          "path": "skill-support/references/layouts/html-layout-routing.md",
+          "role": "layout-routing",
+          "required": true,
+          "sha256": "4e1867f7529a53e2d1d2a7a736618bf57b0ffc53c69f27cddf2658a9e1716d8f"
+        },
+        {
+          "path": "skill-support/references/page-blueprint-design.md",
+          "role": "page-blueprint",
+          "required": true,
+          "sha256": "077311e7da77d04c3cca26512c27302aaaabf18e257bb7808f5e0e2592cf4309"
+        },
+        {
+          "path": "skill-support/references/page-design-guidance.md",
+          "role": "page-guidance",
+          "required": true,
+          "sha256": "400a6c9db73b12d5f426bbc39b88e9dacbde224ff703cfbe1149635b17dd3875"
+        },
+        {
+          "path": "skill-support/references/requirement-spec.md",
+          "role": "requirement-contract",
+          "required": true,
+          "sha256": "75d6b6c95c4a85a3d9a5c13ae51c40d4fc4c2e2e321f695319b414ed19c3cb31"
+        },
+        {
+          "path": "skill-support/references/resource-workflow.md",
+          "role": "stage-resource-workflow",
+          "required": true,
+          "sha256": "38f849f2e275b83bffc527bc8c79f980e124ec475ff604176a8db649d79e725f"
+        },
+        {
+          "path": "skill-support/references/resources/source.json",
+          "role": "resource-source-manifest",
+          "required": true,
+          "sha256": "790bd845295b96e4c4ed8ae6f143eb04b090d47eecdbd25737ea51b2c223a4e5"
+        },
+        {
+          "path": "skill-support/references/routes/normalize-demo.md",
+          "role": "route-reference",
+          "required": true,
+          "sha256": "29c42e08496a95064a1e7319766b65ac99842c805bc4aeaf75e5230e2a364aa6"
+        },
+        {
+          "path": "skill-support/references/workflows/fast-preview.md",
+          "role": "validation",
+          "required": true,
+          "sha256": "df11e0ea0417ac8be1fbf072ad6f2183be6c6f1a3075e30df55446ef40c5264d"
+        }
+      ]
+    }
+  },
+  "indexDigest": "c68de39a3f61ee74f8d8103cd1dd55e417f33320804a070957f542c105d9a129"
+}

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Text to UI HTML New"
+  short_description: "受控组件与 Pattern，生成可直接打开的动态 HTML"

@@ -1,0 +1,46 @@
+[
+  {
+    "name": "settings",
+    "protocol": "file:",
+    "ready": true,
+    "toggles": true,
+    "search": null,
+    "inspector": null,
+    "pattern": "pattern-a-two-pane",
+    "errors": [],
+    "httpRequests": 0
+  },
+  {
+    "name": "records",
+    "protocol": "file:",
+    "ready": true,
+    "toggles": true,
+    "search": true,
+    "inspector": null,
+    "pattern": "pattern-b-three-pane",
+    "errors": [],
+    "httpRequests": 0
+  },
+  {
+    "name": "workspace",
+    "protocol": "file:",
+    "ready": true,
+    "toggles": true,
+    "search": null,
+    "inspector": null,
+    "pattern": "pattern-c-tool-workspace",
+    "errors": [],
+    "httpRequests": 0
+  },
+  {
+    "name": "inspector",
+    "protocol": "file:",
+    "ready": true,
+    "toggles": true,
+    "search": null,
+    "inspector": true,
+    "pattern": "pattern-d-inspector",
+    "errors": [],
+    "httpRequests": 0
+  }
+]
