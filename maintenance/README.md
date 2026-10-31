@@ -21,6 +21,6 @@ The consumer pack excludes gallery code, duplicate Token maps and compatibility 
 
 Acorn 8.16.0 is vendored under MIT; see vendor/ACORN-LICENSE. It parses supported ESM for portable linking, not regex import rewriting. The linker rejects cycles and mutable exports instead of approximating live-binding semantics. Browser verification is a small implementation check, not a new acceptance workflow.
 
-Optional browser check: provide TUI_PLAYWRIGHT (installed playwright-core package directory), and optionally TUI_CHROME (browser executable), then run maintenance/check-browser.mjs from this project. This command opens file:// outputs without starting an HTTP server.
+Optional browser check: provide TUI_PLAYWRIGHT (installed playwright-core package directory), and optionally TUI_CHROME (browser executable), then run maintenance/check-browser.mjs from this project. This command opens the multi-file file:// entries without starting an HTTP server. Default delivery and its boundaries are in references/offline-delivery.md.
 
 Resource policy: only explicit runtime references belong in default output; dynamic source resources need declared src options. Previously public resource IDs are versioned. Any removal must be a recorded compatibility change, not indefinite retention of old examples.

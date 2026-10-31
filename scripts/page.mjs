@@ -7,6 +7,18 @@ const project=path.resolve(value('--project')||'.');
 function run(script,args){const cp=spawnSync(process.execPath,[path.join(ROOT,'scripts',script),...args],{cwd:ROOT,encoding:'utf8',maxBuffer:20*1024*1024});fs.mkdirSync(path.join(project,'.text-to-ui/logs'),{recursive:true});fs.writeFileSync(path.join(project,'.text-to-ui/logs',script+'.log'),cp.stdout+cp.stderr);if(cp.status!==0)throw Error(script+': '+(cp.stderr||cp.stdout).slice(-4500));return cp.stdout;}
 const json=(file,value)=>{fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,JSON.stringify(value,null,2)+'\n');};
 function keys(object,allowed,label){for(const k of Object.keys(object))if(!allowed.includes(k))throw Error(`UNKNOWN_FIELD: ${label}.${k}`);}
+function exportPreview(){
+ const readIf=name=>fs.existsSync(path.join(project,name))?read(path.join(project,name)):{};
+ const input=readIf('page-input.json'),blueprint=readIf('page-blueprint.json'),bindings=readIf('page-bindings.json');
+ const format=value('--format')||'multi-file';
+ const id=input.id||blueprint.id||'page';
+ const title=value('--title')||input.title||bindings.componentBindings?.find(b=>b.id==='system-title')?.options?.label||'页面';
+ const output=value('--out')||(format==='single-file'?'out/'+id+'.html':'out/'+id+'/index.html');
+ const report=exportOffline(project,{title,output,format,includeSources:!args.includes('--no-sources')});
+ json(path.join(project,'.text-to-ui/offline-preview.json'),report);
+ const {files,...summary}=report;
+ return {...summary,...(files?{fileCount:Object.keys(files).length}: {})};
+}
 function compile(){
  const state=path.join(project,'.text-to-ui'),file=path.join(project,'page-input.json');
  if(!fs.existsSync(file))throw Error('Missing page-input.json; read references/consumer-input.md');
@@ -66,7 +78,7 @@ try{
  if(command==='compile'||command==='generate'){
  if(args.includes('--low-level')){if(command==='compile')throw Error('Low-level mode uses existing inputs directly');if(fs.existsSync(path.join(project,'.text-to-ui/input-mode.json'))&&read(path.join(project,'.text-to-ui/input-mode.json')).mode==='consumer')throw Error('INPUT_MODE_CONFLICT');const task=value('--task');if(!task)throw Error('--low-level requires --task');run('generate-compliant-page.mjs',['--project',project,'--repo',ROOT,'--skill-root',ROOT,'--task',task,...(value('--pattern')?['--pattern',value('--pattern')]:[])]);}
  else {const c=compile();if(command==='compile'){console.log(JSON.stringify({ok:true,skill:'text-to-ui-html-new',pattern:c.pattern,compiled:'.text-to-ui/compiled'}));process.exit(0);}run('generate-compliant-page.mjs',[...c.common,'--project',project,'--blueprint',path.join(c.expanded,'page-blueprint.json'),'--content-recipes',path.join(c.expanded,'page-content-recipes.json'),'--bindings',path.join(c.expanded,'page-bindings.json'),'--page-css',path.join(project,'styles/page-composition.css')]);}
- const input=fs.existsSync(path.join(project,'page-input.json'))?read(path.join(project,'page-input.json')):{};const report=exportOffline(project,{title:input.title||'页面',output:'out/'+(input.id||'page')+'.html'});json(path.join(project,'.text-to-ui/skill.json'),{name:'text-to-ui-html-new',version:'0.1.0'});console.log(JSON.stringify({ok:true,...report}));
- }else if(command==='export')console.log(JSON.stringify({ok:true,...exportOffline(project,{output:value('--out')||'out/page.html'})}));
- else console.log('page.mjs compile|generate --project <dir> | generate --low-level --task <task> | export --project <dir>');
+ const report=exportPreview();json(path.join(project,'.text-to-ui/skill.json'),{name:'text-to-ui-html-new',version:'0.1.0'});console.log(JSON.stringify({ok:true,...report}));
+ }else if(command==='export')console.log(JSON.stringify({ok:true,...exportPreview()}));
+ else console.log('page.mjs compile|generate --project <dir> | generate --low-level --task <task> | export --project <dir> [--format multi-file|single-file] [--out out/<name>/index.html]');
 }catch(e){console.error(e.message);process.exitCode=1;}

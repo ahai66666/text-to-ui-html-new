@@ -1,6 +1,6 @@
 ---
 name: text-to-ui-html-new
-description: Generate or revise HarmonyOS PC HTML prototypes with controlled component interfaces and canonical Patterns. Use compact page inputs and deliver dynamic HTML that opens directly without a server.
+description: Generate or revise HarmonyOS PC HTML prototypes with controlled component interfaces and canonical Patterns. Use compact page inputs and deliver multi-file offline packages that render dynamically without a server or Vite.
 ---
 
 # Text to UI HTML New
@@ -13,7 +13,9 @@ description: Generate or revise HarmonyOS PC HTML prototypes with controlled com
 2. `node "<RULES_ROOT>/scripts/consumer.mjs" find "<用途>"`，再 `describe <精确ID...> --context <语义>`。只读当前查询，默认不读完整索引、源码或机器追溯文件。
 3. 模型只写 PROJECT_DIR/page-input.json；已有规则固定的参数不要填写。不造业务默认值。
 4. `node "<RULES_ROOT>/scripts/page.mjs" generate --project "<PROJECT_DIR>"`。
-5. 打开返回的 out/*.html，直接 file:// 动态运行；无需启动服务或安装 Vite。源码保留独立模块与 CSS。
+5. 打开返回的 `out/<页面ID>/index.html`，直接 file:// 动态运行。默认交付整个多文件文件夹：外部经典脚本、CSS、本地资源与 `src/` 模块化源码；无需服务、Vite 或 npm install。分享时打包整个文件夹。
+
+导出与交付结构见 [离线交付](references/offline-delivery.md)；只在需要单文件时加 `--format single-file`。
 
 ## 边界
 

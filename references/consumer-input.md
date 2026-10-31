@@ -43,4 +43,4 @@ page-input.json 顶层：
 
 静态 JS import/export、项目内图片和 CSS url 自动打包。默认使用经典脚本；不支持循环模块、可变导出、运行时资源加载、动态 import、import.meta。未支持依赖明确报错。复杂业务模块需遵守这些边界。
 
-修改只编辑 page-input.json 和声明的业务文件，再运行同一 generate。out/*.html 是交付产物，不直接编辑。
+修改只编辑 page-input.json 和声明的业务文件，再运行同一 generate。`out/<页面ID>/` 是生成的多文件离线交付包，不直接编辑。修改输入后重新生成；单文件 HTML 是可选导出。

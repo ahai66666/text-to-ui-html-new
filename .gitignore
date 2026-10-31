@@ -17,3 +17,5 @@ examples/*/main.js
 examples/*/package.json
 examples/*/pnpm-workspace.yaml
 examples/*/vite.config.mjs
+
+examples/*/out/*/

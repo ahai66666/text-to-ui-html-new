@@ -27,7 +27,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "39dd918d3d9402559207325b079c369a47dc3e573d2a0a0802619224153e81a2",
+      "materialsDigest": "0fdef68cb45f08507ca39b16d3e12ad36ad16f7edf2ed370c58c0c044dafa969",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -99,7 +99,7 @@
           "path": "skill-support/references/html-output-rules.md",
           "role": "dynamic-output-contract",
           "required": true,
-          "sha256": "6fdd31ec6eeb47e9e8fa5e9523923b034f7178f6e89a265862ab31bb6cbb4ed3"
+          "sha256": "ec81f792b8223b4ae0e2c936b253d7d54ca9b2996cae2a9def4cd460823c2f29"
         },
         {
           "path": "skill-support/references/index/generated/resource-index.json",
@@ -342,7 +342,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "a427a29122a838387fd3359b72703fedb69c54edfbaf5ce82401ebcca16fed74",
+      "materialsDigest": "d394e844342ff9a544174757539ea461936eff037a1000100825a4d091d25ed7",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -414,7 +414,7 @@
           "path": "skill-support/references/html-output-rules.md",
           "role": "dynamic-output-contract",
           "required": true,
-          "sha256": "6fdd31ec6eeb47e9e8fa5e9523923b034f7178f6e89a265862ab31bb6cbb4ed3"
+          "sha256": "ec81f792b8223b4ae0e2c936b253d7d54ca9b2996cae2a9def4cd460823c2f29"
         },
         {
           "path": "skill-support/references/index/generated/resource-index.json",
@@ -479,5 +479,5 @@
       ]
     }
   },
-  "indexDigest": "c68de39a3f61ee74f8d8103cd1dd55e417f33320804a070957f542c105d9a129"
+  "indexDigest": "2c8cbb3bb5bbd74184c6afb4d9e5f7aa03efe962b55bf20ba092b564375c48dc"
 }

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "distribution": "multi-file",
+  "unitAndIntegrationTests": {
+    "passed": 16,
+    "failed": 0,
+    "patterns": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ]
+  },
+  "checks": [
+    "external classic script execution",
+    "CSS and HTML asset paths after folder relocation",
+    "source re-export",
+    "failed export preserves good output",
+    "unrelated output protection",
+    "output symlink boundary",
+    "no Vite in newly generated project",
+    "single-file compatibility",
+    "mailbox compiled renderer and state workflow",
+    "installed consumer snapshot regeneration",
+    "regeneration from bundled src with managed component/style metadata"
+  ],
+  "skillFrontmatter": "passed using Ruby safe YAML; Python quick validator unavailable because PyYAML is not installed",
+  "browserFileProtocol": "not verified in this run",
+  "visual": "not verified in this run"
+}

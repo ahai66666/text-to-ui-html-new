@@ -4,7 +4,7 @@ Use this reference before implementing final HTML/CSS.
 
 ## Output
 
-- Every HTML deliverable, including early previews, uses dynamic rendering with separate page and component modules. index.html is an empty #app host with an external ES module. Follow the new-page route; the page imports components/index.js.
+- Keep page and component source as separate ES modules. Default delivery is `out/<page-id>/index.html`, an empty #app host loading external classic `runtime/app.js` and `styles/app.css`; it renders dynamically under file://. The preview folder retains original modules under src/. The source project main.js imports components through the generated entry; it is not the double-click entry. See offline-delivery.md.
 - Use semantic HTML and real interactive controls.
 - Target HarmonyOS PC windows and approved desktop sizes. Do not add mobile behavior unless the platform contract changes.
 - Render edge-to-edge in the browser viewport. Keep `html`, `body`, and `#app` free of outer margin, padding, max-width, decorative border, radius, or shadow.
