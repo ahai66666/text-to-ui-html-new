@@ -17,6 +17,14 @@ page-input.json 顶层：
 
 可选 Pattern：A primary-navigation/main-content；B primary-navigation/secondary-list/main-detail；C primary-navigation/tool-workspace；D 以实际 discover 返回窗格为准。运行 `node scripts/discover-page.mjs --task "<任务>"` 查询准确窗格、槽位和允许的 Pattern，无需读取完整上下文。
 
+## 场景与增量查询
+
+精确组件有多个场景时，不传 context 只返回场景列表，不能直接编译使用。能力别名如 toolbar-icon-action 可自动确定场景；仍有歧义时拒绝。Search 可选 search-standard、search-scoped、search-advanced、search-scoped-advanced；scopeOptions 仅在范围搜索中开放且必须为非空数组，高级入口由场景固定；这四种专用场景用 options 配置搜索功能，不开放未实现的 JSON 插槽覆写。主详情 Titlebar 仅暴露当前分段所需业务参数。
+
+重复组件使用同一接口，不重复读取。describe 支持 --since <状态.json> 和 --write-state <状态.json>，按组件、context、读取深度及源版本判定变化；缓存仅供仍持有旧接口正文的对话/交接复用。已有页面局部修改不重读完整 Task/Pattern 包，只查询受影响 ID；布局变化时重新 discover。
+
+Accordion/Collapsible 使用 title、detail、expanded、contentId、disabled、state；label 是 title 的兼容别名，title 优先。展开内容用 content 文本插槽，label/description 文本插槽分别对应标题/说明；不同时重复填写同一字段和插槽。需要内部复杂控件时使用声明业务模块。旧 Accordion 的 size、unfocus 不再作为已支持参数，迁移时移除 size，将 unfocus 换成 default。身份标记仍在 button 子节点。
+
 ## 节点
 
 组件：`{"id":"save","use":"button","context":"page-primary-action","options":{"label":"保存"},"behavior":"save"}`。

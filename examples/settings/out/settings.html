@@ -1,4 +1,4 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="text-to-ui-skill" content="text-to-ui-html-new@0.1.0"><title>设置</title><style>:root {
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="text-to-ui-skill" content="text-to-ui-html-new@0.1.1"><title>设置</title><style>:root {
   --color-brand-05: #0A59F70C;
   --color-brand-10: #0A59F719;
   --color-brand-15: #0A59F726;
@@ -1339,7 +1339,7 @@ body { overflow: hidden; }
 .tui-disclosure-group { display: grid; gap: var(--space-5); align-content: start; min-width: 0; }
 .tui-disclosure { display: grid; width: auto; min-width: 0; justify-self: stretch; box-sizing: border-box; gap: var(--space-1); overflow: visible; border: 0; border-radius: var(--radius-button); }
 .tui-disclosure__trigger { min-height: var(--height-list-item); width: 100%; display: flex; align-items: center; justify-content: flex-start; gap: var(--gap-menu-item-content); padding-inline: var(--space-3); border: 0; border-radius: var(--radius-button); color: var(--color-text-muted); background: transparent; text-align: start; font-family: var(--font-sans); font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); font-weight: var(--type-body-m-weight); cursor: pointer; }
-.tui-disclosure__trigger:hover { background: var(--state-layer-hover); }
+.tui-disclosure__trigger:hover:not(:disabled) { background: var(--state-layer-hover); }
 .tui-disclosure[data-disclosure-component="accordion"] .tui-disclosure__trigger { justify-content: flex-start; }
 .tui-disclosure[data-disclosure-component="collapsible"] .tui-disclosure__trigger { justify-content: space-between; }
 .tui-disclosure[data-disclosure-component="accordion"] .tui-disclosure__trigger { min-height: var(--size-7); height: var(--size-7); }
@@ -1828,6 +1828,13 @@ body { overflow: hidden; }
 @media (max-width: 720px) { .tui-generated-gallery { grid-template-columns: 1fr; } }
 
 .tui-advanced-menubar[data-surface="white"] > .tui-advanced-menu__trigger { background: var(--color-surface); }
+
+/* Explicit disclosure states use the same surface feedback as native input. */
+.tui-disclosure__trigger[data-state="hover"]:not(:disabled) { background: var(--state-layer-hover); }
+.tui-disclosure__trigger[data-state="focus"]:not(:disabled), .tui-disclosure__trigger:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.tui-disclosure__trigger:disabled { opacity: var(--state-disabled-opacity); cursor: not-allowed; }
+
+.tui-disclosure__trigger[data-state="pressed"]:not(:disabled), .tui-disclosure__trigger:active:not(:disabled) { background: var(--state-layer-pressed); }
 
 
 /* This stylesheet is for legacy/static Pattern markup. Pattern Runtime keeps
@@ -4695,7 +4702,9 @@ function componentIdentityEvidence(node) {
   const expanded = node.getAttribute(contract.stateAttribute);
   if (!['true', 'false'].includes(expanded)) errors.push('aria-expanded must be true or false');
   const expectedState = expanded === 'true' ? 'open' : 'default';
-  if (node.dataset.state !== expectedState || node.dataset.variant !== expectedState) errors.push('Component state/variant must agree with aria-expanded');
+  if (node.dataset.variant !== expectedState) errors.push('Component variant must agree with aria-expanded');
+  const allowedStates = node.disabled ? ['disabled'] : expanded === 'true' ? ['open'] : ['default', 'hover', 'pressed', 'focus'];
+  if (!allowedStates.includes(node.dataset.state)) errors.push('Component state must agree with disabled/aria-expanded');
   if (content && content.hidden !== (expanded !== 'true')) errors.push('Content visibility must agree with aria-expanded');
   return {
     contract, valid: errors.length === 0, errors,

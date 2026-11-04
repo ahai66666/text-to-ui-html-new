@@ -1,13 +1,14 @@
 {
   "schemaVersion": 1,
   "skill": "text-to-ui-html-new",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "output": "out/records.html",
-  "sha256": "f112514cb7c1fc98d9536ff10f0919bfa942f64629afaac89de19b3ffa8d630d",
-  "bytes": 372810,
+  "sha256": "e15cedb9b4319e9e1c2294bc8eae60d92d776b172ca507baf2158371a14b2d79",
+  "bytes": 373637,
   "modules": 36,
   "stylesheets": 17,
   "assets": 0,
   "format": "classic-script",
+  "distribution": "single-file",
   "requiresServer": false
 }

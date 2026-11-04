@@ -4,23 +4,30 @@
     {
       "id": "accordion",
       "source": "packages/components-html/src/accordion/index.js",
-      "contractSha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0",
+      "contractSha256": "367c94dea23757a3dac04640345a10a7384261a6dc61d85247f2353eb55296a5",
       "parameters": {
+        "title": {
+          "disposition": "model-writable",
+          "typeStatus": "not-declared; upstream validation retained"
+        },
         "label": {
           "disposition": "model-writable",
           "typeStatus": "not-declared; upstream validation retained"
         },
-        "size": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+        "detail": {
+          "disposition": "model-writable"
+        },
+        "expanded": {
+          "disposition": "model-writable"
+        },
+        "contentId": {
+          "disposition": "model-writable"
         },
         "disabled": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "state": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         }
       },
       "scenarios": [],
@@ -667,31 +674,30 @@
     {
       "id": "collapsible",
       "source": "packages/components-html/src/collapsible/index.js",
-      "contractSha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455",
+      "contractSha256": "63b7b49479629578cd66dffa91071e8ca8f5d0d80de7db212917d0f3b96bbbea",
       "parameters": {
         "title": {
           "disposition": "model-writable",
           "typeStatus": "not-declared; upstream validation retained"
         },
-        "detail": {
+        "label": {
           "disposition": "model-writable",
           "typeStatus": "not-declared; upstream validation retained"
+        },
+        "detail": {
+          "disposition": "model-writable"
         },
         "expanded": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "contentId": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "disabled": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "state": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         }
       },
       "scenarios": [],
@@ -1068,12 +1074,10 @@
           "disposition": "model-writable"
         },
         "options": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "tags": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "defaultTags": {
           "disposition": "model-writable",
@@ -1549,8 +1553,7 @@
           "typeStatus": "not-declared; upstream validation retained"
         },
         "scopeOptions": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "scopeLabel": {
           "disposition": "model-writable"
@@ -1603,6 +1606,186 @@
             },
             "advancedSearch": {
               "disposition": "model-writable"
+            },
+            "advancedSearchLabel": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "search-standard",
+          "capabilities": [
+            "search-standard"
+          ],
+          "parameters": {
+            "value": {
+              "disposition": "model-writable"
+            },
+            "defaultValue": {
+              "disposition": "model-writable"
+            },
+            "placeholder": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "surface": {
+              "disposition": "model-writable"
+            },
+            "scope": {
+              "disposition": "model-writable"
+            },
+            "defaultScope": {
+              "disposition": "model-writable"
+            },
+            "scopeOptions": {
+              "disposition": "model-writable"
+            },
+            "scopeLabel": {
+              "disposition": "model-writable"
+            },
+            "advancedSearch": {
+              "disposition": "scenario-fixed",
+              "value": false
+            },
+            "advancedSearchLabel": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "search-scoped",
+          "capabilities": [
+            "search-scoped"
+          ],
+          "parameters": {
+            "value": {
+              "disposition": "model-writable"
+            },
+            "defaultValue": {
+              "disposition": "model-writable"
+            },
+            "placeholder": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "surface": {
+              "disposition": "model-writable"
+            },
+            "scope": {
+              "disposition": "model-writable"
+            },
+            "defaultScope": {
+              "disposition": "model-writable"
+            },
+            "scopeOptions": {
+              "disposition": "model-writable"
+            },
+            "scopeLabel": {
+              "disposition": "model-writable"
+            },
+            "advancedSearch": {
+              "disposition": "scenario-fixed",
+              "value": false
+            },
+            "advancedSearchLabel": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "search-advanced",
+          "capabilities": [
+            "search-advanced"
+          ],
+          "parameters": {
+            "value": {
+              "disposition": "model-writable"
+            },
+            "defaultValue": {
+              "disposition": "model-writable"
+            },
+            "placeholder": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "surface": {
+              "disposition": "model-writable"
+            },
+            "scope": {
+              "disposition": "model-writable"
+            },
+            "defaultScope": {
+              "disposition": "model-writable"
+            },
+            "scopeOptions": {
+              "disposition": "model-writable"
+            },
+            "scopeLabel": {
+              "disposition": "model-writable"
+            },
+            "advancedSearch": {
+              "disposition": "scenario-fixed",
+              "value": true
+            },
+            "advancedSearchLabel": {
+              "disposition": "model-writable"
+            }
+          }
+        },
+        {
+          "context": "search-scoped-advanced",
+          "capabilities": [
+            "search-scoped-advanced"
+          ],
+          "parameters": {
+            "value": {
+              "disposition": "model-writable"
+            },
+            "defaultValue": {
+              "disposition": "model-writable"
+            },
+            "placeholder": {
+              "disposition": "model-writable"
+            },
+            "disabled": {
+              "disposition": "model-writable"
+            },
+            "state": {
+              "disposition": "model-writable"
+            },
+            "surface": {
+              "disposition": "model-writable"
+            },
+            "scope": {
+              "disposition": "model-writable"
+            },
+            "defaultScope": {
+              "disposition": "model-writable"
+            },
+            "scopeOptions": {
+              "disposition": "model-writable"
+            },
+            "scopeLabel": {
+              "disposition": "model-writable"
+            },
+            "advancedSearch": {
+              "disposition": "scenario-fixed",
+              "value": true
             },
             "advancedSearchLabel": {
               "disposition": "model-writable"
@@ -1775,12 +1958,10 @@
           "typeStatus": "not-declared; upstream validation retained"
         },
         "items": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "groups": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "ariaLabel": {
           "disposition": "model-writable"

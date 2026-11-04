@@ -115,7 +115,21 @@
         "layout": "three-column",
         "segmentRole": "main-detail"
       },
-      "requiredSlot": "main-detail-title"
+      "requiredSlot": "main-detail-title",
+      "allowedProps": [
+        "label",
+        "paneTitle",
+        "size",
+        "disabled",
+        "state",
+        "mainDetailActions"
+      ],
+      "allowedSlots": [
+        "label",
+        "main-content-title",
+        "main-detail-actions",
+        "actions"
+      ]
     },
     {
       "capabilities": [
@@ -192,6 +206,104 @@
       "logicalName": "Form Field/Default",
       "rendererKey": "form-field",
       "requiredOptions": {}
+    },
+    {
+      "capabilities": [
+        "search-standard"
+      ],
+      "context": "search-standard",
+      "logicalName": "Search/White Surface/Default",
+      "rendererKey": "search",
+      "requiredOptions": {
+        "advancedSearch": false
+      },
+      "allowedProps": [
+        "value",
+        "defaultValue",
+        "placeholder",
+        "disabled",
+        "state",
+        "surface"
+      ],
+      "requiredProps": [],
+      "allowedSlots": []
+    },
+    {
+      "capabilities": [
+        "search-scoped"
+      ],
+      "context": "search-scoped",
+      "logicalName": "Search/White Surface/Default",
+      "rendererKey": "search",
+      "requiredOptions": {
+        "advancedSearch": false
+      },
+      "allowedProps": [
+        "value",
+        "defaultValue",
+        "placeholder",
+        "disabled",
+        "state",
+        "surface",
+        "scope",
+        "defaultScope",
+        "scopeOptions",
+        "scopeLabel"
+      ],
+      "requiredProps": [
+        "scopeOptions"
+      ],
+      "allowedSlots": []
+    },
+    {
+      "capabilities": [
+        "search-advanced"
+      ],
+      "context": "search-advanced",
+      "logicalName": "Search/White Surface/Default",
+      "rendererKey": "search",
+      "requiredOptions": {
+        "advancedSearch": true
+      },
+      "allowedProps": [
+        "value",
+        "defaultValue",
+        "placeholder",
+        "disabled",
+        "state",
+        "surface",
+        "advancedSearchLabel"
+      ],
+      "requiredProps": [],
+      "allowedSlots": []
+    },
+    {
+      "capabilities": [
+        "search-scoped-advanced"
+      ],
+      "context": "search-scoped-advanced",
+      "logicalName": "Search/White Surface/Default",
+      "rendererKey": "search",
+      "requiredOptions": {
+        "advancedSearch": true
+      },
+      "allowedProps": [
+        "value",
+        "defaultValue",
+        "placeholder",
+        "disabled",
+        "state",
+        "surface",
+        "scope",
+        "defaultScope",
+        "scopeOptions",
+        "scopeLabel",
+        "advancedSearchLabel"
+      ],
+      "requiredProps": [
+        "scopeOptions"
+      ],
+      "allowedSlots": []
     }
   ]
 }

@@ -132,6 +132,16 @@ const bindings = rawBindings.map((binding, index) => {
     if (options.slots) throw new Error('Titlebar slots must be declared once, on the binding');
     options.slots = slots;
   }
+  const generatedSlotOptions = new Set();
+  if (["accordion", "collapsible"].includes(canonicalComponent.id)) {
+    for (const [slotName, optionName] of [["label", "title"], ["description", "detail"], ["content", "content"]]) {
+      if (!Object.hasOwn(slots, slotName)) continue;
+      if (typeof slots[slotName] !== "string") throw new Error(`${binding.logicalName}: slot ${slotName} requires text`);
+      if (Object.hasOwn(options, optionName) || (slotName === "label" && Object.hasOwn(options, "label"))) throw new Error(`${binding.logicalName}: ${slotName} declared twice`);
+      generatedSlotOptions.add(optionName);
+      options[optionName] = slotName === "content" ? slots[slotName].replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;") : slots[slotName];
+    }
+  }
   const slotIcon = [slots.icon, slots.leading].find((value) => typeof value === "string" && value.trim()) ?? null;
   if (renderer.rendererKey === "button" && options.icon == null && slotIcon) options.icon = slotIcon;
   if (renderer.rendererKey === "button" && options.icon == null && typeof options.iconName === "string" && options.iconName.trim()) {
@@ -150,7 +160,7 @@ const bindings = rawBindings.map((binding, index) => {
       iconDiagnostics.push({ bindingId: binding.id ?? `binding-${index + 1}`, logicalName: binding.logicalName, ...entry });
     }
   }
-  const unsupportedProps = Object.keys(options).filter((key) => !(renderer.supportedProps ?? []).includes(key));
+  const unsupportedProps = Object.keys(options).filter((key) => !(renderer.supportedProps ?? []).includes(key) && !generatedSlotOptions.has(key));
   if (unsupportedProps.length) throw new Error(`${binding.logicalName}: unsupported props ${unsupportedProps.join(", ")}`);
   const semanticContext = binding.semanticContext ?? null;
   if (contextRequiredLogicalNames.has(binding.logicalName) && !semanticContext) throw new Error(`${binding.logicalName}: semanticContext is required; resolve the component with query-components.mjs --context before generation`);
@@ -726,7 +736,7 @@ source = source.replace(
 const manifest = {
   schemaVersion: 1,
   kind: "text-to-ui-html-page-manifest",
-  producer: { name: "text-to-ui-html-new", version: "0.1.0" },
+  producer: { name: "text-to-ui-html-new", version: "0.1.1" },
   targetFramework: framework,
   renderer: context.renderer,
   patternContract: { id: resolvedPattern.pattern.id, source: resolvedPattern.authority, schemaVersion: 1, patternDigest, structureDigest },

@@ -1,10 +1,10 @@
-# text-to-ui-html-new 0.1.0
+# text-to-ui-html-new 0.1.1
 
 Independent HarmonyOS PC HTML consumer. The existing text-to-ui-html skill is unchanged.
 
 ## Install and use
 
-Unzip `text-to-ui-html-new-0.1.0.zip` under your model tool's skill directory. Keep the `text-to-ui-html-new/` folder. Requires Node.js 20+ and no npm install. Give the model SKILL.md, not the entire directory.
+Unzip `text-to-ui-html-new-0.1.1.zip` under your model tool's skill directory. Keep the `text-to-ui-html-new/` folder. Requires Node.js 20+ and no npm install. Give the model SKILL.md, not the entire directory.
 
 ```sh
 node scripts/consumer.mjs find "button"

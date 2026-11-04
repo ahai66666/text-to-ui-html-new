@@ -60,7 +60,7 @@ export function exportOffline(project,{title='页面',output,format='multi-file'
  const runtime=`(()=>{'use strict';const __modules={${[...modules.values()].map(m=>`${m.id}:(__exports,__require)=>{\n${m.code}\n}`).join(',\n')}};const __cache={};function __require(id){if(__cache[id])return __cache[id];const exports=__cache[id]={};__modules[id](exports,__require);return exports;}__require(${entry});})();`;
  // Parse the final classic script as a syntax check before committing the artifact.
  parse(runtime,{ecmaVersion:'latest',sourceType:'script'});
- const head=`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="text-to-ui-skill" content="text-to-ui-html-new@0.1.0"><title>${esc(title)}</title>`;
+ const head=`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="text-to-ui-skill" content="text-to-ui-html-new@0.1.1"><title>${esc(title)}</title>`;
  const html=format==='single-file'
   ? `${head}<style>${style.replace(/<\/style/gi,'<\\/style')}</style></head><body><div id="app"></div><script>${runtime.replace(/<\/script/gi,'<\\/script')}</script></body></html>\n`
   : `${head}<link rel="stylesheet" href="./styles/app.css"></head><body><div id="app"></div><script defer src="./runtime/app.js"></script></body></html>\n`;
@@ -70,7 +70,7 @@ export function exportOffline(project,{title='页面',output,format='multi-file'
  if(format==='multi-file'&&path.basename(out)!=='index.html')throw Error('OFFLINE_OUTPUT: multi-file entry must be <preview-directory>/index.html');
  fs.mkdirSync(outDir,{recursive:true});
  if(!fs.realpathSync(outDir).startsWith(root+path.sep))throw Error('OFFLINE_OUTPUT_ESCAPE: '+output);
- const report={schemaVersion:1,skill:'text-to-ui-html-new',version:'0.1.0',output:path.relative(root,out).replaceAll(path.sep,'/'),sha256:digest(html),bytes:Buffer.byteLength(html),modules:modules.size,stylesheets:cssSeen.size,assets:assets.size,format:'classic-script',distribution:format,requiresServer:false};
+ const report={schemaVersion:1,skill:'text-to-ui-html-new',version:'0.1.1',output:path.relative(root,out).replaceAll(path.sep,'/'),sha256:digest(html),bytes:Buffer.byteLength(html),modules:modules.size,stylesheets:cssSeen.size,assets:assets.size,format:'classic-script',distribution:format,requiresServer:false};
  if(format==='single-file'){
   fs.writeFileSync(out+'.tmp',html);fs.renameSync(out+'.tmp',out);
   fs.writeFileSync(out+'.json',JSON.stringify(report,null,2)+'\n');

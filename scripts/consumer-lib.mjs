@@ -12,16 +12,21 @@ export function select(key,context=null,root=ROOT){
  if(!exact&&ids.length!==1)throw Error(`AMBIGUOUS_COMPONENT: ${key}; provide exact id and context`);
  const component=exact||data.components.find(c=>c.id===ids[0]);
  if(context&&!rules.length)throw Error(`UNSUPPORTED_CONTEXT: ${key}/${context}`);
- if(!context)rules=[];
+ const availableContexts=[...new Set(rules.map(r=>r.context))];
+ const requiresContext=Boolean(exact&&!context&&availableContexts.length>1);
+ if(!context&&requiresContext)rules=[];
  const variants=[...new Set(rules.map(r=>JSON.stringify(r.requiredOptions||{})))];
  if(variants.length>1){
   const precise=rules.filter(r=>r.capabilities.includes(key));
   if(precise.length===1)rules=precise;else throw Error(`AMBIGUOUS_CONTEXT: ${key}/${context}; use a capability such as toolbar-icon-action`);
  }
  const rule=rules[0]||null;
- return {...component,context:rule?.context||null,fixed:rule?.requiredOptions||{},requiredSlot:rule?.requiredSlot||null,allowedModes:rule?.allowedModes||null};
+ const fixed=rule?.requiredOptions||{};
+ const inputs=rule?.allowedProps ? Object.fromEntries(Object.entries(component.inputs).filter(([key])=>rule.allowedProps.includes(key)||Object.hasOwn(fixed,key))) : component.inputs;
+ return {...component,inputs,slots:rule?.allowedSlots??component.slots,context:rule?.context||null,fixed,requiredProps:rule?.requiredProps||[],requiredSlot:rule?.requiredSlot||null,allowedModes:rule?.allowedModes||null,requiresContext,availableContexts};
 }
 export function optionsFor(contract,options={}){
+ if(contract.requiresContext)throw Error(`REQUIRED_CONTEXT: ${contract.id}; choose ${contract.availableContexts.join(', ')}`);
  if(!options||typeof options!=='object'||Array.isArray(options))throw Error('options must be an object');
  for(const [key,value] of Object.entries(options)){
   if(Object.hasOwn(contract.fixed,key))throw Error(`FIXED_OPTION: ${contract.id}.${key} is system-managed (${JSON.stringify(contract.fixed[key])})`);
@@ -30,15 +35,20 @@ export function optionsFor(contract,options={}){
   if(rule.type&&value!==null&&(rule.type==='array'?!Array.isArray(value):typeof value!==rule.type))throw Error(`PROP_TYPE: ${contract.id}.${key} requires ${rule.type}`);
  }
  const check=value=>{if(!value||typeof value!=='object')return;for(const[k,v]of Object.entries(value)){if(['className','style','extraAttrs'].includes(k))throw Error('CONSUMER_STYLE_OVERRIDE: '+k);check(v);}};check(options);
+ for(const key of contract.requiredProps||[])if(options[key]===undefined||options[key]===null||options[key]===''||(Array.isArray(options[key])&&!options[key].some(Boolean)))throw Error('REQUIRED_PROP: '+contract.id+'.'+key);
  const result={...options,...contract.fixed};
  if(contract.allowedModes&&result.mode&&!contract.allowedModes.includes(result.mode))throw Error(`PROP_ENUM: ${contract.id}.mode`);
  return result;
 }
-export function checkSlots(contract,slots={}){if(!slots||typeof slots!=='object'||Array.isArray(slots))throw Error('slots must be an object');const inspect=value=>{if(typeof value==='string'&&/<\/?[a-z]/i.test(value))throw Error('RAW_SLOT_HTML: use registered components or a declared business module');if(value&&typeof value==='object')for(const[k,v]of Object.entries(value)){if(['style','className','extraAttrs'].includes(k))throw Error('CONSUMER_STYLE_OVERRIDE: '+k);inspect(v);}};inspect(slots);for(const key of Object.keys(slots))if(!contract.slots.includes(key))throw Error(`UNKNOWN_SLOT: ${contract.id}.${key}`);return slots;}
+export function checkSlots(contract,slots={}){if(!slots||typeof slots!=='object'||Array.isArray(slots))throw Error('slots must be an object');const inspect=value=>{if(typeof value==='string'&&/<\/?[a-z]/i.test(value))throw Error('RAW_SLOT_HTML: use registered components or a declared business module');if(value&&typeof value==='object')for(const[k,v]of Object.entries(value)){if(['style','className','extraAttrs'].includes(k))throw Error('CONSUMER_STYLE_OVERRIDE: '+k);inspect(v);}};inspect(slots);for(const key of Object.keys(slots)){if(!contract.slots.includes(key))throw Error(`UNKNOWN_SLOT: ${contract.id}.${key}`);if(['accordion','collapsible'].includes(contract.id)&&typeof slots[key]!=='string')throw Error('SLOT_TYPE: '+contract.id+'.'+key+' requires text');}return slots;}
 export function ruleForOptions(logicalName,context,options,root=ROOT){
  const candidates=catalog(root).rules.filter(r=>r.logicalName===logicalName&&r.context===context);
  if(!candidates.length)return null;
  const matches=candidates.filter(r=>Object.entries(r.requiredOptions||{}).every(([k,v])=>options[k]===v)&&(!r.allowedModes||r.allowedModes.includes(options.mode)));
  if(matches.length!==1)throw Error(`SEMANTIC_OPTIONS: ${logicalName}/${context} must match exactly one published scenario`);
- return matches[0];
+ const rule=matches[0];
+ if(rule.allowedProps){const allowed=new Set([...rule.allowedProps,...Object.keys(rule.requiredOptions||{}),...(rule.rendererKey==='titlebar'?['slots']:[])]);for(const key of Object.keys(options))if(!allowed.has(key))throw Error('SCENARIO_PROP: '+context+'.'+key);}
+ if(rule.allowedSlots&&options.slots)for(const key of Object.keys(options.slots))if(!rule.allowedSlots.includes(key))throw Error('SCENARIO_SLOT: '+context+'.'+key);
+ for(const key of rule.requiredProps||[])if(options[key]===undefined||options[key]===null||options[key]===''||(Array.isArray(options[key])&&!options[key].some(Boolean)))throw Error('REQUIRED_PROP: '+context+'.'+key);
+ return rule;
 }

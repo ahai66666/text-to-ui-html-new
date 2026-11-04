@@ -209,7 +209,7 @@ const packet = {
     confirmation: { status: discovery ? 'discovery' : 'confirmed', source: discovery ? 'design-discovery' : explicitlyConfirmed ? 'explicit-cli-flag' : 'auto-page-blueprint' }
   },
   pageBlueprint: automaticBlueprint ? { id: automaticBlueprint.id, sha256: blueprintDigest(automaticBlueprint), path: blueprintPath } : null,
-  route: { id: route.id, aliases: route.aliases, domains: route.domains, source: matchedRoute ? routeSelection.source : 'explicit-pattern', workflowRouteId, ...(route.domainReference ? { domainReference: route.domainReference } : {}) },
+  route: { id: route.id, allowedPatterns: matchedRoute?.allowedPatterns ?? [patternSelection.id], aliases: route.aliases, domains: route.domains, source: matchedRoute ? routeSelection.source : 'explicit-pattern', workflowRouteId, ...(route.domainReference ? { domainReference: route.domainReference } : {}) },
   workflowPolicy: selectedWorkflow,
   patternSelection,
   routeEvidence: {primaryTask, matches:routeSelection.evidence || [], alternatives:routeSelection.candidates.map(r=>r.id)},

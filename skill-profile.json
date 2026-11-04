@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "name": "text-to-ui-html-new",
   "kind": "html",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "handoffSchemaVersions": [
     1
   ],

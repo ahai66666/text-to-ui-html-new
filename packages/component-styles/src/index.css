@@ -426,7 +426,7 @@
 .tui-disclosure-group { display: grid; gap: var(--space-5); align-content: start; min-width: 0; }
 .tui-disclosure { display: grid; width: auto; min-width: 0; justify-self: stretch; box-sizing: border-box; gap: var(--space-1); overflow: visible; border: 0; border-radius: var(--radius-button); }
 .tui-disclosure__trigger { min-height: var(--height-list-item); width: 100%; display: flex; align-items: center; justify-content: flex-start; gap: var(--gap-menu-item-content); padding-inline: var(--space-3); border: 0; border-radius: var(--radius-button); color: var(--color-text-muted); background: transparent; text-align: start; font-family: var(--font-sans); font-size: var(--type-body-m-size); line-height: var(--type-body-m-leading); font-weight: var(--type-body-m-weight); cursor: pointer; }
-.tui-disclosure__trigger:hover { background: var(--state-layer-hover); }
+.tui-disclosure__trigger:hover:not(:disabled) { background: var(--state-layer-hover); }
 .tui-disclosure[data-disclosure-component="accordion"] .tui-disclosure__trigger { justify-content: flex-start; }
 .tui-disclosure[data-disclosure-component="collapsible"] .tui-disclosure__trigger { justify-content: space-between; }
 .tui-disclosure[data-disclosure-component="accordion"] .tui-disclosure__trigger { min-height: var(--size-7); height: var(--size-7); }
@@ -915,3 +915,10 @@
 @media (max-width: 720px) { .tui-generated-gallery { grid-template-columns: 1fr; } }
 
 .tui-advanced-menubar[data-surface="white"] > .tui-advanced-menu__trigger { background: var(--color-surface); }
+
+/* Explicit disclosure states use the same surface feedback as native input. */
+.tui-disclosure__trigger[data-state="hover"]:not(:disabled) { background: var(--state-layer-hover); }
+.tui-disclosure__trigger[data-state="focus"]:not(:disabled), .tui-disclosure__trigger:focus-visible { outline: 2px solid var(--color-focus-ring); outline-offset: 2px; }
+.tui-disclosure__trigger:disabled { opacity: var(--state-disabled-opacity); cursor: not-allowed; }
+
+.tui-disclosure__trigger[data-state="pressed"]:not(:disabled), .tui-disclosure__trigger:active:not(:disabled) { background: var(--state-layer-pressed); }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "c9f1608f0f78ef3d80fd43af220f358358feecb3718e89f157ec18a97fea00a7",
+  "digest": "ffdd64f9ef63645fac5781aadaaf72abfd2789f49c51416578cfa19fb92894ca",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -16,7 +16,7 @@
     },
     {
       "path": "packages/component-contracts/src/components/accordion.json",
-      "sha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0"
+      "sha256": "367c94dea23757a3dac04640345a10a7384261a6dc61d85247f2353eb55296a5"
     },
     {
       "path": "packages/component-contracts/src/components/alert-dialog.json",
@@ -60,7 +60,7 @@
     },
     {
       "path": "packages/component-contracts/src/components/collapsible.json",
-      "sha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455"
+      "sha256": "63b7b49479629578cd66dffa91071e8ca8f5d0d80de7db212917d0f3b96bbbea"
     },
     {
       "path": "packages/component-contracts/src/components/color-picker.json",
@@ -212,7 +212,7 @@
     },
     {
       "path": "packages/component-contracts/src/registry.json",
-      "sha256": "bbaefee610516c19322dc59af35d14a651cdde6d6417cb5bb8a25adc3101f295"
+      "sha256": "c0f920d5db334af58a85483a38b5ffb45b20f3d89b7b7d7d64316c2685c92aee"
     },
     {
       "path": "packages/tokens/src/index.css",
@@ -272,7 +272,7 @@
     },
     {
       "path": "references/components/component-selection-rules.json",
-      "sha256": "16eebc2aaab67c7430c340e889d902b19a5b03bcb13a6c9f64b5e090a6854d02"
+      "sha256": "9dfbc292be2e94ac6e763f53ae734d434d048575062229f719bdab76880d4bcd"
     },
     {
       "path": "references/components/local-component-delivery.md",
@@ -812,7 +812,7 @@
     },
     {
       "path": "skill-profile.json",
-      "sha256": "aded995aa3ffd08837dc3a360bcfbeab4d6847131209126df2de51ba79439cb4"
+      "sha256": "059148b632753f4c3c20aa025b21fba6416a6e78c11b445bbb5349fd55ed5dc8"
     }
   ],
   "resources": [
@@ -2999,8 +2999,8 @@
       "requires": [
         "core.delivery"
       ],
-      "bytes": 2761,
-      "sha256": "4f7b45c769ac3d58acbc354bd6245ea6ebb56101a352cfc81c9dea37218207d0"
+      "bytes": 2935,
+      "sha256": "367c94dea23757a3dac04640345a10a7384261a6dc61d85247f2353eb55296a5"
     },
     {
       "id": "component.alert-dialog",
@@ -3219,8 +3219,8 @@
       "requires": [
         "core.delivery"
       ],
-      "bytes": 2853,
-      "sha256": "27fff061ac41f4c0c4c21436743f1ce94f7dbfc35fa23de74d73ae921e526455"
+      "bytes": 2946,
+      "sha256": "63b7b49479629578cd66dffa91071e8ca8f5d0d80de7db212917d0f3b96bbbea"
     },
     {
       "id": "component.color-picker",

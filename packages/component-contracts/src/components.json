@@ -11,12 +11,18 @@
       ],
       "states": [
         "default",
-        "unfocus",
-        "disabled"
+        "hover",
+        "pressed",
+        "focus",
+        "disabled",
+        "open"
       ],
       "props": [
+        "title",
         "label",
-        "size",
+        "detail",
+        "expanded",
+        "contentId",
         "disabled",
         "state",
         "className"
@@ -53,7 +59,7 @@
         "linkedInstanceRequired": true,
         "variableReadbackRequired": true
       },
-      "contractNotes": "已保留当前组件契约；运行时适配器仍需按本组件真实结构、行为和可访问性逐批验收。",
+      "contractNotes": "组件身份位于触发按钮；title 为标题，label 为兼容别名（title 优先）；expanded/state=open 控制展开，disabled/state=disabled 控制禁用。",
       "category": "navigation",
       "categoryLabel": "导航类",
       "order": 18,
@@ -87,8 +93,11 @@
       "canonicalSpecimen": "gallery:navigation:accordion",
       "allowedStates": [
         "default",
-        "unfocus",
-        "disabled"
+        "hover",
+        "pressed",
+        "focus",
+        "disabled",
+        "open"
       ],
       "textRoles": [
         "title:title-s",
@@ -1591,12 +1600,14 @@
       "states": [
         "default",
         "hover",
+        "pressed",
         "focus",
         "disabled",
         "open"
       ],
       "props": [
         "title",
+        "label",
         "detail",
         "expanded",
         "contentId",
@@ -1636,7 +1647,7 @@
         "linkedInstanceRequired": true,
         "variableReadbackRequired": true
       },
-      "contractNotes": "已保留当前组件契约；运行时适配器仍需按本组件真实结构、行为和可访问性逐批验收。",
+      "contractNotes": "组件身份位于触发按钮；title 为标题，label 为兼容别名（title 优先）；expanded/state=open 控制展开，disabled/state=disabled 控制禁用。",
       "category": "navigation",
       "categoryLabel": "导航类",
       "order": 19,
@@ -1671,6 +1682,7 @@
       "allowedStates": [
         "default",
         "hover",
+        "pressed",
         "focus",
         "disabled",
         "open"

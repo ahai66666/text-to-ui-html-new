@@ -27,7 +27,9 @@ export function componentIdentityEvidence(node) {
   const expanded = node.getAttribute(contract.stateAttribute);
   if (!['true', 'false'].includes(expanded)) errors.push('aria-expanded must be true or false');
   const expectedState = expanded === 'true' ? 'open' : 'default';
-  if (node.dataset.state !== expectedState || node.dataset.variant !== expectedState) errors.push('Component state/variant must agree with aria-expanded');
+  if (node.dataset.variant !== expectedState) errors.push('Component variant must agree with aria-expanded');
+  const allowedStates = node.disabled ? ['disabled'] : expanded === 'true' ? ['open'] : ['default', 'hover', 'pressed', 'focus'];
+  if (!allowedStates.includes(node.dataset.state)) errors.push('Component state must agree with disabled/aria-expanded');
   if (content && content.hidden !== (expanded !== 'true')) errors.push('Content visibility must agree with aria-expanded');
   return {
     contract, valid: errors.length === 0, errors,
