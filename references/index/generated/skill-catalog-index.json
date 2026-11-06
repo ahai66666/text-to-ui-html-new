@@ -23,12 +23,12 @@
         },
         {
           "path": "README.md",
-          "sha256": "33e31bc1c24755dcebc426aee9b24f6dc58327cedbaff7c5ada7855afd9d74c7",
+          "sha256": "65378f99c9728261e68ba00af7feb2d592334d4df7a71bd14a584c1238e16b6e",
           "availability": "local"
         },
         {
           "path": "SKILL.md",
-          "sha256": "a3e7ebbfb989b678fb60477a0926bc36f4beb66211756a49b4e588286c679ec1",
+          "sha256": "278c2f503600afa3ed2b0e8438b392fa61039527c39d0c634462cc2f160b0d25",
           "availability": "local"
         },
         {
@@ -358,7 +358,7 @@
         },
         {
           "path": "package.json",
-          "sha256": "3eed0ca0941a02fe3e63c239fbe65bcfe55b16c15e9fafd05984f0e795893a40",
+          "sha256": "9e4751106a948459ef629dad639732d12db53d6597776c0224dd3677b76ce059",
           "availability": "local"
         },
         {
@@ -2277,6 +2277,11 @@
           "availability": "local"
         },
         {
+          "path": "references/stepwise-workflow.md",
+          "sha256": "c07fab573489c63f7843ad24835b405dcbd13d71312be47942e4bd9fd26b5229",
+          "availability": "local"
+        },
+        {
           "path": "references/tool-design-intelligence.md",
           "sha256": "ca26db7cd474289bec703e26e4641082e8fd3636cf0f49f20a9a2be511535415",
           "availability": "local"
@@ -2453,7 +2458,7 @@
         },
         {
           "path": "scripts/pack-consumer.mjs",
-          "sha256": "0eb7db68380b74ed36cf9ffbcdc8b0484b11fbaf98bb6ed7ccb1c8427804b0e0",
+          "sha256": "90389fe456a711b0b403dfbb170ad80bb52043763bbec8667a6567513bdd6930",
           "availability": "local"
         },
         {
@@ -2679,6 +2684,11 @@
         {
           "path": "scripts/verify-route-materials.mjs",
           "sha256": "dcc9a101b4fe61a56ff4262a95adedea4dccfc02d742d0316f66a5ac67e2fd2b",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/work-plan.mjs",
+          "sha256": "94b33ed4a567f052219ec451952d1fd8c183885e8efeb944ff76540a4376101b",
           "availability": "local"
         },
         {

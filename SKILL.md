@@ -7,6 +7,10 @@ description: Generate or revise HarmonyOS PC HTML prototypes with controlled com
 
 独立技能；不修改或依赖旧 text-to-ui-html 安装。RULES_ROOT 是本目录，PROJECT_DIR 是独立页面目录。
 
+## 选择执行方式
+
+单一明确修改走下方短流程。复杂页面或预计跨会话时，先读 [分步执行与接续](references/stepwise-workflow.md)：先定需求、Pattern 和公共数据/事件接口，再生成能打开的最小页面；随后按业务模块逐个完成输入、生成和必要修正，最后串联。使用 work-plan.mjs 保存项目进度，恢复时只读当前步骤的材料。已有计划先 resume，不从头分析。
+
 ## 最短流程
 
 1. 读 [消费输入](references/consumer-input.md)，确认用户任务与必要业务事实。修改本技能生成的页面时，沿用原 page-input.json；规范化外部 Demo 时先读 [Demo 保留](references/consumer-normalize.md)。

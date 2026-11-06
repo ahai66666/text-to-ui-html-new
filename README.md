@@ -26,3 +26,7 @@ The portable linker supports the static ESM subset used by the component runtime
 ## Maintenance
 
 The source snapshot, implementation notes, measurements and browser checks live in maintenance/. Build the consumer catalog with `node scripts/build-consumer.mjs`; pack with `node scripts/pack-consumer.mjs`. Source branches and releases are independent from the old skill.
+
+## Long tasks and small context windows
+
+For complex pages, read references/stepwise-workflow.md. Use scripts/work-plan.mjs to keep confirmed structure and shared contracts in project files, build an early working preview, complete one business module at a time, and resume with only current inputs and fresh component interfaces. Simple revisions retain the short generation path. Progress notes are recorded observations, not automatic proof of business correctness.
