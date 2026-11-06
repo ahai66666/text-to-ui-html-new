@@ -3,7 +3,7 @@
   "generatedFrom": [
     {
       "path": "package.json",
-      "sha256": "9e4751106a948459ef629dad639732d12db53d6597776c0224dd3677b76ce059"
+      "sha256": "e0d552f1c7af0ce5a7b447cd6b332fdd2e632b99044a568164f9aa41ff4f66f0"
     }
   ],
   "modes": {
@@ -70,6 +70,8 @@
     "consumer:query": "node scripts/consumer.mjs",
     "page:compile": "node scripts/page.mjs compile",
     "test": "node --test tests/*.test.mjs",
-    "page:plan": "node scripts/work-plan.mjs"
+    "page:plan": "node scripts/work-plan.mjs",
+    "page:module": "node scripts/business-module.mjs",
+    "page:entry": "node scripts/page.mjs entry"
   }
 }

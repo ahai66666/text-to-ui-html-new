@@ -43,6 +43,8 @@ Accordion/Collapsible 使用 title、detail、expanded、contentId、disabled、
 
 ## 业务模块与低层模式
 
+优先用 [业务扩展脚手架](business-extension.md) 创建声明及私有文件；消费输入不足不授权另写完整页面。
+
 缺少组件能力时在分组提供 module 对象：source、stylesheet（项目内路径）、missingCapability、registryQueries（查询数组）、reviewedCandidates（[{logicalName,rejectionReason}]）。模块导出 mount(host,{renderComponent})；控制仍调用标准组件，所有用到的组件应在该组 children 中声明。模块拥有该组业务内容，不能接管 Pattern。
 
 低层模式用于既有复杂输入：在独立目录维护 page-blueprint.json、page-content-recipes.json、page-bindings.json、styles/page-composition.css，运行 `page.mjs generate --low-level --project <目录> --task <任务>`。不与消费输入模式混用。

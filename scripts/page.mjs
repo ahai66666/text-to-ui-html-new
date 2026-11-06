@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from 'node:fs';import path from 'node:path';import {spawnSync} from 'node:child_process';
+import {assertSingleEntry,markDelivery,inspectDelivery} from './delivery-entry.mjs';
 import {checkBusinessLayoutCss} from './business-css.mjs';
 import {ROOT,read,select,optionsFor,checkSlots} from './consumer-lib.mjs';import {exportOffline} from './offline.mjs';
 const args=process.argv.slice(2),command=args.shift()||'help';const value=k=>{const i=args.indexOf(k);return i<0?null:args[i+1];};
@@ -14,8 +15,10 @@ function exportPreview(){
  const id=input.id||blueprint.id||'page';
  const title=value('--title')||input.title||bindings.componentBindings?.find(b=>b.id==='system-title')?.options?.label||'页面';
  const output=value('--out')||(format==='single-file'?'out/'+id+'.html':'out/'+id+'/index.html');
+ if(path.dirname(path.resolve(project,output))===project)throw Error('DELIVERY_OUTPUT: place the preview inside an output folder, not beside the source index.html');
  const report=exportOffline(project,{title,output,format,includeSources:!args.includes('--no-sources')});
  json(path.join(project,'.text-to-ui/offline-preview.json'),report);
+ markDelivery(project,'ready',report);
  const {files,...summary}=report;
  return {...summary,...(files?{fileCount:Object.keys(files).length}: {})};
 }
@@ -75,10 +78,12 @@ function compile(){
  return {input,common,expanded,pattern:pattern.id};
 }
 try{
- if(command==='compile'||command==='generate'){
+ if(command==='entry'){console.log(JSON.stringify(inspectDelivery(project),null,2));}
+ else if(command==='compile'||command==='generate'){
+ if(command==='generate'){markDelivery(project,'building');assertSingleEntry(project);}
  if(args.includes('--low-level')){if(command==='compile')throw Error('Low-level mode uses existing inputs directly');if(fs.existsSync(path.join(project,'.text-to-ui/input-mode.json'))&&read(path.join(project,'.text-to-ui/input-mode.json')).mode==='consumer')throw Error('INPUT_MODE_CONFLICT');const task=value('--task');if(!task)throw Error('--low-level requires --task');run('generate-compliant-page.mjs',['--project',project,'--repo',ROOT,'--skill-root',ROOT,'--task',task,...(value('--pattern')?['--pattern',value('--pattern')]:[])]);}
  else {const c=compile();if(command==='compile'){console.log(JSON.stringify({ok:true,skill:'text-to-ui-html-new',pattern:c.pattern,compiled:'.text-to-ui/compiled'}));process.exit(0);}run('generate-compliant-page.mjs',[...c.common,'--project',project,'--blueprint',path.join(c.expanded,'page-blueprint.json'),'--content-recipes',path.join(c.expanded,'page-content-recipes.json'),'--bindings',path.join(c.expanded,'page-bindings.json'),'--page-css',path.join(project,'styles/page-composition.css')]);}
  const report=exportPreview();json(path.join(project,'.text-to-ui/skill.json'),{name:'text-to-ui-html-new',version:'0.1.1'});console.log(JSON.stringify({ok:true,...report}));
- }else if(command==='export')console.log(JSON.stringify({ok:true,...exportPreview()}));
- else console.log('page.mjs compile|generate --project <dir> | generate --low-level --task <task> | export --project <dir> [--format multi-file|single-file] [--out out/<name>/index.html]');
-}catch(e){console.error(e.message);process.exitCode=1;}
+ }else if(command==='export'){markDelivery(project,'building');assertSingleEntry(project);console.log(JSON.stringify({ok:true,...exportPreview()}));}
+ else console.log('page.mjs entry --project <dir> | compile|generate --project <dir> | generate --low-level --task <task> | export --project <dir> [--format multi-file|single-file] [--out out/<name>/index.html]');
+}catch(e){if(['generate','export'].includes(command)){try{markDelivery(project,'failed',null,e.message);}catch{}}console.error(e.message);if(/RUNTIME_RESOURCE_LOAD|EXTERNAL_RESOURCE/.test(e.message))console.error('下一步：离线交付不支持真实服务调用；明确原型演示与服务接入边界，不另写整页 HTML 绕过。');else if(/UNKNOWN_COMPOSITION|unsupported kind|bypasses the component|module requires/.test(e.message))console.error('下一步：先查询公开接口；若缺少业务编排，使用 business-module.mjs init 在现有分组内扩展，再重新生成同一项目。');process.exitCode=1;}

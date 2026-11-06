@@ -30,3 +30,7 @@ The source snapshot, implementation notes, measurements and browser checks live 
 ## Long tasks and small context windows
 
 For complex pages, read references/stepwise-workflow.md. Use scripts/work-plan.mjs to keep confirmed structure and shared contracts in project files, build an early working preview, complete one business module at a time, and resume with only current inputs and fresh component interfaces. Simple revisions retain the short generation path. Progress notes are recorded observations, not automatic proof of business correctness.
+
+## Business capability gaps
+
+Use scripts/business-module.mjs init to extend an existing content group with local state and handlers; preserve canonical controls and Pattern structure. Do not create a second full HTML implementation. The scaffold does not provide AI inference or network access. Run scripts/page.mjs entry to find the one official preview and detect stale output. See references/business-extension.md for local task state, cancellation, migration of existing handwritten pages and offline service boundaries.

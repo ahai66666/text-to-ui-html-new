@@ -23,12 +23,12 @@
         },
         {
           "path": "README.md",
-          "sha256": "65378f99c9728261e68ba00af7feb2d592334d4df7a71bd14a584c1238e16b6e",
+          "sha256": "557b4529eb373fdd31b60c47b6ff34a7a365f490b26e2cc9293747025629ca49",
           "availability": "local"
         },
         {
           "path": "SKILL.md",
-          "sha256": "278c2f503600afa3ed2b0e8438b392fa61039527c39d0c634462cc2f160b0d25",
+          "sha256": "056cbf78548e1d8339d2a0a471206b511be133dab838f605c296bf52f211fdb3",
           "availability": "local"
         },
         {
@@ -357,8 +357,13 @@
           "availability": "local"
         },
         {
+          "path": "docs/text-to-ui-html-new-规范汇总.md",
+          "sha256": "1a29a1853f675d4c7ea69dbe956db346fb8be5fdc3fe6297ebf3a1e714ec51dc",
+          "availability": "local"
+        },
+        {
           "path": "package.json",
-          "sha256": "9e4751106a948459ef629dad639732d12db53d6597776c0224dd3677b76ce059",
+          "sha256": "e0d552f1c7af0ce5a7b447cd6b332fdd2e632b99044a568164f9aa41ff4f66f0",
           "availability": "local"
         },
         {
@@ -1247,6 +1252,11 @@
           "availability": "local"
         },
         {
+          "path": "packages/components-html/src/shared/business-module.js",
+          "sha256": "a75a98479e4bfa97d82c38daeb657998d189506ca9f202f722961bb4e88e3034",
+          "availability": "local"
+        },
+        {
           "path": "packages/components-html/src/shared/core-attrs.js",
           "sha256": "188a7b61604b7fa9455460b53eb2f9c5ecbe4343f3d09f56938abbd5e4fc4c49",
           "availability": "local"
@@ -1472,6 +1482,11 @@
           "availability": "local"
         },
         {
+          "path": "references/business-extension.md",
+          "sha256": "9bcc9c9f1e81ffe1519391f0c664dc8ee70573aad5e6327d3560a8db839584e9",
+          "availability": "local"
+        },
+        {
           "path": "references/component-coverage.md",
           "sha256": "59a712bffb566297016dfac2c5f29d88ed76db45e8159b6db1dc04f62d67fce8",
           "availability": "local"
@@ -1538,7 +1553,7 @@
         },
         {
           "path": "references/consumer-input.md",
-          "sha256": "52d2509190fe4c61da0cd759018dc3127386d4390881c7bb51677cb334678c6b",
+          "sha256": "7257e44f40425688552c585aacba9c019369b5a370ddad11ba43597385a24348",
           "availability": "local"
         },
         {
@@ -1648,7 +1663,7 @@
         },
         {
           "path": "references/offline-delivery.md",
-          "sha256": "bc4b6f12a445c2b7275ddab2c815f516c94510154ccfc00635da67fc6071eaa9",
+          "sha256": "4c62f3168765b500a67cd99f7d7faa47dde3de12ea4ff8600856ddc599129196",
           "availability": "local"
         },
         {
@@ -2362,6 +2377,11 @@
           "availability": "local"
         },
         {
+          "path": "scripts/business-module.mjs",
+          "sha256": "8284d78b22ee381d7fb6bcce34f917ce67861bb5205d8d65deb16459fbe158f4",
+          "availability": "local"
+        },
+        {
           "path": "scripts/component-contract-loader.mjs",
           "sha256": "585fda2d3a5eb149ffdd3d62fbe2ac8de29b24801652a019202b34243241b7e5",
           "availability": "local"
@@ -2394,6 +2414,11 @@
         {
           "path": "scripts/consumer.mjs",
           "sha256": "393e1421d085d5ddbc6fe8b62f2a573bb532ab10e14e048143651dbcfd2d0721",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/delivery-entry.mjs",
+          "sha256": "b4d8f54b03673b54e85e2f95fb46fc6a4120d52f10728d695ece937206be580f",
           "availability": "local"
         },
         {
@@ -2458,7 +2483,7 @@
         },
         {
           "path": "scripts/pack-consumer.mjs",
-          "sha256": "90389fe456a711b0b403dfbb170ad80bb52043763bbec8667a6567513bdd6930",
+          "sha256": "a55d94e6f02feebc6b81fad2b85a8b56c8e615657edf1116c03a676fafdd5fed",
           "availability": "local"
         },
         {
@@ -2493,7 +2518,7 @@
         },
         {
           "path": "scripts/page.mjs",
-          "sha256": "b285965d3e0a79e5dd339ac2611b6f3da3ab8fb755772fb0943e17776f0397a0",
+          "sha256": "9b3e2f4256f87939602788e37c58daf6a01b6520e4624457a0ee94823a3e811b",
           "availability": "local"
         },
         {
@@ -2503,7 +2528,7 @@
         },
         {
           "path": "scripts/prepare-page-components.mjs",
-          "sha256": "249722307552667b55304e3a00736fc2d2cedf2fe3b102fb16c50ad762ee0509",
+          "sha256": "c9ce031042e97df86a758c5b15624f735c0772e17dff489c21430ba1df423c57",
           "availability": "local"
         },
         {

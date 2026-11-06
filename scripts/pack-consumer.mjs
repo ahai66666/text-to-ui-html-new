@@ -16,7 +16,7 @@ try{
  function dependency(file){if(selected.has(file))return;selected.add(file);const full=path.join(ROOT,file);if(!fs.existsSync(full))throw Error('Missing dependency '+file);const text=fs.readFileSync(full,'utf8');
  for(const m of text.matchAll(/\bfrom\s*["']([^"']+)["']|\bimport\s*["']([^"']+)["']|@import\s+(?:url\(\s*)?["']([^"']+)["']/g)){const spec=m[1]||m[2]||m[3];if(spec.startsWith('.'))dependency(path.posix.normalize(path.posix.join(path.posix.dirname(file),spec)));}}
  for(const c of read(path.join(ROOT,'consumer/catalog.json')).components){const contract=read(path.join(ROOT,'packages/component-contracts/src/components',c.id+'.json'));dependency(contract.implementations.html.split('#')[0]);}
- for(const file of ['runtime.js','color-references/index.js','shared/disclosure-behavior.js','shared/sidebar-behavior.js','input/behavior.js','titlebar-overflow.js','styles.css','pattern-shell.css'])dependency('packages/components-html/src/'+file);
+ for(const file of ['runtime.js','color-references/index.js','shared/disclosure-behavior.js','shared/sidebar-behavior.js','shared/business-module.js','input/behavior.js','titlebar-overflow.js','styles.css','pattern-shell.css'])dependency('packages/components-html/src/'+file);
  // Full query provenance is loaded only on request. Keep coverage machine-side for that command.
  selected.add('consumer/coverage.json');
  const visitedScripts=new Set();
@@ -31,7 +31,7 @@ try{
  copy('scripts/build-consumer.mjs',path.join(root,'scripts/build-consumer.mjs'));
  const rebuildConsumer=spawnSync(process.execPath,[path.join(root,'scripts/build-consumer.mjs')],{cwd:root,encoding:'utf8'});if(rebuildConsumer.status!==0)throw Error(rebuildConsumer.stderr);fs.rmSync(path.join(root,'scripts/build-consumer.mjs'));
  const compatibility=read(path.join(root,'references/components/compatibility-modules.json'));compatibility.modules=[];fs.writeFileSync(path.join(root,'references/components/compatibility-modules.json'),JSON.stringify(compatibility,null,2)+'\n');
- const pkg=read(path.join(root,'package.json'));pkg.scripts=Object.fromEntries(Object.entries(pkg.scripts).filter(([k])=>['page:plan','consumer:query','page:compile','page:generate','page:validate','page:handoff','preview'].includes(k)));delete pkg.dependencies;fs.writeFileSync(path.join(root,'package.json'),JSON.stringify(pkg,null,2)+'\n');
+ const pkg=read(path.join(root,'package.json'));pkg.scripts=Object.fromEntries(Object.entries(pkg.scripts).filter(([k])=>['page:module','page:entry','page:plan','consumer:query','page:compile','page:generate','page:validate','page:handoff','preview'].includes(k)));delete pkg.dependencies;fs.writeFileSync(path.join(root,'package.json'),JSON.stringify(pkg,null,2)+'\n');
  const profile=read(path.join(root,'skill-profile.json'));profile.distribution='consumer';fs.writeFileSync(path.join(root,'skill-profile.json'),JSON.stringify(profile,null,2)+'\n');
  for(const script of ['build-resource-index.mjs','build-skill-catalog-index.mjs','build-navigation-index.mjs']){const cp=spawnSync(process.execPath,[path.join(root,'scripts',script),'--repo',root,'--skill-root',root],{cwd:root,encoding:'utf8'});if(cp.status!==0)throw Error(cp.stderr||cp.stdout);}
  fs.rmSync(path.join(root,'references/index/generated/skill-catalog-index.json'),{force:true});

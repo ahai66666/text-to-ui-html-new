@@ -97,6 +97,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     "packages/pattern-runtime/src/styles.css", "packages/tokens/src/index.css",
     "packages/component-styles/src/index.css"
   ]) loadRuntime(entry);
+  if (input?.pageModules?.length) loadRuntime("packages/components-html/src/shared/business-module.js");
   add("components/package.json", json({ private: true, type: "module" }));
   const ordered = [...selected.values()].sort((a, b) => a.id.localeCompare(b.id));
   ordered.forEach((component) => {

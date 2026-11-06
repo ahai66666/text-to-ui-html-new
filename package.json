@@ -34,7 +34,9 @@
     "consumer:query": "node scripts/consumer.mjs",
     "page:compile": "node scripts/page.mjs compile",
     "test": "node --test tests/*.test.mjs",
-    "page:plan": "node scripts/work-plan.mjs"
+    "page:plan": "node scripts/work-plan.mjs",
+    "page:module": "node scripts/business-module.mjs",
+    "page:entry": "node scripts/page.mjs entry"
   },
   "dependencies": {},
   "engines": {

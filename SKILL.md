@@ -21,6 +21,12 @@ description: Generate or revise HarmonyOS PC HTML prototypes with controlled com
 
 导出与交付结构见 [离线交付](references/offline-delivery.md)；只在需要单文件时加 `--format single-file`。
 
+## 能力缺口与正式入口
+
+消费接口不足时先查组合；需要状态、事件或动态内容时，读 [业务扩展](references/business-extension.md)，用 business-module.mjs 在现有分组内扩展。不能因编译受限而另写整页 HTML。真实 AI 服务与离线演示需明确区分。
+
+生成后用 `page.mjs entry --project "<PROJECT_DIR>"` 获取唯一正式预览入口和状态；源码入口与交付入口可以并存，不形成两套业务实现。已有手写 HTML 保留作参考并迁回业务模块，不自动删除。
+
 ## 按需上下文
 
 需要决定布局时只运行 `discover-page.mjs --task "<任务>"`，读取当前 Workflow、Task、允许的 Pattern、窗格与槽位；完整 resolve-context 是脚本内部材料，不默认返回给模型。改动已有页面沿用原 taskRoute、pattern、patternReason，仅查询受影响组件。
