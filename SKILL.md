@@ -9,15 +9,17 @@ description: Generate or revise HarmonyOS PC HTML prototypes with controlled com
 
 ## 选择执行方式
 
-单一明确修改走下方短流程。复杂页面或预计跨会话时，先读 [分步执行与接续](references/stepwise-workflow.md)：先定需求、Pattern 和公共数据/事件接口，再生成能打开的最小页面；随后按业务模块逐个完成输入、生成和必要修正，最后串联。使用 work-plan.mjs 保存项目进度，恢复时只读当前步骤的材料。已有计划先 resume，不从头分析。
+- 局部改文案、组件参数或业务状态：沿用已有页面输入，只查询受影响的组件，使用 `generate --revision`。版式改变时重新发现 Pattern。
+- 新页或页面结构调整：先发现 Task 和 Pattern，再按 [页面设计](references/consumer-page-design.md) 决定信息层级和布局，随后查询组件。
+- 涉及多个业务模块的联动、密集内容或预计跨会话时，再读 [分步执行与接续](references/stepwise-workflow.md)。在现有 `page-input.json` 用 `design` 与 `states` 记录设计决策。已有计划先 resume。
 
-## 最短流程
+## 生成流程
 
-1. 读 [消费输入](references/consumer-input.md)，确认用户任务与必要业务事实。修改本技能生成的页面时，沿用原 page-input.json；规范化外部 Demo 时先读 [Demo 保留](references/consumer-normalize.md)。
-2. 用 `discover-page.mjs --task "<任务>"` 获取当前 Pattern 的分段、槽位和滚动归属。用 `consumer.mjs find "<用途>" --pattern <ID> --region <窗格>`，再 `describe <精确ID...> --context <语义>`。只读当前查询，默认不读完整索引、源码或机器追溯文件。有多个场景时必须选 context，精确能力别名可自动确定场景。
-3. 模型只写 PROJECT_DIR/page-input.json；已有规则固定的参数不要填写。不造业务默认值。
-4. `node "<RULES_ROOT>/scripts/page.mjs" generate --project "<PROJECT_DIR>"`。局部修改加 `--revision` 继承布局。
-5. 打开返回的 `out/<页面ID>/index.html`，直接 file:// 动态运行。默认交付整个多文件文件夹：外部经典脚本、CSS、本地资源与 `src/` 模块化源码；无需服务、Vite 或 npm install。分享时打包整个文件夹。
+1. 读 [消费输入](references/consumer-input.md)，确认用户任务与必要业务事实。规范化外部 Demo 时先读 [Demo 保留](references/consumer-normalize.md)。
+2. 用 `discover-page.mjs --task "<任务>"` 获取 Pattern 的分段、槽位和滚动归属。新页或结构调整先确定区域职责、内容优先级和实际栏宽下的组合，再用 `consumer.mjs find "<用途>" --pattern <ID> --region <窗格>` 及 `describe <精确ID...> --context <语义>` 查询当前所需控件。有多个场景时选 context，精确能力别名可自动确定场景。
+3. 将设计和组件选择写入 `page-input.json`，需要跨模块状态或动态内容时添加已声明的业务模块。系统固定参数由脚本补全；业务事实来自需求。
+4. 运行 `node "<RULES_ROOT>/scripts/page.mjs" generate --project "<PROJECT_DIR>"`。
+5. 打开返回的 `out/<页面ID>/index.html`，按 [离线预览检查](references/consumer-preview-check.md) 核对真实画面和关键操作。默认交付整个多文件目录，包含本地脚本、CSS、资源和 `src/` 源码，可直接打开。
 
 导出与交付结构见 [离线交付](references/offline-delivery.md)；只在需要单文件时加 `--format single-file`。
 
@@ -39,6 +41,6 @@ Task 限定可选 Pattern；非默认布局需 patternReason。Pattern 管窗格
 
 已有组件优先；缺口先记录查询与候选。复杂模块读 [消费输入](references/consumer-input.md) 的业务模块部分。模型不修改 generated-*、components/、.text-to-ui/compiled 或 styles/page-composition.css；特殊样式使用 businessCss。
 
-生成输出不代表业务、浏览器或视觉全部通过；沿用现有必要检查，不追加审查流程。无执行工具时只交输入并标记待生成。远程后端不属于离线原型能力。
+分别记录离线生成、浏览器交互和视觉检查结果。无执行工具时交付输入并标记待生成。离线原型使用本地数据。
 
 普通任务不读 references/routes/ 的低层文件，不混写 Blueprint/bindings；低层模式只用于 consumer-input.md 指明的复杂输入。特殊能力才用 `consumer.mjs describe <id> --full`；维护与分发只读维护项目的 maintenance/README.md。

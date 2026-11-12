@@ -12,8 +12,8 @@ page-input.json 顶层：
 - entities: [{id, fields:[字段]}]；successCriteria、recoveryPaths: 用户可理解的字符串数组，均非空。
 - groups: [{id, region, purpose, composition?, children, entities?}]。region 必须是已选 Pattern 的窗格。
 - interactions: [{id, kind, triggers:[节点ID], outcome, stateChange?, sourceGroup?, targetGroup?, targetSelector?, secondaryPage?}]，非空。详情动作的 triggers 由编译器补齐。stateChange 写实际状态变化，outcome 写用户得到的结果。只声明真实需求；现有 kind 为 component-native、set-selected、filter-collection、toggle-hidden、open-overlay、close-overlay、open-secondary-page。
-- states 可选：[{id,kind,appliesTo:[分组]}]，省略时只有初始状态。联动、空结果或失败恢复涉及哪些分组，就为这些分组声明实际状态。
-- design 可选：regionPurposes、density 为按窗格 ID 的文本；readingOrder、informationPriority 为窗格或分组 ID 数组；relationships 为 [{from,to,entity,key}]，用于说明共享对象和选择键。普通页面用已有 group.purpose，不重复填写。
+- states：[{id,kind,appliesTo:[分组]}]，旧项目可省略，省略时只有初始状态。复杂新页或结构调整应声明主流程涉及的状态及分组，例如选中、空结果或失败恢复。
+- design：regionPurposes、density 为按窗格 ID 的文本；readingOrder、informationPriority 为窗格或分组 ID 数组；relationships 为 [{from,to,entity,key}]，用于说明共享对象和选择键。复杂新页或结构调整应填写适用的设计信息，旧项目仍可省略。普通页面用已有 group.purpose，不重复填写。见 [页面设计](consumer-page-design.md)。
 - businessCss 可选：项目内布局 CSS，只允许 `[data-composition-id="已声明分组ID"]` 根选择器和布局属性，不允许内部控件选择器、视觉属性或 at-rule。更复杂的业务样式放在声明模块的独立 stylesheet 中。
 
 可选 Pattern：A primary-navigation/main-content；B primary-navigation/secondary-list/main-detail；C primary-navigation/tool-workspace；D 以实际 discover 返回窗格为准。运行 `node scripts/discover-page.mjs --task "<任务>"` 查询准确窗格、槽位和允许的 Pattern，无需读取完整上下文。

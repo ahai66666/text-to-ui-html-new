@@ -28,7 +28,7 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "43a5770ea8fc2059ed7e51b12b79de652a3254d8a75156263687f192ebc20dd6",
+          "sha256": "08869ea9dcf7fab1c45a93756c0c80933b41fb42c0ffc57d2c900cad3f0e0a0d",
           "availability": "local"
         },
         {
@@ -348,17 +348,12 @@
         },
         {
           "path": "consumer/catalog.json",
-          "sha256": "17bc434facb8d4728bed3d40dcef51366cb6e27c5c1d34ae9bc7fed15748ce98",
+          "sha256": "19ac24cfee9ed80bec215cbdcc68b0b3e4247dd158167a92d2ef86e1511ea9a7",
           "availability": "local"
         },
         {
           "path": "consumer/coverage.json",
           "sha256": "edf4041b590f6ba8d1f405cbe1490b3e5063e96b450e43e593ecb45e56e4366c",
-          "availability": "local"
-        },
-        {
-          "path": "docs/text-to-ui-html-new-规范汇总.md",
-          "sha256": "1a29a1853f675d4c7ea69dbe956db346fb8be5fdc3fe6297ebf3a1e714ec51dc",
           "availability": "local"
         },
         {
@@ -1093,7 +1088,7 @@
         },
         {
           "path": "packages/components-html/src/list-card/index.js",
-          "sha256": "f6f27e2bcaac0d9002913b7768239e18fcfa9945dc599447f46c597a56d27269",
+          "sha256": "b1598c55a6a064246ddebdb454b33d3a93be081bfd72a9a63d12677854d06294",
           "availability": "local"
         },
         {
@@ -1558,12 +1553,22 @@
         },
         {
           "path": "references/consumer-input.md",
-          "sha256": "8eba5f83a69e031fbd12cac8abc1fab13576aec9809f57bc09e2d54e115acb96",
+          "sha256": "aa67c07e49128f2117150b5503fef23888e8f47b00833ac8a7f91ebe371d2eec",
           "availability": "local"
         },
         {
           "path": "references/consumer-normalize.md",
           "sha256": "f8a6fa8d1bec00b179a89b5da6eb00b440b4d8fdc51bd5b36bda2dd5b9a36a40",
+          "availability": "local"
+        },
+        {
+          "path": "references/consumer-page-design.md",
+          "sha256": "514b086b309ded5f2161b0bc6d965638c0f899eaaa519ac8e1fe662aea120457",
+          "availability": "local"
+        },
+        {
+          "path": "references/consumer-preview-check.md",
+          "sha256": "25c61602cde30c5da821da1f8f5d41814f2d6d8fa7f04e573ca330f77df56621",
           "availability": "local"
         },
         {
@@ -2298,7 +2303,7 @@
         },
         {
           "path": "references/stepwise-workflow.md",
-          "sha256": "c07fab573489c63f7843ad24835b405dcbd13d71312be47942e4bd9fd26b5229",
+          "sha256": "ef0a81cfbc768e7e730281a117157598074b087cb96827e13f6c2ce3a67d7ea2",
           "availability": "local"
         },
         {

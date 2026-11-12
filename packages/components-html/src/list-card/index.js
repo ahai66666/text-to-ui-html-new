@@ -2,7 +2,7 @@ import { renderMarkup } from '../shared/render-markup.js';
 import { itemState } from "../item/index.js";
 
 export const listCardState = (options = {}) => {
-  const { items, ...singleOptions } = options;
+  const { items, meta, ...singleOptions } = options;
   if (Array.isArray(items)) {
     return `<div class="tui-component tui-list-card-group" data-component="list-card" data-logical-component="List Item/White Surface/Default" data-variant="collection" data-state="default" data-framework="html" role="list">${items.map((item, index) => itemState({
       title: "HarmonyOS 组件规范",
@@ -17,7 +17,7 @@ export const listCardState = (options = {}) => {
   return itemState({
     title: "HarmonyOS 组件规范",
     description: "刚刚更新 · 12 位成员",
-    trailingText: "进行中",
+    trailingText: meta ?? "进行中",
     selected: true,
     ...singleOptions,
     id: "list-card",
