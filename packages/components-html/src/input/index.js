@@ -3,7 +3,7 @@ import { renderInputTagChip } from "../shared/core-renderInputTagChip.js";
 import { escapeHtml } from "../shared/core-escapeHtml.js";
 import { attrs } from "../shared/core-attrs.js";
 
-export let nextInputTagEntryId = 0;
+let nextInputTagEntryId = 0;
 
 export const inputTagEntryState = ({ surface = "white", state = "default", label = "成员", placeholder = "输入文本后按 Enter 选择", disabled = false, value = "", options = [], tags = [], id } = {}) => {
   const resolvedState = disabled ? "disabled" : state;

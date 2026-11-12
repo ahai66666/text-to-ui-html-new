@@ -9,6 +9,11 @@ export function readPatternRegistry(file = defaultPatternRegistryPath) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
+export function navigationSlotRequired(pattern, slot) {
+  const cardinality = pattern.slots.find((entry) => entry.id === slot.id)?.cardinality;
+  return slot.required ?? (Boolean(slot.requiredSemanticContexts?.length) || cardinality?.startsWith("1") === true);
+}
+
 export function validatePatternRegistry(registry) {
   const errors = [];
   if (registry?.schemaVersion !== 1) errors.push("schemaVersion must be 1");

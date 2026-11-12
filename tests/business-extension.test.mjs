@@ -1,3 +1,4 @@
+import {pathToFileURL} from 'node:url';
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import path from 'node:path';import os from 'node:os';import {spawnSync} from 'node:child_process';import {createModuleState} from '../packages/components-html/src/shared/business-module.js';import {initBusinessModule} from '../scripts/business-module.mjs';import {assertSingleEntry,markDelivery,inspectDelivery} from '../scripts/delivery-entry.mjs';import {ROOT} from '../scripts/consumer-lib.mjs';import crypto from 'node:crypto';
 const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
 function fixture(t){const root=fs.mkdtempSync(path.join(os.tmpdir(),'tui-business-'));t.after(()=>fs.rmSync(root,{recursive:true,force:true}));fs.copyFileSync(path.join(ROOT,'examples/settings/page-input.json'),path.join(root,'page-input.json'));return root;}
@@ -6,3 +7,72 @@ test('scaffolding preserves declared components and adds a module, not another H
 test('a declared business module passes complete generation and remains in the one official package',t=>{const root=fixture(t);initBusinessModule({project:root,group:'preferences',name:'assistant',reason:'需要局部业务状态',query:'业务状态编排'});const cp=spawnSync(process.execPath,[path.join(ROOT,'scripts/page.mjs'),'generate','--project',root],{encoding:'utf8',maxBuffer:20*1024*1024});assert.equal(cp.status,0,cp.stderr||cp.stdout);const delivery=inspectDelivery(root);assert.equal(delivery.status,'ready');assert.equal(delivery.primaryEntry,'out/settings/index.html');assert.ok(fs.existsSync(path.join(root,'components/_runtime/packages/components-html/src/shared/business-module.js')));assert.ok(fs.existsSync(path.join(root,'out/settings/src/page-components/assistant/index.js')));fs.appendFileSync(path.join(root,'page-components/assistant/index.js'),'\n// revised');assert.equal(inspectDelivery(root).status,'stale');});
 test('competing root HTML is preserved and blocks publishing; reference HTML is allowed',t=>{const root=fixture(t);fs.writeFileSync(path.join(root,'manual.html'),'user implementation');assert.throws(()=>assertSingleEntry(root),/UNMANAGED_HTML/);assert.equal(fs.readFileSync(path.join(root,'manual.html'),'utf8'),'user implementation');fs.mkdirSync(path.join(root,'.text-to-ui/reference-pages'),{recursive:true});fs.renameSync(path.join(root,'manual.html'),path.join(root,'.text-to-ui/reference-pages/manual.html'));assert.doesNotThrow(()=>assertSingleEntry(root));});
 test('failed builds retain last successful entry with failed status and detect edited output',t=>{const root=fixture(t);fs.mkdirSync(path.join(root,'out/test'),{recursive:true});fs.writeFileSync(path.join(root,'out/test/index.html'),'valid');const report={output:'out/test/index.html',distribution:'multi-file',files:{'index.html':{sha256:hash('valid')}}};markDelivery(root,'ready',report);assert.equal(inspectDelivery(root).status,'ready');fs.writeFileSync(path.join(root,'out/test/index.html'),'edited');assert.equal(inspectDelivery(root).status,'stale');markDelivery(root,'failed',null,'compile failed');assert.equal(inspectDelivery(root).status,'failed');assert.equal(inspectDelivery(root).primaryEntry,report.output);});
+
+test('a navigation business module keeps its host inside the secondary navigation slot', async t => {
+ const root = fixture(t);
+ const input = JSON.parse(fs.readFileSync(path.join(ROOT, 'examples/records/page-input.json'), 'utf8'));
+ input.groups.push({
+  id: 'folders',
+  region: 'primary-navigation',
+  purpose: '记录分组',
+  children: [{
+   id: 'folder-list',
+   use: 'sidebar',
+   context: 'secondary-navigation',
+   options: {items: [{label: '全部记录', selected: true, icon: 'navigation/list'}]},
+   behavior: 'choose-folder'
+  }],
+  module: {
+   source: './folders.js',
+   stylesheet: './folders.css',
+   missingCapability: '独立维护当前分组',
+   registryQueries: ['分组状态编排'],
+   reviewedCandidates: []
+  }
+ });
+ input.interactions.push({id: 'choose-folder', kind: 'component-native', triggers: ['folder-list'], outcome: '选择记录分组'});
+ fs.writeFileSync(path.join(root, 'page-input.json'), JSON.stringify(input));
+ fs.writeFileSync(path.join(root, 'folders.js'), "export function mount(host) { host.dataset.mounted = 'true'; }");
+ fs.writeFileSync(path.join(root, 'folders.css'), '/* Folder module styles */');
+ const cp = spawnSync(process.execPath, [path.join(ROOT, 'scripts/page.mjs'), 'generate', '--project', root], {encoding: 'utf8'});
+ assert.equal(cp.status, 0, cp.stderr || cp.stdout);
+ const {renderGeneratedPage} = await import(pathToFileURL(path.join(root, 'generated-page.js')).href);
+ const html = renderGeneratedPage();
+ assert.match(html, /data-pattern-slot="secondary-navigation-content"[^>]*><div data-composition-id="folders"/);
+ assert.equal([...html.matchAll(/data-composition-id="folders"/g)].length, 1);
+ const manifest = JSON.parse(fs.readFileSync(path.join(root, 'html-page-manifest.json'), 'utf8'));
+ assert.equal(manifest.navigationMode, 'two-level');
+ assert.equal(manifest.structure.navigationMode, 'two-level');
+ assert.equal(manifest.registered.find(binding => binding.id === 'nav').slot, 'primary-navigation-bottom');
+ const compiled = JSON.parse(fs.readFileSync(path.join(root, '.text-to-ui/compiled/page-bindings.json'), 'utf8'));
+ assert.equal(compiled.patternMode.navigation, 'two-level');
+ assert.match(html, /data-pattern-slot="primary-navigation-bottom"[^>]*data-pattern-shell-placement="bottom"/);
+
+ input.navigationMode = 'two-level';
+ input.groups[0].children[0].slot = 'primary-navigation-shell';
+ fs.writeFileSync(path.join(root, 'page-input.json'), JSON.stringify(input));
+ const conflict = spawnSync(process.execPath, [path.join(ROOT, 'scripts/page.mjs'), 'compile', '--project', root], {encoding: 'utf8'});
+ assert.equal(conflict.status, 1);
+ assert.match(conflict.stderr, /NAVIGATION_SLOT_CONFLICT: navigation\/nav uses primary-navigation-shell; two-level requires primary-navigation-bottom/);
+});
+
+test('business module declarations scope fields, states and registered options to their host',t=>{
+ const root=fixture(t),file=path.join(root,'page-input.json');
+ const input=JSON.parse(fs.readFileSync(file));
+ const group=input.groups.find(g=>g.id==='preferences');
+ group.entities=[input.entities[0].id];
+ const groupFields=input.entities[0].fields;
+ input.entities.push({id:'separate',fields:['unrelated-field']});
+ input.states=[{id:'current',kind:'default',appliesTo:['preferences']},{id:'other',kind:'empty',appliesTo:['navigation']}];
+ fs.writeFileSync(file,JSON.stringify(input));
+ const module=initBusinessModule({project:root,group:group.id,name:'scoped',reason:'业务状态',query:'业务状态编排'});
+ fs.writeFileSync(path.join(root,module.source),"export function mount(host,{renderComponent}) { host.dataset.component = renderComponent('button',{label:'组内控件'}); }");
+ const cp=spawnSync(process.execPath,[path.join(ROOT,'scripts/page.mjs'),'generate','--project',root],{encoding:'utf8'});
+ assert.equal(cp.status,0,cp.stderr);
+ const recipes=JSON.parse(fs.readFileSync(path.join(root,'.text-to-ui/compiled/page-content-recipes.json'))).recipes;
+ assert.deepEqual(recipes.find(r=>r.contentGroupId===group.id).fields,groupFields);
+ assert.deepEqual(recipes.find(r=>r.contentGroupId===group.id).states,['current']);
+ fs.appendFileSync(path.join(root,module.source),"\nexport function wrong(renderComponent) { return renderComponent('search',{}); }");
+ const rejected=spawnSync(process.execPath,[path.join(ROOT,'scripts/page.mjs'),'generate','--project',root],{encoding:'utf8'});
+ assert.match(rejected.stderr,/MODULE_COMPONENT_CONTEXT: preferences must declare search/);
+});

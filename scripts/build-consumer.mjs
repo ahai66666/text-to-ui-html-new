@@ -1,7 +1,20 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
 import {parse} from '../vendor/acorn.mjs';import {ROOT,read} from './consumer-lib.mjs';
 const sha=s=>crypto.createHash('sha256').update(s).digest('hex');
-const rules=read(path.join(ROOT,'references/components/component-selection-rules.json')).rules;
+const {rules,optionSchemasByComponent}=read(path.join(ROOT,'references/components/component-selection-rules.json'));
+const sceneSource=read(path.join(ROOT,'assets/design-system/titlebar-scene-contracts.json'));
+for(const rule of rules){
+ const scene=Object.values(sceneSource.scenes).find(s=>s.segments.some(seg=>seg.semanticContext===rule.context && seg.businessActionSlot));
+ const segment=scene?.segments.find(seg=>seg.semanticContext===rule.context);
+ for(const [prop,schema] of Object.entries(rule.optionSchemas??{}))if(schema.from==='pattern-titlebar-size'){
+  if(!scene)throw Error('No Pattern titlebar scene for '+rule.context);
+  rule.optionSchemas[prop]={type:'string',enum:scene.titleLayer.sizePolicy.allowedSizes};
+ }
+ for(const [slot,schema] of Object.entries(rule.slotSchemas??{}))if(schema.from==='pattern-titlebar-actions'){
+  if(segment?.businessActionSlot!==slot)throw Error('No Pattern action slot for '+rule.context);
+  rule.slotSchemas[slot]={type:'array',items:{type:'object',required:['id','label'],properties:{id:{type:'string',nonEmpty:true},label:{type:'string',nonEmpty:true},icon:{type:'string',nonEmpty:true},buttonType:{enum:segment.businessActionModes},disabled:{type:'boolean'},overflowTrigger:{type:'boolean'}},additionalProperties:false},uniqueBy:'id'};
+ }
+}
 const dir=path.join(ROOT,'packages/component-contracts/src/components');
 const components=[],coverage=[];
 const search=read(path.join(ROOT,'references/components/consumer-search.json')).keywords;
@@ -26,9 +39,10 @@ for(const file of fs.readdirSync(dir).filter(x=>x.endsWith('.json')).sort()){
   inputs[name]={...(enumKey&&contract[enumKey]?{enum:contract[enumKey]}:{}),...(types.length===1?{type:types[0]}:{})};
   // Defaults are documented only when every inspected declaration agrees.
   if(values.length&&values.every(v=>JSON.stringify(v)===JSON.stringify(values[0])))inputs[name].default=values[0];
+  Object.assign(inputs[name],optionSchemasByComponent?.[contract.id]?.[name]);
  }
  components.push({revision:sha(JSON.stringify(contract)+sourceText+JSON.stringify(rules.filter(r=>r.rendererKey===contract.id))),id:contract.id,logicalName:contract.logicalName,summary:contract.purpose||contract.logicalName,keywords:search[contract.id]||'',inputs,slots:contract.slots||[],states:contract.states||[],icons:contract.iconAliases||[]});
- coverage.push({id:contract.id,source:impl,contractSha256:sha(fs.readFileSync(path.join(dir,file))),parameters:Object.fromEntries(Object.keys(inputs).map(k=>[k,{disposition:'model-writable',...(inputs[k].type?{}:{typeStatus:'not-declared; upstream validation retained'})}])),scenarios:rules.filter(r=>r.rendererKey===contract.id).map(r=>({context:r.context,capabilities:r.capabilities,parameters:Object.fromEntries(Object.keys(inputs).map(k=>[k,{disposition:Object.hasOwn(r.requiredOptions||{},k)?'scenario-fixed':'model-writable',...(Object.hasOwn(r.requiredOptions||{},k)?{value:r.requiredOptions[k]}:{})}]))})),systemManaged:['component-identity','implementation','canonical-style-loading',...managed.filter(k=>(contract.props||[]).includes(k))],unsupported:unsupported.map(name=>({name,reason:'JSON consumer binds behavior through interactions; function callbacks require a declared business module'}))});
+ coverage.push({id:contract.id,source:impl,contractSha256:sha(fs.readFileSync(path.join(dir,file))),parameters:Object.fromEntries(Object.keys(inputs).map(k=>[k,{disposition:'model-writable',...(inputs[k].type?{}:{typeStatus:'not-declared; upstream validation retained'})}])),scenarios:rules.filter(r=>r.rendererKey===contract.id).map(r=>({context:r.context,capabilities:r.capabilities,parameters:Object.fromEntries(Object.keys(inputs).map(k=>[k,{disposition:Object.hasOwn(r.requiredOptions||{},k)?'scenario-fixed':r.systemManaged?.includes(k)?'system-managed':r.allowedProps&&!r.allowedProps.includes(k)?'not-exposed-in-context':'model-writable',...(Object.hasOwn(r.requiredOptions||{},k)?{value:r.requiredOptions[k]}:{})}]))})),systemManaged:['component-identity','implementation','canonical-style-loading',...managed.filter(k=>(contract.props||[]).includes(k))],unsupported:unsupported.map(name=>({name,reason:'JSON consumer binds behavior through interactions; function callbacks require a declared business module'}))});
 }
 for(const r of rules){const c=components.find(c=>c.id===r.rendererKey);if(!c)throw Error('Unknown rule component '+r.rendererKey);for(const key of r.allowedSlots||[])if(!c.slots.includes(key))throw Error('Unknown scenario slot '+r.context+'.'+key);for(const key of [...(r.allowedProps||[]),...(r.requiredProps||[])])if(!c.inputs[key])throw Error('Unknown scenario property '+r.context+'.'+key);for(const key of r.requiredProps||[])if(r.allowedProps&&!r.allowedProps.includes(key))throw Error('Required scenario property hidden: '+r.context+'.'+key);for(const[k,v]of Object.entries(r.requiredOptions||{}))if(!c.inputs[k]||(c.inputs[k].enum&&!c.inputs[k].enum.includes(v)))throw Error('Invalid fixed option '+r.context+'.'+k);}
 fs.mkdirSync(path.join(ROOT,'consumer'),{recursive:true});

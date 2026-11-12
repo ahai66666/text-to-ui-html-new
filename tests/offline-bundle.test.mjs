@@ -35,6 +35,42 @@ test('multi-file is portable, external and deterministic; source can be re-expor
  const second=exportOffline(path.join(root,'out/preview/src'));
  assert.equal(run(path.join(root,'out/preview/src'),second).context.answer,42);
 });
+test('standard Input and a business module importing the Secondary Page runtime bundle together', t => {
+ const root = fixture(t);
+ for (const file of [
+  'components-html/src/input/index.js',
+  'components-html/src/shared/render-markup.js',
+  'components-html/src/shared/core-renderInputTagChip.js',
+  'components-html/src/shared/core-attrs.js',
+  'components-html/src/shared/core-escapeHtml.js',
+  'components-html/src/shared/core-icon.js',
+  'components-html/src/icon-map.js',
+  'pattern-runtime/src/index.js'
+ ]) {
+  const target = path.join(root, 'components/_runtime/packages', file);
+  fs.mkdirSync(path.dirname(target), {recursive: true});
+  fs.copyFileSync(path.join(ROOT, 'packages', file), target);
+ }
+ fs.mkdirSync(path.join(root, 'business'));
+ fs.writeFileSync(path.join(root, 'business/reader.js'), `
+  import {createSecondaryPageRuntime} from '@text-to-ui/pattern-runtime';
+  import {render} from '../components/_runtime/packages/components-html/src/input/index.js';
+  const runtime = createSecondaryPageRuntime({layout: 'new-page', mode: 'runtime'});
+  globalThis.compose = runtime.render({
+   slots: {titlebar: "Compose", content: render({variant: 'tag-entry'}) + render({variant: 'tag-entry'})}
+  });
+ `);
+ fs.writeFileSync(path.join(root, 'main.js'), "import './styles/index.css'; import './business/reader.js';");
+ const report = exportOffline(root);
+ const check = ({context}) => {
+  assert.match(context.compose, /data-secondary-page-layout="new-page"/);
+  const ids = [...context.compose.matchAll(/id="(tui-input-tag-entry-\d+)"/g)].map(match => match[1]);
+  assert.deepEqual(ids, ['tui-input-tag-entry-1', 'tui-input-tag-entry-2']);
+ };
+ check(run(root, report));
+ const source = path.join(root, 'out/preview/src');
+ check(run(source, exportOffline(source)));
+});
 test('CSS and HTML resource paths stay valid after moving the complete folder',t=>{
  const root=fixture(t);
  fs.mkdirSync(path.join(root,'images'));fs.writeFileSync(path.join(root,'images/icon.svg'),'<svg xmlns="http://www.w3.org/2000/svg"/>');

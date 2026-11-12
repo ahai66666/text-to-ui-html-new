@@ -19,7 +19,7 @@ node <RULES_ROOT>/scripts/business-module.mjs init --project <PROJECT_DIR> \
 
 脚本先查询公开目录，保留原有 children 与控件，创建 page-components/ai-assistant/index.js、styles.css，并填写该组 module 声明。查询结果不等于候选已被拒绝；如有被审查拒绝的候选，记录真实原因。已有模块不会被覆盖，也不允许用此入口接管主导航外壳。
 
-只编辑声明的业务模块与私有 CSS。使用 host 范围内的 DOM；保留标准控件身份、调用与样式，不手写按钮、输入框、SVG 或 Pattern。新增标准控件应先在当前组 children 中登记；动态渲染仍通过 api.renderComponent 调用。
+只编辑声明的业务模块与私有 CSS。使用 host 范围内的 DOM；保留标准控件身份、调用与样式，不手写按钮、输入框、SVG 或 Pattern。新增标准控件应先在当前组 children 中登记；动态渲染用 api.renderComponent(id, options, context?)，复用同组的消费场景。有多个场景时指明 context。
 
 脚手架不实现业务成功结果，不自动调用 AI、不补造回复。模型必须依据实际需求补充 actions：以现有节点 behavior ID 为键，从其本地点击处理函数执行业务动作；复杂输入/键盘事件在 host 内绑定，返回 cleanup 时移除。
 

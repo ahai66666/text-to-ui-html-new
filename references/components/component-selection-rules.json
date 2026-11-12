@@ -1,5 +1,131 @@
 {
   "schemaVersion": 1,
+  "optionSchemasByComponent": {
+    "search": {
+      "scopeOptions": {
+        "type": "array",
+        "items": {
+          "type": [
+            "string",
+            "object"
+          ],
+          "nonEmpty": true,
+          "required": [
+            "label"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "nonEmpty": true
+            },
+            "icon": {
+              "type": "string",
+              "nonEmpty": true
+            },
+            "hasSubmenu": {
+              "type": "boolean"
+            },
+            "submenu": {
+              "type": "array"
+            }
+          }
+        }
+      }
+    },
+    "sidebar": {
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "label"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "nonEmpty": true
+            },
+            "icon": {
+              "type": "string",
+              "nonEmpty": true
+            },
+            "selected": {
+              "type": "boolean"
+            },
+            "collapsed": {
+              "type": "boolean"
+            },
+            "disabled": {
+              "type": "boolean"
+            },
+            "count": {
+              "type": [
+                "number",
+                "string"
+              ]
+            }
+          }
+        }
+      },
+      "groups": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "label",
+            "items"
+          ],
+          "properties": {
+            "label": {
+              "type": "string",
+              "nonEmpty": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "nonEmpty": true
+            },
+            "expanded": {
+              "type": "boolean"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "label"
+                ],
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "nonEmpty": true
+                  },
+                  "icon": {
+                    "type": "string",
+                    "nonEmpty": true
+                  },
+                  "selected": {
+                    "type": "boolean"
+                  },
+                  "collapsed": {
+                    "type": "boolean"
+                  },
+                  "disabled": {
+                    "type": "boolean"
+                  },
+                  "count": {
+                    "type": [
+                      "number",
+                      "string"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
   "rules": [
     {
       "capabilities": [
@@ -121,15 +247,18 @@
         "paneTitle",
         "size",
         "disabled",
-        "state",
-        "mainDetailActions"
+        "state"
       ],
-      "allowedSlots": [
-        "label",
-        "main-content-title",
-        "main-detail-actions",
-        "actions"
-      ]
+      "optionSchemas": {
+        "label": { "type": "string" },
+        "paneTitle": { "type": "string" },
+        "size": { "from": "pattern-titlebar-size" }
+      },
+      "allowedSlots": ["main-detail-actions"],
+      "slotSchemas": {
+        "main-detail-actions": { "from": "pattern-titlebar-actions" }
+      },
+      "systemManaged": ["showWindowControls", "showLogo", "logoSrc", "logoAlt"]
     },
     {
       "capabilities": [

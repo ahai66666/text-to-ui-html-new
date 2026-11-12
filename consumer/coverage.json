@@ -1637,23 +1637,23 @@
               "disposition": "model-writable"
             },
             "scope": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             },
             "defaultScope": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             },
             "scopeOptions": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             },
             "scopeLabel": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             },
             "advancedSearch": {
               "disposition": "scenario-fixed",
               "value": false
             },
             "advancedSearchLabel": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             }
           }
         },
@@ -1698,7 +1698,7 @@
               "value": false
             },
             "advancedSearchLabel": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             }
           }
         },
@@ -1727,16 +1727,16 @@
               "disposition": "model-writable"
             },
             "scope": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             },
             "defaultScope": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             },
             "scopeOptions": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             },
             "scopeLabel": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             },
             "advancedSearch": {
               "disposition": "scenario-fixed",
@@ -2383,16 +2383,16 @@
               "value": "main-detail"
             },
             "showWindowControls": {
-              "disposition": "model-writable"
+              "disposition": "system-managed"
             },
             "showLogo": {
-              "disposition": "model-writable"
+              "disposition": "system-managed"
             },
             "logoSrc": {
-              "disposition": "model-writable"
+              "disposition": "system-managed"
             },
             "logoAlt": {
-              "disposition": "model-writable"
+              "disposition": "system-managed"
             },
             "disabled": {
               "disposition": "model-writable"
@@ -2401,7 +2401,7 @@
               "disposition": "model-writable"
             },
             "mainDetailActions": {
-              "disposition": "model-writable"
+              "disposition": "not-exposed-in-context"
             }
           }
         },

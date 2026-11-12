@@ -1,5 +1,6 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
 import {parse} from '../vendor/acorn.mjs';
+import {pageRuntimePaths} from './page-runtime-paths.mjs';
 const mime={'.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.gif':'image/gif','.woff2':'font/woff2','.woff':'font/woff','.ttf':'font/ttf'};
 const digest=s=>crypto.createHash('sha256').update(s).digest('hex');
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
@@ -33,7 +34,13 @@ export function exportOffline(project,{title='页面',output,format='multi-file'
  const names=decl=>{const out=[];const walk=n=>{if(n.type==='Identifier')out.push(n.name);else if(n.type==='ObjectPattern')n.properties.forEach(p=>walk(p.value||p.argument));else if(n.type==='ArrayPattern')n.elements.filter(Boolean).forEach(walk);else if(n.type==='AssignmentPattern')walk(n.left);else if(n.type==='RestElement')walk(n.argument);};for(const d of decl.declarations||[])walk(d.id);if(decl.id)out.push(decl.id.name);return out;};
  function js(file){file=inside(file);if(active.has(file))throw Error('OFFLINE_MODULE_CYCLE: '+file);if(modules.has(file))return modules.get(file).id;const id=modules.size;modules.set(file,{id,code:''});active.add(file);
  const source=fs.readFileSync(file,'utf8'),ast=parse(source,{ecmaVersion:'latest',sourceType:'module'}),edits=[],prefix=[],exports=[];
- const dep=ref=>{if(!ref.startsWith('.'))throw Error('OFFLINE_BARE_IMPORT: '+ref);const p=path.resolve(path.dirname(file),ref);if(p.endsWith('.css'))throw Error('CSS must be loaded by styles/index.css');return js(p);};
+ const dep = ref => {
+  const target = pageRuntimePaths.get(ref);
+  if (!target && !ref.startsWith('.')) throw Error('OFFLINE_BARE_IMPORT: '+ref+' in '+file);
+  const dependency = target ? path.join(root, target) : path.resolve(path.dirname(file), ref);
+  if (dependency.endsWith('.css')) throw Error('CSS must be loaded by styles/index.css');
+  return js(dependency);
+ };
  const put=(start,end,text)=>edits.push({start,end,text});
  for(const node of ast.body){
  if(node.type==='ImportDeclaration'){

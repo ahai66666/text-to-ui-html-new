@@ -98,6 +98,8 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     "packages/component-styles/src/index.css"
   ]) loadRuntime(entry);
   if (input?.pageModules?.length) loadRuntime("packages/components-html/src/shared/business-module.js");
+  const controlledModules = input?.pageModules?.some(module => Array.isArray(module.consumerBindings));
+  if (controlledModules) loadRuntime("packages/components-html/src/shared/consumer-options.js");
   add("components/package.json", json({ private: true, type: "module" }));
   const ordered = [...selected.values()].sort((a, b) => a.id.localeCompare(b.id));
   ordered.forEach((component) => {
@@ -118,6 +120,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     'export { collectHtmlComponentEvidence } from "./_runtime/packages/components-html/src/runtime.js";',
     'export { bindInputTagEntry } from "./_runtime/packages/components-html/src/input/behavior.js";',
     'export { bindTitlebarOverflow } from "./_runtime/packages/components-html/src/titlebar-overflow.js";',
+    ...(controlledModules ? ['export { createModuleRenderer } from "./_runtime/packages/components-html/src/shared/consumer-options.js";'] : []),
     "const components = Object.freeze({ " + entries.join(", ") + " });",
     "export const selectedComponentIds = Object.freeze(Object.keys(components));",
     "export function renderHtmlComponent(id, options = {}) {",

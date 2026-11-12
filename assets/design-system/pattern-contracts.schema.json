@@ -58,7 +58,16 @@
           "uniqueItems": true,
           "items": { "type": "string", "minLength": 1 }
         },
-        "overflow": { "enum": ["none", "more-menu"] }
+        "overflow": { "enum": ["none", "more-menu"] },
+        "componentOwner": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["context", "slot"],
+          "properties": {
+            "context": { "type": "string", "minLength": 1 },
+            "slot": { "type": "string", "minLength": 1 }
+          }
+        }
       }
     },
     "navigationMode": {
@@ -78,6 +87,7 @@
             "properties": {
               "id": { "type": "string", "pattern": "^[a-z0-9-]+$" },
               "placement": { "enum": ["top", "middle-scroll", "bottom"] },
+              "required": { "type": "boolean" },
               "requiredSemanticContexts": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
             }
           }

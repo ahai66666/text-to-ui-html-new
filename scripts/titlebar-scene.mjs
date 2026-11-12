@@ -60,12 +60,17 @@ function assertUniformActionMode(binding, sceneSegment) {
   };
 }
 
-const titlebarSizePolicy = (source, preset) => ({
+export const titlebarSizePolicy = (source, preset) => ({
   defaultSize: preset?.titleLayer?.sizePolicy?.defaultSize ?? source.pagePolicy?.defaultSize ?? "large",
   allowedSizes: preset?.titleLayer?.sizePolicy?.allowedSizes ?? source.pagePolicy?.allowedSizes ?? ["medium", "large", "xlarge"]
 });
 
-function assertTitlebarSize(binding, policy, location) {
+export function pageTitlebarPolicy(repositoryRoot, patternId) {
+  const { source, preset } = titlebarScenePreset({ repositoryRoot, patternId });
+  return { ...titlebarSizePolicy(source, preset), preset };
+}
+
+export function assertTitlebarSize(binding, policy, location) {
   const requested = binding.options?.size ?? policy.defaultSize;
   if (requested === "small") {
     throw new Error(`Titlebar ${location} cannot use Titlebar_S in a canonical Pattern page; Titlebar_S is reserved for standalone Secondary Page titlebars`);

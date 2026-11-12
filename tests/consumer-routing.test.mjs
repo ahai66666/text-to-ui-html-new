@@ -4,7 +4,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {spawnSync} from 'node:child_process';
-import {ROOT,select,optionsFor,ruleForOptions} from '../scripts/consumer-lib.mjs';
+import {ROOT,select,optionsFor,ruleForOptions,checkSlots} from '../scripts/consumer-lib.mjs';
 import {render as accordion} from '../packages/components-html/src/accordion/index.js';
 import {render as collapsible} from '../packages/components-html/src/collapsible/index.js';
 import {toggleDisclosure} from '../packages/components-html/src/shared/disclosure-behavior.js';
@@ -51,13 +51,28 @@ test('search and titlebar scenes expose only supported parameters',()=>{
  assert.throws(()=>optionsFor(scoped,{}),/REQUIRED_PROP/);assert.throws(()=>optionsFor(scoped,{scopeOptions:[]}),/REQUIRED_PROP/);assert.throws(()=>optionsFor(scoped,{scopeOptions:'全部'}),/PROP_TYPE/);
  assert.equal(optionsFor(scoped,{scopeOptions:['业务范围']}).advancedSearch,false);
  const advanced=select('search-scoped-advanced');assert.equal(optionsFor(advanced,{scopeOptions:['业务范围']}).advancedSearch,true);
- const title=select('titlebar','main-detail-titlebar');assert(!Object.hasOwn(title.inputs,'logoSrc'));assert(Object.hasOwn(title.inputs,'mainDetailActions'));
+ const title=select('titlebar','main-detail-titlebar');assert(!Object.hasOwn(title.inputs,'logoSrc'));assert(!Object.hasOwn(title.inputs,'mainDetailActions'));
+ assert.deepEqual(title.slots,['main-detail-actions']);
+ assert.throws(()=>checkSlots(title,{'main-content-title':'详情'}),/UNKNOWN_SLOT/);
+ assert.throws(()=>checkSlots(title,{actions:false}),/UNKNOWN_SLOT/);
+ assert.throws(()=>checkSlots(title,{'main-detail-actions':[{id:'bad',label:'查看',buttonType:'text'}]}),/VALUE_ENUM/);
+ assert.throws(()=>optionsFor(scoped,{scopeOptions:[{icon:'action/delete'}]}),/scopeOptions\[0\].label/);
  assert.throws(()=>optionsFor(title,{logoSrc:'./logo.svg'}),/UNKNOWN_PROP/);
 });
 
 test('compact discover retains task, Workflow and allowed Pattern decisions',()=>{
  const response=run('discover-page.mjs',['--task','邮箱工作台']);assert.equal(response.status,0,response.stderr);const data=JSON.parse(response.stdout);
  assert.equal(data.workflow,'new-page');assert.equal(data.taskRoute,'communication-workbench');assert(data.allowedPatterns.includes(data.pattern));assert(data.defaultPattern);assert(data.slots.some(s=>s.id==='global-title-layer'));assert(Buffer.byteLength(response.stdout)<8192);
+ const mode = data.navigationModes.find(entry => entry.input.navigationMode === 'two-level');
+ assert.deepEqual(mode.slots.find(slot => slot.placement === 'bottom'), {
+  id: 'primary-navigation-bottom', placement: 'bottom', required: true, contexts: ['primary-navigation-shell'],
+ });
+ assert.equal(mode.slots.find(slot => slot.id === 'global-primary-action').required, false);
+ assert.equal(data.geometry.regions['secondary-list'].scrollOwner,'secondary-list');
+ assert.equal(data.titlebar.segments.find(segment=>segment.region==='secondary-list').context,'secondary-list-search');
+ assert.deepEqual(data.slots.find(slot => slot.id === 'main-detail-actions').componentOwner, {
+  context: 'main-detail-titlebar', slot: 'main-detail-actions',
+ });
  const rejected=run('discover-page.mjs',['--task','邮箱工作台','--pattern','pattern-c-tool-workspace']);assert.notEqual(rejected.status,0);
 });
 
@@ -79,4 +94,73 @@ test('disclosure text slots survive the complete consumer generation pipeline',t
  input.interactions=[input.interactions[0],{id:'disclose',kind:'component-native',triggers:['disclosure'],outcome:'展开业务内容'}];
  fs.writeFileSync(path.join(dir,'page-input.json'),JSON.stringify(input));const response=run('page.mjs',['generate','--project',dir]);assert.equal(response.status,0,response.stderr);
  const rendered=fs.readFileSync(path.join(dir,'generated-page.js'),'utf8');assert.match(rendered,/业务分组/);assert.match(rendered,/业务内容 &amp; 详情/);assert(fs.existsSync(path.join(dir,'out/disclosure-slots/index.html')));
+});
+
+test('explicit Pattern B Titlebar owns the detail action and replaces the structural default', t => {
+ const dir = temporary(t);
+ const input = JSON.parse(fs.readFileSync(path.join(ROOT, 'examples/records/page-input.json')));
+ input.groups.find(group => group.region === 'main-detail').children.push({
+  id: 'detail-title', use: 'titlebar', context: 'main-detail-titlebar',
+  slots: {'main-detail-actions': [{id: 'inspect', label: '查看', icon: 'action/settings'}]},
+  actionBehaviors: {inspect: 'inspect-record'},
+ });
+ input.interactions.push({
+  id: 'inspect-record', kind: 'toggle-hidden', triggers: ['detail-title'],
+  targetSelector: '[data-composition-id="info-1"]', outcome: '切换记录信息',
+ });
+ fs.writeFileSync(path.join(dir, 'page-input.json'), JSON.stringify(input));
+ const response = run('page.mjs', ['generate', '--project', dir]);
+ assert.equal(response.status, 0, response.stderr);
+ const manifest = JSON.parse(fs.readFileSync(path.join(dir, 'html-page-manifest.json')));
+ const detail = manifest.registered.filter(binding => binding.slot === 'main-detail-title');
+ assert.deepEqual(detail.map(binding => binding.id), ['detail-title']);
+ assert.deepEqual(detail[0].actionBehaviors, {inspect: 'inspect-record'});
+ assert.equal(detail[0].slots['main-detail-actions'][0].id, 'inspect');
+});
+
+test('detailActions expands once and a copy revision inherits the resolved scene',t=>{
+ const dir=temporary(t),file=path.join(dir,'page-input.json');
+ const input=JSON.parse(fs.readFileSync(path.join(ROOT,'examples/records/page-input.json')));
+ input.titlebarSize='medium';
+ input.navigationMode='two-level';
+ input.groups.push({id:'folders',region:'primary-navigation',purpose:'记录分组',children:[{id:'folder-list',use:'sidebar',context:'secondary-navigation',options:{items:[{label:'全部记录',icon:'navigation/list'}]},behavior:'choose-folder'}]});
+ input.detailActions=[{id:'inspect',label:'查看',icon:'action/settings',behavior:'inspect-record'}];
+ input.interactions.push({id:'choose-folder',kind:'component-native',triggers:['folder-list'],outcome:'选择分组'},
+  {id:'inspect-record',kind:'toggle-hidden',sourceGroup:'content-1',targetGroup:'content-1',targetSelector:'[data-composition-id="info-1"]',stateChange:'展开状态取反',outcome:'可切换记录信息'});
+ input.design={regionPurposes:{'main-detail':'显示当前记录'},relationships:[{from:'content-0',to:'content-1',entity:'preference',key:'name'}]};
+ fs.writeFileSync(file,JSON.stringify(input));
+ const generated=run('page.mjs',['generate','--project',dir]);assert.equal(generated.status,0,generated.stderr);
+ const read=name=>JSON.parse(fs.readFileSync(path.join(dir,name)));
+ const layout=read('.text-to-ui/layout-selection.json'),bindings=read('.text-to-ui/compiled/page-bindings.json');
+ assert.equal(layout.navigationMode,'two-level');
+ assert.equal(layout.titlebarSize,'medium');
+ assert.equal(layout.detailTitlebarSize,'medium');
+ assert.equal(bindings.componentBindings.find(b=>b.id===layout.detailTitlebar).slots['main-detail-actions'][0].id,'inspect');
+ assert.deepEqual(bindings.behaviorPlan.interactions.find(i=>i.id==='inspect-record').triggerBindingIds,[layout.detailTitlebar]);
+ const blueprint=read('.text-to-ui/compiled/page-blueprint.json');
+ assert.equal(blueprint.regions.find(r=>r.id==='main-detail').purpose,'显示当前记录');
+ assert.equal(blueprint.design.relationships[0].key,'name');
+ assert.equal(blueprint.interactions.find(i=>i.id==='inspect-record').stateChange,'展开状态取反');
+ assert.equal(blueprint.interactions.find(i=>i.id==='inspect-record').taskOutcome,'可切换记录信息');
+ input.groups.find(g=>g.id==='content-1').children[0].text='修改后的正文';
+ delete input.navigationMode;
+ delete input.titlebarSize;
+ // Projects generated before layout-selection.json recover from their existing scene.
+ fs.unlinkSync(path.join(dir,'.text-to-ui/layout-selection.json'));
+ fs.writeFileSync(file,JSON.stringify(input));
+ const revised=run('page.mjs',['generate','--project',dir,'--revision']);assert.equal(revised.status,0,revised.stderr);
+ assert.deepEqual(read('.text-to-ui/layout-selection.json'),layout);
+ assert.match(fs.readFileSync(path.join(dir,'out/records/runtime/app.js'),'utf8'),/修改后的正文/);
+ input.titlebarSize='xlarge';
+ fs.writeFileSync(file,JSON.stringify(input));
+ const rejected=run('page.mjs',['compile','--project',dir,'--revision']);
+ assert.match(rejected.stderr,/REVISION_LAYOUT_CHANGE: titlebarSize/);
+});
+
+test('scoped search distinguishes the titlebar composition from a missing component',()=>{
+ const base=['--pattern','pattern-b-three-pane'];
+ const search=run('consumer.mjs',['find','搜索',...base,'--region','secondary-list']);
+ assert.equal(search.status,0,search.stderr);assert.match(search.stdout,/^search:/);
+ const detail=run('consumer.mjs',['find','归档邮件',...base,'--region','main-detail','--scope','detail-action']);
+ assert.equal(detail.status,0,detail.stderr);assert.match(detail.stdout,/main-detail-titlebar → main-detail-actions/);
 });

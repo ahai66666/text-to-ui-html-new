@@ -67,7 +67,7 @@
         { "id": "primary-navigation-bottom", "owner": "primary-navigation", "cardinality": "0..n" },
         { "id": "secondary-list-title", "owner": "secondary-list", "cardinality": "0..1", "allowedComponentModes": ["search"], "overflow": "none" },
         { "id": "main-detail-title", "owner": "main-detail", "cardinality": "0..1", "allowedComponentModes": ["titlebar"], "overflow": "none" },
-        { "id": "main-detail-actions", "owner": "main-detail", "cardinality": "0..n", "allowedComponentModes": ["icon", "icon-text-ghost"], "overflow": "more-menu" }
+        { "id": "main-detail-actions", "owner": "main-detail", "cardinality": "0..n", "allowedComponentModes": ["icon", "icon-text-ghost"], "overflow": "more-menu", "componentOwner": { "context": "main-detail-titlebar", "slot": "main-detail-actions" } }
       ],
       "geometry": {
         "owner": "pattern-renderer",
@@ -103,7 +103,7 @@
           "region": "primary-navigation",
           "shellSlots": [
             { "id": "global-title-layer", "placement": "top" },
-            { "id": "global-primary-action", "placement": "top", "requiredSemanticContexts": ["page-primary-action"] },
+            { "id": "global-primary-action", "placement": "top", "required": false, "requiredSemanticContexts": ["page-primary-action"] },
             { "id": "secondary-navigation-content", "placement": "middle-scroll", "requiredSemanticContexts": ["secondary-navigation"] },
             { "id": "primary-navigation-bottom", "placement": "bottom", "requiredSemanticContexts": ["primary-navigation-shell"] }
           ]

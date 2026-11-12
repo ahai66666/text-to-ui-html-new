@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { ruleForOptions } from './consumer-lib.mjs';
+import { catalog, consumerContract, ruleForOptions, optionsFor } from './consumer-lib.mjs';
 import { sidebarInstanceCount } from "../packages/components-html/src/sidebar/index.js";
 import fs from "node:fs";
 import path from "node:path";
@@ -19,6 +19,7 @@ import { resolveTitlebarScene, titlebarScenePreset } from "./titlebar-scene.mjs"
 import { validateComponentSelection } from "./component-selection.mjs";
 import { verifyPageComponents } from "./prepare-page-components.mjs";
 import { verifyPageStyles } from "./prepare-page-styles.mjs";
+import { pageRuntimePaths } from "./page-runtime-paths.mjs";
 
 const args = process.argv.slice(2);
 const valueFor = (flag) => { const index = args.indexOf(flag); return index >= 0 ? args[index + 1] : null; };
@@ -50,21 +51,20 @@ const componentBundle = componentsRoot ? verifyPageComponents({ projectRoot: com
 const styleBundle = verifyPageStyles({ projectRoot: componentsRoot, pageCssPath, skillRoot });
 const styleManifestPath = path.join(componentsRoot, "styles/style-manifest.json");
 const packageRoot = fs.existsSync(path.join(skillRoot, "packages/components-html/src/index.js")) ? skillRoot : context.repository.root;
-const localTargets = componentsRoot ? {
-  "@text-to-ui/components-html": path.join(componentsRoot, "components/index.js"),
-  "@text-to-ui/components-html/styles.css": path.join(componentsRoot, "components/_runtime/packages/components-html/src/styles.css"),
-  "@text-to-ui/components-html/pattern-shell.css": path.join(componentsRoot, "components/_runtime/packages/components-html/src/pattern-shell.css"),
-  "@text-to-ui/component-styles": path.join(componentsRoot, "components/_runtime/packages/component-styles/src/index.css"),
-  "@text-to-ui/tokens": path.join(componentsRoot, "components/_runtime/packages/tokens/src/index.css"),
-  "@text-to-ui/pattern-runtime": path.join(componentsRoot, "components/_runtime/packages/pattern-runtime/src/index.js"),
-  "@text-to-ui/pattern-runtime/styles.css": path.join(componentsRoot, "components/_runtime/packages/pattern-runtime/src/styles.css")
-} : {};
 const localSpecifier = (sourceFile, specifier) => {
-  if (!localTargets[specifier]) return specifier;
-  const relative = path.relative(path.dirname(path.resolve(sourceFile)), localTargets[specifier]).replaceAll(path.sep, "/");
+  const target = path.join(componentsRoot, pageRuntimePaths.get(specifier));
+  const relative = path.relative(path.dirname(path.resolve(sourceFile)), target).replaceAll(path.sep, "/");
   return relative.startsWith(".") ? relative : "./" + relative;
 };
-const localizeImports = (sourceFile, contents) => Object.keys(localTargets).reduce((text, specifier) => ["from ", "import "].reduce((result, prefix) => result.split(prefix + JSON.stringify(specifier)).join(prefix + JSON.stringify(localSpecifier(sourceFile, specifier))), text), contents);
+const localizeImports = (sourceFile, contents) => {
+  for (const specifier of pageRuntimePaths.keys()) {
+    const local = JSON.stringify(localSpecifier(sourceFile, specifier));
+    for (const prefix of ["from ", "import "]) {
+      contents = contents.replaceAll(prefix + JSON.stringify(specifier), prefix + local);
+    }
+  }
+  return contents;
+};
 if (context.materialsDigest && Array.isArray(context.materials)) {
   const currentMaterials = materialSnapshot({
     repo: context.repository?.root ?? process.cwd(),
@@ -115,6 +115,11 @@ const bindings = rawBindings.map((binding, index) => {
   const readiness = resolveComponentReadiness(canonicalComponent, readinessPolicy);
   if (!readiness.allowedInFastPreview) throw new Error(`${binding.logicalName}: component readiness is ${readiness.level}; ${readiness.reason}`);
   const slots = binding.slots && typeof binding.slots === "object" && !Array.isArray(binding.slots) ? { ...binding.slots } : {};
+  const legacyActions = binding.semanticContext === "main-detail-titlebar" ? binding.options?.mainDetailActions : undefined;
+  if (legacyActions !== undefined) {
+    if (Object.hasOwn(slots, "main-detail-actions")) throw new Error("DUPLICATE_TITLEBAR_ACTIONS: " + binding.id);
+    slots["main-detail-actions"] = legacyActions;
+  }
   if (binding.semanticContext === "main-detail-titlebar" && Array.isArray(slots["main-detail-actions"]) && titlebarDetailScene?.defaultBusinessActionMode) {
     slots["main-detail-actions"] = slots["main-detail-actions"].map((action) => {
       if (!action || typeof action !== "object" || action.buttonType) return action;
@@ -125,6 +130,7 @@ const bindings = rawBindings.map((binding, index) => {
   const unsupportedSlots = Object.keys(slots).filter((key) => !(renderer.supportedSlots ?? []).includes(key));
   if (unsupportedSlots.length) throw new Error(`${binding.logicalName}: unsupported slots ${unsupportedSlots.join(", ")}`);
   const options = { ...(binding.options ?? {}) };
+  if (legacyActions !== undefined) delete options.mainDetailActions;
   if (binding.slot === "primary-navigation-footer" && (canonicalComponent.id !== "button" || options.variant !== "ghost" || options.mode !== "icon-text")) {
     throw new Error('primary-navigation-footer requires a library icon-text-ghost Button (variant=ghost, mode=icon-text)');
   }
@@ -165,6 +171,14 @@ const bindings = rawBindings.map((binding, index) => {
   const semanticContext = binding.semanticContext ?? null;
   if (contextRequiredLogicalNames.has(binding.logicalName) && !semanticContext) throw new Error(`${binding.logicalName}: semanticContext is required; resolve the component with query-components.mjs --context before generation`);
   const selectionRule = semanticContext ? ruleForOptions(binding.logicalName, semanticContext, options) : null;
+  if (["search", "sidebar"].includes(canonicalComponent.id)) {
+    const base = catalog().components.find(c => c.id === canonicalComponent.id);
+    const contract = consumerContract(base, selectionRule);
+    for (const [key, schema] of Object.entries(contract.inputs)) {
+      if (!schema.items || !Object.hasOwn(options, key)) continue;
+      optionsFor({id:contract.id, inputs:{[key]:schema}, fixed:{}, requiredProps:[]},{[key]:options[key]});
+    }
+  }
   if (semanticContext && contextRequiredLogicalNames.has(binding.logicalName) && !selectionRule) throw new Error(`${binding.logicalName}: no component selection rule for semanticContext '${semanticContext}'`);
   // Gallery specimens may use a renderer's illustrative defaults. A business
   // page may not: navigation data is page-owned and must be supplied by the
@@ -622,7 +636,26 @@ const pageModules = (input.pageModules ?? []).map((item) => {
       throw new Error(`Page module '${file}' owns Pattern Main Detail slot '${item.compositionId}' but renders ${detailShellMarkup[1]}; put pane-global actions in the registered main-detail-title Titlebar binding and keep this module to business content in the detail scroll body.`);
     }
   }
-  return { compositionId: item.compositionId, file, sha256: crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex') };
+  let contracts = null;
+  const secondaryTitlebar = /\b(?:createSecondaryPageRuntime|renderSecondaryPageHtml)\b/.test(source);
+  if (Array.isArray(item.consumerBindings)) {
+    const declared = catalog().components;
+    const rows = new Map();
+    for (const id of item.consumerBindings) {
+      const binding = bindings.find(b => b.id === id);
+      if (!binding) throw new Error("MODULE_COMPONENT_BINDING: " + item.compositionId + " / " + id);
+      if (binding.slot && binding.rendererKey !== "sidebar") continue;
+      const base = declared.find(c => c.id === binding.rendererKey);
+      const rule = binding.semanticContext ? ruleForOptions(binding.logicalName, binding.semanticContext, binding.options) : null;
+      const {id:componentId,context,inputs,slots,slotSchemas,fixed,requiredProps,allowedModes} = consumerContract(base,rule);
+      rows.set(JSON.stringify([componentId,context,fixed]),{id:componentId,context,inputs,slots,slotSchemas,fixed,requiredProps,allowedModes});
+    }
+    contracts = [...rows.values()];
+    for (const match of source.matchAll(/\brenderComponent\s*\(\s*(['"])([a-z][a-z0-9-]*)\1/g)) {
+      if (!contracts.some(c => c.id === match[2]) && !(match[2] === "titlebar" && secondaryTitlebar)) throw new Error("MODULE_COMPONENT_CONTEXT: " + item.compositionId + " must declare " + match[2] + " in its group");
+    }
+  }
+  return { compositionId: item.compositionId, file, contracts, secondaryTitlebar, sha256: crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex') };
 });
 if (behaviorPlan.interactions.some((interaction) => interaction.kind === "open-secondary-page")
   && !pageModules.some(({ file }) => /\b(?:createSecondaryPageRuntime|renderSecondaryPageHtml)\b/.test(fs.readFileSync(file, "utf8")))) {
@@ -631,7 +664,8 @@ if (behaviorPlan.interactions.some((interaction) => interaction.kind === "open-s
 for (const recipe of (pageContentRecipes?.recipes || []).filter(item => item.kind === "page-composite")) {
   if (!pageModules.some(item => item.compositionId === recipe.compositionId)) throw new Error("Missing independent business component module: " + recipe.compositionId);
 }
-if (new Set(pageModules.map((item) => item.compositionId)).size !== pageModules.length) throw new Error('Only one page module may own each composition host');
+const moduleHostIds = new Set(pageModules.map((item) => item.compositionId));
+if (moduleHostIds.size !== pageModules.length) throw new Error('Only one page module may own each composition host');
 if (new Set(customUsage.map((entry) => entry.id)).size !== customUsage.length) throw new Error("Custom page-owned composition ids must be unique across bindings and content recipes");
 // Do not leave a partial UI Scene behind when a later preflight fails. The
 // scene is written only after all page-owned CSS and module boundaries pass.
@@ -675,7 +709,22 @@ const partitionDeclaredSlots = (nodes, region) => {
   const slots = [];
   const walk = (items) => items.flatMap((node) => {
     const binding = node.kind === "component" ? bindingById.get(node.bindingId) : null;
-    if (binding?.slot && declaredPatternSlotIds.has(binding.slot)) { slots.push(node); return []; }
+    if (binding?.slot && declaredPatternSlotIds.has(binding.slot)) {
+      slots.push({ slotId: binding.slot, node });
+      return [];
+    }
+    // Keep a navigation module's mount point with its registered content.
+    if (region === "primary-navigation" && declaredPatternSlotIds.has("secondary-navigation-content")
+      && node.kind === "group" && moduleHostIds.has(node.id)
+      && node.children?.length && node.children.every((child) => {
+        if (child.kind !== "component") return false;
+        const binding = bindingById.get(child.bindingId);
+        return binding?.slot === "secondary-navigation-content"
+          || (!binding?.slot && binding?.semanticContext === "secondary-navigation");
+      })) {
+      slots.push({ slotId: "secondary-navigation-content", node });
+      return [];
+    }
     return [{ ...node, ...(node.kind === "group" ? { children: walk(node.children ?? []) } : {}) }];
   });
   return { body: walk(nodes), slots };
@@ -699,7 +748,7 @@ let source;
     const nodes = compositionRegions[region];
     if (!Array.isArray(nodes)) throw new Error(`Composition region must be an array: ${region}`);
     const declared = partitionDeclaredSlots(nodes, region);
-    for (const node of declared.slots) addRuntimeSlot(bindingById.get(node.bindingId).slot, [node], region);
+    for (const { slotId, node } of declared.slots) addRuntimeSlot(slotId, [node], region);
     if (resolvedPattern.pattern.id === 'pattern-b-three-pane' && region !== 'primary-navigation') {
       const parts = paneContent(declared.body, region);
       for (const node of parts.title) {
@@ -780,10 +829,11 @@ const absoluteEntryOutputPath = path.resolve(entryOutputPath);
 const pageImport = `./${path.relative(path.dirname(absoluteEntryOutputPath), absoluteOutputPath).replace(/\\/g, "/")}`;
 const relativeImport = (file) => `./${path.relative(path.dirname(absoluteEntryOutputPath), file).replace(/\\/g, "/")}`;
 const moduleImports = pageModules.map((item, index) => `import { mount as mountComposite${index} } from ${JSON.stringify(relativeImport(item.file))};`).join("\n");
-const moduleMounts = pageModules.map((item, index) => `  { const host = root.querySelector(${JSON.stringify(`[data-composition-id="${item.compositionId}"]`)}); if (!host) throw new Error("Missing composite host"); const cleanup = mountComposite${index}(host, { renderComponent: renderHtmlComponent }); if (typeof cleanup === "function") cleanups.push(cleanup); }`).join("\n");
+const controlledModules = pageModules.some(item => item.contracts !== null);
+const moduleMounts = pageModules.map((item, index) => `  { const host = root.querySelector(${JSON.stringify(`[data-composition-id="${item.compositionId}"]`)}); if (!host) throw new Error(${JSON.stringify(`Missing composite host: ${item.compositionId}`)}); const cleanup = mountComposite${index}(host, { renderComponent: ${item.contracts === null ? "renderHtmlComponent" : `createModuleRenderer(renderHtmlComponent, ${JSON.stringify(item.contracts)}, {secondaryTitlebar:${item.secondaryTitlebar}})`} }); if (typeof cleanup === "function") cleanups.push(cleanup); }`).join("\n");
 let entrySource = `
 import { renderGeneratedPage, patternContract, runtimePatternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan } from ${JSON.stringify(pageImport)};
-import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent, toggleDisclosure, selectSidebarItem, bindColorReferences } from "@text-to-ui/components-html";
+import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent, toggleDisclosure, selectSidebarItem, bindColorReferences${controlledModules ? ", createModuleRenderer" : ""} } from "@text-to-ui/components-html";
 ${moduleImports}
 export { patternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan };
 export function mountGeneratedPage(root = document.querySelector("#app")) {

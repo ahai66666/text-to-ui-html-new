@@ -3,7 +3,7 @@
   "generatedFrom": [
     {
       "path": "skill-support/assets/design-system/pattern-contracts.json",
-      "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e"
+      "sha256": "358eb34da910a4f08591db6f9381b570d8f9b0dee054444a9c06e41d4e8aa52c"
     },
     {
       "path": "skill-support/references/index/layout-routes.source.json",
@@ -346,7 +346,11 @@
               "icon",
               "icon-text-ghost"
             ],
-            "overflow": "more-menu"
+            "overflow": "more-menu",
+            "componentOwner": {
+              "context": "main-detail-titlebar",
+              "slot": "main-detail-actions"
+            }
           }
         ],
         "geometry": {
@@ -475,6 +479,7 @@
               {
                 "id": "global-primary-action",
                 "placement": "top",
+                "required": false,
                 "requiredSemanticContexts": [
                   "page-primary-action"
                 ]

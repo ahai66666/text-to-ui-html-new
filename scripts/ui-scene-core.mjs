@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import { readPatternRegistry, resolvePatternContract } from "./pattern-contract-lib.mjs";
+import { navigationSlotRequired, readPatternRegistry, resolvePatternContract } from "./pattern-contract-lib.mjs";
 
 function canonical(value) {
   if (Array.isArray(value)) return value.map(canonical);
@@ -80,7 +80,12 @@ export function validatePatternBindings({ resolvedPattern, layoutContract = null
   }
   if (navigation) {
     for (const shellSlot of navigation.shellSlots) {
-      if (shellSlot.requiredSemanticContexts?.length && !counts.get(shellSlot.id)) errors.push(`navigation mode '${navigationMode}' requires shell slot '${shellSlot.id}'`);
+      const count = counts.get(shellSlot.id) ?? 0;
+      if (navigationSlotRequired(pattern, shellSlot) && !count) errors.push(`navigation mode '${navigationMode}' requires shell slot '${shellSlot.id}'`);
+      const cardinality = slots.get(shellSlot.id)?.cardinality;
+      if ((cardinality === "0..1" || cardinality === "1") && count > 1) {
+        errors.push(`navigation mode '${navigationMode}' accepts at most one binding in '${shellSlot.id}'`);
+      }
     }
     const bottom = navigation.shellSlots.find((slot) => slot.placement === "bottom");
     if (bottom && counts.get(bottom.id)) counts.set("primary-navigation-shell", (counts.get("primary-navigation-shell") ?? 0) + counts.get(bottom.id));
@@ -115,7 +120,9 @@ export function normalizeUiScene(uiScene, { registry = readPatternRegistry(), la
   for (const node of uiScene.nodes ?? []) visit(node);
   const errors = validatePatternBindings({ resolvedPattern, layoutContract, bindings: flattened, requireSlots });
   if (errors.length) throw new Error(`UI Scene Pattern binding failed:\n${errors.join("\n")}`);
-  const { patternDigest, structureDigest, structure } = buildPatternStructure({ resolvedPattern, layoutContract, bindings: flattened });
+  const { patternDigest, structureDigest, structure } = buildPatternStructure({
+    resolvedPattern, layoutContract, bindings: flattened, navigationMode: uiScene.patternMode?.navigation ?? null,
+  });
   const scene = structuredClone(uiScene);
   scene.page.patternContract = {
     source: resolvedPattern.authority,

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "e6cbdffdef4a65d82a31be6660ec6cdac4fb80811dc28883285503253ecd1fd6",
+  "digest": "a7964aa186018b29d6f942c5bbdeb07da248818ab2d42cc1dccb14ada1a0aba4",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -12,7 +12,7 @@
   "sources": [
     {
       "path": "assets/design-system/pattern-contracts.json",
-      "sha256": "7c281c8924ddb4533422b34d680c196a2910147c39944b0d7061d3344babd93e"
+      "sha256": "358eb34da910a4f08591db6f9381b570d8f9b0dee054444a9c06e41d4e8aa52c"
     },
     {
       "path": "packages/component-contracts/src/components/accordion.json",
@@ -272,7 +272,7 @@
     },
     {
       "path": "references/components/component-selection-rules.json",
-      "sha256": "9dfbc292be2e94ac6e763f53ae734d434d048575062229f719bdab76880d4bcd"
+      "sha256": "e0ced3b848d01ea8d0dd977410fed4ca7b3200495dd29fbf91c8306066090378"
     },
     {
       "path": "references/components/local-component-delivery.md",
