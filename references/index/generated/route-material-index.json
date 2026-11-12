@@ -27,7 +27,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "b3f46db311ea5cb5a217a42355fbba27e11b1993a254af17a5b46506249e927b",
+      "materialsDigest": "1e3ab7ce742b725e162699f0d14a800789eb083ef90b405e0566d4ad86a2cc72",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -105,7 +105,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "208c770f7424e54b9f3e17933bd997974a97c757bf1c8c2ef3d084f4de390735"
+          "sha256": "8ac4dd8014964547555e054cd05bdec48dc5ec351dbca710e9fc780ccb98858a"
         },
         {
           "path": "skill-support/references/index/task-routes.source.json",
@@ -166,7 +166,7 @@
     "micro-revision": {
       "id": "micro-revision",
       "dynamicMaterials": [],
-      "materialsDigest": "cd35af6cb1ebe478004372e2b4644df95ba2ddb27eeaf268eb7c24d242e2f9b7",
+      "materialsDigest": "7323d84016242bfcf4323a150c4304f42a5a8b7283cfb6717403b22b09687035",
       "materials": [
         {
           "path": "packages/tokens/src/token-runtime-map.json",
@@ -208,7 +208,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "208c770f7424e54b9f3e17933bd997974a97c757bf1c8c2ef3d084f4de390735"
+          "sha256": "8ac4dd8014964547555e054cd05bdec48dc5ec351dbca710e9fc780ccb98858a"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -251,7 +251,7 @@
     "skill-maintenance": {
       "id": "skill-maintenance",
       "dynamicMaterials": [],
-      "materialsDigest": "1fb1bb46d5894095e240a6a4eb88ba0867e85fd8cdf3b554147260a075b97bfa",
+      "materialsDigest": "5ed46a1673e77ccae9a1af1d415158e31cfc3b14d907bc4043794814e7f3553d",
       "materials": [
         {
           "path": "packages/tokens/src/token-runtime-map.json",
@@ -299,7 +299,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "208c770f7424e54b9f3e17933bd997974a97c757bf1c8c2ef3d084f4de390735"
+          "sha256": "8ac4dd8014964547555e054cd05bdec48dc5ec351dbca710e9fc780ccb98858a"
         },
         {
           "path": "skill-support/references/layouts/html-layout-routing.md",
@@ -342,7 +342,7 @@
         "selected-component-contracts",
         "selected-component-runtime"
       ],
-      "materialsDigest": "62ebeb446a896c1c31cea26cbec03f08eb056eecf3048359403fda41bf4cb12c",
+      "materialsDigest": "c5428a6b3e04a8b7ca40973fd337ac9497380ef4ad6827d6f4f645588e2a45a5",
       "materials": [
         {
           "path": "packages/pattern-runtime/README.md",
@@ -420,7 +420,7 @@
           "path": "skill-support/references/index/generated/resource-index.json",
           "role": "focused-resource-index",
           "required": true,
-          "sha256": "208c770f7424e54b9f3e17933bd997974a97c757bf1c8c2ef3d084f4de390735"
+          "sha256": "8ac4dd8014964547555e054cd05bdec48dc5ec351dbca710e9fc780ccb98858a"
         },
         {
           "path": "skill-support/references/index/task-routes.source.json",
@@ -479,5 +479,5 @@
       ]
     }
   },
-  "indexDigest": "3fc0e8c20592163a0afc056bbaa7cc29e4507c82a314440b042622a8f5612501"
+  "indexDigest": "e8374312a5c34fcfed8ab1a2ab92def6a8f423098ccb45c746c3c3d9dd145fd3"
 }

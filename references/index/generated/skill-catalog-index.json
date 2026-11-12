@@ -357,11 +357,6 @@
           "availability": "local"
         },
         {
-          "path": "docs/text-to-ui-html-new-规范汇总.md",
-          "sha256": "1a29a1853f675d4c7ea69dbe956db346fb8be5fdc3fe6297ebf3a1e714ec51dc",
-          "availability": "local"
-        },
-        {
           "path": "package.json",
           "sha256": "e0d552f1c7af0ce5a7b447cd6b332fdd2e632b99044a568164f9aa41ff4f66f0",
           "availability": "local"
@@ -643,7 +638,7 @@
         },
         {
           "path": "packages/component-styles/src/index.css",
-          "sha256": "7f07084dcaea3dd7c190f8a0f67356c6c85e202c489119564c0832d8d4dfd99a",
+          "sha256": "9a76f400e495004ad78b33c4dc7d854a919c21e879989a93f066579d73a90ecc",
           "availability": "local"
         },
         {
@@ -1753,7 +1748,7 @@
         },
         {
           "path": "references/resources/component-visual/inputs.md",
-          "sha256": "4ef4c687952866fb7d0618e88513ecc1bbded95f1027a53576420ede8abc23b4",
+          "sha256": "63f577cebeed23ad024cc186345337dc34f39b4d4423dfb973527cb7298c9819",
           "availability": "local"
         },
         {

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "ffdd64f9ef63645fac5781aadaaf72abfd2789f49c51416578cfa19fb92894ca",
+  "digest": "e6cbdffdef4a65d82a31be6660ec6cdac4fb80811dc28883285503253ecd1fd6",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -364,7 +364,7 @@
     },
     {
       "path": "references/resources/component-visual/inputs.md",
-      "sha256": "4ef4c687952866fb7d0618e88513ecc1bbded95f1027a53576420ede8abc23b4"
+      "sha256": "63f577cebeed23ad024cc186345337dc34f39b4d4423dfb973527cb7298c9819"
     },
     {
       "path": "references/resources/component-visual/navigation-and-lists.md",
@@ -2906,8 +2906,8 @@
       "appliesTo": {},
       "requires": [],
       "readPolicy": "explicit-query",
-      "bytes": 7595,
-      "sha256": "4ef4c687952866fb7d0618e88513ecc1bbded95f1027a53576420ede8abc23b4",
+      "bytes": 7699,
+      "sha256": "63f577cebeed23ad024cc186345337dc34f39b4d4423dfb973527cb7298c9819",
       "kind": "document"
     },
     {

@@ -114,10 +114,23 @@
 .tui-search:has(.tui-search__scope) { gap: 0; padding: 0; border: 0; }
 .tui-search[data-surface="gray"] { background: var(--color-input-bg-on-subtle); }
 .tui-search:not([data-surface="gray"]) { background: var(--color-input-bg-on-default); }
-.tui-search:not(:has(.tui-search__scope)):hover:not([data-state="disabled"]) { background: var(--color-neutral-dark-05); }
-.tui-search[data-surface="gray"]:not(:has(.tui-search__scope)):hover:not([data-state="disabled"]) { background: linear-gradient(var(--color-input-hover-bg-on-subtle-layer), var(--color-input-hover-bg-on-subtle-layer)), var(--color-input-bg-on-subtle); }
 .tui-search:not(:has(.tui-search__scope)):focus-within { background: var(--color-input-focus-bg-on-default); }
 .tui-search[data-surface="gray"]:not(:has(.tui-search__scope)):focus-within { background: var(--color-input-focus-bg-on-subtle); }
+/* Without a scope selector, hover and pressed layers include the root's inline padding. */
+.tui-search:not([data-surface="gray"]):not(:has(.tui-search__scope)):is(:hover:not([data-state="disabled"]), [data-state="hover-right"]) {
+  background-image: linear-gradient(var(--color-neutral-dark-05), var(--color-neutral-dark-05));
+}
+.tui-search[data-surface="gray"]:not(:has(.tui-search__scope)):is(:hover:not([data-state="disabled"]), [data-state="hover-right"]) {
+  background-image: linear-gradient(var(--color-input-hover-bg-on-subtle-layer), var(--color-input-hover-bg-on-subtle-layer));
+  box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle);
+}
+.tui-search:not([data-surface="gray"]):not(:has(.tui-search__scope)):is(:active:not([data-state="disabled"]), [data-state="pressed-right"]) {
+  background-image: linear-gradient(var(--color-neutral-dark-15), var(--color-neutral-dark-15));
+}
+.tui-search[data-surface="gray"]:not(:has(.tui-search__scope)):is(:active:not([data-state="disabled"]), [data-state="pressed-right"]) {
+  background-image: linear-gradient(var(--color-neutral-dark-10), var(--color-neutral-dark-10));
+  box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle);
+}
 /* Tag Entry has no whole-control hover surface or expanding hit-area feedback. */
 .tui-input--tag-entry:hover, .tui-input--tag-entry[data-state="hover"] { background: var(--color-input-bg-on-default); border: 1px solid transparent; padding-inline: var(--padding-search-x); }
 .tui-input--tag-entry[data-surface="gray"]:hover, .tui-input--tag-entry[data-surface="gray"][data-state="hover"] { background: var(--color-input-bg-on-subtle); border: 1px solid transparent; padding-inline: var(--padding-search-x); }
@@ -144,24 +157,26 @@
    local layer and a white 2px outline. */
 .tui-search:not([data-surface="gray"]):not([data-state="disabled"]):has(.tui-search__scope:hover) > .tui-search__scope,
 .tui-search:not([data-surface="gray"])[data-state="hover-left"] > .tui-search__scope { background: var(--color-neutral-dark-05); }
-.tui-search:not([data-surface="gray"]):not([data-state="disabled"]):not(:has(.tui-search__scope)) > .tui-search__input-region:hover { background: var(--color-neutral-dark-05); }
 .tui-search[data-surface="gray"]:not([data-state="disabled"]):has(.tui-search__scope:hover) > .tui-search__scope,
-.tui-search[data-surface="gray"][data-state="hover-left"] > .tui-search__scope,
-.tui-search[data-surface="gray"]:not([data-state="disabled"]):not(:has(.tui-search__scope)) > .tui-search__input-region:hover { background: var(--color-input-hover-bg-on-subtle-layer); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
-.tui-search:not([data-surface="gray"]):not([data-state="disabled"]):has(.tui-search__input-region:hover) > .tui-search__input-region,
-.tui-search:not([data-surface="gray"])[data-state="hover-right"] > .tui-search__input-region { background: var(--color-neutral-dark-05); }
-.tui-search[data-surface="gray"]:not([data-state="disabled"]):has(.tui-search__input-region:hover) > .tui-search__input-region,
-.tui-search[data-surface="gray"][data-state="hover-right"] > .tui-search__input-region { background: var(--color-input-hover-bg-on-subtle-layer); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
+.tui-search[data-surface="gray"][data-state="hover-left"] > .tui-search__scope { background: var(--color-input-hover-bg-on-subtle-layer); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
+.tui-search:has(.tui-search__scope):not([data-surface="gray"]):is(:not([data-state="disabled"]):has(.tui-search__input-region:hover), [data-state="hover-right"]) > .tui-search__input-region {
+  background: var(--color-neutral-dark-05);
+}
+.tui-search:has(.tui-search__scope)[data-surface="gray"]:is(:not([data-state="disabled"]):has(.tui-search__input-region:hover), [data-state="hover-right"]) > .tui-search__input-region {
+  background: var(--color-input-hover-bg-on-subtle-layer);
+  box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle);
+}
 .tui-search:not([data-surface="gray"]):not([data-state="disabled"]):has(.tui-search__scope .tui-advanced-menu__trigger:active) > .tui-search__scope,
-.tui-search:not([data-surface="gray"])[data-state="pressed-left"] > .tui-search__scope,
-.tui-search:not([data-surface="gray"]):not([data-state="disabled"]):not(:has(.tui-search__scope)) > .tui-search__input-region:has(:active) { background: var(--color-neutral-dark-15); }
+.tui-search:not([data-surface="gray"])[data-state="pressed-left"] > .tui-search__scope { background: var(--color-neutral-dark-15); }
 .tui-search[data-surface="gray"]:not([data-state="disabled"]):has(.tui-search__scope .tui-advanced-menu__trigger:active) > .tui-search__scope,
-.tui-search[data-surface="gray"][data-state="pressed-left"] > .tui-search__scope,
-.tui-search[data-surface="gray"]:not([data-state="disabled"]):not(:has(.tui-search__scope)) > .tui-search__input-region:has(:active) { background: var(--color-neutral-dark-10); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
-.tui-search:not([data-surface="gray"]):not([data-state="disabled"]):has(.tui-search__input-region :active) > .tui-search__input-region,
-.tui-search:not([data-surface="gray"])[data-state="pressed-right"] > .tui-search__input-region { background: var(--color-neutral-dark-15); }
-.tui-search[data-surface="gray"]:not([data-state="disabled"]):has(.tui-search__input-region :active) > .tui-search__input-region,
-.tui-search[data-surface="gray"][data-state="pressed-right"] > .tui-search__input-region { background: var(--color-neutral-dark-10); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
+.tui-search[data-surface="gray"][data-state="pressed-left"] > .tui-search__scope { background: var(--color-neutral-dark-10); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
+.tui-search:has(.tui-search__scope):not([data-surface="gray"]):is(:not([data-state="disabled"]):has(.tui-search__input-region :active), [data-state="pressed-right"]) > .tui-search__input-region {
+  background: var(--color-neutral-dark-15);
+}
+.tui-search:has(.tui-search__scope)[data-surface="gray"]:is(:not([data-state="disabled"]):has(.tui-search__input-region :active), [data-state="pressed-right"]) > .tui-search__input-region {
+  background: var(--color-neutral-dark-10);
+  box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle);
+}
 .tui-input[data-state="error"] { border-color: var(--color-input-error-border); }
 .tui-input[data-state="disabled"], .tui-search[data-state="disabled"], .tui-input:has(input:disabled), .tui-search:has(input:disabled) { opacity: var(--state-disabled-opacity); }
 .tui-input input, .tui-search input { min-width: 0; flex: 1; padding: 0; border: 0; outline: 0; color: inherit; background: transparent; font-family: var(--font-sans); font-size: var(--type-body-l-size); line-height: var(--type-body-l-leading); font-weight: var(--type-body-l-weight); }
