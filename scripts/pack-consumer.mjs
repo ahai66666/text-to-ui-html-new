@@ -39,6 +39,20 @@ try{
  function archive(name,dir){const list=files(dir),manifest={schemaVersion:1,name,version:'0.1.1',files:Object.fromEntries(list.map(f=>[f,sha(fs.readFileSync(path.join(dir,f)))]))};fs.writeFileSync(path.join(dir,'manifest.json'),JSON.stringify(manifest));const zip=path.join(out,name+'-0.1.1.zip');if(fs.existsSync(zip))fs.rmSync(zip);const py='import os,sys,zipfile\nroot,out=sys.argv[1:]\nwith zipfile.ZipFile(out,"w",zipfile.ZIP_DEFLATED) as z:\n for d,ds,fs in os.walk(root):\n  ds.sort()\n  for f in sorted(fs):\n   p=os.path.join(d,f); info=zipfile.ZipInfo(os.path.join(os.path.basename(root),os.path.relpath(p,root)),(2026,10,31,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;z.writestr(info,open(p,"rb").read())';const cp=spawnSync('python3',['-c',py,dir,zip],{encoding:'utf8'});if(cp.status!==0)throw Error(cp.stderr);const item={name,files:list.length+1,bytes:list.reduce((n,f)=>n+fs.statSync(path.join(dir,f)).size,0)+fs.statSync(path.join(dir,'manifest.json')).size,zipBytes:fs.statSync(zip).size,sha256:sha(fs.readFileSync(zip))};fs.writeFileSync(zip+'.sha256',item.sha256+'  '+path.basename(zip)+'\n');report.push(item);}
  archive('text-to-ui-html-new',root);
  const preview=path.join(stage,'text-to-ui-html-new-preview');fs.mkdirSync(preview);for(const file of files(ROOT))if(file.startsWith('apps/')||file==='scripts/preview-components.mjs'||file.startsWith('packages/components-html/')&&!selected.has(file))copy(file,path.join(preview,file));fs.writeFileSync(path.join(preview,'README.md'),'Optional preview overlay for text-to-ui-html-new 0.1.1. Copy this directory contents into the consumer skill, then run node scripts/preview-components.mjs. Page output does not need a server; the optional gallery does.\n');archive('text-to-ui-html-new-preview',preview);
- const examples=path.join(stage,'text-to-ui-html-new-examples');fs.mkdirSync(examples);for(const file of files(path.join(ROOT,'examples')))if(file.endsWith('page-input.json')||file.includes('/out/'))copy('examples/'+file,path.join(examples,file));archive('text-to-ui-html-new-examples',examples);
+ const examples=path.join(stage,'text-to-ui-html-new-examples');
+ fs.mkdirSync(examples);
+ for(const entry of fs.readdirSync(path.join(ROOT,'examples'),{withFileTypes:true})){
+  if(!entry.isDirectory())continue;
+  const input=path.join('examples',entry.name,'page-input.json');
+  if(!fs.existsSync(path.join(ROOT,input)))continue;
+  const project=path.join(examples,entry.name);
+  copy(input,path.join(project,'page-input.json'));
+  const result=spawnSync(process.execPath,[path.join(root,'scripts/page.mjs'),'generate','--project',project],{cwd:root,encoding:'utf8'});
+  if(result.status!==0)throw Error('Example '+entry.name+' failed to generate: '+(result.stderr||result.stdout));
+  for(const item of fs.readdirSync(project)){
+   if(item!=='page-input.json'&&item!=='out')fs.rmSync(path.join(project,item),{recursive:true});
+  }
+ }
+ archive('text-to-ui-html-new-examples',examples);
  fs.writeFileSync(path.join(out,'package-report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({ok:true,packages:report},null,2));
 }finally{fs.rmSync(stage,{recursive:true,force:true});}

@@ -1,5 +1,5 @@
 import crypto from "node:crypto";
-import { navigationSlotRequired, readPatternRegistry, resolvePatternContract } from "./pattern-contract-lib.mjs";
+import { navigationSlotRequired, primaryNavigationItemCountError, readPatternRegistry, resolvePatternContract } from "./pattern-contract-lib.mjs";
 
 function canonical(value) {
   if (Array.isArray(value)) return value.map(canonical);
@@ -26,7 +26,7 @@ export function buildPatternStructure({ resolvedPattern, layoutContract = null, 
     patternId: pattern.id,
     paneOrder: [...pattern.paneOrder],
     regions: pattern.regions.map(({ id, width, height, insetOwner, scrollOwner, surface, dividerEdges }) => ({ id, width, height, insetOwner, scrollOwner, surface, dividerEdges, geometry: resolvedPattern.pattern.geometry?.regions?.[id] ?? null })),
-    slots: pattern.slots.map(({ id, owner, cardinality, allowedComponentModes, overflow }) => ({ id, owner, cardinality, allowedComponentModes: allowedComponentModes ?? [], overflow: overflow ?? null })),
+    slots: pattern.slots.map(({ id, owner, cardinality, allowedComponentModes, overflow, placement }) => ({ id, owner, cardinality, allowedComponentModes: allowedComponentModes ?? [], overflow: overflow ?? null, ...(placement ? { placement } : {}) })),
     titleLayer: pattern.titleLayer,
     geometry: pattern.geometry,
     minimumWindow: pattern.minimumWindow,
@@ -59,11 +59,19 @@ export function validatePatternBindings({ resolvedPattern, layoutContract = null
     if (layoutContract.pattern !== pattern.id) errors.push(`layout-contract Pattern '${layoutContract.pattern}' does not match '${pattern.id}'`);
     if (JSON.stringify(layoutContract.paneOrder) !== JSON.stringify(pattern.paneOrder)) errors.push("layout-contract paneOrder does not match the resolved Pattern");
   }
+  const primaryNavigationItemCount = bindings
+    .filter(binding => binding.logicalName === "Primary Navigation Item/Level 1")
+    .reduce((count, binding) => count + (binding.expectedRuntimeCount ?? binding.count ?? 1), 0);
+  const navigationCountError = primaryNavigationItemCountError(primaryNavigationItemCount);
+  if (navigationCountError) errors.push(navigationCountError);
   const counts = new Map();
   for (const binding of bindings) {
     const region = binding.region ?? binding.pane ?? null;
     if (region && !regions.has(region) && region !== "global" && region !== "page") errors.push(`${binding.id ?? binding.logicalName ?? "binding"}: unknown Pattern region '${region}'`);
     const patternSlot = binding.patternSlot ?? binding.slot;
+    if (binding.logicalName === "Primary Navigation Item/Level 1" && (region !== "primary-navigation" || patternSlot !== "primary-navigation-bottom")) {
+      errors.push(`${binding.id ?? binding.logicalName}: Primary Navigation Item requires primary-navigation-bottom in primary-navigation`);
+    }
     if (!patternSlot) continue;
     const slot = slots.get(patternSlot);
     if (!slot) {

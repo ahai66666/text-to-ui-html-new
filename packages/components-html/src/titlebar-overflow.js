@@ -48,6 +48,7 @@ export function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
       const hiddenCount = items.filter((item) => item.hidden).length;
       group.dataset.overflowed = hiddenCount ? "true" : "false";
       trigger.toggleAttribute("data-overflow-empty", hiddenCount === 0);
+      trigger.setAttribute("aria-disabled", String(hiddenCount === 0));
     };
 
     const onClick = (event) => {
@@ -56,6 +57,7 @@ export function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
       if (target === trigger) {
         event.preventDefault();
         event.stopPropagation();
+        if (trigger.hasAttribute("data-overflow-empty")) return;
         const open = menu.hidden === true;
         // Only expose actions that were actually collapsed.
         menu.hidden = !open;
@@ -67,13 +69,21 @@ export function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
         event.preventDefault();
         event.stopPropagation();
         close();
-        onAction(target.dataset.action ?? "more", target);
+        trigger?.focus();
+        onAction(target.dataset.action ?? "more", target, event);
       }
     };
 
+    const onKeydown = (event) => {
+      if (event.key !== "Escape" || !menu || menu.hidden) return;
+      event.stopPropagation();
+      close();
+      trigger?.focus();
+    };
     group.addEventListener("click", onClick);
+    group.addEventListener("keydown", onKeydown);
     update();
-    return { group, update, close, onClick };
+    return { group, update, close, onClick, onKeydown };
   });
 
   const schedule = () => {
@@ -104,6 +114,7 @@ export function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
   return () => {
     state.forEach((entry) => {
       entry.group.removeEventListener("click", entry.onClick);
+      entry.group.removeEventListener("keydown", entry.onKeydown);
       entry.close();
     });
     resizeObserver?.disconnect();

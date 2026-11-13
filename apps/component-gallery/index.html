@@ -6,6 +6,7 @@
         <div class="gallery-nav__label">主要预览</div>
         <nav class="gallery-nav">
           <a href="#pattern-view" data-view-link="pattern" aria-label="Pattern 框架"><span class="gallery-nav__icon" aria-hidden="true">▦</span><span class="gallery-nav__text">Pattern 框架</span></a>
+          <a href="#block-view" data-view-link="block" aria-label="Block 组合"><span class="gallery-nav__icon" aria-hidden="true">▥</span><span class="gallery-nav__text">Block 组合</span></a>
           <a href="#runtime-view" data-view-link="runtime" aria-current="page" aria-label="框架组件"><span class="gallery-nav__icon" aria-hidden="true">▣</span><span class="gallery-nav__text">框架组件</span></a>
         </nav>
         <div class="gallery-nav__label">工程回归</div>
@@ -26,6 +27,10 @@
                 <p class="status" data-pattern-baseline-status>正在加载 Pattern 基线…</p>
               </div>
             </section>
+          </section>
+          <section class="gallery-view" id="block-view" data-view="block" aria-labelledby="block-view-title" hidden>
+            <div class="gallery-view__intro"><h3 id="block-view-title">Block 组合</h3></div>
+            <div data-block-mount></div>
           </section>
           <section class="gallery-view" id="runtime-view" data-view="runtime" aria-labelledby="runtime-view-title">
             <div class="gallery-view__intro"><h3 id="runtime-view-title">框架组件</h3><p>这里直接展示 HTML 的真实运行时组件。框架选择是一级目录里的单元切换，不跳转二级页面；默认态可直接交互，其他状态由真实控件触发。需要查看组件规则时，点击卡片标题栏右侧的“组件规范”。</p><div class="gallery-view__meta"><span class="framework-label" id="runtime-coverage-count">组件目录加载中</span><code>真实运行时组件</code></div><div class="tui-runtime-framework-switch" role="tablist" aria-label="选择框架组件实现"><button type="button" role="tab" data-runtime-framework="html" aria-selected="true">HTML</button></div></div>

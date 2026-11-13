@@ -28,7 +28,7 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "08869ea9dcf7fab1c45a93756c0c80933b41fb42c0ffc57d2c900cad3f0e0a0d",
+          "sha256": "19ea14dc2991625c22fc221710b3154326ce77b8a9d0c6ffe2b9060642313198",
           "availability": "local"
         },
         {
@@ -52,13 +52,18 @@
           "availability": "local"
         },
         {
+          "path": "apps/component-gallery/block-preview.js",
+          "sha256": "8c49ec0748ae0dfa08188d5eff7609b88292c1c9de0ea9247736f8766b0432f8",
+          "availability": "local"
+        },
+        {
           "path": "apps/component-gallery/catalog-helpers.js",
           "sha256": "5e39c19def586c0192ca5a25df115aa2a1f3611b4476358a2688cf40781e8ac6",
           "availability": "local"
         },
         {
           "path": "apps/component-gallery/contract-inspector.js",
-          "sha256": "6fc41d26e63829eaea5372104bca1a9c005a9379e201f7192ceff6a9eaff7f6a",
+          "sha256": "531973754283de358ab63cbc7174c358256042d5553abe9a1eb122de51cb08cd",
           "availability": "local"
         },
         {
@@ -68,22 +73,32 @@
         },
         {
           "path": "apps/component-gallery/index.html",
-          "sha256": "0aa7d89254ef2d710b080e79a2d2e553766ffd0f1aea2f966d8de66dd46f3b1b",
+          "sha256": "cce90db6f569c679cc512fecaf9b1e48224ff83942c6e91d8187136934333210",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/mail-block-demo.js",
+          "sha256": "8539401745c2afa49c5c9a6cbcb088e8b19c63b798b056d86323930dfa1547ac",
           "availability": "local"
         },
         {
           "path": "apps/component-gallery/main.js",
-          "sha256": "16ca8a18fcd75cace83cb2aa10772eae01ae40275f6741226ae56da185e50fbf",
+          "sha256": "c14fa02b0131152f44ac8706d96097500c145242613601ecb3a2e8565988f2ee",
           "availability": "local"
         },
         {
           "path": "apps/component-gallery/pattern-baseline.js",
-          "sha256": "b2984dc6a5d670c91825d9735e9918b154cd0cb6f97cbe4c20277d7d43e03a74",
+          "sha256": "ff5b8ef0375cf2ef6f2b14270e6a634afb7835aa64c81dcdbbefefd95a2b5777",
           "availability": "local"
         },
         {
           "path": "apps/component-gallery/preview-interactions.js",
           "sha256": "a11da04a9596e34d16642c64d90f0b537b9b8ffdcbd49284db66cc9071a2177a",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/styles/blocks.css",
+          "sha256": "1d8f1adb1a872f68224303c1ad91163959bdb231c0cff64587bf8bad998b2006",
           "availability": "local"
         },
         {
@@ -103,12 +118,17 @@
         },
         {
           "path": "apps/component-gallery/styles/gallery.css",
-          "sha256": "39be5157cb3e4562538ba86df8fdaff69e6e7de9e915858175b598536446e1f1",
+          "sha256": "37449f2a7e5381b529f8a75caf430ff707338dd6ee27a453a22f4226fe95cc49",
           "availability": "local"
         },
         {
           "path": "apps/component-gallery/styles/index.css",
-          "sha256": "5828bf5da48aaedf289133ea1d943f102675d7bacf20ce3dd26b720c755f7f8b",
+          "sha256": "2a3a550077f06e287613ed8f2beadc4af1460b310b4bd4775dd7cb6300ddcf2e",
+          "availability": "local"
+        },
+        {
+          "path": "apps/component-gallery/styles/list-block.css",
+          "sha256": "e4b94b6a911be151c066819fa9818b783c48874f85192dc66ca171c029f3bb7b",
           "availability": "local"
         },
         {
@@ -173,7 +193,7 @@
         },
         {
           "path": "assets/design-system/pattern-contracts.json",
-          "sha256": "358eb34da910a4f08591db6f9381b570d8f9b0dee054444a9c06e41d4e8aa52c",
+          "sha256": "424a016e831022a0786d496bc81e835bdad81dc03c1693cbb7fcd90c58fa9427",
           "availability": "local"
         },
         {
@@ -348,12 +368,12 @@
         },
         {
           "path": "consumer/catalog.json",
-          "sha256": "19ac24cfee9ed80bec215cbdcc68b0b3e4247dd158167a92d2ef86e1511ea9a7",
+          "sha256": "b756be8f630db54bc543b782e14bbace2b48e1eff630dd0bd8fd678b656789e3",
           "availability": "local"
         },
         {
           "path": "consumer/coverage.json",
-          "sha256": "edf4041b590f6ba8d1f405cbe1490b3e5063e96b450e43e593ecb45e56e4366c",
+          "sha256": "7426b39b81be51e34776c5631b472184e98a3adb32f992db86a6a955c4994f99",
           "availability": "local"
         },
         {
@@ -368,7 +388,7 @@
         },
         {
           "path": "packages/component-contracts/src/components.json",
-          "sha256": "3fdc86e8aef0c7bbc9cb9454a3da9e11f23a9566bc41e8f723f8b66636e710c6",
+          "sha256": "c1c43da67eb3311702ab7a2e3df679d49d8cc66f3646922e12dfd3ea8ec5603b",
           "availability": "local"
         },
         {
@@ -603,7 +623,7 @@
         },
         {
           "path": "packages/component-contracts/src/components/titlebar.json",
-          "sha256": "db123d170477fcdfb0bb98d28d976285caaac6e9e5cd324fb8ee868fd4b95a83",
+          "sha256": "c2dc19e680b8296c0b5c8f4d5cc15cf0ec6dfb828386a5790aa9532083c08aef",
           "availability": "local"
         },
         {
@@ -613,7 +633,7 @@
         },
         {
           "path": "packages/component-contracts/src/components/tree-view.json",
-          "sha256": "83a89cbb3530f86c07ea87642cbce0343ff9b742d75af6a4531cc78828b8bf97",
+          "sha256": "fff028a219322bb050ec4157ef919da8a434edd7244787ec66615350036fe28a",
           "availability": "local"
         },
         {
@@ -623,7 +643,7 @@
         },
         {
           "path": "packages/component-contracts/src/registry.json",
-          "sha256": "c0f920d5db334af58a85483a38b5ffb45b20f3d89b7b7d7d64316c2685c92aee",
+          "sha256": "6671dae156133fdd38b17b839f9c8b7220f57c2e8cdeceed90b02593f123b139",
           "availability": "local"
         },
         {
@@ -1308,7 +1328,7 @@
         },
         {
           "path": "packages/components-html/src/sidebar/index.js",
-          "sha256": "1f17541317392077eb2b0ae86f1c86c4adab835f7a49078f41f1adb5e4571e63",
+          "sha256": "590819c707f83447dbe51306325f4e3dc8260cbbbc0e018ef8d25da4388c7169",
           "availability": "local"
         },
         {
@@ -1358,7 +1378,7 @@
         },
         {
           "path": "packages/components-html/src/titlebar-overflow.js",
-          "sha256": "f6443c7c97736d75efba9e4b259964c4dcd317dd410f4a50eaaf2653e522a198",
+          "sha256": "9a668ea5e91e999b06a0e3b05957516780e4857566d1ca2cc039a883337a7856",
           "availability": "local"
         },
         {
@@ -1373,7 +1393,7 @@
         },
         {
           "path": "packages/components-html/src/tree-view/index.js",
-          "sha256": "0987ba80eb19ded910500326ae6f5b0dc7df44788600ae0a0e51ac97651bc450",
+          "sha256": "aa7c6287c53154b27177f81ba1edeb47b27cd3a4a3e0f3c07ec9b34f3485b422",
           "availability": "local"
         },
         {
@@ -1388,12 +1408,12 @@
         },
         {
           "path": "packages/pattern-runtime/src/index.js",
-          "sha256": "f5965a00ebf44b355912a41a3587a97ece77d5c5bdb0837d07dd0d4920f2fde5",
+          "sha256": "2a417ba4bce102c87020afca39577d5fe541fb62bc58d5eefcdf57e3e405460c",
           "availability": "local"
         },
         {
           "path": "packages/pattern-runtime/src/styles.css",
-          "sha256": "8c84e792179e03e1aa9ebc2269783bd0a6768b44dc717883008ad81887d8f12a",
+          "sha256": "dce263bb11d2df0fbefa48cffcb3c9a6ede448050804df3257bf5db785e09051",
           "availability": "local"
         },
         {
@@ -1482,6 +1502,11 @@
           "availability": "local"
         },
         {
+          "path": "references/blocks/index.json",
+          "sha256": "a2e65fc33c0041b7fecc734bfc30edc6ce2ca61b095f48c2f1804f36195f4463",
+          "availability": "local"
+        },
+        {
           "path": "references/business-extension.md",
           "sha256": "e6808a5a95102283b27472c6cb6e6ea5d133660cc57fb9845784dee0b8aa6d3c",
           "availability": "local"
@@ -1518,7 +1543,7 @@
         },
         {
           "path": "references/components/component-selection-rules.json",
-          "sha256": "e0ced3b848d01ea8d0dd977410fed4ca7b3200495dd29fbf91c8306066090378",
+          "sha256": "75d5b31bfc6d7e5d99e3024cc66af32d94e74f610a35ec26b2a6d9768e2913e1",
           "availability": "local"
         },
         {
@@ -1543,17 +1568,17 @@
         },
         {
           "path": "references/components/source-resolution.md",
-          "sha256": "2375d526159e7b1326c2ec40ad609ade5f84f84aa7ec0bb5381e5d5ccbade067",
+          "sha256": "922906f064f09443d69120ed44580a1278a42037e52b9f2574e37cfffd6785ec",
           "availability": "local"
         },
         {
           "path": "references/components/titlebar-segments.md",
-          "sha256": "1acbd60337eb4c2e84a0cdf34d726215e3d9c111bdbcc5ee0bced4964b973695",
+          "sha256": "1cba9416a611fcf2a9109d8160d90c2d6f222f20cb1bb306898394231bcaed1e",
           "availability": "local"
         },
         {
           "path": "references/consumer-input.md",
-          "sha256": "aa67c07e49128f2117150b5503fef23888e8f47b00833ac8a7f91ebe371d2eec",
+          "sha256": "8356a6897d87076aa35f42fe7aa2c827ba472e6b6fb3549b04e397f115873cb0",
           "availability": "local"
         },
         {
@@ -1563,7 +1588,7 @@
         },
         {
           "path": "references/consumer-page-design.md",
-          "sha256": "514b086b309ded5f2161b0bc6d965638c0f899eaaa519ac8e1fe662aea120457",
+          "sha256": "c4fa09b2facf7dd90efba2b3e4f5571da81f4cfd6624dbc2dec3cca98abbef3a",
           "availability": "local"
         },
         {
@@ -1648,7 +1673,7 @@
         },
         {
           "path": "references/index/task-routes.source.json",
-          "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a",
+          "sha256": "ea3b5a3cc71272f385aa8ab3c55e60b09197495ce61ab6a099a6d2811d446293",
           "availability": "local"
         },
         {
@@ -2233,7 +2258,7 @@
         },
         {
           "path": "references/resources/titlebar/executable-html-slots.md",
-          "sha256": "fbd089ae46a5cb71dab0fda0aaaf9e99941bdd6be33bf59d002c56e87fffdc24",
+          "sha256": "b722daced246ac9be38c89f6d769b428f160024a38086ee4c795ef8d834ef3ef",
           "availability": "local"
         },
         {
@@ -2303,7 +2328,7 @@
         },
         {
           "path": "references/stepwise-workflow.md",
-          "sha256": "ef0a81cfbc768e7e730281a117157598074b087cb96827e13f6c2ce3a67d7ea2",
+          "sha256": "787cb7dbee02e866196d319f9301bb035acb47f4527069b30e978d3e8c80a784",
           "availability": "local"
         },
         {
@@ -2344,6 +2369,11 @@
         {
           "path": "scripts/audit-icons.mjs",
           "sha256": "96a172c7993cbcd4d27999175f0159bbac94fcf9e54ed85c739e1862a352f3ab",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/block-route.mjs",
+          "sha256": "15e80b638e55b51645b3eb4ab902d98bbfbf2dadf0383403fffe8bfee0bb7c48",
           "availability": "local"
         },
         {
@@ -2388,7 +2418,7 @@
         },
         {
           "path": "scripts/business-module.mjs",
-          "sha256": "8284d78b22ee381d7fb6bcce34f917ce67861bb5205d8d65deb16459fbe158f4",
+          "sha256": "ffa5d6dac26f149b48db61faf31132291ebed52acdfcf0de79e6c87a5a3b04f2",
           "availability": "local"
         },
         {
@@ -2423,7 +2453,7 @@
         },
         {
           "path": "scripts/consumer.mjs",
-          "sha256": "fa608cee91b1e5c572cd8461249d492885ed515c50cde3e42531d7d371bc57ba",
+          "sha256": "b183c580ca9b68235b087ddc95ef15fed4f00e2f7cccea1ba336e44939cd190d",
           "availability": "local"
         },
         {
@@ -2433,7 +2463,7 @@
         },
         {
           "path": "scripts/discover-page.mjs",
-          "sha256": "b77f3380f793654b804afd617aca738113f0dc6036f52f7dcddbe756156cea8b",
+          "sha256": "568d5ccde12193e4b22edd4edabb00950748e4a863111b7ed105f6d066d8a268",
           "availability": "local"
         },
         {
@@ -2448,7 +2478,7 @@
         },
         {
           "path": "scripts/generate-html-page.mjs",
-          "sha256": "5725a7a5c2b9111a6d3c3e676549af97dbf78fddcd8a645568231a5f25c3987a",
+          "sha256": "b08a2a12e616ae84a6b111f823c554fd69fd71a2ebdaaf93a97466a816628bf0",
           "availability": "local"
         },
         {
@@ -2493,7 +2523,7 @@
         },
         {
           "path": "scripts/pack-consumer.mjs",
-          "sha256": "a55d94e6f02feebc6b81fad2b85a8b56c8e615657edf1116c03a676fafdd5fed",
+          "sha256": "531810026523e47241fb1560e888f2548070cee02d2e1f3dc2781c87c0f065cb",
           "availability": "local"
         },
         {
@@ -2533,12 +2563,12 @@
         },
         {
           "path": "scripts/page.mjs",
-          "sha256": "cb8c5f52b5414c46641c10618fdb933273ff7a307bf7c16fdabeee267f53a52c",
+          "sha256": "108b72c92448b50e8d2327e1da1abb5dcb77ec8b5ba956f8a763cd71988f421a",
           "availability": "local"
         },
         {
           "path": "scripts/pattern-contract-lib.mjs",
-          "sha256": "859b44e4c973879e7640ec18c131d2c3ef62c33f7e0c73f7a9c44899e4815909",
+          "sha256": "4963d65b406114766351de68f6c00f017333593c3f7dc2a70ac0286e5d44e632",
           "availability": "local"
         },
         {
@@ -2553,7 +2583,7 @@
         },
         {
           "path": "scripts/preview-components.mjs",
-          "sha256": "06c20eb27f2e669ebe69e16aee08d82b39fc367d1e459ff17420cfd3e0810e1c",
+          "sha256": "637a1f1c28eb327f2e52e2e90e1b7714400514e0158c1a2de872933fceb76697",
           "availability": "local"
         },
         {
@@ -2588,7 +2618,7 @@
         },
         {
           "path": "scripts/resolve-context.mjs",
-          "sha256": "dab939b5d1362d9353dface85a1fe9a6cc7c4da32c9a61d20665517cd57469c3",
+          "sha256": "ded150a7e85f4dc63931b5e85089377e628ae3ec2f6f09a3374a6fb6e735c497",
           "availability": "local"
         },
         {
@@ -2628,7 +2658,7 @@
         },
         {
           "path": "scripts/skill-distribution.mjs",
-          "sha256": "b42fa28cf7d8adaf1205aae7d8f8c449ecbbe6f95185583b54912c621eede104",
+          "sha256": "4fdb9675bff69a2a856c21b363249fcc925d6d5f3f0e5c1a80b7915e6260e2ae",
           "availability": "local"
         },
         {
@@ -2653,7 +2683,7 @@
         },
         {
           "path": "scripts/ui-scene-core.mjs",
-          "sha256": "f96f6abfa3889b9632c87215c6ba7cd692e0b44a2950016db4f7ee5db147995b",
+          "sha256": "bfe47be01a0e31db3253451f70856577118c25d9f9cc74868ce1d5dc864fccbd",
           "availability": "local"
         },
         {
@@ -2728,7 +2758,7 @@
         },
         {
           "path": "scripts/work-plan.mjs",
-          "sha256": "94b33ed4a567f052219ec451952d1fd8c183885e8efeb944ff76540a4376101b",
+          "sha256": "7d87e5ba73989b1c5926bdb76f392c8652dda2c8240638b05fe9fbd154559e70",
           "availability": "local"
         },
         {

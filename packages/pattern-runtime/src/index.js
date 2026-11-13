@@ -93,9 +93,9 @@ const renderSlot = (slot, slots, context, mode) => {
 
 const slotByOwner = (pattern, owner) => pattern.slots.filter((slot) => slot.owner === owner);
 
-const navigationPlacement = (pattern, slotId) => {
+const navigationPlacement = (pattern, slot) => {
   const mode = pattern.navigationModes?.[0];
-  return mode?.shellSlots?.find((slot) => slot.id === slotId)?.placement || null;
+  return slot.placement ?? mode?.shellSlots?.find((entry) => entry.id === slot.id)?.placement ?? null;
 };
 
 const renderSlotEnvelope = (slot, content, placement = null) => {
@@ -115,28 +115,22 @@ const renderRegion = (pattern, region, slots, mode, regionContent = {}) => {
     `data-pattern-width-token="${dataValue(region.width?.token || "fill")}"`,
     `data-pattern-divider-edges="${dataValue((region.dividerEdges || []).join(" "))}"`
   ];
-  const slotsMarkup = ownerSlots.map((slot) => {
-    if (mode === "runtime" && slot.cardinality.startsWith("0..") && !normalizeSlotValues(slots[slot.id]).length) return "";
-    const placement = navigationPlacement(pattern, slot.id);
-    const content = renderSlot(slot, slots, { regionId: region.id, mode, placement }, mode);
-    return renderSlotEnvelope(slot, content, placement);
-  });
-  const navBody = slotsMarkup.filter((markup, index) => {
-    const placement = navigationPlacement(pattern, ownerSlots[index].id);
-    return placement !== "top" && placement !== "bottom" && ownerSlots[index].id !== "primary-navigation-footer";
-  }).join("");
-  const navTop = slotsMarkup.filter((markup, index) => navigationPlacement(pattern, ownerSlots[index].id) === "top").join("");
-  const isPrimary = region.id === "primary-navigation";
-  if (isPrimary) {
-    const footer = ownerSlots.filter(slot => (slot.id === "primary-navigation-footer" || navigationPlacement(pattern, slot.id) === "bottom") && (mode === "skeleton" || normalizeSlotValues(slots[slot.id]).length))
-      .map(slot => renderSlotEnvelope(slot, renderSlot(slot, slots, { regionId: region.id, mode, placement: "bottom" }, mode), "bottom")).join("");
-    return `<section class="tui-pattern-runtime__pane tui-pattern-runtime__pane--navigation" ${regionAttributes.join(" ")}><div class="tui-pattern-runtime__navigation-top" data-pattern-shell-slot="navigation-top">${navTop}</div><div class="tui-pattern-runtime__scroll-body" data-pattern-scroll-body>${navBody}</div>${footer}</section>`;
+  const pageContent = mode === "runtime" ? (regionContent[region.id] ?? "") : "";
+  if (region.id === "primary-navigation") {
+    const areas = { top: "", body: "", bottom: "" };
+    for (const slot of ownerSlots) {
+      if (mode === "runtime" && slot.cardinality.startsWith("0..") && !normalizeSlotValues(slots[slot.id]).length) continue;
+      const placement = slot.id === "primary-navigation-footer" ? "bottom" : navigationPlacement(pattern, slot);
+      const content = renderSlot(slot, slots, { regionId: region.id, mode, placement }, mode);
+      const area = placement === "top" || placement === "bottom" ? placement : "body";
+      areas[area] += renderSlotEnvelope(slot, content, placement);
+    }
+    return `<section class="tui-pattern-runtime__pane tui-pattern-runtime__pane--navigation" ${regionAttributes.join(" ")}><div class="tui-pattern-runtime__navigation-top" data-pattern-shell-slot="navigation-top">${areas.top}</div><div class="tui-pattern-runtime__scroll-body" data-pattern-scroll-body>${areas.body}${pageContent}</div>${areas.bottom}</section>`;
   }
   const titleSlots = ownerSlots.filter((slot) => slot.id.endsWith("-actions") || slot.id.endsWith("-title"));
   const bodySlots = ownerSlots.filter((slot) => !titleSlots.includes(slot));
   const titleMarkup = titleSlots.map((slot) => renderSlotEnvelope(slot, renderSlot(slot, slots, { regionId: region.id, mode, placement: "title" }, mode), "title")).join("");
   const bodyMarkup = bodySlots.map((slot) => renderSlotEnvelope(slot, renderSlot(slot, slots, { regionId: region.id, mode, placement: "body" }, mode), "body")).join("");
-  const pageContent = mode === "runtime" ? (regionContent[region.id] ?? "") : "";
   return `<section class="tui-pattern-runtime__pane tui-pattern-runtime__pane--content" ${regionAttributes.join(" ")}><header class="tui-pattern-runtime__pane-title" data-pattern-title-segment="${dataValue(region.id)}">${titleMarkup}</header><div class="tui-pattern-runtime__scroll-body" data-pattern-scroll-body>${bodyMarkup}${pageContent}</div></section>`;
 };
 

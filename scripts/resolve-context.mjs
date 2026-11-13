@@ -11,6 +11,7 @@ import { selectTaskRoute, selectTaskPattern } from './task-route-lib.mjs';
 import { makePageBrief } from './stage-context-lib.mjs';
 import { loadResourceIndex } from './resource-index-lib.mjs';
 import { loadComponentContract, resolveHtmlComponentRuntime } from './component-contract-loader.mjs';
+import {blockReference, resolveBlocks} from './block-route.mjs';
 import {workflowPolicy} from './workflow-policy.mjs';
 
 const args = parseArgs(process.argv.slice(2));
@@ -73,7 +74,8 @@ if (!route) {
     customCompositions: []
   };
   if(requestedPattern === 'pattern-d-inspector' && !['pattern-b-three-pane','pattern-c-tool-workspace'].includes(args['pattern-base'])) throw new Error('Unknown-task Inspector requires --pattern-base B or C');
-  patternSelection = {id:requestedPattern,source:'explicit-unknown-task',reason:args['pattern-reason'] || 'Explicit Pattern and capability list for unknown task',...(args['pattern-base']?{base:args['pattern-base']}:{})};
+  if(args['pattern-base'] && requestedPattern !== 'pattern-d-inspector') throw new Error('--pattern-base only applies to Pattern D');
+  patternSelection = {id:requestedPattern,default:requestedPattern,source:'explicit-unknown-task',reason:args['pattern-reason'] || 'Explicit Pattern and capability list for unknown task',...(args['pattern-base']?{base:args['pattern-base']}:{})};
 } else {
   patternSelection = selectTaskPattern(matchedRoute, requestedPattern, args['pattern-reason'], args['pattern-base']);
   route = {...matchedRoute, layout:patternSelection.id};
@@ -87,6 +89,7 @@ const workflowRouteId = String(args['workflow-route'] || 'new-page');
 const workflowRoute = indexes['workflow-route-index'].routes.find((candidate) => candidate.id === workflowRouteId);
 if (!workflowRoute) throw new Error(`Unknown workflow route '${workflowRouteId}'`);
 const selectedWorkflow = workflowPolicy(skillRoot, workflowRouteId);
+const blocks = resolveBlocks(skillRoot, route, workflowRouteId, resolvedPattern.pattern, args.block);
 if (workflowRouteId === 'skill-maintenance') throw new Error('Skill maintenance does not resolve a page; use resolve-workflow-route.mjs and its intake/validation packs');
 const automaticBlueprint = autoPlanned ? readPageBlueprint(blueprintPath, { patternId: route.layout }) : null;
 const approvedReferenceId = args['approved-reference'] ? String(args['approved-reference']) : null;
@@ -171,6 +174,7 @@ const patternDigest = stableDigest(resolvedPattern.pattern);
 const tokenRoleNames = [...new Set(components.flatMap((item) => item.tokenRoles || []))];
 const tokens = Object.fromEntries(tokenRoleNames.map((role) => [role, indexes['token-index'].semanticRoles[role] || { lookup: `packages/tokens; role=${role}` }]));
 const dynamicMaterials = [
+  ...(blocks.block ? [{ path: materialPathFromSkillReference(blockReference), role: 'selected-block-reference' }] : []),
   ...((layout.references ?? []).map((reference) => ({ path: materialPathFromSkillReference(reference), role: 'pattern-reference' }))),
   ...(route.domainReference ? [{ path: materialPathFromSkillReference(route.domainReference), role: 'domain-reference' }] : []),
   ...(components.some((component) => component.component === 'titlebar') ? [{ path: 'skill-support/references/components/titlebar-segments.md', role: 'titlebar-contract' }] : []),
@@ -227,6 +231,8 @@ const packet = {
   componentReadMap,
   renderer,
   customCompositions: route.customCompositions,
+  ...(blocks.candidates.length ? { blockCandidates: blocks.candidates } : {}),
+  ...(blocks.block ? { block: blocks.block } : {}),
   approvedReferences,
   tokens,
   designContext: {

@@ -2,7 +2,7 @@
 import fs from 'node:fs';import path from 'node:path';import {spawnSync} from 'node:child_process';
 import {assertSingleEntry,markDelivery,inspectDelivery} from './delivery-entry.mjs';
 import {checkBusinessLayoutCss} from './business-css.mjs';
-import {navigationSlotRequired} from './pattern-contract-lib.mjs';
+import {navigationSlotRequired,primaryNavigationItemCountError} from './pattern-contract-lib.mjs';
 import {pageTitlebarPolicy,assertTitlebarSize} from './titlebar-scene.mjs';
 import {ROOT,read,select,optionsFor,checkSlots} from './consumer-lib.mjs';import {exportOffline} from './offline.mjs';
 const args=process.argv.slice(2),command=args.shift()||'help';const value=k=>{const i=args.indexOf(k);return i<0?null:args[i+1];};
@@ -104,7 +104,8 @@ function compile(){
   for(const field of ['readingOrder','informationPriority','relationships'])if(design[field]!==undefined&&!Array.isArray(design[field]))throw Error('DESIGN_INPUT: '+field+' must be an array');
  }
  const walkNodes=(nodes,fn)=>{for(const n of nodes||[]){fn(n);walkNodes(n.children,fn);}};
- const capabilities = new Set(['titlebar', 'primary-navigation-item']);
+ const capabilities = new Set(['titlebar']);
+ let primaryNavigationItemCount = 0;
  const contextsByRegion = new Map();
  for (const group of input.groups) {
   const contexts = contextsByRegion.get(group.region) ?? new Set();
@@ -113,9 +114,12 @@ function compile(){
    if (!node.use) return;
    const component = select(node.use, node.context);
    capabilities.add(component.id);
+   if (component.id === 'primary-navigation-item') primaryNavigationItemCount++;
    contexts.add(component.context);
   });
  }
+ const navigationCountError = primaryNavigationItemCountError(primaryNavigationItemCount);
+ if (navigationCountError) throw Error(navigationCountError);
  const common=['--task',input.task,'--repo',ROOT,'--skill-root',ROOT,'--framework','html',...(layoutInput.taskRoute&&!layoutInput.taskRoute.startsWith('ad-hoc-')?['--task-route',layoutInput.taskRoute]:[]),...(layoutInput.pattern?['--pattern',layoutInput.pattern]:[]),...(layoutInput.patternReason?['--pattern-reason',layoutInput.patternReason]:[]),...(layoutInput.patternBase?['--pattern-base',layoutInput.patternBase]:[]),'--capabilities',[...capabilities].join(',')];
  run('resolve-context.mjs',[...common,'--discover','--out',path.join(state,'context-discovery.json'),'--brief-out',path.join(state,'page-brief.json')]);
  const context=read(path.join(state,'context-discovery.json')),pattern=context.layout.contract;
@@ -158,7 +162,10 @@ function compile(){
   if(c.context===detailSegment?.semanticContext&&!previous&&input.titlebarSize&&supplied?.size&&supplied.size!==titlebarSize)throw Error('TITLEBAR_SIZE_CONFLICT: '+n.id+' must use page titlebarSize');
   const options = optionsFor(c, supplied);
   if(c.context===detailSegment?.semanticContext&&options.size==null)options.size=previous?.detailTitlebarSize??titlebarSize;
-  let slotId = n.slot || c.requiredSlot || pattern.slots.find(slot => slot.id === c.context)?.id;
+  // Older page inputs could explicitly name the primary navigation body.
+  const requestedSlot = c.id === 'primary-navigation-item' && n.slot === 'primary-navigation-shell'
+   ? c.requiredSlot : n.slot;
+  let slotId = requestedSlot || c.requiredSlot || pattern.slots.find(slot => slot.id === c.context)?.id;
   const componentOwner = pattern.slots.find(slot => slot.id === slotId)?.componentOwner;
   if (componentOwner) {
    throw Error(`PATTERN_SLOT_OWNERSHIP: ${groupId}/${n.id}; declare the action in ${componentOwner.context} slots["${componentOwner.slot}"] with actionBehaviors`);
@@ -166,8 +173,8 @@ function compile(){
   if (navigation?.region === region) {
    const required = navigation.shellSlots.find(slot => slot.requiredSemanticContexts?.includes(c.context));
    if (!required) throw Error(`NAVIGATION_CONTEXT: ${groupId}/${n.id} / ${c.context ?? c.id}; use a context from ${navigation.id} in discover-page.mjs`);
-   if (n.slot && n.slot !== required.id) {
-    throw Error(`NAVIGATION_SLOT_CONFLICT: ${groupId}/${n.id} uses ${n.slot}; ${navigation.id} requires ${required.id} for ${c.context}`);
+   if (requestedSlot && requestedSlot !== required.id) {
+    throw Error(`NAVIGATION_SLOT_CONFLICT: ${groupId}/${n.id} uses ${requestedSlot}; ${navigation.id} requires ${required.id} for ${c.context}`);
    }
    slotId = required.id;
   }
@@ -200,7 +207,6 @@ function compile(){
  const globalSegment=titlePolicy.preset.segments.find(segment=>segment.patternSlot===title.requiredSlot);
  const titleOptions={label:input.title,layout:globalSegment?.layout??previous?.globalTitlebarLayout??(pattern.titleLayer.segments.length>2?'three-column':'two-column'),segmentRole:globalSegment?.segmentRole??'global',size:titlebarSize};
  shellChildren.push(addBinding('system-title',title,navRegion,optionsFor(title,titleOptions),{patternSlot:'global-title-layer'}));
- const navGroups=input.groups.filter(g=>g.region===navRegion);if(!navGroups.length)throw Error('Navigation content must be provided in '+navRegion);
  for(const g of input.groups){keys(g,['id','region','purpose','children','composition','entities','module'],'group');claim(g.id);if(!regions[g.region])throw Error('UNKNOWN_PATTERN_REGION: '+g.region);if(!g.purpose||!Array.isArray(g.children))throw Error('Group requires purpose and children');
  const before=bindings.length,composition=g.composition||'stack';if(!['stack','section-header','search-toolbar','field-group'].includes(composition))throw Error('UNKNOWN_COMPOSITION: '+composition);
  const children=g.children.map(n=>node(n,g.region,g.id));

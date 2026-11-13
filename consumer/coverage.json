@@ -2306,7 +2306,7 @@
     {
       "id": "titlebar",
       "source": "packages/components-html/src/titlebar/index.js",
-      "contractSha256": "db123d170477fcdfb0bb98d28d976285caaac6e9e5cd324fb8ee868fd4b95a83",
+      "contractSha256": "c2dc19e680b8296c0b5c8f4d5cc15cf0ec6dfb828386a5790aa9532083c08aef",
       "parameters": {
         "label": {
           "disposition": "model-writable",
@@ -2549,7 +2549,7 @@
     {
       "id": "tree-view",
       "source": "packages/components-html/src/tree-view/index.js",
-      "contractSha256": "83a89cbb3530f86c07ea87642cbce0343ff9b742d75af6a4531cc78828b8bf97",
+      "contractSha256": "fff028a219322bb050ec4157ef919da8a434edd7244787ec66615350036fe28a",
       "parameters": {
         "nodes": {
           "disposition": "model-writable",

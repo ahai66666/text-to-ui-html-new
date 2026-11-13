@@ -1,6 +1,7 @@
 {
   "id": "tree-view",
   "logicalName": "Tree View/Default",
+  "purpose": "每个节点独立判断新消息数：trailing 为 0、字符串 \"0\" 或未提供时，不渲染右侧标签；正数正常显示。",
   "variants": [
     "default"
   ],

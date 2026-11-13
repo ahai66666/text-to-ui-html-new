@@ -22,7 +22,10 @@ export function sidebarInstanceCount(options = {}) {
 
 const sidebarListState = ({ items = [{ label: "项目", icon: "navigation/grid", count: 24, selected: true }, { label: "最近访问", icon: "navigation/recent" }], groups = [], ariaLabel = "主导航", collapsed = false } = {}) => {
   const resolvedGroups = Array.isArray(groups) ? groups.filter((group) => group && Array.isArray(group.items)) : [];
-  if (resolvedGroups.length <= 1) return sidebarNavMarkup({ items: resolvedGroups[0]?.items ?? items, ariaLabel: resolvedGroups[0]?.ariaLabel ?? ariaLabel, collapsed });
+  const singleGroup = resolvedGroups.length === 1 ? resolvedGroups[0] : null;
+  if (!resolvedGroups.length || (singleGroup && !singleGroup.label?.trim?.())) {
+    return sidebarNavMarkup({ items: singleGroup?.items ?? items, ariaLabel: singleGroup?.ariaLabel ?? ariaLabel, collapsed });
+  }
   return `<nav class="tui-sidebar-groups" data-sidebar-layout="groups" aria-label="${escapeHtml(ariaLabel)}">${resolvedGroups.map((group, index) => {
     const expanded = group.expanded !== false;
     const contentId = `sidebar-group-content-${index + 1}`;

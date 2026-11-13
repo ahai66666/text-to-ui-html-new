@@ -18,7 +18,6 @@ const runtimePreviewSlots = (patternId) => {
   });
   if (patternId === "pattern-a-two-pane") {
     return {
-      "global-title-layer": runtimePreviewTitleLayer(patternId),
       "primary-navigation-shell": primaryNavigation([
         { label: "概览", icon: "navigation/grid", count: 1, selected: true },
         { label: "项目", icon: "object/file", count: 12 },
@@ -31,7 +30,6 @@ const runtimePreviewSlots = (patternId) => {
     };
   }
   return {
-    "global-title-layer": runtimePreviewTitleLayer(patternId),
     "secondary-navigation-content": primaryNavigation([
       { label: "收件箱", icon: "navigation/grid", count: 24, selected: true },
       { label: "项目", icon: "object/file", count: 12 },
@@ -127,11 +125,14 @@ const setupPatternRuntimePreview = (root) => {
       registry: patternRegistry,
       patternId: state.patternId,
       mode: state.mode,
-      slots: state.mode === "runtime" ? runtimePreviewSlots(state.patternId) : {},
+      slots: {
+        "global-title-layer": runtimePreviewTitleLayer(state.patternId),
+        ...(state.mode === "runtime" ? runtimePreviewSlots(state.patternId) : {})
+      },
       regionContent: state.mode === "runtime" ? runtimePreviewRegionContent(state.patternId) : {}
     });
-    host.replaceChildren();
-    host.insertAdjacentHTML("afterbegin", runtime.render());
+    host.innerHTML = runtime.render();
+    host.firstElementChild.inert = state.mode === "skeleton";
     const contract = runtime.contract;
     meta.textContent = `${contract.id} · ${state.mode} · ${contract.paneOrder.join(" → ")} · min ${contract.minimumWindow?.width || 0}×${contract.minimumWindow?.height || 0}`;
     card.querySelectorAll("[data-runtime-pattern]").forEach((button) => {
@@ -163,28 +164,26 @@ const secondaryPageRuntimeContent = (layout) => `<div class="secondary-page-runt
 // pane-aligned Titlebar_L, while this left shell owns the workspace brand and navigation.
 const secondaryPageRuntimeNavigation = () => `<div class="secondary-page-runtime-navigation-shell" data-secondary-page-navigation-shell="pattern-runtime"><div class="secondary-page-runtime-navigation-titlebar">${renderHtmlComponent("titlebar", { label: "项目空间", size: "large", layout: "two-column", segmentRole: "primary-navigation", showWindowControls: false })}</div><div class="secondary-page-runtime-navigation-body"><div class="secondary-page-runtime-primary-action">${renderHtmlComponent("button", { label: "新建项目", variant: "primary", size: "standard", mode: "icon-text", iconName: "action/add" })}</div>${renderHtmlComponent("sidebar", { ariaLabel: "主导航", items: [{ label: "概览", icon: "navigation/grid", count: 1, selected: true }, { label: "项目", icon: "object/file", count: 12 }, { label: "成员", icon: "navigation/contacts" }] })}</div><div class="secondary-page-runtime-navigation-footer">${renderHtmlComponent("button", { label: "设置", icon: "action/settings", variant: "ghost", mode: "icon-text", size: "standard" })}</div></div>`;
 
-const secondaryPageRuntimeSlots = (layout) => {
-  const titlebar = layout === "new-page"
-    ? renderHtmlComponent("titlebar", { label: "项目设置", size: "small", layout: "standalone", segmentRole: "global" })
-    : renderHtmlComponent("titlebar", {
-      paneTitle: "项目设置",
+const secondaryPagePreviewSlots = (layout, mode) => {
+  const slots = {};
+  if (layout === "continuation") {
+    slots.navigation = secondaryPageRuntimeNavigation();
+    slots.titlebar = renderHtmlComponent("titlebar", {
       size: "large",
       layout: "two-column",
-      segmentRole: "final-pane",
-      mainContentLeading: { id: "back", label: "返回项目", icon: "navigation/back", buttonType: "icon" }
+      segmentRole: "main-content",
+      slots: {
+        "main-content-title": "项目设置",
+        "main-content-leading": { id: "back", label: "返回项目", icon: "navigation/back", buttonType: "icon" }
+      }
     });
-  return {
-    navigation: layout === "continuation" ? secondaryPageRuntimeNavigation() : renderHtmlComponent("sidebar", {
-      ariaLabel: "项目设置导航",
-      items: [
-        { label: "项目概览", icon: "navigation/grid" },
-        { label: "项目设置", icon: "action/settings", selected: true },
-        { label: "成员权限", icon: "navigation/contacts" }
-      ]
-    }),
-    titlebar,
-    content: secondaryPageRuntimeContent(layout)
-  };
+  } else {
+    slots.titlebar = renderHtmlComponent("titlebar", {
+      size: "small", layout: "standalone", segmentRole: "global", slots: { label: "项目设置" }
+    });
+  }
+  if (mode === "runtime") slots.content = secondaryPageRuntimeContent(layout);
+  return slots;
 };
 
 const createSecondaryPageRuntimePreview = () => {
@@ -226,10 +225,10 @@ const setupSecondaryPageRuntimePreview = (root) => {
     const runtime = createSecondaryPageRuntime({
       layout: state.layout,
       mode: state.mode,
-      slots: state.mode === "runtime" ? secondaryPageRuntimeSlots(state.layout) : {}
+      slots: secondaryPagePreviewSlots(state.layout, state.mode)
     });
-    host.replaceChildren();
-    host.insertAdjacentHTML("afterbegin", runtime.render());
+    host.innerHTML = runtime.render();
+    host.firstElementChild.inert = state.mode === "skeleton";
     meta.textContent = `secondary-page-runtime · ${state.mode} · ${state.layout === "continuation" ? "返回 + Titlebar_L" : "Titlebar_S + 上下布局"}`;
     card.querySelectorAll("[data-secondary-runtime-layout]").forEach((button) => {
       const selected = button.dataset.secondaryRuntimeLayout === state.layout;

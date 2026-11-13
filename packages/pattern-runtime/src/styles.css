@@ -159,15 +159,16 @@
 
 .tui-pattern-runtime__pane--navigation {
   background: var(--color-sidebar-bg, #f7f8fa);
-}
-
-/* Pattern A: action above Sidebar, configurable footer outside scrolling. */
-[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation {
   display: flex;
   flex-direction: column;
 }
-[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
+
+.tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
   flex: 1 1 auto;
+}
+
+/* Pattern A: action above Sidebar, configurable footer outside scrolling. */
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
   padding-block-start: var(--space-3, 8px);
 }
 [data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] {
@@ -182,8 +183,6 @@
 }
 
 [data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane--navigation {
-  display: flex;
-  flex-direction: column;
   padding-block-start: var(--space-3, 8px);
 }
 /* `data-pattern-shell-slot` remains on this wrapper for compatibility with
@@ -209,24 +208,6 @@
   overscroll-behavior: contain;
   mask-image: linear-gradient(to bottom, #000 calc(100% - var(--space-5, 16px)), transparent);
 }
-[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-  padding-block-start: var(--space-3, 8px);
-}
-[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > nav {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > span {
-  display: flex;
-  flex: 1 1 0;
-  justify-content: center;
-}
-
 .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__pane-title {
   padding-inline: 0;
 }
@@ -325,8 +306,23 @@
 }
 
 .tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
   padding-inline: var(--layout-sidebar-padding-x, var(--space-3, 12px));
-  padding-block-end: var(--space-3, 8px);
+  padding-block: var(--space-3, 8px);
+}
+
+.tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > nav {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > span {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
 }
 
 .tui-pattern-runtime__pane--content .tui-pattern-runtime__slot[data-pattern-slot="global-title-layer"],

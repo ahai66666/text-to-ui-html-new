@@ -361,8 +361,12 @@ for (const interaction of behaviorPlan.interactions) {
     if (!ownsInteraction) throw new Error(`behaviorPlan interaction '${interaction.id}' trigger '${bindingId}' must reference the same behaviorId or Titlebar actionBehaviors entry`);
   }
 }
-const validateStylePlanNodes = (nodes, region) => {
+const validateStylePlanNodes = (nodes, region, shellSlot = null) => {
   for (const node of nodes ?? []) {
+    const binding = node?.kind === "component" ? bindingById.get(node.bindingId) : null;
+    if (shellSlot && binding?.slot === "primary-navigation-bottom" && shellSlot !== binding.slot) {
+      throw new Error(`${binding.id}: place Primary Navigation Item in patternShell.navigation.slots.${binding.slot}`);
+    }
     if (node?.kind === "group") {
       const plan = stylePlanById.get(node.id);
       if (!plan) throw new Error(`Composition group '${node.id ?? "unknown"}' is missing from stylePlan`);
@@ -370,7 +374,7 @@ const validateStylePlanNodes = (nodes, region) => {
       if (!Array.isArray(plan.tokenRoles) || plan.tokenRoles.length === 0) throw new Error(`stylePlan composition '${node.id}' must declare Token roles before generation`);
       if (plan.componentBoundary !== "preserve") throw new Error(`stylePlan composition '${node.id}' must preserve registered component boundaries`);
       if (node.className && plan.className !== node.className) throw new Error(`stylePlan composition '${node.id}' must declare className '${node.className}'`);
-      validateStylePlanNodes(node.children, region);
+      validateStylePlanNodes(node.children, region, shellSlot);
     }
   }
 };
@@ -388,7 +392,7 @@ if (navigationMode) {
   for (const slot of navigationShellDefinition.shellSlots) {
     const nodes = navigationShell.slots[slot.id];
     if (!Array.isArray(nodes)) throw new Error(`Navigation shell slot '${slot.id}' must be an array`);
-    validateStylePlanNodes(nodes, navigationShellDefinition.region);
+    validateStylePlanNodes(nodes, navigationShellDefinition.region, slot.id);
   }
   // A grouped level-one rail must retain the registered horizontal container.
   // A generic div inherits page CSS and can silently stack the icon items.
@@ -843,13 +847,6 @@ export function mountGeneratedPage(root = document.querySelector("#app")) {
   const patternRoot = root.querySelector("[data-tui-pattern]");
   if (!patternRoot) throw new Error("Generated Pattern root was not found");
   const cleanups = [];
-  // Titlebar main-detail actions are responsive: the renderer keeps the
-  // More trigger visible and this adapter collapses trailing business actions
-  // into its menu before they can overlap the fixed window controls. Keep the
-  // behavior in the generated entry so every HTML page gets the same runtime
-  // contract instead of relying on page-owned scripts to remember it.
-  const titlebarOverflowCleanup = bindTitlebarOverflow(root);
-  if (typeof titlebarOverflowCleanup === "function") cleanups.push(titlebarOverflowCleanup);
   const inputTagEntryCleanup = bindInputTagEntry(root);
   if (typeof inputTagEntryCleanup === "function") cleanups.push(inputTagEntryCleanup);
   const behaviors = new Map(behaviorPlan.interactions.map((item) => [item.id, item]));
@@ -884,6 +881,7 @@ export function mountGeneratedPage(root = document.querySelector("#app")) {
     }
     root.dispatchEvent(new CustomEvent("text-to-ui:behavior", { bubbles: true, detail: { behaviorId: behavior.id, outcome: behavior.outcome, plan: behaviorPlan } }));
   };
+  cleanups.push(bindTitlebarOverflow(root, { onAction: (_id, _item, event) => execute(event) }));
   for (const type of ["click", "input", "change"]) root.addEventListener(type, execute);
 ${moduleMounts}
   const colorReferences = bindColorReferences(root);

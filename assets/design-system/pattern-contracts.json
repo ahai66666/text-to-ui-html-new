@@ -18,8 +18,9 @@
       ],
       "slots": [
         { "id": "global-primary-action", "owner": "primary-navigation", "cardinality": "0..1" },
-        { "id": "primary-navigation-shell", "owner": "primary-navigation", "cardinality": "1" },
+        { "id": "primary-navigation-shell", "owner": "primary-navigation", "cardinality": "0..n" },
         { "id": "primary-navigation-footer", "owner": "primary-navigation", "cardinality": "0..1", "allowedComponentModes": ["icon-text-ghost"] },
+        { "id": "primary-navigation-bottom", "owner": "primary-navigation", "cardinality": "0..n", "placement": "bottom" },
         { "id": "global-title-layer", "owner": "page", "cardinality": "1" },
         { "id": "main-content-title", "owner": "main-content", "cardinality": "0..1" }
       ],
@@ -64,7 +65,7 @@
         { "id": "global-title-layer", "owner": "page", "cardinality": "1" },
         { "id": "global-primary-action", "owner": "primary-navigation", "cardinality": "0..1" },
         { "id": "secondary-navigation-content", "owner": "primary-navigation", "cardinality": "0..n" },
-        { "id": "primary-navigation-bottom", "owner": "primary-navigation", "cardinality": "0..n" },
+        { "id": "primary-navigation-bottom", "owner": "primary-navigation", "cardinality": "0..n", "placement": "bottom" },
         { "id": "secondary-list-title", "owner": "secondary-list", "cardinality": "0..1", "allowedComponentModes": ["search"], "overflow": "none" },
         { "id": "main-detail-title", "owner": "main-detail", "cardinality": "0..1", "allowedComponentModes": ["titlebar"], "overflow": "none" },
         { "id": "main-detail-actions", "owner": "main-detail", "cardinality": "0..n", "allowedComponentModes": ["icon", "icon-text-ghost"], "overflow": "more-menu", "componentOwner": { "context": "main-detail-titlebar", "slot": "main-detail-actions" } }
@@ -126,8 +127,9 @@
         { "id": "tool-workspace", "width": { "mode": "fill" }, "height": { "mode": "fill" }, "insetOwner": "tool-workspace-shell", "scrollOwner": "tool-workspace", "surface": "surface", "dividerEdges": [] }
       ],
       "slots": [
-        { "id": "primary-navigation-shell", "owner": "primary-navigation", "cardinality": "1" },
+        { "id": "primary-navigation-shell", "owner": "primary-navigation", "cardinality": "0..n" },
         { "id": "global-title-layer", "owner": "page", "cardinality": "1" },
+        { "id": "primary-navigation-bottom", "owner": "primary-navigation", "cardinality": "0..n", "placement": "bottom" },
         { "id": "workspace-toolbar", "owner": "tool-workspace", "cardinality": "1" }
       ],
       "geometry": {
@@ -170,6 +172,7 @@
       ],
       "slots": [
         { "id": "global-title-layer", "owner": "page", "cardinality": "1" },
+        { "id": "primary-navigation-bottom", "owner": "primary-navigation", "cardinality": "0..n", "placement": "bottom" },
         { "id": "inspector-toggle", "owner": "main-content", "cardinality": "1", "allowedComponentModes": ["icon", "icon-text-ghost"], "overflow": "none" }
       ],
       "geometry": {

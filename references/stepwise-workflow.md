@@ -23,7 +23,7 @@ node <RULES_ROOT>/scripts/work-plan.mjs init --project <PROJECT_DIR> --modules l
 
 ## 2. 先跑通最小页面
 
-按 [页面设计](consumer-page-design.md) 把阅读顺序、信息优先级、密度与关键状态写进现有页面输入。跨模块数据和事件约定沿用计划的 decisions。
+按 [页面设计](consumer-page-design.md) 把阅读顺序、信息优先级、密度与关键状态写进现有页面输入。跨模块数据和事件约定沿用计划的 decisions。若采用 Block，在 decisions 记下 ID、所属区域和联动状态；恢复到该步骤时再用原任务的发现命令加 `--block <ID>` 读取。
 
 需求与结构明确后，先做真实 Pattern、标题/导航和一条用户要求的主要交互，生成并打开离线入口。缺少的完整业务模块明确标记待完成，不把最小页面当作整页完成。由这个结果确认槽位与消费接口适用，再补其余模块。
 
@@ -37,7 +37,7 @@ node <RULES_ROOT>/scripts/work-plan.mjs complete --project <PROJECT_DIR> --step 
 node <RULES_ROOT>/scripts/work-plan.mjs complete --project <PROJECT_DIR> --step minimal-page --note "实际打开与主要操作结果" --artifact .text-to-ui/offline-preview.json
 ```
 
-模块步骤名称为 module-<模块名>，也提供当前生成的离线报告。脚本核对产物入口摘要，但 note 是操作者记录，不是自动浏览器验证。未执行操作时不把生成成功写成行为通过。失败时停留当前步骤，将简短问题保留在其 note 或 unresolved 中，不追加长日志。
+模块步骤名称为 module-<模块名>，也提供当前生成的离线报告。脚本核对当前正式入口、产物文件和生成时记录的源码摘要。输入或产物变化后，先重新生成再记录完成。note 记录实际观察到的浏览器结果。未执行操作时不把生成成功写成行为通过。失败时停留当前步骤，将简短问题保留在其 note 或 unresolved 中，不追加长日志。
 
 共享决策变化后，使用 `reopen --step structure --note "变更原因"`，再对照实际文件协调后续模块；重开仅重置进度，不删除代码。
 

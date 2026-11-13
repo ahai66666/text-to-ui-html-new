@@ -3,11 +3,11 @@
   "generatedFrom": [
     {
       "path": "skill-support/references/index/task-routes.source.json",
-      "sha256": "efb91f62e2578d8d936c29fab4affa144f01969e2073e542d37a595cf078f50a"
+      "sha256": "ea3b5a3cc71272f385aa8ab3c55e60b09197495ce61ab6a099a6d2811d446293"
     },
     {
       "path": "packages/component-contracts/src/registry.json",
-      "sha256": "c0f920d5db334af58a85483a38b5ffb45b20f3d89b7b7d7d64316c2685c92aee"
+      "sha256": "6671dae156133fdd38b17b839f9c8b7220f57c2e8cdeceed90b02593f123b139"
     },
     {
       "path": "skill-support/references/index/layout-routes.source.json",
@@ -40,6 +40,11 @@
   "routes": [
     {
       "id": "communication-workbench",
+      "blockCandidates": [
+        "grouped-mail-list",
+        "collapsible-navigation-group",
+        "titlebar-action-overflow"
+      ],
       "aliases": [
         "mail-workbench",
         "email-workbench",
@@ -99,6 +104,11 @@
     },
     {
       "id": "record-management-workbench",
+      "blockCandidates": [
+        "grouped-mail-list",
+        "collapsible-navigation-group",
+        "titlebar-action-overflow"
+      ],
       "aliases": [
         "contacts",
         "tasks",
@@ -148,6 +158,10 @@
     },
     {
       "id": "dashboard-or-settings",
+      "blockCandidates": [
+        "collapsible-navigation-group",
+        "titlebar-action-overflow"
+      ],
       "aliases": [
         "dashboard",
         "settings",
@@ -194,6 +208,9 @@
     },
     {
       "id": "tool-workspace",
+      "blockCandidates": [
+        "collapsible-navigation-group"
+      ],
       "aliases": [
         "file-manager",
         "editor",

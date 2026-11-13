@@ -45,7 +45,7 @@
     },
     {
       "path": "packages/component-contracts/src/registry.json",
-      "sha256": "c0f920d5db334af58a85483a38b5ffb45b20f3d89b7b7d7d64316c2685c92aee"
+      "sha256": "6671dae156133fdd38b17b839f9c8b7220f57c2e8cdeceed90b02593f123b139"
     },
     {
       "path": "references/index/capability-aliases.source.json",

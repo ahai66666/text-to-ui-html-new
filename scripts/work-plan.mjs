@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {spawnSync} from 'node:child_process';import {fileURLToPath} from 'node:url';
+import {inspectDelivery} from './delivery-entry.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const hash=x=>crypto.createHash('sha256').update(x).digest('hex');
 export function workPlan(command,{project,modules=[],step,note,artifact,maxBytes=16000}={}){
@@ -33,9 +34,16 @@ export function workPlan(command,{project,modules=[],step,note,artifact,maxBytes
   if(step==='requirements'&&plan.unresolved?.length)throw Error('Resolve required information or explicitly record agreed scope before implementation');
   if(step==='minimal-page'||step==='integration'||step.startsWith('module-')){
    if(!artifact)throw Error('Provide --artifact pointing to the current offline-preview.json');
-   const report=JSON.parse(fs.readFileSync(local(artifact),'utf8')),entry=local(report.output);
+   const artifactPath=local(artifact);
+   const reportBytes=fs.readFileSync(artifactPath);
+   const report=JSON.parse(reportBytes),entry=local(report.output);
    if(report.skill!=='text-to-ui-html-new'||report.requiresServer!==false||!report.sha256||hash(fs.readFileSync(entry))!==report.sha256)throw Error('Offline artifact does not match its report');
-   current.artifact={path:artifact,sha256:hash(fs.readFileSync(local(artifact)))};
+   const delivery=inspectDelivery(project);
+   const currentReport=local('.text-to-ui/offline-preview.json');
+   if(delivery.status!=='ready'||delivery.primaryEntry!==report.output||!fs.existsSync(currentReport)||!reportBytes.equals(fs.readFileSync(currentReport))){
+    throw Error('OFFLINE_ARTIFACT_STALE: generate and verify the current official preview before completing the step');
+   }
+   current.artifact={path:artifact,sha256:hash(reportBytes)};
   }
   current.status='done';current.note=note;if(step==='structure')current.decisionsHash=decisionsHash;save(plan);
   return {ok:true,completed:step,next:plan.steps.find(s=>s.status!=='done')?.id||null};
@@ -56,6 +64,6 @@ export function workPlan(command,{project,modules=[],step,note,artifact,maxBytes
  }
  const text=JSON.stringify(result,null,2);if(Buffer.byteLength(text)>maxBytes)throw Error('RESUME_TOO_LARGE: split the current module or narrow read groups/interfaces; nothing was truncated');return result;
 }
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+if(process.argv[1]&&fs.realpathSync(process.argv[1])===fileURLToPath(import.meta.url)){
  try{const args=process.argv.slice(2),command=args.shift(),values={};while(args.length){const k=args.shift();if(!['--project','--modules','--step','--note','--artifact'].includes(k)||!args.length)throw Error('Unknown or incomplete argument '+k);values[k.slice(2)]=args.shift();}if(values.modules)values.modules=values.modules.split(',').filter(Boolean);console.log(JSON.stringify(workPlan(command,values),null,2));}catch(e){console.error(e.message);process.exitCode=1;}
 }

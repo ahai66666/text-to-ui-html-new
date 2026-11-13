@@ -7,6 +7,7 @@ Canonical inputs: packages/component-contracts/src/components/, references/compo
 Build order after canonical changes:
 
 ```sh
+node scripts/build-component-contract-registry.mjs
 node scripts/build-consumer.mjs
 node scripts/build-resource-index.mjs --repo .
 node scripts/build-skill-catalog-index.mjs

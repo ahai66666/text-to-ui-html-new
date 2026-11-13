@@ -8,7 +8,7 @@ const status = document.querySelector("#gallery-status");
 const setStatus = message => { status.textContent = message; };
 const cache = new Map(), pending = new Map(), cleanup = new Map();
 let designMappings = new Map();
-let components = [], observer, patternPromise, previewSequence = 0, anchorId = null;
+let components = [], observer, patternPromise, blockPromise, previewSequence = 0, anchorId = null;
 const anchorObserver = new ResizeObserver(() => {
  if (!anchorId || !cache.has(anchorId)) return;
  document.querySelector(`[data-component-card="${anchorId}"]`)?.scrollIntoView({block:"start"});
@@ -77,9 +77,18 @@ async function selectView() {
  const requested = location.hash.slice(1) || "runtime-view";
  const component = components.find(c => c.id === requested);
  anchorId = component?.id || null;
- const view = component ? "runtime" : requested === "pattern-view" ? "pattern" : requested === "regression-view" ? "regression" : "runtime";
+ const blockRoute = requested === "block-view" || requested.startsWith("block-");
+ const view = component ? "runtime" : blockRoute ? "block" : requested === "pattern-view" ? "pattern" : requested === "regression-view" ? "regression" : "runtime";
  document.querySelectorAll("[data-view]").forEach(section => section.hidden = section.dataset.view !== view);
  document.querySelectorAll("[data-view-link]").forEach(link => { if (link.dataset.viewLink === view) link.setAttribute("aria-current","page"); else link.removeAttribute("aria-current"); });
+ if (view === "block") {
+  const host = document.querySelector("[data-block-mount]");
+  blockPromise ||= import("./block-preview.js").then(module => module.mountBlockPreviews(host));
+  try {
+   await blockPromise;
+   if (location.hash.slice(1) === requested && requested !== "block-view") document.getElementById(requested)?.scrollIntoView({block:"start"});
+  } catch (error) { host.textContent = `Block 加载失败：${error.message}`; }
+ }
  if (view === "pattern") {
   patternPromise ||= import("./pattern-baseline.js").then(module => module.mountPatternBaseline(document.querySelector("[data-pattern-baseline]")));
   try { await patternPromise; } catch (error) { document.querySelector("[data-pattern-baseline]").textContent = `Pattern 加载失败：${error.message}`; }

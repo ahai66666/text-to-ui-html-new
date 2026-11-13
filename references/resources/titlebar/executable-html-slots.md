@@ -66,4 +66,9 @@ Titlebar then owns action normalization, responsive collapse-to-More, and the
 fixed trailing 3×40px window-control group. Every window control is a
 registered `Icon Button/Ghost/Default` with a 24×24 icon.
 
+For a group of responsive business actions, look up the
+`titlebar-action-overflow` Block with `discover-page.mjs --block` on the
+current task and Pattern. The Block defines the two button modes, action
+priority, and resize behavior for `main-detail-actions`.
+
 <!-- /tui-scope -->

@@ -79,9 +79,13 @@ export const renderContractInspectorBodyHtml = (component, framework, escapeHtml
   const data = contractInspectorData(component, framework);
   const groups = contractInspectorGroups(component, framework);
   const renderRows = (rows) => rows.map(([label, value]) => `<div class="tui-contract-inspector__row"><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("");
+  const blockRows = Object.entries(component.slotContracts ?? {}).filter(([, slot]) => slot.block).map(([slot, {block}]) =>
+    `<div class="tui-contract-inspector__row"><dt><code>${escapeHtml(slot)}</code></dt><dd><a data-contract-dialog-close href="#block-${escapeHtml(block.id)}">${escapeHtml(block.title)}</a></dd></div>`
+  ).join("");
   return `<div class="tui-contract-inspector__body">
     <div class="tui-contract-inspector__identity"><span>逻辑身份</span><code>${escapeHtml(data.logicalName)}</code><strong class="tui-readiness-pill tui-readiness-pill--${escapeHtml(data.status)}">${escapeHtml(data.statusLabel)}</strong></div>
     ${groups.map((group) => `<section class="tui-contract-inspector__group"><h5>${escapeHtml(group.label)}</h5><dl>${renderRows(group.rows)}</dl></section>`).join("")}
+    ${blockRows ? `<section class="tui-contract-inspector__group"><h5>关联 Block</h5><dl>${blockRows}</dl></section>` : ""}
     <div class="tui-contract-inspector__readiness" aria-label="验收维度">${data.readiness.map((item) => `<span class="tui-contract-inspector__badge${item.complete ? " is-complete" : ""}">${escapeHtml(item.label)}</span>`).join("")}</div>
     ${data.note ? `<p class="tui-contract-inspector__note">${escapeHtml(data.note)}</p>` : ""}
   </div>`;

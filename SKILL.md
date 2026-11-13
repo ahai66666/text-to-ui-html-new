@@ -16,7 +16,8 @@ description: Generate or revise HarmonyOS PC HTML prototypes with controlled com
 ## 生成流程
 
 1. 读 [消费输入](references/consumer-input.md)，确认用户任务与必要业务事实。规范化外部 Demo 时先读 [Demo 保留](references/consumer-normalize.md)。
-2. 用 `discover-page.mjs --task "<任务>"` 获取 Pattern 的分段、槽位和滚动归属。新页或结构调整先确定区域职责、内容优先级和实际栏宽下的组合，再用 `consumer.mjs find "<用途>" --pattern <ID> --region <窗格>` 及 `describe <精确ID...> --context <语义>` 查询当前所需控件。有多个场景时选 context，精确能力别名可自动确定场景。
+2. 按 Workflow → Task → Pattern 发现规则。新页用 `discover-page.mjs --task "<任务>"`，Demo 规范化附加 `--workflow-route normalize-demo`；局部修改用已有项目的 Task 和 Pattern。发现结果提供当前 Pattern 的分段、槽位和滚动归属。新页或结构调整先确定区域职责、内容优先级和实际栏宽下的组合，再用 `consumer.mjs find "<用途>" --pattern <ID> --region <窗格>` 及 `describe <精确ID...> --context <语义>` 查询当前所需控件。有多个场景时选 context，精确能力别名可自动确定场景。
+   发现结果含 `blockCandidates` 时，按页面实际需求用同一发现命令加 `--block <ID>` 提取一个组合规范。Task 与 Pattern 共同限定候选；局部修改沿用原组合。
 3. 将设计和组件选择写入 `page-input.json`，需要跨模块状态或动态内容时添加已声明的业务模块。系统固定参数由脚本补全；业务事实来自需求。
 4. 运行 `node "<RULES_ROOT>/scripts/page.mjs" generate --project "<PROJECT_DIR>"`。
 5. 打开返回的 `out/<页面ID>/index.html`，按 [离线预览检查](references/consumer-preview-check.md) 核对真实画面和关键操作。默认交付整个多文件目录，包含本地脚本、CSS、资源和 `src/` 源码，可直接打开。

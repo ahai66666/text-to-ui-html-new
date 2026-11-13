@@ -14,7 +14,7 @@ Read page-brief.json v2 for route navigation, then query-resources.mjs --stage d
 
 Lookalike markup, copied DOM/CSS, screenshots, `data-component`, or matching class names do not count as component reuse. Pattern and domain compositions may arrange components but must not redraw their internals.
 
-`primary-navigation-shell` is a Pattern slot, not a component query. Its first-level icon controls use the `primary-navigation-item` component. `sidebar` is for labeled, content-bearing navigation rows. Follow `references/components/component-selection-rules.json` when a capability needs a semantic context.
+`primary-navigation-shell` is the semantic context for first-level icon controls. Use `primary-navigation-item` in the left navigation pane. The Pattern places it in `primary-navigation-bottom`, outside the scrolling menu. Use `sidebar` for labeled navigation rows. Follow `references/components/component-selection-rules.json` when a capability needs a semantic context.
 
 The HTML adapters use approved semantic icon aliases. An unknown alias blocks its binding; do not substitute a raw icon name, Unicode, or hand-drawn glyph.
 

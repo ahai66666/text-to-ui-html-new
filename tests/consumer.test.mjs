@@ -1,3 +1,4 @@
+import {render as renderTreeView} from '../packages/components-html/src/tree-view/index.js';
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import os from 'node:os';import path from 'node:path';import vm from 'node:vm';
 import {catalog,select,optionsFor,checkSlots,ROOT,read} from '../scripts/consumer-lib.mjs';import {exportOffline} from '../scripts/offline.mjs';import {renderPatternHtml,composePatternTitleSlots} from '../packages/pattern-runtime/src/index.js';
 test('49 public components map all original parameters to a disposition',()=>{const c=catalog();assert.equal(c.components.length,49);const coverage=read(path.join(ROOT,'consumer/coverage.json'));for(const item of c.components){const original=read(path.join(ROOT,'packages/component-contracts/src/components',item.id+'.json'));const mapping=coverage.components.find(c=>c.id===item.id);for(const key of original.props)assert.ok(mapping.parameters[key]||mapping.systemManaged.includes(key)||mapping.unsupported.some(p=>p.name===key),item.id+'.'+key);}});
@@ -17,3 +18,19 @@ test('page CSS can arrange business roots but cannot override standard controls'
 
 import {ruleForOptions} from '../scripts/consumer-lib.mjs';
 test('expanded toolbar scenarios use the same rule as the consumer query',()=>{for(const id of ['toolbar-icon-action','toolbar-icon-text-action']){const c=select(id,'toolbar-action');const options=optionsFor(c,{label:'工具',icon:'action/settings'});assert.deepEqual(ruleForOptions(c.logicalName,c.context,options).requiredOptions,c.fixed);}});
+
+test('Tree View omits zero counts independently for nested nodes', () => {
+ const html = renderTreeView({nodes:[{id:'workspace', label:'工作空间', trailing:0, children:[
+  {id:'zero',label:'零条新消息',trailing:0},
+  {id:'string-zero',label:'字符串零',trailing:'0'},
+  {id:'uncounted',label:'没有计数'},
+  {id:'positive',label:'有新消息',trailing:7},
+  {id:'string-positive',label:'字符串计数',trailing:'12'},
+ ]}]});
+ for (const label of ['工作空间','零条新消息','字符串零','没有计数']) {
+  assert.ok(html.includes(label+'</span></button>'), label);
+ }
+ assert.match(html, /有新消息<\/span><span [^>]*data-slot="trailing"[^>]*>7<\/span>/);
+ assert.match(html, /字符串计数<\/span><span [^>]*data-slot="trailing"[^>]*>12<\/span>/);
+ assert.equal([...html.matchAll(/data-slot="trailing"/g)].length,2);
+});

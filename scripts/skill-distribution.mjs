@@ -30,7 +30,7 @@ export function deliveryManifest(root){
 }
 function run(root,file,args=[]){const cp=spawnSync(process.execPath,[path.join(root,"scripts",file),...args],{cwd:root,encoding:"utf8"});if(cp.status!==0)throw new Error(file+"\n"+cp.stderr+cp.stdout);}
 function write(root){const m=deliveryManifest(root);fs.writeFileSync(path.join(root,".delivery-manifest.json"),JSON.stringify(m,null,2)+"\n");return m;}
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+if(process.argv[1]&&fs.realpathSync(process.argv[1])===fileURLToPath(import.meta.url)){
  const command=process.argv[2],args=process.argv.slice(3);const at=args.indexOf("--out");
  if(command==="manifest"){const m=write(ownRoot);console.log(JSON.stringify({ok:true,files:Object.keys(m.files).length,sourceDigest:m.sourceDigest}));}
  else if(command==="check"){const saved=JSON.parse(fs.readFileSync(path.join(ownRoot,".delivery-manifest.json")));if(JSON.stringify(saved)!==JSON.stringify(deliveryManifest(ownRoot)))throw new Error("Delivery manifest drift");console.log(JSON.stringify({ok:true}));}

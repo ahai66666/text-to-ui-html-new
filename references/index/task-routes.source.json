@@ -3,6 +3,7 @@
   "routes": [
     {
       "id": "communication-workbench",
+      "blockCandidates": ["grouped-mail-list", "collapsible-navigation-group", "titlebar-action-overflow"],
       "aliases": [
         "mail-workbench",
         "email-workbench",
@@ -62,6 +63,7 @@
     },
     {
       "id": "record-management-workbench",
+      "blockCandidates": ["grouped-mail-list", "collapsible-navigation-group", "titlebar-action-overflow"],
       "aliases": [
         "contacts",
         "tasks",
@@ -111,6 +113,7 @@
     },
     {
       "id": "dashboard-or-settings",
+      "blockCandidates": ["collapsible-navigation-group", "titlebar-action-overflow"],
       "aliases": [
         "dashboard",
         "settings",
@@ -157,6 +160,7 @@
     },
     {
       "id": "tool-workspace",
+      "blockCandidates": ["collapsible-navigation-group"],
       "aliases": [
         "file-manager",
         "editor",

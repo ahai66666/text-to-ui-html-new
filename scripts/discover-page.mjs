@@ -40,11 +40,11 @@ const titlebar={
 };
 const slots=pattern.slots.map(s=>{
  const contexts=[...new Set([...rules.filter(rule=>rule.requiredSlot===s.id).map(rule=>rule.context),...preset.segments.filter(segment=>segment.patternSlot===s.id).flatMap(segment=>segment.semanticContexts??[segment.semanticContext]).filter(Boolean)])];
- return {id:s.id,owner:s.owner,cardinality:s.cardinality,...(s.allowedComponentModes?{allowedComponentModes:s.allowedComponentModes}:{}),...(s.componentOwner?{componentOwner:s.componentOwner}:{}),...(contexts.length?{contexts}:{})};
+ return {id:s.id,owner:s.owner,cardinality:s.cardinality,...(s.placement?{placement:s.placement}:{}),...(s.allowedComponentModes?{allowedComponentModes:s.allowedComponentModes}:{}),...(s.componentOwner?{componentOwner:s.componentOwner}:{}),...(contexts.length?{contexts}:{})};
 });
 console.log(JSON.stringify({
  workflow:c.route.workflowRouteId,taskRoute:c.route.id,pattern:c.layout.id,defaultPattern:c.patternSelection.default,allowedPatterns:c.route.allowedPatterns,
  ...(c.patternSelection.base?{patternBase:c.patternSelection.base}:{}),alternativePatternRequiresReason:true,
  regions:pattern.paneOrder,geometry:{owner:pattern.geometry.owner,minimumWindow:pattern.minimumWindow,regions:Object.fromEntries(regions)},
- titlebar,slots,...(navigationModes.length?{navigationModes}:{})
+ titlebar,slots,...(c.blockCandidates ? {blockCandidates:c.blockCandidates} : {}),...(c.block ? {block:c.block} : {}),...(navigationModes.length?{navigationModes}:{})
 },null,pretty?2:0));

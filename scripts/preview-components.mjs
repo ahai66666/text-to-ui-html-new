@@ -37,6 +37,11 @@ const server = http.createServer(async (req, res) => {
       res.setHeader("Content-Type", types[".json"]);
       res.end(req.method === "HEAD" ? undefined : JSON.stringify({components,registryPolicy,readinessPolicy})); return;
     }
+    if (pathname === "/api/blocks") {
+      res.setHeader("Content-Type", types[".json"]);
+      res.end(req.method === "HEAD" ? undefined : await fs.readFile(path.join(root,"references/blocks/index.json")));
+      return;
+    }
     if (pathname === "/api/patterns") {
       res.setHeader("Content-Type", types[".json"]);
       res.end(req.method === "HEAD" ? undefined : await fs.readFile(path.join(root,"assets/design-system/pattern-contracts.json"))); return;

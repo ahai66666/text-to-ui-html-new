@@ -45,6 +45,6 @@ export function mount(host, api) {
  catch(error){fs.rmSync(dir,{recursive:true,force:true});fs.rmSync(file+'.module.tmp',{force:true});throw error;}
  return {ok:true,group,source,stylesheet,queriedCandidates:found.stdout.trim(),next:'Implement only the requested business handlers in this module. Reuse existing controls or api.renderComponent. Generate the same project; never create another HTML entry. Record actual rejected candidates if any.'};
 }
-if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url)){
+if(process.argv[1]&&fs.realpathSync(process.argv[1])===fileURLToPath(import.meta.url)){
  try{const a=process.argv.slice(2),cmd=a.shift(),v={};while(a.length){const k=a.shift();if(!['--project','--group','--name','--reason','--query'].includes(k)||!a.length)throw Error('Unknown/incomplete '+k);v[k.slice(2)]=a.shift();}if(cmd!=='init')throw Error('business-module.mjs init --project <dir> --group <id> --name <id> --reason <gap> --query <intent>');console.log(JSON.stringify(initBusinessModule(v),null,2));}catch(e){console.error(e.message);process.exitCode=1;}
 }

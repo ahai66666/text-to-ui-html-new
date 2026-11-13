@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "blocks": [
+    {
+      "id": "grouped-mail-list",
+      "title": "分组列表",
+      "workflows": [
+        "new-page",
+        "normalize-demo"
+      ],
+      "pattern": "pattern-b-three-pane",
+      "region": "secondary-list",
+      "when": "列表项需要按时间、状态或类别分组浏览，且组内对象可以选中时使用。",
+      "scenarios": [
+        {
+          "id": "time-groups",
+          "name": "按时间浏览",
+          "description": "如邮件、消息或活动记录，按今天、本周等时间段分组。"
+        },
+        {
+          "id": "status-groups",
+          "name": "按状态处理",
+          "description": "如任务、工单或审批记录，按待处理、进行中等状态分组。"
+        },
+        {
+          "id": "category-groups",
+          "name": "按类别查看",
+          "description": "如文件或资源，按类型或业务类别分组。"
+        }
+      ],
+      "rules": [
+        "每组有明确标题及独立的展开状态。收起包含当前项的组时保留选择，展开后仍显示原选中项。",
+        "列表项先呈现对象的主要识别信息，按任务补充时间、状态、负责人或摘要。长文本在实际栏宽下截断时，详情保留完整信息。",
+        "未读等业务状态与选中态分别表达。以稳定的对象 ID 管理选择；页面有详情区时，选中项与详情同步。分组标题和可选项支持键盘操作。",
+        "沿用当前 Pattern 的内容对齐与滚动区域。分组依据、字段和底部统计由项目需求决定。"
+      ],
+      "checks": [
+        "在目标栏宽内检查长文本截断，关键标识和辅助信息仍可读。",
+        "折叠、展开和键盘选中后，选择状态正确；页面有详情区时，确认它与列表一致。"
+      ]
+    },
+    {
+      "id": "collapsible-navigation-group",
+      "title": "可折叠导航分组",
+      "workflows": [
+        "new-page",
+        "normalize-demo"
+      ],
+      "patterns": [
+        "pattern-a-two-pane",
+        "pattern-b-three-pane",
+        "pattern-c-tool-workspace",
+        "pattern-d-inspector"
+      ],
+      "region": "primary-navigation",
+      "when": "左侧有带标题且可独立展开、收起的导航分组。",
+      "scenarios": [
+        {
+          "id": "workspace-groups",
+          "name": "按工作空间组织入口",
+          "description": "如按团队、项目或账号归组，每组包含对应的页面或目录入口。"
+        },
+        {
+          "id": "category-navigation",
+          "name": "按功能分类导航",
+          "description": "如设置模块、管理目录或资源分类，用户可独立展开所需分组。"
+        }
+      ],
+      "rules": [
+        "无标题时直接用 Sidebar Item 列表（Sidebar 的 items）。只有分类标题但无需折叠时，用普通标题配合 Sidebar Item。",
+        "有可折叠标题时，用 Sidebar 的 groups 复用 Collapsible 标题和 Sidebar Item。一个带标题的组也是一个 Block；多个组在同一个 Sidebar 中逐组声明。",
+        "点击组标题只切换该组展开状态；点击导航项才切换页面。收起当前项所在分组时保留选中状态，重新展开后继续显示选中项。",
+        "Block 范围是分组标题和组内导航项。品牌区、主操作和一级应用切换由 Pattern 管理。"
+      ],
+      "checks": [
+        "单组保留标题和折叠入口。",
+        "多个组能独立折叠，且同一个 Sidebar 内只有一个当前项。"
+      ]
+    },
+    {
+      "id": "titlebar-action-overflow",
+      "title": "Titlebar 操作组",
+      "workflows": ["new-page", "normalize-demo"],
+      "pattern": "pattern-b-three-pane",
+      "region": "main-detail",
+      "when": "当前对象有多项栏级操作，需要随标题栏可用宽度在按钮与「更多」菜单之间切换时使用。",
+      "scenarios": [
+        {
+          "id": "record-actions",
+          "name": "对象处理",
+          "description": "如处理记录、工单或审批项时提供编辑、分配、复制等操作。"
+        },
+        {
+          "id": "document-actions",
+          "name": "内容管理",
+          "description": "如查看文件或文档时提供保存、重命名、下载等操作。"
+        }
+      ],
+      "rules": [
+        "用页面顶层 detailActions 声明动作与对应的 behavior，顺序从高优先级到低优先级。已有显式 Titlebar 时也可使用 main-detail-actions 插槽，两种写法选一种。",
+        "同组业务按钮统一选择一种 buttonType。icon-text-ghost 显示图标和文字，icon 只显示图标并保留可访问名称。「更多」由 Titlebar 自动提供并排在可见业务按钮之后。",
+        "为系统窗口控件保留空间。宽度不足时，从最后一项开始逐个收进「更多」；宽度恢复时，按原顺序逐个显示。按钮不换行、不截断标签。",
+        "菜单只列出被收起的操作，保留原顺序和禁用状态。同一操作从按钮或菜单触发时执行同一个行为。"
+      ],
+      "checks": [
+        "分别在图标文字和纯图标样式下缩窄至只显示「更多」，再拉宽恢复全部业务按钮。检查按钮顺序及窗口控件位置。",
+        "打开「更多」检查菜单顺序，并确认同一操作在两种入口中执行一致。"
+      ]
+    }
+  ]
+}

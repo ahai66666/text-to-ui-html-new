@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import {catalog,select,ROOT} from './consumer-lib.mjs';
 import {pageTitlebarPolicy} from './titlebar-scene.mjs';
-import {readPatternRegistry} from './pattern-contract-lib.mjs';
+import {primaryNavigationItemUsage,readPatternRegistry} from './pattern-contract-lib.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
@@ -43,6 +43,8 @@ try {
     example.slots={'main-detail-actions':[{id:'delete',label:'删除',icon:'action/delete'}]};
     example.actionBehaviors={delete:'delete-current'};
    }
+   if (c.id === 'primary-navigation-item') console.log(primaryNavigationItemUsage);
+   if (c.keywords && c.summary !== c.logicalName) console.log(c.summary);
    console.log(`${c.id}${c.context?' / '+c.context:''}: ${c.keywords||c.summary}\n可写: ${open.map(([key,r])=>key+(r.enum?':'+r.enum.join('|'):r.type?':'+r.type:'')+(Object.hasOwn(r,'default')?'='+JSON.stringify(r.default):'')).join(', ')}\n插槽: ${c.slots.join(', ')||'无'}${c.requiredProps.length?'\n必填: '+c.requiredProps.join(', '):''}${c.requiredSlot?'\nPattern槽位: '+c.requiredSlot:''}${Object.keys(c.fixed).length?'\n固定（勿填写）: '+JSON.stringify(c.fixed):''}\n示例: ${JSON.stringify(example)}${slots.length?'\n插槽结构: '+slots.join(' / '):''}\n`);
   }
   if(flags.has('--since'))console.log(`接口增量: ${changed} 更新，${unchanged} 未变化；未变化项沿用已读接口。`);

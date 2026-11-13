@@ -3,7 +3,7 @@
   "generatedFrom": [
     {
       "path": "skill-support/assets/design-system/pattern-contracts.json",
-      "sha256": "358eb34da910a4f08591db6f9381b570d8f9b0dee054444a9c06e41d4e8aa52c"
+      "sha256": "424a016e831022a0786d496bc81e835bdad81dc03c1693cbb7fcd90c58fa9427"
     },
     {
       "path": "skill-support/references/index/layout-routes.source.json",
@@ -95,7 +95,7 @@
           {
             "id": "primary-navigation-shell",
             "owner": "primary-navigation",
-            "cardinality": "1"
+            "cardinality": "0..n"
           },
           {
             "id": "primary-navigation-footer",
@@ -104,6 +104,12 @@
             "allowedComponentModes": [
               "icon-text-ghost"
             ]
+          },
+          {
+            "id": "primary-navigation-bottom",
+            "owner": "primary-navigation",
+            "cardinality": "0..n",
+            "placement": "bottom"
           },
           {
             "id": "global-title-layer",
@@ -318,7 +324,8 @@
           {
             "id": "primary-navigation-bottom",
             "owner": "primary-navigation",
-            "cardinality": "0..n"
+            "cardinality": "0..n",
+            "placement": "bottom"
           },
           {
             "id": "secondary-list-title",
@@ -587,12 +594,18 @@
           {
             "id": "primary-navigation-shell",
             "owner": "primary-navigation",
-            "cardinality": "1"
+            "cardinality": "0..n"
           },
           {
             "id": "global-title-layer",
             "owner": "page",
             "cardinality": "1"
+          },
+          {
+            "id": "primary-navigation-bottom",
+            "owner": "primary-navigation",
+            "cardinality": "0..n",
+            "placement": "bottom"
           },
           {
             "id": "workspace-toolbar",
@@ -800,6 +813,12 @@
             "id": "global-title-layer",
             "owner": "page",
             "cardinality": "1"
+          },
+          {
+            "id": "primary-navigation-bottom",
+            "owner": "primary-navigation",
+            "cardinality": "0..n",
+            "placement": "bottom"
           },
           {
             "id": "inspector-toggle",

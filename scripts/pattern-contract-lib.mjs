@@ -9,6 +9,15 @@ export function readPatternRegistry(file = defaultPatternRegistryPath) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
+export const primaryNavigationItemUsage = "一级入口有 2–4 个时使用 Primary Navigation Item，由 Pattern 放在左侧导航栏底部，独立于菜单滚动。单入口省略一级导航项。超过 4 个时重新规划一级导航。";
+
+export function primaryNavigationItemCountError(count) {
+  if (count !== 0 && (count < 2 || count > 4)) {
+    return `PRIMARY_NAVIGATION_ITEM_COUNT: found ${count}. ${primaryNavigationItemUsage}`;
+  }
+  return null;
+}
+
 export function navigationSlotRequired(pattern, slot) {
   const cardinality = pattern.slots.find((entry) => entry.id === slot.id)?.cardinality;
   return slot.required ?? (Boolean(slot.requiredSemanticContexts?.length) || cardinality?.startsWith("1") === true);

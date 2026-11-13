@@ -136,6 +136,7 @@
       "context": "primary-navigation-shell",
       "logicalName": "Primary Navigation Item/Level 1",
       "rendererKey": "primary-navigation-item",
+      "requiredSlot": "primary-navigation-bottom",
       "requiredOptions": {},
       "forbiddenLogicalNames": [
         "Sidebar Item/Default"

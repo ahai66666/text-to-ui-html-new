@@ -391,23 +391,6 @@
   background: var(--color-surface, #fff);
 }
 
-/* A Secondary Page Skeleton represents the full Titlebar slot. The generic
-   slot placeholder is intentionally compact for ordinary content slots, but
-   it must not collapse a shell-owned titlebar to a 260px content block. */
-.tui-secondary-page-runtime--continuation > .tui-secondary-page-runtime__titlebar > .tui-secondary-page-runtime__slot-placeholder {
-  width: 100%;
-  height: var(--layout-titlebar-height, 64px);
-  min-height: var(--layout-titlebar-height, 64px);
-  border-radius: 0;
-}
-
-.tui-secondary-page-runtime--new-page > .tui-secondary-page-runtime__titlebar > .tui-secondary-page-runtime__slot-placeholder {
-  width: 100%;
-  height: var(--layout-titlebar-height-small, 40px);
-  min-height: var(--layout-titlebar-height-small, 40px);
-  border-radius: 0;
-}
-
 .secondary-page-runtime-content {
   display: grid;
   gap: var(--space-5);

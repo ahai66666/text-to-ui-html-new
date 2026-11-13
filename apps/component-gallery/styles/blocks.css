@@ -1,0 +1,62 @@
+.block-preview-card {
+  margin-block-end: var(--space-6);
+  scroll-margin-block-start: calc(var(--height-titlebar-lg) + var(--space-5));
+}
+.block-preview-card h4 { margin: 0; font-size: var(--type-title-s-size); }
+.block-preview-controls {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-block: var(--space-4);
+}
+.block-demo-frame {
+  width: min(100%, var(--block-demo-pane-width, var(--layout-secondary-pane-width)));
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-3);
+}
+.block-demo-frame--narrow { --block-demo-pane-width: 300px; }
+.block-demo-scroll {
+  max-height: 380px;
+  overflow: auto;
+  padding: var(--space-3) var(--layout-secondary-list-card-inset-x) var(--space-5);
+}
+.block-preview-rules { margin-block-start: var(--space-4); }
+.block-preview-rules summary { cursor: pointer; }
+.block-preview-rules h5 { margin-block: var(--space-4) var(--space-2); font-size: var(--type-body-m-size); }
+.block-preview-rules ul { margin-block: var(--space-1); padding-inline-start: var(--space-5); }
+.block-preview-rules li { margin-block: var(--space-2); }
+
+.block-navigation-example {
+  box-sizing: border-box;
+  width: min(100%, var(--layout-sidebar-width));
+  margin-block-start: var(--space-4);
+  padding: var(--layout-sidebar-padding-y) var(--layout-sidebar-padding-x);
+  background: var(--color-sidebar-bg);
+  border-radius: var(--radius-3);
+}
+
+.block-titlebar-styles { margin-block-end: var(--space-3); }
+.block-titlebar-width {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-block-end: var(--space-3);
+}
+.block-titlebar-width input { min-width: 0; width: min(45%, 240px); accent-color: var(--color-brand-100); }
+.block-titlebar-width-value { color: var(--color-text-muted); font-variant-numeric: tabular-nums; }
+.block-titlebar-example {
+  width: min(100%, var(--block-titlebar-width));
+  container-type: inline-size;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-3);
+}
+@container (max-width: 216px) {
+  .block-titlebar-example .tui-titlebar__overflow-menu {
+    inset-inline: 0 auto;
+  }
+}
+.block-titlebar-action-status { margin: var(--space-3) 0 0; color: var(--color-text-muted); }
+.block-titlebar-action-status:empty { margin: 0; }

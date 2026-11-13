@@ -1027,10 +1027,23 @@ body { overflow: hidden; }
 .tui-search:has(.tui-search__scope) { gap: 0; padding: 0; border: 0; }
 .tui-search[data-surface="gray"] { background: var(--color-input-bg-on-subtle); }
 .tui-search:not([data-surface="gray"]) { background: var(--color-input-bg-on-default); }
-.tui-search:not(:has(.tui-search__scope)):hover:not([data-state="disabled"]) { background: var(--color-neutral-dark-05); }
-.tui-search[data-surface="gray"]:not(:has(.tui-search__scope)):hover:not([data-state="disabled"]) { background: linear-gradient(var(--color-input-hover-bg-on-subtle-layer), var(--color-input-hover-bg-on-subtle-layer)), var(--color-input-bg-on-subtle); }
 .tui-search:not(:has(.tui-search__scope)):focus-within { background: var(--color-input-focus-bg-on-default); }
 .tui-search[data-surface="gray"]:not(:has(.tui-search__scope)):focus-within { background: var(--color-input-focus-bg-on-subtle); }
+/* Without a scope selector, hover and pressed layers include the root's inline padding. */
+.tui-search:not([data-surface="gray"]):not(:has(.tui-search__scope)):is(:hover:not([data-state="disabled"]), [data-state="hover-right"]) {
+  background-image: linear-gradient(var(--color-neutral-dark-05), var(--color-neutral-dark-05));
+}
+.tui-search[data-surface="gray"]:not(:has(.tui-search__scope)):is(:hover:not([data-state="disabled"]), [data-state="hover-right"]) {
+  background-image: linear-gradient(var(--color-input-hover-bg-on-subtle-layer), var(--color-input-hover-bg-on-subtle-layer));
+  box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle);
+}
+.tui-search:not([data-surface="gray"]):not(:has(.tui-search__scope)):is(:active:not([data-state="disabled"]), [data-state="pressed-right"]) {
+  background-image: linear-gradient(var(--color-neutral-dark-15), var(--color-neutral-dark-15));
+}
+.tui-search[data-surface="gray"]:not(:has(.tui-search__scope)):is(:active:not([data-state="disabled"]), [data-state="pressed-right"]) {
+  background-image: linear-gradient(var(--color-neutral-dark-10), var(--color-neutral-dark-10));
+  box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle);
+}
 /* Tag Entry has no whole-control hover surface or expanding hit-area feedback. */
 .tui-input--tag-entry:hover, .tui-input--tag-entry[data-state="hover"] { background: var(--color-input-bg-on-default); border: 1px solid transparent; padding-inline: var(--padding-search-x); }
 .tui-input--tag-entry[data-surface="gray"]:hover, .tui-input--tag-entry[data-surface="gray"][data-state="hover"] { background: var(--color-input-bg-on-subtle); border: 1px solid transparent; padding-inline: var(--padding-search-x); }
@@ -1057,24 +1070,26 @@ body { overflow: hidden; }
    local layer and a white 2px outline. */
 .tui-search:not([data-surface="gray"]):not([data-state="disabled"]):has(.tui-search__scope:hover) > .tui-search__scope,
 .tui-search:not([data-surface="gray"])[data-state="hover-left"] > .tui-search__scope { background: var(--color-neutral-dark-05); }
-.tui-search:not([data-surface="gray"]):not([data-state="disabled"]):not(:has(.tui-search__scope)) > .tui-search__input-region:hover { background: var(--color-neutral-dark-05); }
 .tui-search[data-surface="gray"]:not([data-state="disabled"]):has(.tui-search__scope:hover) > .tui-search__scope,
-.tui-search[data-surface="gray"][data-state="hover-left"] > .tui-search__scope,
-.tui-search[data-surface="gray"]:not([data-state="disabled"]):not(:has(.tui-search__scope)) > .tui-search__input-region:hover { background: var(--color-input-hover-bg-on-subtle-layer); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
-.tui-search:not([data-surface="gray"]):not([data-state="disabled"]):has(.tui-search__input-region:hover) > .tui-search__input-region,
-.tui-search:not([data-surface="gray"])[data-state="hover-right"] > .tui-search__input-region { background: var(--color-neutral-dark-05); }
-.tui-search[data-surface="gray"]:not([data-state="disabled"]):has(.tui-search__input-region:hover) > .tui-search__input-region,
-.tui-search[data-surface="gray"][data-state="hover-right"] > .tui-search__input-region { background: var(--color-input-hover-bg-on-subtle-layer); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
+.tui-search[data-surface="gray"][data-state="hover-left"] > .tui-search__scope { background: var(--color-input-hover-bg-on-subtle-layer); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
+.tui-search:has(.tui-search__scope):not([data-surface="gray"]):is(:not([data-state="disabled"]):has(.tui-search__input-region:hover), [data-state="hover-right"]) > .tui-search__input-region {
+  background: var(--color-neutral-dark-05);
+}
+.tui-search:has(.tui-search__scope)[data-surface="gray"]:is(:not([data-state="disabled"]):has(.tui-search__input-region:hover), [data-state="hover-right"]) > .tui-search__input-region {
+  background: var(--color-input-hover-bg-on-subtle-layer);
+  box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle);
+}
 .tui-search:not([data-surface="gray"]):not([data-state="disabled"]):has(.tui-search__scope .tui-advanced-menu__trigger:active) > .tui-search__scope,
-.tui-search:not([data-surface="gray"])[data-state="pressed-left"] > .tui-search__scope,
-.tui-search:not([data-surface="gray"]):not([data-state="disabled"]):not(:has(.tui-search__scope)) > .tui-search__input-region:has(:active) { background: var(--color-neutral-dark-15); }
+.tui-search:not([data-surface="gray"])[data-state="pressed-left"] > .tui-search__scope { background: var(--color-neutral-dark-15); }
 .tui-search[data-surface="gray"]:not([data-state="disabled"]):has(.tui-search__scope .tui-advanced-menu__trigger:active) > .tui-search__scope,
-.tui-search[data-surface="gray"][data-state="pressed-left"] > .tui-search__scope,
-.tui-search[data-surface="gray"]:not([data-state="disabled"]):not(:has(.tui-search__scope)) > .tui-search__input-region:has(:active) { background: var(--color-neutral-dark-10); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
-.tui-search:not([data-surface="gray"]):not([data-state="disabled"]):has(.tui-search__input-region :active) > .tui-search__input-region,
-.tui-search:not([data-surface="gray"])[data-state="pressed-right"] > .tui-search__input-region { background: var(--color-neutral-dark-15); }
-.tui-search[data-surface="gray"]:not([data-state="disabled"]):has(.tui-search__input-region :active) > .tui-search__input-region,
-.tui-search[data-surface="gray"][data-state="pressed-right"] > .tui-search__input-region { background: var(--color-neutral-dark-10); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
+.tui-search[data-surface="gray"][data-state="pressed-left"] > .tui-search__scope { background: var(--color-neutral-dark-10); box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle); }
+.tui-search:has(.tui-search__scope):not([data-surface="gray"]):is(:not([data-state="disabled"]):has(.tui-search__input-region :active), [data-state="pressed-right"]) > .tui-search__input-region {
+  background: var(--color-neutral-dark-15);
+}
+.tui-search:has(.tui-search__scope)[data-surface="gray"]:is(:not([data-state="disabled"]):has(.tui-search__input-region :active), [data-state="pressed-right"]) > .tui-search__input-region {
+  background: var(--color-neutral-dark-10);
+  box-shadow: inset 0 0 0 2px var(--color-input-hover-border-on-subtle);
+}
 .tui-input[data-state="error"] { border-color: var(--color-input-error-border); }
 .tui-input[data-state="disabled"], .tui-search[data-state="disabled"], .tui-input:has(input:disabled), .tui-search:has(input:disabled) { opacity: var(--state-disabled-opacity); }
 .tui-input input, .tui-search input { min-width: 0; flex: 1; padding: 0; border: 0; outline: 0; color: inherit; background: transparent; font-family: var(--font-sans); font-size: var(--type-body-l-size); line-height: var(--type-body-l-leading); font-weight: var(--type-body-l-weight); }
@@ -2154,15 +2169,16 @@ body { overflow: hidden; }
 
 .tui-pattern-runtime__pane--navigation {
   background: var(--color-sidebar-bg, #f7f8fa);
-}
-
-/* Pattern A: action above Sidebar, configurable footer outside scrolling. */
-[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation {
   display: flex;
   flex-direction: column;
 }
-[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
+
+.tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
   flex: 1 1 auto;
+}
+
+/* Pattern A: action above Sidebar, configurable footer outside scrolling. */
+[data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__scroll-body {
   padding-block-start: var(--space-3, 8px);
 }
 [data-pattern="pattern-a-two-pane"] .tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="global-primary-action"] {
@@ -2177,8 +2193,6 @@ body { overflow: hidden; }
 }
 
 [data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__pane--navigation {
-  display: flex;
-  flex-direction: column;
   padding-block-start: var(--space-3, 8px);
 }
 /* `data-pattern-shell-slot` remains on this wrapper for compatibility with
@@ -2204,24 +2218,6 @@ body { overflow: hidden; }
   overscroll-behavior: contain;
   mask-image: linear-gradient(to bottom, #000 calc(100% - var(--space-5, 16px)), transparent);
 }
-[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
-  padding-block-start: var(--space-3, 8px);
-}
-[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > nav {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-}
-[data-pattern="pattern-b-three-pane"] .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > span {
-  display: flex;
-  flex: 1 1 0;
-  justify-content: center;
-}
-
 .tui-pattern-runtime__pane--navigation > .tui-pattern-runtime__pane-title {
   padding-inline: 0;
 }
@@ -2320,8 +2316,23 @@ body { overflow: hidden; }
 }
 
 .tui-pattern-runtime__pane--navigation .tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
   padding-inline: var(--layout-sidebar-padding-x, var(--space-3, 12px));
-  padding-block-end: var(--space-3, 8px);
+  padding-block: var(--space-3, 8px);
+}
+
+.tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > nav {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.tui-pattern-runtime__slot[data-pattern-slot="primary-navigation-bottom"] > span {
+  display: flex;
+  flex: 1 1 0;
+  justify-content: center;
 }
 
 .tui-pattern-runtime__pane--content .tui-pattern-runtime__slot[data-pattern-slot="global-title-layer"],
@@ -2501,13 +2512,6 @@ function mountGeneratedPage(root = document.querySelector("#app")) {
   const patternRoot = root.querySelector("[data-tui-pattern]");
   if (!patternRoot) throw new Error("Generated Pattern root was not found");
   const cleanups = [];
-  // Titlebar main-detail actions are responsive: the renderer keeps the
-  // More trigger visible and this adapter collapses trailing business actions
-  // into its menu before they can overlap the fixed window controls. Keep the
-  // behavior in the generated entry so every HTML page gets the same runtime
-  // contract instead of relying on page-owned scripts to remember it.
-  const titlebarOverflowCleanup = bindTitlebarOverflow(root);
-  if (typeof titlebarOverflowCleanup === "function") cleanups.push(titlebarOverflowCleanup);
   const inputTagEntryCleanup = bindInputTagEntry(root);
   if (typeof inputTagEntryCleanup === "function") cleanups.push(inputTagEntryCleanup);
   const behaviors = new Map(behaviorPlan.interactions.map((item) => [item.id, item]));
@@ -2542,6 +2546,7 @@ function mountGeneratedPage(root = document.querySelector("#app")) {
     }
     root.dispatchEvent(new CustomEvent("text-to-ui:behavior", { bubbles: true, detail: { behaviorId: behavior.id, outcome: behavior.outcome, plan: behaviorPlan } }));
   };
+  cleanups.push(bindTitlebarOverflow(root, { onAction: (_id, _item, event) => execute(event) }));
   for (const type of ["click", "input", "change"]) root.addEventListener(type, execute);
 
   const colorReferences = bindColorReferences(root);
@@ -2570,7 +2575,7 @@ Object.defineProperty(__exports,"mountGeneratedPage",{enumerable:true,get:()=>mo
 },
 2:(__exports,__require)=>{
 const renderHtmlComponent=__require(3)["renderHtmlComponent"];
-const renderPatternHtml=__require(34)["renderPatternHtml"];
+const renderPatternHtml=__require(32)["renderPatternHtml"];
 
 
 
@@ -2578,8 +2583,8 @@ const patternContract = {
   "id": "pattern-a-two-pane",
   "source": "assets/design-system/pattern-contracts.json",
   "schemaVersion": 1,
-  "patternDigest": "248df2de904cdaa845d6c1469ea805ba2164e61a83592bb78495c2459bf89beb",
-  "structureDigest": "6ca27f6cecbc1ddaa8c352cd9b5c7b8197cb443cf5cb204664736b53a0efba8a"
+  "patternDigest": "c0c5136a27c8c4e04050def507b24005fd07ef0dc382e6d569678f740f2f4156",
+  "structureDigest": "92bb6c77becd2c18ee4f1f00914cdc2dc2931d760081293de5613d4a0afb4260"
 };
 const titlebarScene = {
   "schemaVersion": 1,
@@ -2700,7 +2705,7 @@ const runtimePatternContract = {
     {
       "id": "primary-navigation-shell",
       "owner": "primary-navigation",
-      "cardinality": "1"
+      "cardinality": "0..n"
     },
     {
       "id": "primary-navigation-footer",
@@ -2709,6 +2714,12 @@ const runtimePatternContract = {
       "allowedComponentModes": [
         "icon-text-ghost"
       ]
+    },
+    {
+      "id": "primary-navigation-bottom",
+      "owner": "primary-navigation",
+      "cardinality": "0..n",
+      "placement": "bottom"
     },
     {
       "id": "global-title-layer",
@@ -2820,7 +2831,7 @@ const pageBlueprint = {
   "regions": [
     {
       "id": "primary-navigation",
-      "purpose": "设置导航"
+      "purpose": "primary-navigation"
     },
     {
       "id": "main-content",
@@ -2832,14 +2843,6 @@ const pageBlueprint = {
       "id": "system-shell",
       "region": "primary-navigation",
       "purpose": "设置",
-      "dataEntities": [
-        "preference"
-      ]
-    },
-    {
-      "id": "navigation",
-      "region": "primary-navigation",
-      "purpose": "设置导航",
       "dataEntities": [
         "preference"
       ]
@@ -2864,16 +2867,9 @@ const pageBlueprint = {
   ],
   "interactions": [
     {
-      "id": "navigate",
-      "trigger": "component-native",
-      "stateChange": "选择设置导航",
-      "taskOutcome": "选择设置导航"
-    },
-    {
       "id": "toggle-status",
       "sourceGroup": "preferences",
       "trigger": "toggle-hidden",
-      "stateChange": "切换提示显示",
       "taskOutcome": "切换提示显示"
     }
   ],
@@ -2882,8 +2878,6 @@ const pageBlueprint = {
       "id": "default",
       "kind": "default",
       "appliesTo": [
-        "system-shell",
-        "navigation",
         "preferences"
       ]
     }
@@ -2912,16 +2906,6 @@ const pageContentRecipes = {
       ]
     },
     {
-      "id": "navigation-recipe",
-      "contentGroupId": "navigation",
-      "region": "primary-navigation",
-      "compositionId": "navigation",
-      "kind": "registered-composition",
-      "bindingIds": [
-        "nav"
-      ]
-    },
-    {
       "id": "preferences-recipe",
       "contentGroupId": "preferences",
       "region": "main-content",
@@ -2936,15 +2920,6 @@ const pageContentRecipes = {
 const stylePlan = {
   "schemaVersion": 1,
   "compositions": [
-    {
-      "id": "navigation",
-      "region": "primary-navigation",
-      "className": "tui-business-stack",
-      "tokenRoles": [
-        "space/5"
-      ],
-      "componentBoundary": "preserve"
-    },
     {
       "id": "preferences",
       "region": "main-content",
@@ -2968,14 +2943,6 @@ const behaviorPlan = {
   "schemaVersion": 1,
   "interactions": [
     {
-      "id": "navigate",
-      "kind": "component-native",
-      "outcome": "选择设置导航",
-      "triggerBindingIds": [
-        "nav"
-      ]
-    },
-    {
       "id": "toggle-status",
       "kind": "toggle-hidden",
       "sourceGroup": "preferences",
@@ -2992,13 +2959,12 @@ function renderGeneratedPage() {
     contract: runtimePatternContract,
     mode: "runtime",
     framework: "html",
-    structureDigest: "6ca27f6cecbc1ddaa8c352cd9b5c7b8197cb443cf5cb204664736b53a0efba8a",
+    structureDigest: "92bb6c77becd2c18ee4f1f00914cdc2dc2931d760081293de5613d4a0afb4260",
     slots: {
-    "global-title-layer": renderHtmlComponent("titlebar", {"label":"设置","layout":"two-column","segmentRole":"global","size":"large"}),
-    "primary-navigation-shell": "<span data-tui-behavior=\"navigate\">" + renderHtmlComponent("primary-navigation-item", {"label":"设置","icon":"action/settings","selected":true}) + "</span>"
+    "global-title-layer": renderHtmlComponent("titlebar", {"label":"设置","layout":"two-column","segmentRole":"global","size":"large"})
     },
     regionContent: {
-    "primary-navigation": "<div data-composition-id=\"system-shell\" data-content-recipe=\"system-shell-recipe\">" + "" + "</div>" + "<div data-composition-id=\"navigation\" data-content-recipe=\"navigation-recipe\" class=\"tui-business-stack\">" + "" + "</div>",
+    "primary-navigation": "<div data-composition-id=\"system-shell\" data-content-recipe=\"system-shell-recipe\">" + "" + "</div>",
     "main-content": "<div data-composition-id=\"preferences\" data-content-recipe=\"preferences-recipe\" class=\"tui-business-stack\">" + "<p data-composition-id=\"status\">动态组件已加载</p>" + "<span data-tui-behavior=\"toggle-status\">" + renderHtmlComponent("button", {"label":"切换提示","variant":"primary","size":"standard","mode":"text"}) + "</span>" + "</div>"
     }
   });
@@ -3016,7 +2982,6 @@ Object.defineProperty(__exports,"renderGeneratedPage",{enumerable:true,get:()=>r
 3:(__exports,__require)=>{
 const render0=__require(4)["render"];
 const render1=__require(11)["render"];
-const render2=__require(13)["render"];
 
 
 
@@ -3025,20 +2990,19 @@ const render2=__require(13)["render"];
 
 
 
-
-const components = Object.freeze({ "button": render0, "primary-navigation-item": render1, "titlebar": render2 });
+const components = Object.freeze({ "button": render0, "titlebar": render1 });
 const selectedComponentIds = Object.freeze(Object.keys(components));
 function renderHtmlComponent(id, options = {}) {
   if (!Object.hasOwn(components, id)) throw new Error("Component is not prepared for this page: " + id);
   return components[id](options);
 }
 
-Object.defineProperty(__exports,"bindColorReferences",{enumerable:true,get:()=>__require(23)["bindColorReferences"]});
-Object.defineProperty(__exports,"selectSidebarItem",{enumerable:true,get:()=>__require(26)["selectSidebarItem"]});
-Object.defineProperty(__exports,"toggleDisclosure",{enumerable:true,get:()=>__require(27)["toggleDisclosure"]});
-Object.defineProperty(__exports,"collectHtmlComponentEvidence",{enumerable:true,get:()=>__require(28)["collectHtmlComponentEvidence"]});
-Object.defineProperty(__exports,"bindInputTagEntry",{enumerable:true,get:()=>__require(31)["bindInputTagEntry"]});
-Object.defineProperty(__exports,"bindTitlebarOverflow",{enumerable:true,get:()=>__require(33)["bindTitlebarOverflow"]});
+Object.defineProperty(__exports,"bindColorReferences",{enumerable:true,get:()=>__require(21)["bindColorReferences"]});
+Object.defineProperty(__exports,"selectSidebarItem",{enumerable:true,get:()=>__require(24)["selectSidebarItem"]});
+Object.defineProperty(__exports,"toggleDisclosure",{enumerable:true,get:()=>__require(25)["toggleDisclosure"]});
+Object.defineProperty(__exports,"collectHtmlComponentEvidence",{enumerable:true,get:()=>__require(26)["collectHtmlComponentEvidence"]});
+Object.defineProperty(__exports,"bindInputTagEntry",{enumerable:true,get:()=>__require(29)["bindInputTagEntry"]});
+Object.defineProperty(__exports,"bindTitlebarOverflow",{enumerable:true,get:()=>__require(31)["bindTitlebarOverflow"]});
 Object.defineProperty(__exports,"selectedComponentIds",{enumerable:true,get:()=>selectedComponentIds});
 Object.defineProperty(__exports,"renderHtmlComponent",{enumerable:true,get:()=>renderHtmlComponent});
 },
@@ -3607,57 +3571,6 @@ Object.defineProperty(__exports,"attrs",{enumerable:true,get:()=>attrs});
 11:(__exports,__require)=>{
 const renderComponent=__require(12)["render"];
 
-const componentId = "primary-navigation-item";
-const logicalName = "Primary Navigation Item/Level 1";
-const render = (options = {}) => renderComponent(options);
-const __default=render;
-
-Object.defineProperty(__exports,"componentId",{enumerable:true,get:()=>componentId});
-Object.defineProperty(__exports,"logicalName",{enumerable:true,get:()=>logicalName});
-Object.defineProperty(__exports,"render",{enumerable:true,get:()=>render});
-__exports.default=__default;
-},
-12:(__exports,__require)=>{
-const renderMarkup=__require(6)["renderMarkup"];
-const escapeHtml=__require(7)["escapeHtml"];
-const attrs=__require(10)["attrs"];
-const icon=__require(8)["icon"];
-
-
-
-
-
-const primaryNavigationIconAliases = Object.freeze({
-  "primary-level/overview": "navigation/grid",
-  "primary-level/calendar": "field/calendar",
-  "primary-level/contacts": "navigation/contacts",
-  "primary-level/mail": "navigation/mail-unread",
-  "primary-level/settings": "action/settings"
-});
-
-const resolvePrimaryNavigationIcon = (name) => primaryNavigationIconAliases[name] ?? name;
-
-const primaryNavigationItemState = ({ label = "项目", ariaLabel = label, iconName, icon: semanticIcon = "navigation/grid", selected = false, disabled = false, state = "default", className = "" } = {}) => {
-  const resolvedState = disabled ? "disabled" : selected ? "selected" : state;
-  const iconAlias = resolvePrimaryNavigationIcon(iconName ?? semanticIcon);
-  return `<button class="tui-component tui-primary-navigation-item${className ? ` ${escapeHtml(className)}` : ""}" type="button" ${attrs("primary-navigation-item", "Primary Navigation Item/Level 1", selected ? "selected" : "default", resolvedState, ` data-placement="primary-navigation-shell" data-mode="icon-only"`)} aria-label="${escapeHtml(ariaLabel)}" aria-pressed="${selected}"${disabled ? " disabled" : ""}><span data-slot="icon">${icon(iconAlias, "", { size: 24 })}</span></button>`;
-};
-
-const componentId = "primary-navigation-item";
-const renderer = (options = {}) => primaryNavigationItemState(options);
-const render = (options) => renderMarkup(componentId, options, renderer);
-const __default=render;
-
-Object.defineProperty(__exports,"primaryNavigationIconAliases",{enumerable:true,get:()=>primaryNavigationIconAliases});
-Object.defineProperty(__exports,"resolvePrimaryNavigationIcon",{enumerable:true,get:()=>resolvePrimaryNavigationIcon});
-Object.defineProperty(__exports,"primaryNavigationItemState",{enumerable:true,get:()=>primaryNavigationItemState});
-Object.defineProperty(__exports,"componentId",{enumerable:true,get:()=>componentId});
-Object.defineProperty(__exports,"render",{enumerable:true,get:()=>render});
-__exports.default=__default;
-},
-13:(__exports,__require)=>{
-const renderComponent=__require(14)["render"];
-
 const componentId = "titlebar";
 const logicalName = "Titlebar/Default";
 const render = (options = {}) => renderComponent(options);
@@ -3668,15 +3581,15 @@ Object.defineProperty(__exports,"logicalName",{enumerable:true,get:()=>logicalNa
 Object.defineProperty(__exports,"render",{enumerable:true,get:()=>render});
 __exports.default=__default;
 },
-14:(__exports,__require)=>{
+12:(__exports,__require)=>{
 const renderMarkup=__require(6)["renderMarkup"];
-const resolveTitlebarSegment=__require(15)["resolveTitlebarSegment"];
+const resolveTitlebarSegment=__require(13)["resolveTitlebarSegment"];
 const escapeHtml=__require(7)["escapeHtml"];
 const renderButton=__require(5)["renderButton"];
 const attrs=__require(10)["attrs"];
 const buttonContent=__require(5)["buttonContent"];
 const icon=__require(8)["icon"];
-const searchState=__require(16)["searchState"];
+const searchState=__require(14)["searchState"];
 
 
 
@@ -3777,7 +3690,7 @@ Object.defineProperty(__exports,"componentId",{enumerable:true,get:()=>component
 Object.defineProperty(__exports,"render",{enumerable:true,get:()=>render});
 __exports.default=__default;
 },
-15:(__exports,__require)=>{
+13:(__exports,__require)=>{
 
 /** The Pattern owns segment order/width; this contract owns segment content. */
 function resolveTitlebarSegment(options = {}) {
@@ -3869,10 +3782,10 @@ Object.defineProperty(__exports,"resolveTitlebarSegment",{enumerable:true,get:()
 Object.defineProperty(__exports,"createTitlebarSegments",{enumerable:true,get:()=>createTitlebarSegments});
 Object.defineProperty(__exports,"createTitlebarPreviewScenes",{enumerable:true,get:()=>createTitlebarPreviewScenes});
 },
-16:(__exports,__require)=>{
+14:(__exports,__require)=>{
 const renderMarkup=__require(6)["renderMarkup"];
 const escapeHtml=__require(7)["escapeHtml"];
-const dropdownMenu=__require(17)["dropdownMenu"];
+const dropdownMenu=__require(15)["dropdownMenu"];
 const attrs=__require(10)["attrs"];
 const icon=__require(8)["icon"];
 
@@ -3908,9 +3821,9 @@ Object.defineProperty(__exports,"componentId",{enumerable:true,get:()=>component
 Object.defineProperty(__exports,"render",{enumerable:true,get:()=>render});
 __exports.default=__default;
 },
-17:(__exports,__require)=>{
+15:(__exports,__require)=>{
 const renderMarkup=__require(6)["renderMarkup"];
-const menuComponent=__require(18)["menuComponent"];
+const menuComponent=__require(16)["menuComponent"];
 
 
 
@@ -3926,11 +3839,11 @@ Object.defineProperty(__exports,"componentId",{enumerable:true,get:()=>component
 Object.defineProperty(__exports,"render",{enumerable:true,get:()=>render});
 __exports.default=__default;
 },
-18:(__exports,__require)=>{
-const escapeHtml=__require(19)["escapeHtml"];
-const attrs=__require(20)["attrs"];
-const icon=__require(21)["icon"];
-const menu=__require(22)["menu"];
+16:(__exports,__require)=>{
+const escapeHtml=__require(17)["escapeHtml"];
+const attrs=__require(18)["attrs"];
+const icon=__require(19)["icon"];
+const menu=__require(20)["menu"];
 
 
 
@@ -3940,7 +3853,7 @@ const menuComponent = (id, logicalName, label, value, items, { className = "", s
 
 Object.defineProperty(__exports,"menuComponent",{enumerable:true,get:()=>menuComponent});
 },
-19:(__exports,__require)=>{
+17:(__exports,__require)=>{
 
 
 const escapeHtml = (value = "") => String(value)
@@ -3952,7 +3865,7 @@ const escapeHtml = (value = "") => String(value)
 
 Object.defineProperty(__exports,"escapeHtml",{enumerable:true,get:()=>escapeHtml});
 },
-20:(__exports,__require)=>{
+18:(__exports,__require)=>{
 
 
 const attrs = (id, logicalName, variant = "default", state = "default", extra = "") =>
@@ -3960,7 +3873,7 @@ const attrs = (id, logicalName, variant = "default", state = "default", extra = 
 
 Object.defineProperty(__exports,"attrs",{enumerable:true,get:()=>attrs});
 },
-21:(__exports,__require)=>{
+19:(__exports,__require)=>{
 const iconMarkup=__require(9)["iconMarkup"];
 
 
@@ -3968,9 +3881,9 @@ const icon = (name, size = 20, kind = "auto") => iconMarkup(name, { size, kind }
 
 Object.defineProperty(__exports,"icon",{enumerable:true,get:()=>icon});
 },
-22:(__exports,__require)=>{
-const icon=__require(21)["icon"];
-const escapeHtml=__require(19)["escapeHtml"];
+20:(__exports,__require)=>{
+const icon=__require(19)["icon"];
+const escapeHtml=__require(17)["escapeHtml"];
 
 
 
@@ -3991,11 +3904,11 @@ const menu = (items, { scopeOptions = false, selectedValue = "" } = {}) => items
 
 Object.defineProperty(__exports,"menu",{enumerable:true,get:()=>menu});
 },
-23:(__exports,__require)=>{
-const variableReferences=__require(24)["variableReferences"];
-const colorReferenceClass=__require(24)["colorReferenceClass"];
-const projectColorSelectors=__require(24)["projectColorSelectors"];
-const canonicalColorVariables=__require(25)["canonicalColorVariables"];
+21:(__exports,__require)=>{
+const variableReferences=__require(22)["variableReferences"];
+const colorReferenceClass=__require(22)["colorReferenceClass"];
+const projectColorSelectors=__require(22)["projectColorSelectors"];
+const canonicalColorVariables=__require(23)["canonicalColorVariables"];
 
 
 
@@ -4152,12 +4065,12 @@ function bindColorReferences(root, { colorVariables = [] } = {}) {
   return controller;
 }
 
-Object.defineProperty(__exports,"variableReferences",{enumerable:true,get:()=>__require(24)["variableReferences"]});
-Object.defineProperty(__exports,"colorReferenceClass",{enumerable:true,get:()=>__require(24)["colorReferenceClass"]});
-Object.defineProperty(__exports,"projectColorSelectors",{enumerable:true,get:()=>__require(24)["projectColorSelectors"]});
+Object.defineProperty(__exports,"variableReferences",{enumerable:true,get:()=>__require(22)["variableReferences"]});
+Object.defineProperty(__exports,"colorReferenceClass",{enumerable:true,get:()=>__require(22)["colorReferenceClass"]});
+Object.defineProperty(__exports,"projectColorSelectors",{enumerable:true,get:()=>__require(22)["projectColorSelectors"]});
 Object.defineProperty(__exports,"bindColorReferences",{enumerable:true,get:()=>bindColorReferences});
 },
-24:(__exports,__require)=>{
+22:(__exports,__require)=>{
 
 // Balanced CSS component values: strings, comments, escapes, functions and blocks.
 // Shared by the value reader and selector projection; no DOM or dependencies.
@@ -4294,7 +4207,7 @@ Object.defineProperty(__exports,"variableReferences",{enumerable:true,get:()=>va
 Object.defineProperty(__exports,"colorReferenceClass",{enumerable:true,get:()=>colorReferenceClass});
 Object.defineProperty(__exports,"projectColorSelectors",{enumerable:true,get:()=>projectColorSelectors});
 },
-25:(__exports,__require)=>{
+23:(__exports,__require)=>{
 
 // Generated from packages/tokens/src/tokens.colors.css. Do not edit.
 const canonicalColorVariables = Object.freeze([
@@ -4475,7 +4388,7 @@ const canonicalColorVariables = Object.freeze([
 
 Object.defineProperty(__exports,"canonicalColorVariables",{enumerable:true,get:()=>canonicalColorVariables});
 },
-26:(__exports,__require)=>{
+24:(__exports,__require)=>{
 
 function selectSidebarItem(target) {
   if (!target?.matches?.('button.tui-sidebar-item[data-component="sidebar"]') || target.disabled) return false;
@@ -4492,7 +4405,7 @@ function selectSidebarItem(target) {
 
 Object.defineProperty(__exports,"selectSidebarItem",{enumerable:true,get:()=>selectSidebarItem});
 },
-27:(__exports,__require)=>{
+25:(__exports,__require)=>{
 
 // The trigger owns identity and state; the surrounding scope only relates content.
 function toggleDisclosure(trigger) {
@@ -4509,9 +4422,9 @@ function toggleDisclosure(trigger) {
 
 Object.defineProperty(__exports,"toggleDisclosure",{enumerable:true,get:()=>toggleDisclosure});
 },
-28:(__exports,__require)=>{
-const componentIdentityEvidence=__require(29)["componentIdentityEvidence"];
-const collectComponentIdentityViolations=__require(29)["collectComponentIdentityViolations"];
+26:(__exports,__require)=>{
+const componentIdentityEvidence=__require(27)["componentIdentityEvidence"];
+const collectComponentIdentityViolations=__require(27)["collectComponentIdentityViolations"];
 
 
 function collectHtmlComponentEvidence(root = document) {
@@ -4671,8 +4584,8 @@ Object.defineProperty(__exports,"collectHtmlComponentEvidence",{enumerable:true,
 Object.defineProperty(__exports,"visualNodeState",{enumerable:true,get:()=>visualNodeState});
 Object.defineProperty(__exports,"collectHtmlVisualSnapshot",{enumerable:true,get:()=>collectHtmlVisualSnapshot});
 },
-29:(__exports,__require)=>{
-const componentIdentityContracts=__require(30)["componentIdentityContracts"];
+27:(__exports,__require)=>{
+const componentIdentityContracts=__require(28)["componentIdentityContracts"];
 
 
 function componentIdentityEvidence(node) {
@@ -4751,7 +4664,7 @@ Object.defineProperty(__exports,"componentIdentityEvidence",{enumerable:true,get
 Object.defineProperty(__exports,"validateComponentIdentityEvidence",{enumerable:true,get:()=>validateComponentIdentityEvidence});
 Object.defineProperty(__exports,"collectComponentIdentityViolations",{enumerable:true,get:()=>collectComponentIdentityViolations});
 },
-30:(__exports,__require)=>{
+28:(__exports,__require)=>{
 
 // Generated from component-contracts/src/components/*.json. Do not edit.
 const componentIdentityContracts = Object.freeze({
@@ -4782,8 +4695,8 @@ const componentIdentityContracts = Object.freeze({
 
 Object.defineProperty(__exports,"componentIdentityContracts",{enumerable:true,get:()=>componentIdentityContracts});
 },
-31:(__exports,__require)=>{
-const renderInputTagChip=__require(32)["renderInputTagChip"];
+29:(__exports,__require)=>{
+const renderInputTagChip=__require(30)["renderInputTagChip"];
 
 
 function bindInputTagEntry(root = document) {
@@ -4950,7 +4863,7 @@ function bindInputTagEntry(root = document) {
 
 Object.defineProperty(__exports,"bindInputTagEntry",{enumerable:true,get:()=>bindInputTagEntry});
 },
-32:(__exports,__require)=>{
+30:(__exports,__require)=>{
 const escapeHtml=__require(7)["escapeHtml"];
 const icon=__require(8)["icon"];
 
@@ -4960,7 +4873,7 @@ const renderInputTagChip = (label) => `<span class="tui-component tui-chip tui-i
 
 Object.defineProperty(__exports,"renderInputTagChip",{enumerable:true,get:()=>renderInputTagChip});
 },
-33:(__exports,__require)=>{
+31:(__exports,__require)=>{
 
 /**
  * Shared browser behavior for Titlebar main-detail action groups.
@@ -5012,6 +4925,7 @@ function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
       const hiddenCount = items.filter((item) => item.hidden).length;
       group.dataset.overflowed = hiddenCount ? "true" : "false";
       trigger.toggleAttribute("data-overflow-empty", hiddenCount === 0);
+      trigger.setAttribute("aria-disabled", String(hiddenCount === 0));
     };
 
     const onClick = (event) => {
@@ -5020,6 +4934,7 @@ function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
       if (target === trigger) {
         event.preventDefault();
         event.stopPropagation();
+        if (trigger.hasAttribute("data-overflow-empty")) return;
         const open = menu.hidden === true;
         // Only expose actions that were actually collapsed.
         menu.hidden = !open;
@@ -5031,13 +4946,21 @@ function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
         event.preventDefault();
         event.stopPropagation();
         close();
-        onAction(target.dataset.action ?? "more", target);
+        trigger?.focus();
+        onAction(target.dataset.action ?? "more", target, event);
       }
     };
 
+    const onKeydown = (event) => {
+      if (event.key !== "Escape" || !menu || menu.hidden) return;
+      event.stopPropagation();
+      close();
+      trigger?.focus();
+    };
     group.addEventListener("click", onClick);
+    group.addEventListener("keydown", onKeydown);
     update();
-    return { group, update, close, onClick };
+    return { group, update, close, onClick, onKeydown };
   });
 
   const schedule = () => {
@@ -5068,6 +4991,7 @@ function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
   return () => {
     state.forEach((entry) => {
       entry.group.removeEventListener("click", entry.onClick);
+      entry.group.removeEventListener("keydown", entry.onKeydown);
       entry.close();
     });
     resizeObserver?.disconnect();
@@ -5078,7 +5002,7 @@ function bindTitlebarOverflow(root, { onAction = () => {} } = {}) {
 
 Object.defineProperty(__exports,"bindTitlebarOverflow",{enumerable:true,get:()=>bindTitlebarOverflow});
 },
-34:(__exports,__require)=>{
+32:(__exports,__require)=>{
 
 const SLOT_CARDINALITY_RE = /^(\d+)(?:\.\.(\d+|n))?$/;
 
@@ -5175,9 +5099,9 @@ const renderSlot = (slot, slots, context, mode) => {
 
 const slotByOwner = (pattern, owner) => pattern.slots.filter((slot) => slot.owner === owner);
 
-const navigationPlacement = (pattern, slotId) => {
+const navigationPlacement = (pattern, slot) => {
   const mode = pattern.navigationModes?.[0];
-  return mode?.shellSlots?.find((slot) => slot.id === slotId)?.placement || null;
+  return slot.placement ?? mode?.shellSlots?.find((entry) => entry.id === slot.id)?.placement ?? null;
 };
 
 const renderSlotEnvelope = (slot, content, placement = null) => {
@@ -5197,28 +5121,22 @@ const renderRegion = (pattern, region, slots, mode, regionContent = {}) => {
     `data-pattern-width-token="${dataValue(region.width?.token || "fill")}"`,
     `data-pattern-divider-edges="${dataValue((region.dividerEdges || []).join(" "))}"`
   ];
-  const slotsMarkup = ownerSlots.map((slot) => {
-    if (mode === "runtime" && slot.cardinality.startsWith("0..") && !normalizeSlotValues(slots[slot.id]).length) return "";
-    const placement = navigationPlacement(pattern, slot.id);
-    const content = renderSlot(slot, slots, { regionId: region.id, mode, placement }, mode);
-    return renderSlotEnvelope(slot, content, placement);
-  });
-  const navBody = slotsMarkup.filter((markup, index) => {
-    const placement = navigationPlacement(pattern, ownerSlots[index].id);
-    return placement !== "top" && placement !== "bottom" && ownerSlots[index].id !== "primary-navigation-footer";
-  }).join("");
-  const navTop = slotsMarkup.filter((markup, index) => navigationPlacement(pattern, ownerSlots[index].id) === "top").join("");
-  const isPrimary = region.id === "primary-navigation";
-  if (isPrimary) {
-    const footer = ownerSlots.filter(slot => (slot.id === "primary-navigation-footer" || navigationPlacement(pattern, slot.id) === "bottom") && (mode === "skeleton" || normalizeSlotValues(slots[slot.id]).length))
-      .map(slot => renderSlotEnvelope(slot, renderSlot(slot, slots, { regionId: region.id, mode, placement: "bottom" }, mode), "bottom")).join("");
-    return `<section class="tui-pattern-runtime__pane tui-pattern-runtime__pane--navigation" ${regionAttributes.join(" ")}><div class="tui-pattern-runtime__navigation-top" data-pattern-shell-slot="navigation-top">${navTop}</div><div class="tui-pattern-runtime__scroll-body" data-pattern-scroll-body>${navBody}</div>${footer}</section>`;
+  const pageContent = mode === "runtime" ? (regionContent[region.id] ?? "") : "";
+  if (region.id === "primary-navigation") {
+    const areas = { top: "", body: "", bottom: "" };
+    for (const slot of ownerSlots) {
+      if (mode === "runtime" && slot.cardinality.startsWith("0..") && !normalizeSlotValues(slots[slot.id]).length) continue;
+      const placement = slot.id === "primary-navigation-footer" ? "bottom" : navigationPlacement(pattern, slot);
+      const content = renderSlot(slot, slots, { regionId: region.id, mode, placement }, mode);
+      const area = placement === "top" || placement === "bottom" ? placement : "body";
+      areas[area] += renderSlotEnvelope(slot, content, placement);
+    }
+    return `<section class="tui-pattern-runtime__pane tui-pattern-runtime__pane--navigation" ${regionAttributes.join(" ")}><div class="tui-pattern-runtime__navigation-top" data-pattern-shell-slot="navigation-top">${areas.top}</div><div class="tui-pattern-runtime__scroll-body" data-pattern-scroll-body>${areas.body}${pageContent}</div>${areas.bottom}</section>`;
   }
   const titleSlots = ownerSlots.filter((slot) => slot.id.endsWith("-actions") || slot.id.endsWith("-title"));
   const bodySlots = ownerSlots.filter((slot) => !titleSlots.includes(slot));
   const titleMarkup = titleSlots.map((slot) => renderSlotEnvelope(slot, renderSlot(slot, slots, { regionId: region.id, mode, placement: "title" }, mode), "title")).join("");
   const bodyMarkup = bodySlots.map((slot) => renderSlotEnvelope(slot, renderSlot(slot, slots, { regionId: region.id, mode, placement: "body" }, mode), "body")).join("");
-  const pageContent = mode === "runtime" ? (regionContent[region.id] ?? "") : "";
   return `<section class="tui-pattern-runtime__pane tui-pattern-runtime__pane--content" ${regionAttributes.join(" ")}><header class="tui-pattern-runtime__pane-title" data-pattern-title-segment="${dataValue(region.id)}">${titleMarkup}</header><div class="tui-pattern-runtime__scroll-body" data-pattern-scroll-body>${bodyMarkup}${pageContent}</div></section>`;
 };
 

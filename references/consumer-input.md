@@ -18,7 +18,13 @@ page-input.json 顶层：
 
 可选 Pattern：A primary-navigation/main-content；B primary-navigation/secondary-list/main-detail；C primary-navigation/tool-workspace；D 以实际 discover 返回窗格为准。运行 `node scripts/discover-page.mjs --task "<任务>"` 查询准确窗格、槽位和允许的 Pattern，无需读取完整上下文。
 
-## 两级导航
+## 一级入口与两级导航
+
+只有 2–4 个实际可切换的一级入口时才使用 `primary-navigation-item`。只有一个入口时，省略该项和 `navigationMode: "two-level"`，由标题栏标明当前应用，文件夹或分组继续使用 Sidebar。一级入口超过 4 个时重新规划导航层级或采用适合更多入口的导航形式。校验按页面合计一级入口，不将二级菜单项计入。
+
+一级入口声明在 `primary-navigation` 窗格，省略 `slot`。任何支持该组件的 Pattern 都自动将它放入 `primary-navigation-bottom`，在左栏最下方横排。上方菜单独立滚动。底部定位不依赖 `navigationMode` 或输入顺序。已有页面可用 `generate --revision` 应用这条规则。
+
+迁移单入口的已有输入时，移除该组件节点及只引用它的交互，更新仍有效的分组引用，然后用普通 `generate` 重新生成布局。
 
 布局查询返回 `navigationModes` 时，可用 `"navigationMode": "two-level"` 启用该模式。在 `primary-navigation` 中按槽位分组：
 
@@ -28,7 +34,9 @@ page-input.json 顶层：
 | `sidebar / secondary-navigation` | 中部滚动，保留同组业务模块 |
 | `primary-navigation-item / primary-navigation-shell` | 底部一级入口 |
 
-每组使用一个槽位，组件节点可省略 `slot`。旧输入同时具备一级入口与二级菜单时，编译器自动选择两级导航。显式 `slot` 与导航模式冲突时会报出分组、节点和正确槽位。
+每组使用一个槽位，组件节点可省略 `slot`。同时具备 2–4 个一级入口与二级菜单时，编译器自动选择两级导航。显式 `slot` 与导航模式冲突时会报出分组、节点和正确槽位。
+
+侧栏无分组标题时用 Sidebar 的 `items`。标题可折叠时用 `groups: [{label, items, expanded?}]`，一组也保留折叠标题；多个组放在同一个 Sidebar 节点里。只用作分类的标题可与 `items` 组合。发现结果出现 `collapsible-navigation-group` 时，按需提取该 Block。
 
 ## 场景与增量查询
 
@@ -37,6 +45,8 @@ page-input.json 顶层：
 重复组件使用同一接口，不重复读取。describe 支持 --since <状态.json> 和 --write-state <状态.json>，按组件、context、读取深度及源版本判定变化；缓存仅供仍持有旧接口正文的对话/交接复用。已有页面局部修改只查询受影响 ID，使用 generate --revision 继承已生成的结构；布局变化时重新 discover 并用普通 generate。
 
 Accordion/Collapsible 使用 title、detail、expanded、contentId、disabled、state；label 是 title 的兼容别名，title 优先。展开内容用 content 文本插槽，label/description 文本插槽分别对应标题/说明；不同时重复填写同一字段和插槽。需要内部复杂控件时使用声明业务模块。旧 Accordion 的 size、unfocus 不再作为已支持参数，迁移时移除 size，将 unfocus 换成 default。身份标记仍在 button 子节点。
+
+Tree View 的新消息数使用各节点自己的 `nodes[].trailing`，子节点同样适用。数字 `0`、字符串 `"0"` 或未提供计数时，右侧标签不渲染，也不保留占位。正数正常显示，节点名称和展开状态独立于计数。
 
 ## 节点
 
