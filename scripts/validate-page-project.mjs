@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
 import { parseArgs } from "./navigation-index-lib.mjs";
 import { assertDynamicPageHost, verifyPageComponents } from "./prepare-page-components.mjs";
+import { hasProjectPreviewHost, projectPreviewDirectory } from "./project-preview-host.mjs";
 import { verifyPageStyles } from "./prepare-page-styles.mjs";
 import { inspectHtmlArtifact } from "./html-artifact-graph.mjs";
 import { readPageBlueprint } from "./page-blueprint.mjs";
@@ -68,7 +69,20 @@ for(const module of manifest.pageModules||[]) {
   run("validate-page-composite-boundaries.mjs",["--source",resolve(module.path)]);
 }
 const graph=inspectHtmlArtifact(path.join(root,"index.html"),{projectRoot:root});
-if(!graph.stylesheets.includes(path.join(root,"styles/index.css")))throw new Error("Module graph does not load styles/index.css");
+const projectPreview = hasProjectPreviewHost(fs.readFileSync(path.join(root,"index.html"), "utf8"));
+const graphStyles = projectPreview ? projectPreviewDirectory + "/styles/app.css" : "styles/index.css";
+if (!graph.stylesheets.includes(path.join(root, graphStyles))) throw new Error("Page graph does not load " + graphStyles);
+if (projectPreview) {
+  const report = read(path.join(root, projectPreviewDirectory, "preview-manifest.json"));
+  for (const [relative, entry] of Object.entries({ ...report.files, ...Object.fromEntries(
+    Object.entries(report.sourceDigests ?? {}).map(([file, sha256]) => [file, { sha256 }])
+  ) })) {
+    const full = path.resolve(root, relative);
+    if (!full.startsWith(root + path.sep) || !fs.existsSync(full) || hash(fs.readFileSync(full)) !== entry.sha256) {
+      throw new Error("Root preview is stale; regenerate after changing " + relative);
+    }
+  }
+}
 const runtimeFile=args["runtime-evidence"];
 if((args["require-runtime"]||mode==="release-validation")&&!runtimeFile)throw new Error("Actual browser runtime evidence required; source checks do not prove browser readiness");
 if(runtimeFile)run("validate-runtime-component-reuse.mjs",["--manifest",usageFile,"--evidence",path.resolve(runtimeFile)]);

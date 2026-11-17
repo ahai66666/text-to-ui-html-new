@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { catalog, consumerContract, ruleForOptions, optionsFor } from './consumer-lib.mjs';
+import { resolveAttachmentActions } from "../packages/components-html/src/attachment/index.js";
 import { sidebarInstanceCount } from "../packages/components-html/src/sidebar/index.js";
 import fs from "node:fs";
 import path from "node:path";
@@ -171,7 +172,7 @@ const bindings = rawBindings.map((binding, index) => {
   const semanticContext = binding.semanticContext ?? null;
   if (contextRequiredLogicalNames.has(binding.logicalName) && !semanticContext) throw new Error(`${binding.logicalName}: semanticContext is required; resolve the component with query-components.mjs --context before generation`);
   const selectionRule = semanticContext ? ruleForOptions(binding.logicalName, semanticContext, options) : null;
-  if (["search", "sidebar"].includes(canonicalComponent.id)) {
+  if (["attachment", "search", "sidebar"].includes(canonicalComponent.id)) {
     const base = catalog().components.find(c => c.id === canonicalComponent.id);
     const contract = consumerContract(base, selectionRule);
     for (const [key, schema] of Object.entries(contract.inputs)) {
@@ -339,15 +340,19 @@ for (const binding of bindings) {
   }
   if (binding.actionBehaviors !== null) {
     if (!binding.actionBehaviors || typeof binding.actionBehaviors !== "object" || Array.isArray(binding.actionBehaviors)) {
-      throw new Error(`${binding.id}: actionBehaviors must map Titlebar action ids to behaviorPlan ids`);
+      throw new Error(`${binding.id}: actionBehaviors must map action ids to behaviorPlan ids`);
     }
-    if (binding.rendererKey !== "titlebar" && binding.logicalName !== "Titlebar/Default") throw new Error(`${binding.id}: actionBehaviors is only valid on a registered Titlebar binding`);
-    const availableActionIds = new Set((binding.slots?.["main-detail-actions"] ?? []).map((action) => action.id));
+    const isAttachment = binding.rendererKey === "attachment";
+    if (!isAttachment && binding.rendererKey !== "titlebar" && binding.logicalName !== "Titlebar/Default") {
+      throw new Error(`${binding.id}: actionBehaviors is only valid on a registered Titlebar or Attachment binding`);
+    }
+    const actions = isAttachment ? resolveAttachmentActions(binding.options.actions) : binding.slots?.["main-detail-actions"] ?? [];
+    const availableActionIds = new Set(actions.map((action) => action.id));
     if (Object.keys(binding.actionBehaviors).length === 0) throw new Error(`${binding.id}: actionBehaviors must not be empty`);
     for (const [actionId, behaviorId] of Object.entries(binding.actionBehaviors)) {
-      if (!availableActionIds.has(actionId)) throw new Error(`${binding.id}: actionBehaviors references unknown Titlebar action '${actionId}'`);
+      if (!availableActionIds.has(actionId)) throw new Error(`${binding.id}: actionBehaviors references unknown action '${actionId}'`);
       if (!behaviorPlanById.has(behaviorId)) throw new Error(`${binding.id}: actionBehaviors '${actionId}' references undeclared behavior '${behaviorId}'`);
-      if (!behaviorPlanById.get(behaviorId).triggerBindingIds.includes(binding.id)) throw new Error(`${binding.id}: behaviorPlan '${behaviorId}' must list this Titlebar binding as a trigger`);
+      if (!behaviorPlanById.get(behaviorId).triggerBindingIds.includes(binding.id)) throw new Error(`${binding.id}: behaviorPlan '${behaviorId}' must list this action binding as a trigger`);
     }
   }
   if (interactiveRendererKeys.has(binding.rendererKey) && !binding.behaviorId) throw new Error(`${binding.id}: interactive component '${binding.logicalName}' requires behaviorId before generation`);
@@ -358,7 +363,7 @@ for (const interaction of behaviorPlan.interactions) {
   for (const bindingId of interaction.triggerBindingIds) {
     const binding = bindings.find((candidate) => candidate.id === bindingId);
     const ownsInteraction = binding?.behaviorId === interaction.id || Object.values(binding?.actionBehaviors ?? {}).includes(interaction.id);
-    if (!ownsInteraction) throw new Error(`behaviorPlan interaction '${interaction.id}' trigger '${bindingId}' must reference the same behaviorId or Titlebar actionBehaviors entry`);
+    if (!ownsInteraction) throw new Error(`behaviorPlan interaction '${interaction.id}' trigger '${bindingId}' must reference the same behaviorId or actionBehaviors entry`);
   }
 }
 const validateStylePlanNodes = (nodes, region, shellSlot = null) => {
@@ -834,10 +839,11 @@ const pageImport = `./${path.relative(path.dirname(absoluteEntryOutputPath), abs
 const relativeImport = (file) => `./${path.relative(path.dirname(absoluteEntryOutputPath), file).replace(/\\/g, "/")}`;
 const moduleImports = pageModules.map((item, index) => `import { mount as mountComposite${index} } from ${JSON.stringify(relativeImport(item.file))};`).join("\n");
 const controlledModules = pageModules.some(item => item.contracts !== null);
+const hasAttachment = bindings.some(binding => binding.rendererKey === "attachment");
 const moduleMounts = pageModules.map((item, index) => `  { const host = root.querySelector(${JSON.stringify(`[data-composition-id="${item.compositionId}"]`)}); if (!host) throw new Error(${JSON.stringify(`Missing composite host: ${item.compositionId}`)}); const cleanup = mountComposite${index}(host, { renderComponent: ${item.contracts === null ? "renderHtmlComponent" : `createModuleRenderer(renderHtmlComponent, ${JSON.stringify(item.contracts)}, {secondaryTitlebar:${item.secondaryTitlebar}})`} }); if (typeof cleanup === "function") cleanups.push(cleanup); }`).join("\n");
 let entrySource = `
 import { renderGeneratedPage, patternContract, runtimePatternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan } from ${JSON.stringify(pageImport)};
-import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent, toggleDisclosure, selectSidebarItem, bindColorReferences${controlledModules ? ", createModuleRenderer" : ""} } from "@text-to-ui/components-html";
+import { bindInputTagEntry, bindTitlebarOverflow, collectHtmlComponentEvidence, renderHtmlComponent, toggleDisclosure, selectSidebarItem, bindColorReferences${controlledModules ? ", createModuleRenderer" : ""}${hasAttachment ? ", bindAttachmentActions" : ""} } from "@text-to-ui/components-html";
 ${moduleImports}
 export { patternContract, pageBlueprint, titlebarScene, stylePlan, behaviorPlan };
 export function mountGeneratedPage(root = document.querySelector("#app")) {
@@ -854,6 +860,7 @@ export function mountGeneratedPage(root = document.querySelector("#app")) {
     const disclosureTrigger = event.type === "click" ? event.target.closest?.(".tui-disclosure__trigger") : null;
     if (disclosureTrigger && root.contains(disclosureTrigger) && toggleDisclosure(disclosureTrigger)) return;
     if (event.type === "click") {
+      if (event.target.closest?.(".tui-attachment__menu-trigger")) return;
       const sidebarItem = event.target.closest?.("button.tui-sidebar-item");
       if (sidebarItem && root.contains(sidebarItem)) selectSidebarItem(sidebarItem);
     }
@@ -861,8 +868,10 @@ export function mountGeneratedPage(root = document.querySelector("#app")) {
     const action = event.target.closest?.("[data-action]")?.dataset.action;
     let actionBehaviorId = null;
     if (actionHost && action) {
-      try { actionBehaviorId = JSON.parse(actionHost.dataset.tuiActionBehaviors || "{}")[action] || null; }
-      catch { throw new Error("Invalid generated Titlebar action behavior map"); }
+      try {
+        const actionBehaviors = JSON.parse(actionHost.dataset.tuiActionBehaviors);
+        if (Object.hasOwn(actionBehaviors, action)) actionBehaviorId = actionBehaviors[action];
+      } catch { throw new Error("Invalid generated action behavior map"); }
     }
     const host = actionBehaviorId ? actionHost : event.target.closest?.("[data-tui-behavior]");
     if (!host || !root.contains(host)) return;
@@ -882,6 +891,7 @@ export function mountGeneratedPage(root = document.querySelector("#app")) {
     root.dispatchEvent(new CustomEvent("text-to-ui:behavior", { bubbles: true, detail: { behaviorId: behavior.id, outcome: behavior.outcome, plan: behaviorPlan } }));
   };
   cleanups.push(bindTitlebarOverflow(root, { onAction: (_id, _item, event) => execute(event) }));
+  ${hasAttachment ? "cleanups.push(bindAttachmentActions(root));" : ""}
   for (const type of ["click", "input", "change"]) root.addEventListener(type, execute);
 ${moduleMounts}
   const colorReferences = bindColorReferences(root);

@@ -7,7 +7,7 @@
     },
     {
       "path": "packages/component-contracts/src/registry.json",
-      "sha256": "6671dae156133fdd38b17b839f9c8b7220f57c2e8cdeceed90b02593f123b139"
+      "sha256": "6cc500185423585122ebae9bf4b0aec4fcc7e582a3beb23dda784bc15cff9592"
     },
     {
       "path": "skill-support/references/index/layout-routes.source.json",

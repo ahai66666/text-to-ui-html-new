@@ -1,12 +1,14 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';
 import {parse} from '../vendor/acorn.mjs';
+import {projectPreviewDirectory,projectPreviewHost,sourcePageHost} from "./project-preview-host.mjs";
 import {pageRuntimePaths} from './page-runtime-paths.mjs';
 const mime={'.svg':'image/svg+xml','.png':'image/png','.jpg':'image/jpeg','.jpeg':'image/jpeg','.webp':'image/webp','.gif':'image/gif','.woff2':'font/woff2','.woff':'font/woff','.ttf':'font/ttf'};
 const digest=s=>crypto.createHash('sha256').update(s).digest('hex');
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;');
 export function exportOffline(project,{title='页面',output,format='multi-file',includeSources=true}={}){
- if(!['multi-file','single-file'].includes(format))throw Error('OFFLINE_FORMAT: use multi-file or single-file');
- output ??= format==='multi-file'?'out/preview/index.html':'out/页面.html';
+ if(!['project','multi-file','single-file'].includes(format))throw Error('OFFLINE_FORMAT: use project, multi-file or single-file');
+ const inProject = format==='project';
+ output ??= inProject?'index.html':format==='multi-file'?'out/preview/index.html':'out/页面.html';
  const outputFiles=new Map();
  const addFile=(name,content)=>{outputFiles.set(name,Buffer.isBuffer(content)?content:Buffer.from(content));};
  const root=fs.realpathSync(project),modules=new Map(),cssSeen=new Set(),assets=new Set(),active=new Set();
@@ -24,7 +26,8 @@ export function exportOffline(project,{title='页面',output,format='multi-file'
   if(format==='single-file')return 'data:'+type+';base64,'+data.toString('base64')+fragment;
   const name='assets/'+digest(data)+extension;
   addFile(name,data);
-  return (target==='css'?'../':'./')+name+fragment;
+  const prefix=target==='css'?'../':inProject?'./'+projectPreviewDirectory+'/':'./';
+  return prefix+name+fragment;
  };
  function css(file){file=inside(file);if(active.has(file))throw Error('CSS_IMPORT_CYCLE: '+file);if(cssSeen.has(file))return '';cssSeen.add(file);active.add(file);let text=fs.readFileSync(file,'utf8');
  text=text.replace(/@import\s+(?:url\(\s*)?["']([^"']+)["']\s*\)?\s*([^;]*);/g,(_,ref,condition)=>{if(condition.trim())throw Error('OFFLINE_CONDITIONAL_IMPORT: '+ref);return css(path.resolve(path.dirname(file),ref));});
@@ -64,16 +67,19 @@ export function exportOffline(project,{title='页面',output,format='multi-file'
  modules.get(file).code=prefix.join('\n')+'\n'+text+'\n'+exports.join('\n');active.delete(file);return id;
  }
  const entry=js(path.join(root,'main.js')),style=css(path.join(root,'styles/index.css'));
- const runtime=`(()=>{'use strict';const __modules={${[...modules.values()].map(m=>`${m.id}:(__exports,__require)=>{\n${m.code}\n}`).join(',\n')}};const __cache={};function __require(id){if(__cache[id])return __cache[id];const exports=__cache[id]={};__modules[id](exports,__require);return exports;}__require(${entry});})();`;
+ const titleScript=inProject?`document.title = ${JSON.stringify(title)};\n`:"";
+ const runtime=titleScript+`(()=>{'use strict';const __modules={${[...modules.values()].map(m=>`${m.id}:(__exports,__require)=>{\n${m.code}\n}`).join(',\n')}};const __cache={};function __require(id){if(__cache[id])return __cache[id];const exports=__cache[id]={};__modules[id](exports,__require);return exports;}__require(${entry});})();`;
  // Parse the final classic script as a syntax check before committing the artifact.
  parse(runtime,{ecmaVersion:'latest',sourceType:'script'});
  const head=`<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="text-to-ui-skill" content="text-to-ui-html-new@0.1.1"><title>${esc(title)}</title>`;
- const html=format==='single-file'
+ const rootEntry=path.join(root,'index.html');
+ const html=inProject?projectPreviewHost(fs.readFileSync(inside(rootEntry),'utf8')):format==='single-file'
   ? `${head}<style>${style.replace(/<\/style/gi,'<\\/style')}</style></head><body><div id="app"></div><script>${runtime.replace(/<\/script/gi,'<\\/script')}</script></body></html>\n`
   : `${head}<link rel="stylesheet" href="./styles/app.css"></head><body><div id="app"></div><script defer src="./runtime/app.js"></script></body></html>\n`;
  const out=path.resolve(root,output);
- if(!out.startsWith(root+path.sep)||!out.endsWith('.html')||out===path.join(root,'index.html'))throw Error('OFFLINE_OUTPUT must be a separate project HTML artifact');
- const outDir=path.dirname(out);
+ if(inProject ? out!==rootEntry : !out.startsWith(root+path.sep)||!out.endsWith('.html')||out===rootEntry)throw Error('OFFLINE_OUTPUT: project mode uses index.html; explicit exports use a separate HTML path');
+ const outDir=inProject?path.join(root,projectPreviewDirectory):path.dirname(out);
+ if(inProject && [rootEntry,outDir,path.dirname(outDir)].some(file=>fs.lstatSync(file,{throwIfNoEntry:false})?.isSymbolicLink()))throw Error('OFFLINE_OUTPUT_ESCAPE: '+output);
  if(format==='multi-file'&&path.basename(out)!=='index.html')throw Error('OFFLINE_OUTPUT: multi-file entry must be <preview-directory>/index.html');
  fs.mkdirSync(outDir,{recursive:true});
  if(!fs.realpathSync(outDir).startsWith(root+path.sep))throw Error('OFFLINE_OUTPUT_ESCAPE: '+output);
@@ -83,8 +89,12 @@ export function exportOffline(project,{title='页面',output,format='multi-file'
   fs.writeFileSync(out+'.json',JSON.stringify(report,null,2)+'\n');
   return report;
  }
- addFile('index.html',html);addFile('runtime/app.js',runtime+'\n');addFile('styles/app.css',style+'\n');
- if(includeSources){
+ if(!inProject)addFile('index.html',html);
+ addFile('runtime/app.js',runtime+'\n');
+ addFile('styles/app.css',style+'\n');
+ if(inProject){
+  report.sourceDigests=Object.fromEntries([...new Set([...modules.keys(),...cssSeen,...assets])].map(file=>[path.relative(root,file),digest(fs.readFileSync(file))]));
+ }else if(includeSources){
   const sourceFiles=new Set([...modules.keys(),...cssSeen,...assets]);
   // Retain the authored inputs as well as the exact executable dependency closure.
   for(const name of ['index.html','page-input.json','page-blueprint.json','page-bindings.json','page-content-recipes.json','components/component-manifest.json','styles/style-manifest.json']){
@@ -97,29 +107,41 @@ export function exportOffline(project,{title='页面',output,format='multi-file'
   }
   for(const file of sourceFiles){
    if(file.startsWith(outDir+path.sep))throw Error('OFFLINE_SOURCE_IN_OUTPUT: '+file);
-   addFile('src/'+path.relative(root,file).replaceAll(path.sep,'/'),fs.readFileSync(file));
+   const source=file===rootEntry?sourcePageHost(fs.readFileSync(file,'utf8')):fs.readFileSync(file);
+   addFile('src/'+path.relative(root,file).replaceAll(path.sep,'/'),source);
   }
   addFile('src/package.json',JSON.stringify({private:true,type:'module'},null,2)+'\n');
  }
- addFile('README.md',`# ${title}\n\n直接用浏览器打开 index.html。无需服务、Vite 或 npm install；分享时请保留整个文件夹。\n\n界面仍由 runtime/app.js 在浏览器内动态生成，styles/app.css 和 assets/ 使用相对路径。${includeSources?' src/ 保留原始 ES 模块、CSS、资源及页面输入，用于维护；它不是双击预览入口。':''}\n\n重新导出：在已安装 text-to-ui-html-new 技能的环境中运行：\n\n\`\`\`sh\nnode "$HOME/.codex/skills/text-to-ui-html-new/scripts/page.mjs" export --project ./src --out out/preview/index.html\n\`\`\`\n\n浏览器可能限制 file:// 下的本地存储；是否支持跨次打开保留数据由具体业务实现与浏览器决定。\n`);
- report.files=Object.fromEntries([...outputFiles.entries()].sort(([a],[b])=>a.localeCompare(b)).map(([name,data])=>[name,{sha256:digest(data),bytes:data.length}]));
+ if(!inProject)addFile('README.md',`# ${title}\n\n直接用浏览器打开 index.html。无需服务、Vite 或 npm install；分享时请保留整个文件夹。\n\n界面仍由 runtime/app.js 在浏览器内动态生成，styles/app.css 和 assets/ 使用相对路径。${includeSources?' src/ 保留原始 ES 模块、CSS、资源及页面输入，用于维护；它不是双击预览入口。':''}\n\n重新导出：在已安装 text-to-ui-html-new 技能的环境中运行：\n\n\`\`\`sh\nnode "$HOME/.codex/skills/text-to-ui-html-new/scripts/page.mjs" export --project ./src --out out/preview/index.html\n\`\`\`\n\n浏览器可能限制 file:// 下的本地存储；是否支持跨次打开保留数据由具体业务实现与浏览器决定。\n`);
+ const previewFiles=inProject
+  ? [['index.html',Buffer.from(html)],...[...outputFiles].map(([name,data])=>[projectPreviewDirectory+'/'+name,data])]
+  : [...outputFiles];
+ report.files=Object.fromEntries(previewFiles.sort(([a],[b])=>a.localeCompare(b)).map(([name,data])=>[name,{sha256:digest(data),bytes:data.length}]));
  report.bundleSha256=digest(JSON.stringify(report.files));
- report.totalBytes=[...outputFiles.values()].reduce((n,data)=>n+data.length,0);
- report.sources=includeSources;
+ report.totalBytes=previewFiles.reduce((n,[,data])=>n+data.length,0);
+ report.sources=includeSources&&!inProject;
  // Never replace an unrelated directory. Build in a sibling and swap only a
  // previously generated preview, so failed linking does not destroy a good build.
  const marker=path.join(outDir,'preview-manifest.json');
  if(fs.readdirSync(outDir).length){
   let previous;try{previous=JSON.parse(fs.readFileSync(marker,'utf8'));}catch{}
-  if(previous?.skill!=='text-to-ui-html-new'||previous?.distribution!=='multi-file')throw Error('OFFLINE_OUTPUT_NOT_OWNED: '+outDir);
+  if(previous?.skill!=='text-to-ui-html-new'||previous?.distribution!==format)throw Error('OFFLINE_OUTPUT_NOT_OWNED: '+outDir);
  }
  const parent=path.dirname(outDir),stage=fs.mkdtempSync(path.join(parent,'.offline-preview-'));
  let backup=null;
+ const stagedHost=inProject?path.join(stage,'index.html'):null;
  try{
   for(const [name,data]of outputFiles){const file=path.join(stage,name);fs.mkdirSync(path.dirname(file),{recursive:true});fs.writeFileSync(file,data);}
   fs.writeFileSync(path.join(stage,'preview-manifest.json'),JSON.stringify(report,null,2)+'\n');
+  if(stagedHost)fs.writeFileSync(stagedHost,html);
   backup=fs.mkdtempSync(path.join(parent,'.offline-previous-'));fs.rmdirSync(backup);fs.renameSync(outDir,backup);
-  try{fs.renameSync(stage,outDir);}catch(error){fs.renameSync(backup,outDir);backup=null;throw error;}
+  try{
+   fs.renameSync(stage,outDir);
+   if(stagedHost)fs.renameSync(path.join(outDir,'index.html'),rootEntry);
+  }catch(error){
+   fs.rmSync(outDir,{recursive:true,force:true});
+   fs.renameSync(backup,outDir);backup=null;throw error;
+  }
  }finally{fs.rmSync(stage,{recursive:true,force:true});if(backup)fs.rmSync(backup,{recursive:true,force:true});}
  return report;
 }

@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from "node:fs";
+import { sourcePageHost } from "./project-preview-host.mjs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
@@ -110,6 +111,8 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     const contractBytes = fs.readFileSync(path.join(skillRoot, component.contractPath));
     add("components/" + component.id + "/contract.json", contractBytes, component.contractPath, contractBytes);
   });
+  const hasAttachment = selected.has("attachment");
+  if (hasAttachment) loadRuntime("packages/components-html/src/attachment/behavior.js");
   const imports = ordered.map((component, index) => 'import { render as render' + index + ' } from "./' + component.id + '/index.js";');
   const entries = ordered.map((component, index) => JSON.stringify(component.id) + ": render" + index);
   add("components/index.js", [
@@ -120,6 +123,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
     'export { collectHtmlComponentEvidence } from "./_runtime/packages/components-html/src/runtime.js";',
     'export { bindInputTagEntry } from "./_runtime/packages/components-html/src/input/behavior.js";',
     'export { bindTitlebarOverflow } from "./_runtime/packages/components-html/src/titlebar-overflow.js";',
+    ...(hasAttachment ? ['export { bindAttachmentActions } from "./_runtime/packages/components-html/src/attachment/behavior.js";'] : []),
     ...(controlledModules ? ['export { createModuleRenderer } from "./_runtime/packages/components-html/src/shared/consumer-options.js";'] : []),
     "const components = Object.freeze({ " + entries.join(", ") + " });",
     "export const selectedComponentIds = Object.freeze(Object.keys(components));",
@@ -145,7 +149,7 @@ export function planPageComponents({ projectRoot, contextPath, bindingsPath = nu
 export function assertDynamicPageHost(projectRoot) {
   const file = path.join(projectRoot, "index.html");
   if (!fs.existsSync(file)) throw new Error("Dynamic page requires index.html with #app and an external module");
-  const html = fs.readFileSync(file, "utf8");
+  const html = sourcePageHost(fs.readFileSync(file, "utf8"));
   const body = html.match(/<body\b[^>]*>([\s\S]*?)<\/body\s*>/i)?.[1];
   if (body === undefined || !/<script\b(?=[^>]*\btype=["']module["'])(?=[^>]*\bsrc=["'][^"']+["'])[^>]*>\s*<\/script>/i.test(body)) throw new Error("index.html must load an external ES module");
   const mount = /<div\b(?=[^>]*\bid=["']app["'])[^>]*>\s*<\/div>/gi;

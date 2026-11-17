@@ -1,6 +1,6 @@
 ---
 name: text-to-ui-html-new
-description: Generate or revise HarmonyOS PC HTML prototypes with controlled component interfaces and canonical Patterns. Use compact page inputs and deliver multi-file offline packages that render dynamically without a server or Vite.
+description: Generate or revise HarmonyOS PC HTML prototypes with controlled component interfaces and canonical Patterns. Use compact page inputs and generate projects that open directly through their root index.html without a server or Vite.
 ---
 
 # Text to UI HTML New
@@ -20,15 +20,15 @@ description: Generate or revise HarmonyOS PC HTML prototypes with controlled com
    发现结果含 `blockCandidates` 时，按页面实际需求用同一发现命令加 `--block <ID>` 提取一个组合规范。Task 与 Pattern 共同限定候选；局部修改沿用原组合。
 3. 将设计和组件选择写入 `page-input.json`，需要跨模块状态或动态内容时添加已声明的业务模块。系统固定参数由脚本补全；业务事实来自需求。
 4. 运行 `node "<RULES_ROOT>/scripts/page.mjs" generate --project "<PROJECT_DIR>"`。
-5. 打开返回的 `out/<页面ID>/index.html`，按 [离线预览检查](references/consumer-preview-check.md) 核对真实画面和关键操作。默认交付整个多文件目录，包含本地脚本、CSS、资源和 `src/` 源码，可直接打开。
+5. 双击项目根目录的 `index.html`，按 [离线预览检查](references/consumer-preview-check.md) 核对画面和关键操作。直接交付项目文件夹，预览与源码在同一目录。
 
-导出与交付结构见 [离线交付](references/offline-delivery.md)；只在需要单文件时加 `--format single-file`。
+需要另外分享时，可按 [离线交付](references/offline-delivery.md) 导出单文件或独立文件夹。
 
 ## 能力缺口与正式入口
 
 消费接口不足时先查组合；需要状态、事件或动态内容时，读 [业务扩展](references/business-extension.md)，用 business-module.mjs 在现有分组内扩展。不能因编译受限而另写整页 HTML。真实 AI 服务与离线演示需明确区分。
 
-生成后用 `page.mjs entry --project "<PROJECT_DIR>"` 获取唯一正式预览入口和状态；源码入口与交付入口可以并存，不形成两套业务实现。已有手写 HTML 保留作参考并迁回业务模块，不自动删除。
+生成后用 `page.mjs entry --project "<PROJECT_DIR>"` 获取当前正式预览入口和状态。已有手写 HTML 保留作参考并迁回业务模块，不自动删除。
 
 ## 按需上下文
 

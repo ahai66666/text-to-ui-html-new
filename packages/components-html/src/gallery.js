@@ -94,6 +94,14 @@ export function renderRuntimeHtmlComponent(id, options = {}) {
     };
     return `<div class="tui-runtime-structural-grid tui-runtime-structural-grid--button" data-runtime-component="button">${specimens.map((specimen) => `<div class="tui-runtime-structural-cell" data-specimen="${escapeHtml(specimen.id)}"><span class="tui-runtime-surface-label">${escapeHtml(specimen.id)}</span>${sample(specimen)}</div>`).join("")}</div>`;
   }
+  if (id === "attachment") {
+    const download = { id: "download", label: "下载", icon: "action/download" };
+    const samples = [
+      { label: "单个操作", name: "项目说明.pdf", actions: [download] },
+      { label: "多个操作", name: "项目资料.pdf", actions: [{ id: "preview", label: "预览" }, download] }
+    ];
+    return `<div class="tui-runtime-structural-grid" data-runtime-component="attachment">${samples.map(({ label, ...options }) => `<div class="tui-runtime-structural-cell"><span class="tui-runtime-surface-label">${label}</span>${renderHtmlComponent(id, options)}</div>`).join("")}</div>`;
+  }
   if (id === "input") {
     const surfaces = ["white", "gray"];
     const basic = surfaces.map((surface) => `<div data-surface-context="${surface}"><span class="tui-runtime-surface-label">${surface === "white" ? "白色内容面 · 灰色输入面" : "灰色内容面 · 白色输入面"}</span>${inputState({ surface, state: "default", placeholder: "项目名称" })}</div>`).join("");

@@ -1,6 +1,7 @@
 {
   "id": "attachment",
   "logicalName": "Attachment/Default",
+  "purpose": "附件右侧按 actions 数量显示操作：一个直接显示，多个只显示「更多」，空数组省略操作区。省略 actions 时沿用预览和下载。操作项用 {id, label, icon?, disabled?}。",
   "variants": [
     "default"
   ],
@@ -28,6 +29,7 @@
     "content",
     "description",
     "actions",
+    "direct-action",
     "menu-trigger",
     "menu"
   ],
@@ -36,18 +38,20 @@
       "cardinality": "0..1",
       "scope": "attachment-surface",
       "defaultPlacement": "trailing-end",
-      "control": "attachment-action-menu",
-      "interaction": "open-attachment-action-menu",
-      "menuItems": [
-        "preview",
-        "download"
-      ]
+      "singleAction": "direct-action",
+      "multipleActions": "menu-trigger",
+      "defaultActionIds": ["preview", "download"]
+    },
+    "direct-action": {
+      "cardinality": "0..1",
+      "visibility": "one-action",
+      "control": "ghost-button"
     },
     "menu-trigger": {
       "cardinality": "0..1",
       "scope": "attachment-action-menu",
-      "defaultVisibility": "visible",
-      "iconAlias": "navigation/chevron-down",
+      "visibility": "multiple-actions",
+      "iconAlias": "action/more",
       "iconSize": "20px",
       "ariaHasPopup": "menu"
     },
@@ -55,10 +59,7 @@
       "cardinality": "0..1",
       "scope": "attachment-action-menu",
       "role": "menu",
-      "items": [
-        "preview",
-        "download"
-      ],
+      "items": "declared-actions-in-order",
       "closeOn": [
         "escape",
         "outside-click",
@@ -93,7 +94,7 @@
     "linkedInstanceRequired": true,
     "variableReadbackRequired": true
   },
-  "contractNotes": "已保留当前组件契约；运行时适配器仍需按本组件真实结构、行为和可访问性逐批验收。",
+  "contractNotes": "一个操作时直接显示幽灵按钮（有图标时使用图标按钮）；多个操作时只显示「更多」，下拉菜单按声明顺序显示操作；空数组隐藏右侧操作区。",
   "category": "specialized",
   "categoryLabel": "特殊组件",
   "order": 610,
@@ -118,7 +119,7 @@
     "outside-click",
     "disabled"
   ],
-  "iconSemantic": "navigation/chevron-down",
+  "iconSemantic": "action/more",
   "readiness": {
     "sourceReady": true,
     "contractReady": true,
@@ -144,7 +145,7 @@
   "iconSlots": [
     {
       "slot": "menu-trigger",
-      "alias": "navigation/chevron-down",
+      "alias": "action/more",
       "displaySizes": [
         20
       ],
@@ -152,7 +153,7 @@
     }
   ],
   "iconAliases": [
-    "navigation/chevron-down"
+    "action/more"
   ],
   "comparisonGroup": "specialized"
 }

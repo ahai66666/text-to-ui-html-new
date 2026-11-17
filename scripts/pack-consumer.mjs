@@ -16,7 +16,7 @@ try{
  function dependency(file){if(selected.has(file))return;selected.add(file);const full=path.join(ROOT,file);if(!fs.existsSync(full))throw Error('Missing dependency '+file);const text=fs.readFileSync(full,'utf8');
  for(const m of text.matchAll(/\bfrom\s*["']([^"']+)["']|\bimport\s*["']([^"']+)["']|@import\s+(?:url\(\s*)?["']([^"']+)["']/g)){const spec=m[1]||m[2]||m[3];if(spec.startsWith('.'))dependency(path.posix.normalize(path.posix.join(path.posix.dirname(file),spec)));}}
  for(const c of read(path.join(ROOT,'consumer/catalog.json')).components){const contract=read(path.join(ROOT,'packages/component-contracts/src/components',c.id+'.json'));dependency(contract.implementations.html.split('#')[0]);}
- for(const file of ['runtime.js','color-references/index.js','shared/disclosure-behavior.js','shared/sidebar-behavior.js','shared/business-module.js','input/behavior.js','titlebar-overflow.js','styles.css','pattern-shell.css'])dependency('packages/components-html/src/'+file);
+ for(const file of ['runtime.js','color-references/index.js','shared/disclosure-behavior.js','shared/sidebar-behavior.js','shared/business-module.js','input/behavior.js','attachment/behavior.js','titlebar-overflow.js','styles.css','pattern-shell.css'])dependency('packages/components-html/src/'+file);
  // Full query provenance is loaded only on request. Keep coverage machine-side for that command.
  selected.add('consumer/coverage.json');
  const visitedScripts=new Set();
@@ -45,13 +45,17 @@ try{
   if(!entry.isDirectory())continue;
   const input=path.join('examples',entry.name,'page-input.json');
   if(!fs.existsSync(path.join(ROOT,input)))continue;
-  const project=path.join(examples,entry.name);
+  const project=fs.mkdtempSync(path.join(stage,'example-build-'));
   copy(input,path.join(project,'page-input.json'));
   const result=spawnSync(process.execPath,[path.join(root,'scripts/page.mjs'),'generate','--project',project],{cwd:root,encoding:'utf8'});
   if(result.status!==0)throw Error('Example '+entry.name+' failed to generate: '+(result.stderr||result.stdout));
-  for(const item of fs.readdirSync(project)){
-   if(item!=='page-input.json'&&item!=='out')fs.rmSync(path.join(project,item),{recursive:true});
-  }
+  const destination=path.join(examples,entry.name);
+  fs.mkdirSync(destination);
+  for(const file of ['index.html','page-input.json'])fs.copyFileSync(path.join(project,file),path.join(destination,file));
+  const previewPath='.text-to-ui/preview';
+  fs.cpSync(path.join(project,previewPath),path.join(destination,previewPath),{recursive:true});
+  // A copied example can be regenerated in place.
+  fs.writeFileSync(path.join(destination,previewPath,'preview-manifest.json'),JSON.stringify({skill:pkg.name,distribution:'project'})+'\n');
  }
  archive('text-to-ui-html-new-examples',examples);
  fs.writeFileSync(path.join(out,'package-report.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({ok:true,packages:report},null,2));

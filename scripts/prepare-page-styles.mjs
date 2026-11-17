@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import fs from "node:fs";
+import { sourcePageHost } from "./project-preview-host.mjs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
@@ -70,7 +71,8 @@ export function planPageStyles({ projectRoot, pageCssPath, entryPath = null, ski
   const htmlFile = safe(projectRoot, "index.html");
   const originalHtml = fs.readFileSync(htmlFile, "utf8");
   const html = originalHtml.replace(oldInlineReset, "");
-  if (/<style\b|\bstyle\s*=|<link\b(?=[^>]*\brel\s*=\s*["']stylesheet["'])/i.test(html)) throw new Error("index.html must load styles through main.js and styles/index.css; move custom CSS into styles/page-composition.css");
+  const sourceHtml = sourcePageHost(html);
+  if (/<style\b|\bstyle\s*=|<link\b(?=[^>]*\brel\s*=\s*["']stylesheet["'])/i.test(sourceHtml)) throw new Error("index.html must load styles through main.js and styles/index.css; move custom CSS into styles/page-composition.css");
 
   const businessComponentStyles = collectBusinessComponentStyles({
     projectRoot,
@@ -109,7 +111,7 @@ export function planPageStyles({ projectRoot, pageCssPath, entryPath = null, ski
     loadOrder: imports,
     dependencies: dependencyHashes,
     businessComponentStyles,
-    files: Object.fromEntries([...files].map(([file, contents]) => [file, { sha256: hash(contents), ownership: "script-managed" }]))
+    files: Object.fromEntries([...files].map(([file, contents]) => [file, { sha256: hash(file === "index.html" ? sourceHtml : contents), ownership: "script-managed" }]))
   };
   return { projectRoot, files, manifest, canAdopt: new Set(["main.js", "index.html"]) };
 }
@@ -140,8 +142,9 @@ export function preparePageStyles(options) {
   for (const [relative, contents] of plan.files) {
     const full = safe(plan.projectRoot, relative);
     if (!fs.existsSync(full)) continue;
-    const actual = hash(fs.readFileSync(full));
-    if (actual === hash(contents) || actual === previous?.files?.[relative]?.sha256) continue;
+    const bytes = fs.readFileSync(full);
+    const actual = hash(relative === "index.html" ? sourcePageHost(bytes.toString("utf8")) : bytes);
+    if (actual === plan.manifest.files[relative].sha256 || actual === previous?.files?.[relative]?.sha256) continue;
     if (!previous && plan.canAdopt.has(relative)) continue;
     throw new Error("Preserve edited or unowned style file: " + relative);
   }

@@ -48,6 +48,8 @@ Accordion/Collapsible 使用 title、detail、expanded、contentId、disabled、
 
 Tree View 的新消息数使用各节点自己的 `nodes[].trailing`，子节点同样适用。数字 `0`、字符串 `"0"` 或未提供计数时，右侧标签不渲染，也不保留占位。正数正常显示，节点名称和展开状态独立于计数。
 
+Attachment 用 `options.actions` 声明右侧操作，每项填写 `id`、`label`，按需填写 `icon`、`disabled`。一项直接显示，多项统一放在「更多」菜单，空数组省略操作区。用节点的 `actionBehaviors` 将操作 ID 映射到对应的交互 ID，并在交互的 `triggers` 中引用该附件节点。
+
 ## 节点
 
 组件：`{"id":"save","use":"button","context":"page-primary-action","options":{"label":"保存"},"behavior":"save"}`。
@@ -94,4 +96,4 @@ Pattern B 的当前对象级操作优先写在顶层，例如 `"detailActions": 
 
 静态 JS import/export、项目内图片和 CSS url 自动打包。默认使用经典脚本；不支持循环模块、可变导出、运行时资源加载、动态 import、import.meta。未支持依赖明确报错。复杂业务模块需遵守这些边界。
 
-修改只编辑 page-input.json 和声明的业务文件，再运行同一 generate。`out/<页面ID>/` 是生成的多文件离线交付包，不直接编辑。修改输入后重新生成；单文件 HTML 是可选导出。
+修改时编辑 page-input.json 和声明的业务文件，重新运行 generate 后打开项目根目录的 `index.html`。需要独立文件夹或单文件 HTML 时按需导出。

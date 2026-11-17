@@ -768,11 +768,9 @@
 .tui-attachment__type { min-width: var(--height-input); min-height: var(--height-input); display: grid; place-items: center; border-radius: var(--radius-badge); color: var(--color-danger); background: var(--color-danger-subtle); }
 .tui-attachment > div { min-width: 0; display: grid; gap: var(--space-0); }
 .tui-attachment small { color: var(--color-text-muted); font-size: var(--type-body-s-size); line-height: var(--type-body-s-leading); font-weight: var(--type-body-s-weight); }
-.tui-attachment__actions { position: relative; margin-inline-start: auto; display: inline-flex; align-items: center; flex: 0 0 var(--size-icon-button); }
-.tui-attachment__menu-trigger { color: var(--color-icon); }
-.tui-attachment__menu-trigger > .tui-icon { width: var(--icon-size-md); height: var(--icon-size-md); transition: transform .16s; }
-.tui-attachment__menu-trigger[aria-expanded="true"] > .tui-icon { transform: rotate(180deg); }
-.tui-attachment__menu { top: calc(100% + var(--space-2)); right: 0; left: auto; }
+.tui-attachment__actions { position: relative; margin-inline-start: auto; display: inline-flex; align-items: center; flex: 0 0 auto; }
+.tui-attachment__menu { top: calc(100% + var(--space-2)); inset-inline: auto 0; }
+.tui-attachment__menu > button:disabled { opacity: var(--state-disabled-opacity); background: transparent; cursor: not-allowed; }
 .tui-attachment[data-state="disabled"] .tui-attachment__actions { opacity: var(--state-disabled-opacity); }
 
 /* HTML contract adapters use canonical Tokens. Component source provides

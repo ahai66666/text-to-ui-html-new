@@ -63,6 +63,7 @@ import { renderPrimaryNavigationItemGallery } from "./gallery.js";
 import { renderListCardGallery } from "./gallery.js";
 export { createTitlebarSegments } from "../../component-contracts/src/titlebar-segments.js";
 export { bindTitlebarOverflow } from "./titlebar-overflow.js";
+export { bindAttachmentActions } from "./attachment/behavior.js";
 export { bindInputTagEntry } from "./input/behavior.js";
 export { renderPrimaryNavigationItemGallery } from "./gallery.js";
 export { renderInputGallery } from "./gallery.js";

@@ -8,7 +8,7 @@ export function markDelivery(project,status,report=null,message=null){
  project=fs.realpathSync(project);const file=local(project,'.text-to-ui/delivery.json');fs.mkdirSync(path.dirname(file),{recursive:true});const old=fs.existsSync(file)?read(file):{};
  const result={schemaVersion:1,skill:'text-to-ui-html-new',status,...(old.primary?{primary:old.primary}:{})};
  if(report){
-  const sources={};for(const [name,entry] of Object.entries(report.files||{})){if(!name.startsWith('src/')||name==='src/package.json')continue;const rel=name.slice(4),f=local(project,rel);if(fs.existsSync(f))sources[rel]=hash(fs.readFileSync(f));}
+  const sources={...report.sourceDigests};for(const [name,entry] of Object.entries(report.files||{})){if(!name.startsWith('src/')||name==='src/package.json')continue;const rel=name.slice(4),f=local(project,rel);if(fs.existsSync(f))sources[rel]=hash(fs.readFileSync(f));}
   for(const name of ['page-input.json']){const f=local(project,name);if(fs.existsSync(f))sources[name]=hash(fs.readFileSync(f));}
   result.primary={entry:report.output,distribution:report.distribution,files:report.files||{[path.basename(report.output)]:{sha256:report.sha256}},sourceDigests:sources};
  }

@@ -86,6 +86,29 @@ test('CSS and HTML resource paths stay valid after moving the complete folder',t
  assert.equal(report.assets,1);assert.equal(fs.readdirSync(path.join(moved,'assets')).length,1);
  assert.doesNotMatch(css,/data:image/);
 });
+test('project mode upgrades the existing host and resolves assets from the root', t => {
+ const root=fixture(t);
+ const htmlFile=path.join(root,'index.html');
+ fs.writeFileSync(htmlFile,'<!doctype html><html><head><title>示例</title></head><body><div id="app"></div><script type="module" src="./main.js"></script></body></html>');
+ fs.mkdirSync(path.join(root,'images'));
+ fs.writeFileSync(path.join(root,'images/icon.svg'),'<svg xmlns="http://www.w3.org/2000/svg"/>');
+ fs.writeFileSync(path.join(root,'styles/index.css'),'body{background:url("../images/icon.svg")}');
+ fs.writeFileSync(path.join(root,'main.js'),'globalThis.image={src:"./images/icon.svg"};');
+ const report=exportOffline(root,{format:'project'});
+ const html=fs.readFileSync(htmlFile,'utf8');
+ const script=html.match(/<script defer src="([^"]+)"/)[1];
+ const context={document:{}};
+ vm.runInNewContext(fs.readFileSync(path.resolve(root,script),'utf8'),context);
+ assert.ok(fs.existsSync(path.resolve(root,context.image.src)));
+ const cssFile=path.join(root,'.text-to-ui/preview/styles/app.css');
+ const cssAsset=fs.readFileSync(cssFile,'utf8').match(/url\("([^"]+)"\)/)[1];
+ assert.ok(fs.existsSync(path.resolve(path.dirname(cssFile),cssAsset)));
+ assert.equal(exportOffline(root,{format:'project'}).bundleSha256,report.bundleSha256);
+ fs.writeFileSync(path.join(root,'main.js'),'fetch("./data.json")');
+ assert.throws(()=>exportOffline(root,{format:'project'}),/RUNTIME_RESOURCE_LOAD/);
+ assert.equal(fs.readFileSync(htmlFile,'utf8'),html);
+ assert.ok(fs.existsSync(path.resolve(root,script)));
+});
 test('unsupported code preserves a previous good preview; unrelated folders are not replaced',t=>{
  const root=fixture(t),report=exportOffline(root),entry=path.join(root,report.output),previous=fs.readFileSync(entry,'utf8');
  fs.writeFileSync(path.join(root,'main.js'),'fetch("./data.json")');
@@ -111,7 +134,10 @@ test('CLI generates all four Patterns without Vite and retains the single-file o
   const cp=spawnSync(process.execPath,[path.join(ROOT,'scripts/page.mjs'),'generate','--project',root],{encoding:'utf8',maxBuffer:20*1024*1024});
   assert.equal(cp.status,0,cp.stderr||cp.stdout);
   const report=JSON.parse(cp.stdout.trim());
-  assert.equal(report.output,'out/'+name+'/index.html');assert.equal(report.distribution,'multi-file');
+  assert.equal(report.output,'index.html');
+  assert.equal(report.distribution,'project');
+  assert.equal(report.requiresServer,false);
+  assert(!fs.existsSync(path.join(root,'out')));
   assert(!fs.existsSync(path.join(root,'vite.config.mjs')));
   const pkg=JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8'));
   assert(!Object.values(pkg.scripts).some(x=>x.includes('vite')));
@@ -119,9 +145,13 @@ test('CLI generates all four Patterns without Vite and retains the single-file o
   assert.match(pageModule.renderGeneratedPage(),/data-tui-pattern=/);
   const html=fs.readFileSync(path.join(root,report.output),'utf8');
   assert.doesNotMatch(html,/type="module"/);
-  new vm.Script(fs.readFileSync(path.join(root,path.dirname(report.output),'runtime/app.js'),'utf8'));
+  assert.match(html,/\.text-to-ui\/preview\/runtime\/app\.js/);
+  new vm.Script(fs.readFileSync(path.join(root,'.text-to-ui/preview/runtime/app.js'),'utf8'));
   if(name==='settings'){
-   const source=path.join(root,path.dirname(report.output),'src');
+   const multi=spawnSync(process.execPath,[path.join(ROOT,'scripts/page.mjs'),'export','--project',root,'--format','multi-file'],{encoding:'utf8'});
+   assert.equal(multi.status,0,multi.stderr);
+   assert.equal(JSON.parse(multi.stdout).output,'out/settings/index.html');
+   const source=path.join(root,'out/settings/src');
    const rebuilt=spawnSync(process.execPath,[path.join(ROOT,'scripts/page.mjs'),'generate','--project',source],{encoding:'utf8',maxBuffer:20*1024*1024});
    assert.equal(rebuilt.status,0,rebuilt.stderr);
    const single=spawnSync(process.execPath,[path.join(ROOT,'scripts/page.mjs'),'export','--project',root,'--format','single-file'],{encoding:'utf8'});

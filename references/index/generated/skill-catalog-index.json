@@ -23,12 +23,12 @@
         },
         {
           "path": "README.md",
-          "sha256": "557b4529eb373fdd31b60c47b6ff34a7a365f490b26e2cc9293747025629ca49",
+          "sha256": "c591ef5a62315dadd90f59cee1586d907781d49e2045d325b4f25608a60b1aca",
           "availability": "local"
         },
         {
           "path": "SKILL.md",
-          "sha256": "19ea14dc2991625c22fc221710b3154326ce77b8a9d0c6ffe2b9060642313198",
+          "sha256": "95d5473308cb9661fec5da2f15ba5ff44837838318e50cf1d64b511be088dd80",
           "availability": "local"
         },
         {
@@ -93,7 +93,7 @@
         },
         {
           "path": "apps/component-gallery/preview-interactions.js",
-          "sha256": "a11da04a9596e34d16642c64d90f0b537b9b8ffdcbd49284db66cc9071a2177a",
+          "sha256": "6074447ffec889d27175b16e5eda4da9704e15d3d5c697ed78a9a21dfdf0838f",
           "availability": "local"
         },
         {
@@ -368,12 +368,12 @@
         },
         {
           "path": "consumer/catalog.json",
-          "sha256": "b756be8f630db54bc543b782e14bbace2b48e1eff630dd0bd8fd678b656789e3",
+          "sha256": "d45850bc3ea67d9008c94e68066ac867e5bf2f5afebbf5003434ddf779859cbb",
           "availability": "local"
         },
         {
           "path": "consumer/coverage.json",
-          "sha256": "7426b39b81be51e34776c5631b472184e98a3adb32f992db86a6a955c4994f99",
+          "sha256": "c69dd8b2bc31e49c565a13b0b6497dccc6bad42bafb27bff1c6afa886ded6016",
           "availability": "local"
         },
         {
@@ -388,7 +388,7 @@
         },
         {
           "path": "packages/component-contracts/src/components.json",
-          "sha256": "c1c43da67eb3311702ab7a2e3df679d49d8cc66f3646922e12dfd3ea8ec5603b",
+          "sha256": "5e6b2abfc4a59d06944eabe7405df5d1a3c4638c6524f5f55568dc1ce1589b32",
           "availability": "local"
         },
         {
@@ -408,7 +408,7 @@
         },
         {
           "path": "packages/component-contracts/src/components/attachment.json",
-          "sha256": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee",
+          "sha256": "b1ac1f2e31e6e64ae550ef03ab0f50e02cc0f61191567aaad7cb0faca8fb1f68",
           "availability": "local"
         },
         {
@@ -643,7 +643,7 @@
         },
         {
           "path": "packages/component-contracts/src/registry.json",
-          "sha256": "6671dae156133fdd38b17b839f9c8b7220f57c2e8cdeceed90b02593f123b139",
+          "sha256": "6cc500185423585122ebae9bf4b0aec4fcc7e582a3beb23dda784bc15cff9592",
           "availability": "local"
         },
         {
@@ -658,7 +658,7 @@
         },
         {
           "path": "packages/component-styles/src/index.css",
-          "sha256": "9a76f400e495004ad78b33c4dc7d854a919c21e879989a93f066579d73a90ecc",
+          "sha256": "d700ed22327d33e379742fa36ef3caca8e1c03e22107d4e26c14fa29c3ccd62f",
           "availability": "local"
         },
         {
@@ -687,8 +687,13 @@
           "availability": "local"
         },
         {
+          "path": "packages/components-html/src/attachment/behavior.js",
+          "sha256": "d78271376637f5e1ed24967074908ba35517f603899ad9da01aca6469f5ea1b1",
+          "availability": "local"
+        },
+        {
           "path": "packages/components-html/src/attachment/index.js",
-          "sha256": "27abefcd05b87ea5687a895d5c74ce77fdd9176690c0b624ebf5f8dd8bc9fc38",
+          "sha256": "e97ea02110e0e9e4954525122be6f7367d312c30b3f5822e4b360f5f0d12ffb1",
           "availability": "local"
         },
         {
@@ -818,7 +823,7 @@
         },
         {
           "path": "packages/components-html/src/gallery.js",
-          "sha256": "d51a3abfafd4567768cf6ffbbc68a260693c501994d7d43c6ddc600fd78d2848",
+          "sha256": "fffa5efa7f49060619c2b011a5d96c3008e1c15a2a98a54d8e4ce980e1f508a2",
           "availability": "local"
         },
         {
@@ -1063,7 +1068,7 @@
         },
         {
           "path": "packages/components-html/src/index.js",
-          "sha256": "8722b45ed898c2f87ea34b39da9a9e859bb4267089797fd80cf91267de00d291",
+          "sha256": "ac2515fd0917bfe79076ac7587bfe2bc085794e368a8511dbba3b3f436db115c",
           "availability": "local"
         },
         {
@@ -1523,7 +1528,7 @@
         },
         {
           "path": "references/component-specs-extended.md",
-          "sha256": "02518e29abef8f39dc81c71fdf497e745a13567738b868d094d036f6b565cf72",
+          "sha256": "2aa9d7837100467963fd5927baec6d687970c5dac6180f510e260437e3cc152b",
           "availability": "local"
         },
         {
@@ -1543,7 +1548,7 @@
         },
         {
           "path": "references/components/component-selection-rules.json",
-          "sha256": "75d5b31bfc6d7e5d99e3024cc66af32d94e74f610a35ec26b2a6d9768e2913e1",
+          "sha256": "271e761d636a4bb156f7ad0780dc6dbd224852aa97af899d370e9813e9ae5341",
           "availability": "local"
         },
         {
@@ -1578,7 +1583,7 @@
         },
         {
           "path": "references/consumer-input.md",
-          "sha256": "8356a6897d87076aa35f42fe7aa2c827ba472e6b6fb3549b04e397f115873cb0",
+          "sha256": "01569e715daf782c43360bada3a351ecbfe60c75f354d92e3952b4d9b17e7f0a",
           "availability": "local"
         },
         {
@@ -1698,7 +1703,7 @@
         },
         {
           "path": "references/offline-delivery.md",
-          "sha256": "4c62f3168765b500a67cd99f7d7faa47dde3de12ea4ff8600856ddc599129196",
+          "sha256": "0c4f650b12a26c2edeb1a03825dc3948c9a6b4bec22568f58c2b51b3c4881b18",
           "availability": "local"
         },
         {
@@ -2248,7 +2253,7 @@
         },
         {
           "path": "references/resources/supplement/specialized-content-and-layout.md",
-          "sha256": "af2fa4e89253cca291f1568734a6f963c2f33923ba2482b9291923d21653c410",
+          "sha256": "04e2578aea65c71a56e62ddb1a14e11b8aec15e31dd9245e6a23c83dac60297e",
           "availability": "local"
         },
         {
@@ -2458,7 +2463,7 @@
         },
         {
           "path": "scripts/delivery-entry.mjs",
-          "sha256": "b4d8f54b03673b54e85e2f95fb46fc6a4120d52f10728d695ece937206be580f",
+          "sha256": "b3545ab23f98197a674fe4a148952175f39a0c3c028e00bfb1d2530fd54c3389",
           "availability": "local"
         },
         {
@@ -2478,7 +2483,7 @@
         },
         {
           "path": "scripts/generate-html-page.mjs",
-          "sha256": "b08a2a12e616ae84a6b111f823c554fd69fd71a2ebdaaf93a97466a816628bf0",
+          "sha256": "f73bdd0f84cb084e3e6fe3474d3095e0183ee0cfa6a64f70228bb33d9f85850b",
           "availability": "local"
         },
         {
@@ -2518,12 +2523,12 @@
         },
         {
           "path": "scripts/offline.mjs",
-          "sha256": "23d2511a692a869a7f93ace4b6eddbeaee3093e130fc82c871e8460a557abbbe",
+          "sha256": "a6c1b4884e21f21553b9dc478d01d6e2b9305e81858b0c73c65c3302c2844626",
           "availability": "local"
         },
         {
           "path": "scripts/pack-consumer.mjs",
-          "sha256": "531810026523e47241fb1560e888f2548070cee02d2e1f3dc2781c87c0f065cb",
+          "sha256": "327539d1a5bf05d6cbe30e8f1214d7779cbb4ec4c252d18d13a4bda89e754f03",
           "availability": "local"
         },
         {
@@ -2563,7 +2568,7 @@
         },
         {
           "path": "scripts/page.mjs",
-          "sha256": "108b72c92448b50e8d2327e1da1abb5dcb77ec8b5ba956f8a763cd71988f421a",
+          "sha256": "f7131aeb822a3b9d7ddcb923de2274e6f5bfb8d040664514378fd43301d49e44",
           "availability": "local"
         },
         {
@@ -2573,12 +2578,12 @@
         },
         {
           "path": "scripts/prepare-page-components.mjs",
-          "sha256": "a5b1c5be87379bcb424918ac3322a796061eda62133727c64e9beaa292fd42b9",
+          "sha256": "2d7eca1d218241f931867f620b95a28d2dd3d7d4703a55b9c9198de627685387",
           "availability": "local"
         },
         {
           "path": "scripts/prepare-page-styles.mjs",
-          "sha256": "da63c8c6bbdf1f397cc20ad55ac9cc71bce7a193449870f7729ebf3a7a66afdb",
+          "sha256": "fbf6eca45d58afef7bab41c3715f4f467a0838e0061972efb96aa69d05bc82d2",
           "availability": "local"
         },
         {
@@ -2588,7 +2593,12 @@
         },
         {
           "path": "scripts/preview-page.mjs",
-          "sha256": "f3f0299081fec531f2594d17a0a8ed4c9391537ac7223e8ce678f94493234c31",
+          "sha256": "239a4f876c2977066871e1d2123da05097d18494f3d5adf6400bbafe62994098",
+          "availability": "local"
+        },
+        {
+          "path": "scripts/project-preview-host.mjs",
+          "sha256": "63f64a4c07b2c9d07398def6b39d2c610371204696a1723c1b87288c9a5a49cc",
           "availability": "local"
         },
         {
@@ -2708,7 +2718,7 @@
         },
         {
           "path": "scripts/validate-page-project.mjs",
-          "sha256": "9d943fb18e5e2bbe2170d7f8b5ca4214eaeda0889972345b0c7b45c0c1ff36e1",
+          "sha256": "b14dd3bbbf3bfb3292718ccae0e84ab326322c4004f137f2691eb776cae6f890",
           "availability": "local"
         },
         {

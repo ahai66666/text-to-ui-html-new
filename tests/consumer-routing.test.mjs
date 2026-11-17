@@ -6,6 +6,7 @@ import path from 'node:path';
 import {spawnSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
 import {ROOT,select,optionsFor,ruleForOptions,checkSlots} from '../scripts/consumer-lib.mjs';
+import {render as attachment} from '../packages/components-html/src/attachment/index.js';
 import {render as accordion} from '../packages/components-html/src/accordion/index.js';
 import {render as sidebar, sidebarInstanceCount} from '../packages/components-html/src/sidebar/index.js';
 import {render as collapsible} from '../packages/components-html/src/collapsible/index.js';
@@ -95,7 +96,7 @@ test('disclosure text slots survive the complete consumer generation pipeline',t
  input.id='disclosure-slots';input.groups.find(group=>group.id==='preferences').children=[{id:'disclosure',use:'accordion',options:{contentId:'real-panel'},slots:{label:'业务分组',content:'业务内容 & 详情'},behavior:'disclose'}];
  input.interactions=[{id:'disclose',kind:'component-native',triggers:['disclosure'],outcome:'展开业务内容'}];
  fs.writeFileSync(path.join(dir,'page-input.json'),JSON.stringify(input));const response=run('page.mjs',['generate','--project',dir]);assert.equal(response.status,0,response.stderr);
- const rendered=fs.readFileSync(path.join(dir,'generated-page.js'),'utf8');assert.match(rendered,/业务分组/);assert.match(rendered,/业务内容 &amp; 详情/);assert(fs.existsSync(path.join(dir,'out/disclosure-slots/index.html')));
+ const rendered=fs.readFileSync(path.join(dir,'generated-page.js'),'utf8');assert.match(rendered,/业务分组/);assert.match(rendered,/业务内容 &amp; 详情/);assert(fs.existsSync(path.join(dir,'index.html')));
 });
 
 test('explicit Pattern B Titlebar owns the detail action and replaces the structural default', t => {
@@ -157,7 +158,7 @@ test('detailActions expands once and a copy revision inherits the resolved scene
  fs.writeFileSync(file,JSON.stringify(input));
  const revised=run('page.mjs',['generate','--project',dir,'--revision']);assert.equal(revised.status,0,revised.stderr);
  assert.deepEqual(read('.text-to-ui/layout-selection.json'),layout);
- assert.match(fs.readFileSync(path.join(dir,'out/records/runtime/app.js'),'utf8'),/修改后的正文/);
+ assert.match(fs.readFileSync(path.join(dir,'.text-to-ui/preview/runtime/app.js'),'utf8'),/修改后的正文/);
  input.titlebarSize='xlarge';
  fs.writeFileSync(file,JSON.stringify(input));
  const rejected=run('page.mjs',['compile','--project',dir,'--revision']);
@@ -239,6 +240,21 @@ test('every Pattern places first-level entries outside the scroll body without a
    }
   });
  }
+});
+
+test('Attachment chooses its trailing control from the declared action count', () => {
+ const contract = select('attachment');
+ const download = {id:'download',label:'下载',icon:'action/download'};
+ const preview = {id:'preview',label:'预览'};
+ const render = actions => attachment(optionsFor(contract,{actions}));
+ assert.match(render([download]), /data-slot="direct-action" data-action="download"/);
+ assert.doesNotMatch(render([download]), /aria-haspopup/);
+ assert.match(render([preview, download]), /data-slot="menu-trigger"[^>]+aria-haspopup="menu"/);
+ assert.match(render([preview, download]), /data-action="preview".*data-action="download"/);
+ assert.doesNotMatch(render([preview, download]), /data-slot="direct-action"/);
+ assert.doesNotMatch(render([]), /data-slot="actions"/);
+ assert.throws(() => render([download, download]), /DUPLICATE_VALUE/);
+ assert.match(attachment(), /data-action="preview".*data-action="download"/);
 });
 
 test('Sidebar uses a flat list without titles and retains a single labeled disclosure', () => {

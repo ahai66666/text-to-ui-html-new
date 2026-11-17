@@ -1,6 +1,23 @@
 {
   "schemaVersion": 1,
   "optionSchemasByComponent": {
+    "attachment": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["id", "label"],
+          "properties": {
+            "id": { "type": "string", "nonEmpty": true },
+            "label": { "type": "string", "nonEmpty": true },
+            "icon": { "type": "string", "nonEmpty": true },
+            "disabled": { "type": "boolean" }
+          },
+          "additionalProperties": false
+        },
+        "uniqueBy": "id"
+      }
+    },
     "search": {
       "scopeOptions": {
         "type": "array",

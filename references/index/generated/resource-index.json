@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "18f1d47c964155fff6333e5e9caca6bd1b9cd6396ca88931bc2872433cd51e4f",
+  "digest": "bc939d9343b865fd8b4349e2f978f0c1c358e6435b1b2cddd5ecf1bf50a32e40",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -28,7 +28,7 @@
     },
     {
       "path": "packages/component-contracts/src/components/attachment.json",
-      "sha256": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee"
+      "sha256": "b1ac1f2e31e6e64ae550ef03ab0f50e02cc0f61191567aaad7cb0faca8fb1f68"
     },
     {
       "path": "packages/component-contracts/src/components/avatar.json",
@@ -212,7 +212,7 @@
     },
     {
       "path": "packages/component-contracts/src/registry.json",
-      "sha256": "6671dae156133fdd38b17b839f9c8b7220f57c2e8cdeceed90b02593f123b139"
+      "sha256": "6cc500185423585122ebae9bf4b0aec4fcc7e582a3beb23dda784bc15cff9592"
     },
     {
       "path": "packages/tokens/src/index.css",
@@ -260,7 +260,7 @@
     },
     {
       "path": "references/component-specs-extended.md",
-      "sha256": "02518e29abef8f39dc81c71fdf497e745a13567738b868d094d036f6b565cf72"
+      "sha256": "2aa9d7837100467963fd5927baec6d687970c5dac6180f510e260437e3cc152b"
     },
     {
       "path": "references/components/compatibility-modules.json",
@@ -272,7 +272,7 @@
     },
     {
       "path": "references/components/component-selection-rules.json",
-      "sha256": "75d5b31bfc6d7e5d99e3024cc66af32d94e74f610a35ec26b2a6d9768e2913e1"
+      "sha256": "271e761d636a4bb156f7ad0780dc6dbd224852aa97af899d370e9813e9ae5341"
     },
     {
       "path": "references/components/local-component-delivery.md",
@@ -732,7 +732,7 @@
     },
     {
       "path": "references/resources/supplement/specialized-content-and-layout.md",
-      "sha256": "af2fa4e89253cca291f1568734a6f963c2f33923ba2482b9291923d21653c410"
+      "sha256": "04e2578aea65c71a56e62ddb1a14e11b8aec15e31dd9245e6a23c83dac60297e"
     },
     {
       "path": "references/resources/supplement/universal-contract.md",
@@ -2436,8 +2436,8 @@
         "separator"
       ],
       "readPolicy": "stage",
-      "bytes": 821,
-      "sha256": "af2fa4e89253cca291f1568734a6f963c2f33923ba2482b9291923d21653c410",
+      "bytes": 936,
+      "sha256": "04e2578aea65c71a56e62ddb1a14e11b8aec15e31dd9245e6a23c83dac60297e",
       "kind": "document"
     },
     {
@@ -3059,8 +3059,8 @@
       "requires": [
         "core.delivery"
       ],
-      "bytes": 3580,
-      "sha256": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee"
+      "bytes": 3930,
+      "sha256": "b1ac1f2e31e6e64ae550ef03ab0f50e02cc0f61191567aaad7cb0faca8fb1f68"
     },
     {
       "id": "component.avatar",

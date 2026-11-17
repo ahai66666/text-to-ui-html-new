@@ -2,7 +2,7 @@ import { selectSidebarItem } from "../../packages/components-html/src/shared/sid
 import { toggleDisclosure } from "../../packages/components-html/src/shared/disclosure-behavior.js";
 // Adapted from the canonical Text-to-UI HTML Gallery runtime.
 // Origin and source hashes: maintenance/gallery-source.json. License: MIT.
-import { bindInputTagEntry, bindTitlebarOverflow } from "../../packages/components-html/src/index.js";
+import { bindAttachmentActions, bindInputTagEntry, bindTitlebarOverflow } from "../../packages/components-html/src/index.js";
 const componentTitle = component => component.logicalName.split("/")[0];
 const syncMenu = (trigger, menu, open) => {
   trigger?.setAttribute("aria-expanded", String(open));
@@ -23,7 +23,7 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
     setStatus(`${componentId === "alert-dialog" ? "Alert Dialog" : componentId === "semi-modal" ? "Semi-modal" : "Dialog"} · ${reason}`);
   };
   const closeMenus = () => {
-    root.querySelectorAll(".tui-button-dropdown__menu, .tui-select__menu, .tui-generated__menu, .tui-generated__panel, .tui-advanced-menu__panel, .tui-advanced-menu__submenu, .tui-advanced-popover__panel, .tui-picker__panel, .tui-attachment__menu, .tui-titlebar__overflow-menu").forEach((menu) => {
+    root.querySelectorAll(".tui-button-dropdown__menu:not(.tui-attachment__menu), .tui-select__menu, .tui-generated__menu, .tui-generated__panel, .tui-advanced-menu__panel, .tui-advanced-menu__submenu, .tui-advanced-popover__panel, .tui-picker__panel, .tui-titlebar__overflow-menu").forEach((menu) => {
       menu.hidden = true;
       menu.classList.remove("is-open");
       const trigger = menu.previousElementSibling;
@@ -69,9 +69,9 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
     const isAdvancedMenuInteraction = event.target.closest?.(".tui-advanced-menu__trigger, .tui-advanced-menu__item");
     const isInputTagEntrySelection = event.target.closest?.("[data-input-tag-entry] .tui-input-tag-entry__menu [role=option], [data-input-tag-entry] [data-remove-tag]");
     if (isInputTagEntrySelection) return;
-    if (root.contains(event.target) && !event.target.closest(".tui-attachment__actions") && !isAdvancedMenuInteraction) closeMenus();
+    if (root.contains(event.target) && !isAdvancedMenuInteraction) closeMenus();
     const target = event.target.closest("button, input, textarea, select, a, [role=button], .tui-combobox__trigger");
-    if (!target || !root.contains(target) || target.disabled) return;
+    if (!target || !root.contains(target) || target.disabled || target.closest(".tui-attachment__actions")) return;
     const owner = target.closest("[data-component-card]");
     const id = owner?.dataset.componentCard;
     if (target.matches("[data-overlay-trigger]")) {
@@ -97,31 +97,11 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
       if (menu) { const open = menu.hidden; closeMenus(); syncMenu(target, menu, open); setStatus(`${componentTitle(runtimeComponents.find((item) => item.id === id) ?? { logicalName: "Button" })} · ${open ? "打开" : "收起"}`); }
       return;
     }
-    if (target.matches(".tui-button-dropdown__item") && !target.closest(".tui-attachment__menu")) {
+    if (target.matches(".tui-button-dropdown__item")) {
       const rootButton = target.closest(".tui-button-dropdown")?.querySelector("[data-slot=label]");
       if (rootButton) rootButton.textContent = target.textContent;
       closeMenus();
       setStatus(`已选择 ${target.textContent.trim()}`);
-      return;
-    }
-    if (target.matches(".tui-attachment__menu-trigger")) {
-      const component = target.closest(".tui-attachment");
-      const menu = component?.querySelector(":scope > .tui-attachment__actions > .tui-attachment__menu");
-      if (menu) {
-        const open = menu.hidden;
-        closeMenus();
-        menu.hidden = !open;
-        menu.classList.toggle("is-open", open);
-        target.setAttribute("aria-expanded", String(open));
-        if (open) menu.querySelector('[role="menuitem"]')?.focus();
-        setStatus(`Attachment · ${open ? "打开操作菜单" : "收起操作菜单"}`);
-      }
-      return;
-    }
-    if (target.matches('.tui-attachment__menu [role="menuitem"]')) {
-      const action = target.dataset.action;
-      closeMenus();
-      setStatus(`Attachment · ${action === "preview" ? "已预览" : "已下载"}`);
       return;
     }
     if (target.matches(".tui-titlebar__action, .tui-titlebar__pane-action, .tui-titlebar__pane-leading-action")) {
@@ -466,7 +446,7 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
       listCard.click();
       return;
     }
-    const target = event.target.closest?.(".tui-combobox__input, .tui-select__trigger, .tui-select__menu [role=option], .tui-tabs__list [role=tab], .tui-sub-tabs__list [role=tab], .tui-tree-view__item, .tui-color-picker__tabs [role=tab], .tui-advanced-menu__trigger, .tui-advanced-menu__item[role=menuitem], .tui-picker__trigger, .tui-attachment__menu-trigger, .tui-attachment__menu [role=menuitem]");
+    const target = event.target.closest?.(".tui-combobox__input, .tui-select__trigger, .tui-select__menu [role=option], .tui-tabs__list [role=tab], .tui-sub-tabs__list [role=tab], .tui-tree-view__item, .tui-color-picker__tabs [role=tab], .tui-advanced-menu__trigger, .tui-advanced-menu__item[role=menuitem], .tui-picker__trigger");
     if (!target || !root.contains(target)) return;
     if (target.matches(".tui-combobox__input")) {
       const component = target.closest(".tui-combobox");
@@ -480,7 +460,7 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
       if (event.key === "Enter" && menu && !menu.hidden) { const option = menu.querySelector('[role="option"]:not([hidden])'); if (option) { event.preventDefault(); option.click(); } }
       return;
     }
-    if (event.key === "Escape") { event.preventDefault(); closeMenus(); (target.closest(".tui-select, .tui-advanced-menu, .tui-advanced-menubar, .tui-picker")?.querySelector(".tui-select__trigger, .tui-advanced-menu__trigger, .tui-picker__trigger") ?? target.closest(".tui-attachment")?.querySelector(".tui-attachment__menu-trigger"))?.focus(); return; }
+    if (event.key === "Escape") { event.preventDefault(); closeMenus(); target.closest(".tui-select, .tui-advanced-menu, .tui-advanced-menubar, .tui-picker")?.querySelector(".tui-select__trigger, .tui-advanced-menu__trigger, .tui-picker__trigger")?.focus(); return; }
     if (target.matches(".tui-tree-view__item") && ["ArrowDown", "ArrowUp", "ArrowRight", "ArrowLeft"].includes(event.key)) {
       const items = [...target.closest(".tui-tree-view")?.querySelectorAll('.tui-tree-view__item[role="treeitem"]') ?? []];
       const index = Math.max(0, items.indexOf(target));
@@ -521,14 +501,6 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
         items[(index + (event.key === "ArrowDown" ? 1 : items.length - 1)) % items.length]?.focus();
         return;
       }
-    }
-    if (target.matches('[role="menuitem"]') && ["ArrowDown", "ArrowUp"].includes(event.key)) {
-      const items = [...target.closest(".tui-attachment__menu")?.querySelectorAll('[role="menuitem"]') ?? []];
-      if (!items.length) return;
-      event.preventDefault();
-      const index = Math.max(0, items.indexOf(target));
-      items[(index + (event.key === "ArrowDown" ? 1 : items.length - 1)) % items.length]?.focus();
-      return;
     }
     if (!target.matches('[role="option"]')) return;
     const options = [...target.closest(".tui-select__menu")?.querySelectorAll('[role="option"]') ?? []];
@@ -665,6 +637,9 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
     onAction: (action) => setStatus(`Titlebar · Main Detail · ${action}`)
   });
   const removeInputTagEntry = bindInputTagEntry(root);
+  const removeAttachmentActions = root.querySelector(".tui-attachment") ? bindAttachmentActions(root, {
+    onAction: (_id, button) => setStatus(`Attachment · ${button.getAttribute("aria-label") ?? button.textContent.trim()}`)
+  }) : null;
   return () => {
     delete root.dataset.interactionsBound;
     root.removeEventListener("click", onClick);
@@ -678,6 +653,7 @@ export const bindPreviewInteractions = (root, setStatus = () => {}, runtimeCompo
     document.removeEventListener("click", onDocumentClick);
     removeTitlebarOverflow();
     removeInputTagEntry();
+    removeAttachmentActions?.();
     directOverlayAbort.abort();
   };
 };

@@ -13,9 +13,9 @@ node scripts/discover-page.mjs --task "设置"
 node scripts/page.mjs generate --project /path/to/page-project
 ```
 
-The project contains a user-owned page-input.json. Read references/consumer-input.md for its format. Open `out/<page-id>/index.html` directly. Deliver its complete folder, including external runtime/app.js, styles/app.css, optional assets/, and src/ modules. It mounts the same component and Pattern implementations dynamically using classic scripts, without Vite, npm install or a server. Rebuilding uses Node.js 20+ and this skill. See references/offline-delivery.md. Single-file HTML remains an explicit `--format single-file` option.
+The project contains a user-owned page-input.json. Read references/consumer-input.md for its format. Open the project's root `index.html` directly. It mounts the component and Pattern implementations using local assets in `.text-to-ui/preview/`. Keep the project folder together. Rebuilding uses Node.js 20+ and this skill. See references/offline-delivery.md for optional single-file and separate-folder exports.
 
-Optional examples ZIP includes four Pattern inputs and their complete offline preview folders. Copy an example folder outside the skill before editing. Optional preview ZIP overlays the consumer directory: copy its contents into the matching skill directory, then `node scripts/preview-components.mjs`. Preview uses a local server; delivered page HTML does not.
+The optional examples ZIP includes four Pattern inputs and their root `index.html` previews. Copy an example folder outside the skill before editing. Optional preview ZIP overlays the consumer directory: copy its contents into the matching skill directory, then `node scripts/preview-components.mjs`. Preview uses a local server; delivered page HTML does not.
 
 ## Boundaries
 

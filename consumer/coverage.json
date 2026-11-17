@@ -131,7 +131,7 @@
     {
       "id": "attachment",
       "source": "packages/components-html/src/attachment/index.js",
-      "contractSha256": "262f9b23c6b4f4a8d7a55a47ac52e5f16e2e9ac4e58888b68e538e6abe53f9ee",
+      "contractSha256": "b1ac1f2e31e6e64ae550ef03ab0f50e02cc0f61191567aaad7cb0faca8fb1f68",
       "parameters": {
         "type": {
           "disposition": "model-writable",
@@ -154,8 +154,7 @@
           "typeStatus": "not-declared; upstream validation retained"
         },
         "actions": {
-          "disposition": "model-writable",
-          "typeStatus": "not-declared; upstream validation retained"
+          "disposition": "model-writable"
         },
         "disabled": {
           "disposition": "model-writable"

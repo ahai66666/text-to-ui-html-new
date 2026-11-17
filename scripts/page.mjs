@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from 'node:fs';import path from 'node:path';import {spawnSync} from 'node:child_process';
 import {assertSingleEntry,markDelivery,inspectDelivery} from './delivery-entry.mjs';
+import {hasProjectPreviewHost} from './project-preview-host.mjs';
 import {checkBusinessLayoutCss} from './business-css.mjs';
 import {navigationSlotRequired,primaryNavigationItemCountError} from './pattern-contract-lib.mjs';
 import {pageTitlebarPolicy,assertTitlebarSize} from './titlebar-scene.mjs';
@@ -13,15 +14,19 @@ function keys(object,allowed,label){for(const k of Object.keys(object))if(!allow
 function exportPreview(){
  const readIf=name=>fs.existsSync(path.join(project,name))?read(path.join(project,name)):{};
  const input=readIf('page-input.json'),blueprint=readIf('page-blueprint.json'),bindings=readIf('page-bindings.json');
- const format=value('--format')||'multi-file';
+ const requestedOutput=value('--out');
+ const format=value('--format')||(requestedOutput&&path.resolve(project,requestedOutput)!==path.join(project,'index.html')?'multi-file':'project');
  const id=input.id||blueprint.id||'page';
  const title=value('--title')||input.title||bindings.componentBindings?.find(b=>b.id==='system-title')?.options?.label||'页面';
- const output=value('--out')||(format==='single-file'?'out/'+id+'.html':'out/'+id+'/index.html');
- if(path.dirname(path.resolve(project,output))===project)throw Error('DELIVERY_OUTPUT: place the preview inside an output folder, not beside the source index.html');
+ const output=requestedOutput||(format==='project'?'index.html':format==='single-file'?'out/'+id+'.html':'out/'+id+'/index.html');
+ if(format!=='project'&&path.dirname(path.resolve(project,output))===project)throw Error('DELIVERY_OUTPUT: explicit exports belong in an output folder');
+ if(command==='generate'&&format!=='project'&&hasProjectPreviewHost(fs.readFileSync(path.join(project,'index.html'),'utf8'))){
+  exportOffline(project,{title,format:'project'});
+ }
  const report=exportOffline(project,{title,output,format,includeSources:!args.includes('--no-sources')});
  json(path.join(project,'.text-to-ui/offline-preview.json'),report);
  markDelivery(project,'ready',report);
- const {files,...summary}=report;
+ const {files,sourceDigests,...summary}=report;
  return {...summary,...(files?{fileCount:Object.keys(files).length}: {})};
 }
 function resolveNavigationMode(pattern, requested, contextsByRegion) {
@@ -303,5 +308,5 @@ try{
  else {const c=compile();layoutSelection=c.layoutSelection;if(command==='compile'){console.log(JSON.stringify({ok:true,skill:'text-to-ui-html-new',pattern:c.pattern,navigationMode:c.navigationMode,compiled:'.text-to-ui/compiled'}));process.exit(0);}run('generate-compliant-page.mjs',[...c.common,'--project',project,'--blueprint',path.join(c.expanded,'page-blueprint.json'),'--content-recipes',path.join(c.expanded,'page-content-recipes.json'),'--bindings',path.join(c.expanded,'page-bindings.json'),'--page-css',path.join(project,'styles/page-composition.css')]);}
  const report=exportPreview();if(layoutSelection)json(path.join(project,'.text-to-ui/layout-selection.json'),layoutSelection);json(path.join(project,'.text-to-ui/skill.json'),{name:'text-to-ui-html-new',version:'0.1.1'});console.log(JSON.stringify({ok:true,...report}));
  }else if(command==='export'){markDelivery(project,'building');assertSingleEntry(project);console.log(JSON.stringify({ok:true,...exportPreview()}));}
- else console.log('page.mjs entry --project <dir> | compile|generate --project <dir> | generate [--revision] | generate --low-level --task <task> | export --project <dir> [--format multi-file|single-file] [--out out/<name>/index.html]');
+ else console.log('page.mjs entry --project <dir> | compile|generate --project <dir> | generate [--revision] | generate --low-level --task <task> | export --project <dir> [--format project|multi-file|single-file] [--out <path>]');
 }catch(e){if(['generate','export'].includes(command)){try{markDelivery(project,'failed',null,e.message);}catch{}}console.error(e.message);if(/RUNTIME_RESOURCE_LOAD|EXTERNAL_RESOURCE/.test(e.message))console.error('下一步：离线交付不支持真实服务调用；明确原型演示与服务接入边界，不另写整页 HTML 绕过。');else if(/UNKNOWN_COMPOSITION|unsupported kind|bypasses the component|module requires/.test(e.message))console.error('下一步：先查询公开接口；若缺少业务编排，使用 business-module.mjs init 在现有分组内扩展，再重新生成同一项目。');process.exitCode=1;}
