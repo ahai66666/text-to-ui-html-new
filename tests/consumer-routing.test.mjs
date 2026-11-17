@@ -79,6 +79,48 @@ test('compact discover retains task, Workflow and allowed Pattern decisions',()=
  const rejected=run('discover-page.mjs',['--task','邮箱工作台','--pattern','pattern-c-tool-workspace']);assert.notEqual(rejected.status,0);
 });
 
+test('Secondary Page discovery adds reusable references without changing any of the three route decisions', () => {
+ const query = ['--task','设置','--workflow-route','normalize-demo'];
+ const baseline = run('discover-page.mjs',query);
+ assert.equal(baseline.status,0,baseline.stderr);
+ const selected = run('discover-page.mjs',[...query,'--interaction','secondary-page']);
+ assert.equal(selected.status,0,selected.stderr);
+ const {secondaryPage,...route} = JSON.parse(selected.stdout);
+ assert.deepEqual(route,JSON.parse(baseline.stdout));
+ assert.equal(route.workflow,'normalize-demo');
+ assert.equal(route.taskRoute,'dashboard-or-settings');
+ assert.equal(route.pattern,'pattern-a-two-pane');
+ assert.equal(route.domainReference,undefined);
+ assert.deepEqual(secondaryPage,{
+  kind:'open-secondary-page',
+  layouts:['continuation','new-page'],
+  runtime:'@text-to-ui/pattern-runtime',
+  reference:'references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md',
+  designSystem:'assets/design-system/design.md',
+ });
+
+ const detail = run('resolve-context.mjs',[...query,'--discover','--repo',ROOT,'--skill-root',ROOT,'--interaction','secondary-page']);
+ assert.equal(detail.status,0,detail.stderr);
+ const {exactReferencesToRead,materialReadLocations} = JSON.parse(detail.stdout);
+ for (const source of [secondaryPage.reference,secondaryPage.designSystem]) {
+  assert(exactReferencesToRead.includes(source));
+  const material = materialReadLocations.find(entry=>entry.relative===source);
+  assert.equal(material?.absolute,path.join(ROOT,source));
+  assert(fs.statSync(material.absolute).isFile());
+ }
+
+ const mail = run('discover-page.mjs',['--task','邮箱工作台','--interaction','secondary-page']);
+ assert.equal(mail.status,0,mail.stderr);
+ const mailRoute = JSON.parse(mail.stdout);
+ assert.equal(mailRoute.pattern,'pattern-b-three-pane');
+ assert.equal(mailRoute.domainReference,'references/domains/email-workbench.md');
+ assert.deepEqual(mailRoute.secondaryPage,secondaryPage);
+
+ const typo = run('discover-page.mjs',[...query,'--interaction','secondary-pag']);
+ assert.notEqual(typo.status,0);
+ assert.match(typo.stderr,/--interaction secondary-page/);
+});
+
 test('component query deduplicates, reuses read versions and returns stale interfaces',t=>{
  const dir=temporary(t),state=path.join(dir,'read-state.json');
  const first=run('consumer.mjs',['describe','accordion','accordion','collapsible','--write-state',state]);assert.equal(first.status,0,first.stderr);assert.equal((first.stdout.match(/^accordion:/gm)||[]).length,1);

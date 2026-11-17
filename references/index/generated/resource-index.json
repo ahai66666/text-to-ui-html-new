@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "kind": "text-to-ui-resource-index",
   "policy": "Machine index; query projections only. Edit resource fragments and rebuild, never edit compatibility aggregates.",
-  "digest": "bc939d9343b865fd8b4349e2f978f0c1c358e6435b1b2cddd5ecf1bf50a32e40",
+  "digest": "cbfbbe839f99a4074cb11dae7e55b880080c40a3c6278456463a1921e329be74",
   "aliases": {
     "patterns.global-title-layer": "patterns.left-brand-anchor",
     "patterns.approved-shell-patterns": "patterns.reusable-pattern-primary-navigation-shell",
@@ -292,7 +292,7 @@
     },
     {
       "path": "references/harmonyos-layout-patterns.md",
-      "sha256": "bb42a569d487b0b83e6d0dc6a19052aff051f1efc634a5036bad7d35438a244d"
+      "sha256": "897d0dfa2404182096efa38e73463a44ed8415119c0e6fb0837965b6086036d9"
     },
     {
       "path": "references/index/capability-aliases.source.json",
@@ -632,7 +632,7 @@
     },
     {
       "path": "references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md",
-      "sha256": "c0f0b890cd1da4ebc3dfb369bcdb0370d8c16463a2fa70067f6599391bffa46d"
+      "sha256": "6566345a5afb4d5b833991c06417621fb5bf9f3185c4703d217ae624146c50b7"
     },
     {
       "path": "references/resources/patterns/right-action-and-window-area.md",
@@ -1342,8 +1342,8 @@
         "linkBase": "references"
       },
       "readPolicy": "stage",
-      "bytes": 3502,
-      "sha256": "c0f0b890cd1da4ebc3dfb369bcdb0370d8c16463a2fa70067f6599391bffa46d",
+      "bytes": 3687,
+      "sha256": "6566345a5afb4d5b833991c06417621fb5bf9f3185c4703d217ae624146c50b7",
       "kind": "document"
     },
     {

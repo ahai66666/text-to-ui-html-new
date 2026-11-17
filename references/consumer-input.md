@@ -84,6 +84,17 @@ Pattern B 的当前对象级操作优先写在顶层，例如 `"detailActions": 
 }
 ```
 
+## 二级页面
+
+任务需要从当前页面打开二级页面时，用 `node scripts/discover-page.mjs --task "<任务>" --interaction secondary-page` 查询。二级页面属于第三级 Pattern 的按需组合，沿用已选的 Workflow、Task 和主页面 Pattern。
+
+在 `interactions` 中声明 `kind: "open-secondary-page"`，用 `secondaryPage.layout` 选择形式：
+
+- `continuation` 延续主页面布局，保留侧栏，主窗格用 Titlebar_L（`size: "large"`），返回按钮放进 `main-content-leading`。
+- `new-page` 打开独立页面，顶部用 Titlebar_S（`size: "small"`），内容在下方。
+
+声明业务模块并使用 `@text-to-ui/pattern-runtime` 的 Secondary Page Runtime 实现打开和返回。返回时恢复原页面的选中项、筛选、滚动与触发点焦点，按业务要求保护未保存内容。两种形式均使用技能根目录的 [共享设计系统](../assets/design-system/design.md)，布局、插槽和内容边距见 [Secondary Page 规则](resources/patterns/reusable-pattern-secondary-page-hierarchy.md)。
+
 ## 业务模块与低层模式
 
 优先用 [业务扩展脚手架](business-extension.md) 创建声明及私有文件；消费输入不足不授权另写完整页面。

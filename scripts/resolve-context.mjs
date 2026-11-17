@@ -36,7 +36,7 @@ const located = locateMonorepo({ start: args.start || process.cwd(), explicitRep
 if (!located.root) throw new Error(`Text-to-UI Monorepo not found. Tried:\n${located.attempted.join('\n')}`);
 const repo = located.root;
 const skillRoot = resolveSkillRoot(repo, args['skill-root']);
-loadResourceIndex(skillRoot);
+const resourceIndex = loadResourceIndex(skillRoot);
 const indexes = loadIndexes(skillRoot);
 const framework = args.framework || 'html';
 const mode = args.mode || 'fast-preview';
@@ -91,6 +91,21 @@ if (!workflowRoute) throw new Error(`Unknown workflow route '${workflowRouteId}'
 const selectedWorkflow = workflowPolicy(skillRoot, workflowRouteId);
 const blocks = resolveBlocks(skillRoot, route, workflowRouteId, resolvedPattern.pattern, args.block);
 if (workflowRouteId === 'skill-maintenance') throw new Error('Skill maintenance does not resolve a page; use resolve-workflow-route.mjs and its intake/validation packs');
+if (args.interaction !== undefined && args.interaction !== 'secondary-page') {
+  throw new Error('Use --interaction secondary-page to discover the Secondary Page composition');
+}
+const secondaryPageResource = args.interaction === 'secondary-page'
+  ? resourceIndex.resources.find(({ id }) => id === 'patterns.reusable-pattern-secondary-page-hierarchy')
+  : null;
+if (args.interaction && !secondaryPageResource) throw new Error('Missing indexed Secondary Page composition');
+const secondaryPage = secondaryPageResource ? {
+  kind: 'open-secondary-page',
+  layouts: ['continuation', 'new-page'],
+  runtime: '@text-to-ui/pattern-runtime',
+  reference: secondaryPageResource.path,
+  designSystem: 'assets/design-system/design.md'
+} : null;
+const secondaryPageReferences = secondaryPage ? [secondaryPage.reference, secondaryPage.designSystem] : [];
 const automaticBlueprint = autoPlanned ? readPageBlueprint(blueprintPath, { patternId: route.layout }) : null;
 const approvedReferenceId = args['approved-reference'] ? String(args['approved-reference']) : null;
 const approvedReferenceIndexPath = path.join(skillRoot, 'references', 'approved-pages', 'index.json');
@@ -175,7 +190,7 @@ const tokenRoleNames = [...new Set(components.flatMap((item) => item.tokenRoles 
 const tokens = Object.fromEntries(tokenRoleNames.map((role) => [role, indexes['token-index'].semanticRoles[role] || { lookup: `packages/tokens; role=${role}` }]));
 const dynamicMaterials = [
   ...(blocks.block ? [{ path: materialPathFromSkillReference(blockReference), role: 'selected-block-reference' }] : []),
-  ...((layout.references ?? []).map((reference) => ({ path: materialPathFromSkillReference(reference), role: 'pattern-reference' }))),
+  ...[...(layout.references ?? []), ...secondaryPageReferences].map((reference) => ({ path: materialPathFromSkillReference(reference), role: 'pattern-reference' })),
   ...(route.domainReference ? [{ path: materialPathFromSkillReference(route.domainReference), role: 'domain-reference' }] : []),
   ...(components.some((component) => component.component === 'titlebar') ? [{ path: 'skill-support/references/components/titlebar-segments.md', role: 'titlebar-contract' }] : []),
   ...[...new Set(components.map((component) => component.source?.split('#')[0]).filter(Boolean))]
@@ -216,6 +231,7 @@ const packet = {
   route: { id: route.id, allowedPatterns: matchedRoute?.allowedPatterns ?? [patternSelection.id], aliases: route.aliases, domains: route.domains, source: matchedRoute ? routeSelection.source : 'explicit-pattern', workflowRouteId, ...(route.domainReference ? { domainReference: route.domainReference } : {}) },
   workflowPolicy: selectedWorkflow,
   patternSelection,
+  ...(secondaryPage ? { secondaryPage } : {}),
   routeEvidence: {primaryTask, matches:routeSelection.evidence || [], alternatives:routeSelection.candidates.map(r=>r.id)},
   ...(inherited ? {inheritedDecisions:{source:inheritedPath,sourceDigest:stableDigest(inherited),task:inherited.route.id,pattern:inherited.layout.id,originalWorkflow:inherited.inheritedDecisions?.originalWorkflow || inherited.route.workflowRouteId,preservation:'Keep confirmed content, navigation, interactions and state; refresh actual project evidence before acceptance'}} : {}),
   optionalCapabilities: (route.optionalCapabilities ?? []).filter((item) => !requestedCapabilities.includes(item)),
@@ -251,6 +267,7 @@ const packet = {
     'references/requirement-spec.md',
     'references/layouts/html-layout-routing.md',
     ...layout.references,
+    ...secondaryPageReferences,
     'references/components/source-resolution.md',
     ...[...new Set(componentReadMap.map((item) => item.contract))],
     ...(components.some(component => component.component === 'titlebar') ? ['references/components/titlebar-segments.md'] : []),

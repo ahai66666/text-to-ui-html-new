@@ -28,7 +28,7 @@
         },
         {
           "path": "SKILL.md",
-          "sha256": "95d5473308cb9661fec5da2f15ba5ff44837838318e50cf1d64b511be088dd80",
+          "sha256": "45759d2bf1e23cec4d0ef4c46d0099dcd3f83c607455fff7b2329586a2e31d79",
           "availability": "local"
         },
         {
@@ -1583,7 +1583,7 @@
         },
         {
           "path": "references/consumer-input.md",
-          "sha256": "01569e715daf782c43360bada3a351ecbfe60c75f354d92e3952b4d9b17e7f0a",
+          "sha256": "aaadce0a9cd44f8da575adc613e7739cc559a2ad7ce07ef6582e5fce63fd930c",
           "availability": "local"
         },
         {
@@ -1638,7 +1638,7 @@
         },
         {
           "path": "references/harmonyos-layout-patterns.md",
-          "sha256": "bb42a569d487b0b83e6d0dc6a19052aff051f1efc634a5036bad7d35438a244d",
+          "sha256": "897d0dfa2404182096efa38e73463a44ed8415119c0e6fb0837965b6086036d9",
           "availability": "local"
         },
         {
@@ -2128,7 +2128,7 @@
         },
         {
           "path": "references/resources/patterns/reusable-pattern-secondary-page-hierarchy.md",
-          "sha256": "c0f0b890cd1da4ebc3dfb369bcdb0370d8c16463a2fa70067f6599391bffa46d",
+          "sha256": "6566345a5afb4d5b833991c06417621fb5bf9f3185c4703d217ae624146c50b7",
           "availability": "local"
         },
         {
@@ -2468,7 +2468,7 @@
         },
         {
           "path": "scripts/discover-page.mjs",
-          "sha256": "568d5ccde12193e4b22edd4edabb00950748e4a863111b7ed105f6d066d8a268",
+          "sha256": "0b43682eeb22411830796117b7e17702bd45b500d048fa5938f8aa5b25fc8f21",
           "availability": "local"
         },
         {
@@ -2628,7 +2628,7 @@
         },
         {
           "path": "scripts/resolve-context.mjs",
-          "sha256": "ded150a7e85f4dc63931b5e85089377e628ae3ec2f6f09a3374a6fb6e735c497",
+          "sha256": "1355e463624b9cd10c3a0ad73d97fb70dbbc70b9cfa942c37c71bbf522c1a511",
           "availability": "local"
         },
         {

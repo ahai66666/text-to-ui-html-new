@@ -45,6 +45,8 @@ const slots=pattern.slots.map(s=>{
 console.log(JSON.stringify({
  workflow:c.route.workflowRouteId,taskRoute:c.route.id,pattern:c.layout.id,defaultPattern:c.patternSelection.default,allowedPatterns:c.route.allowedPatterns,
  ...(c.patternSelection.base?{patternBase:c.patternSelection.base}:{}),alternativePatternRequiresReason:true,
+ ...(c.route.domainReference ? {domainReference:c.route.domainReference} : {}),
+ ...(c.secondaryPage ? {secondaryPage:c.secondaryPage} : {}),
  regions:pattern.paneOrder,geometry:{owner:pattern.geometry.owner,minimumWindow:pattern.minimumWindow,regions:Object.fromEntries(regions)},
  titlebar,slots,...(c.blockCandidates ? {blockCandidates:c.blockCandidates} : {}),...(c.block ? {block:c.block} : {}),...(navigationModes.length?{navigationModes}:{})
 },null,pretty?2:0));
